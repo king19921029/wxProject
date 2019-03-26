@@ -1,1 +1,107 @@
-<view>首页</view>
+<!--index.wxml-->
+<view class="container">
+
+  <view class='pending'>
+    <view class='title'>
+      <view class='titleContent'>
+        <text class="title-ico fa fa-hourglass-2"></text>
+        <text class='titleFont'>待办</text></view>   
+      </view>
+    <view class='pendingitems'>
+      <view class="pendingitem">
+        <view class="itemIcon">
+          <text class="own-ico fa fa-commenting"></text>          
+        </view> 
+        <view class='itemText'>
+          <text class="itemName">消息</text>
+          <text class='message-count'>8</text>
+        </view>           
+      </view>
+      <view class="pendingitem">
+        <view class="itemIcon itemColor">
+          <text class="own-ico fa fa-credit-card-alt"></text>       
+        </view>
+        <text class="itemName">工资</text>     
+      </view>
+      <view class="pendingitem">
+        <view class="itemIcon">
+          <text class="own-ico fa fa-pie-chart"></text>      
+        </view> 
+        <text class="itemName">工作量</text>
+      </view>
+    </view>
+  </view>
+  <view class='pending'>
+    <view class='title'>
+      <view class='titleContent'>
+        <text class="title-ico fa fa-search"></text>
+        <text class='titleFont'>查看</text>
+      </view>  
+    </view>
+    <view class='pendingitems'>
+      <view class="pendingitem">
+        <view class="itemIcon">
+          <text class="own-ico fa fa-hand-o-up"></text>          
+        </view> 
+        <text class="itemName">考勤</text>    
+      </view>
+      <view class="pendingitem">
+        <view class="itemIcon itemColor">
+          <text class="own-ico fa fa-credit-card-alt"></text>          
+        </view> 
+        <text class="itemName">工资</text>    
+      </view>
+      <view class="pendingitem">
+        <view class="itemIcon">
+          <text class="own-ico fa fa-pie-chart"></text>       
+        </view>
+        <text class="itemName">工作量</text>     
+      </view>
+      <view class="pendingitem">
+        <view class="itemIcon">
+          <text class="own-ico fa fa-users"></text>        
+        </view> 
+        <text class="itemName">班组</text>
+      </view>
+    </view>
+  </view>
+  <view class='pending'>
+    <view class='title'>
+      <view class='titleContent'>
+        <text class="title-ico fa fa-map-marker"></text>
+        <text class='titleFont'>今日打卡</text>
+        <text class='title-date'>2019年3月25日 星期一</text>
+      </view>  
+    </view>
+    <view class='title attentance'>
+      <view class='titleContent'>
+        <text class='itemName'>北京三环新城项目</text>
+      </view> 
+    </view>
+    <view class='attentanceContent'>
+      <view class='attentanceItem'>
+        <view class='left'>
+          <text class='attentanceCome'>进</text>
+          <text class='attentanceTime'>09:24:26</text>
+        </view>
+        <view class='right'>
+          <text class='attentanceOut'>出</text>
+          <text class='attentanceTime'>未打卡</text>
+        </view>
+      </view>       
+    </view>
+    <view class='attentanceContent'>
+      <view class='attentanceItem'>
+        <view class='left'>
+          <text class='attentanceCome'>进</text>
+          <text class='attentanceTime'>未打卡</text>
+        </view>
+        <view class='right'>
+          <text class='attentanceOut'>出</text>
+          <text class='attentanceTime'>18:24:26</text>
+        </view>     
+      </view> 
+    </view>
+  </view>
+  
+</view>
