@@ -1,4 +1,11 @@
+
+/* border #efeff4 */
+/* blue  #2e96ff */
+
 /* box common */
+.box{
+  font-size: 30rpx;
+}
 .com_width{
   width: 94%;
   margin-left: 3%;

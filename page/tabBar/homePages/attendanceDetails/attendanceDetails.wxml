@@ -1,0 +1,56 @@
+<view class='box'>
+  <view class='headers'>
+    <!-- list -->
+    <view class='content bg_fff'>
+      <view bindtap='goDetails' class='com_width list_box'>
+        <view class='list'>
+          <text class='list_title'>姓名:</text>
+          <text class='list_data'>李先生</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>姓名:</text>
+          <text class='list_data'>李先生</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>姓名:</text>
+          <text class='list_data'>李先生</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>姓名:</text>
+          <text class='list_data'>李先生</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 工资明细 -->
+  <view class='com_width wage_deta'>考勤明细</view>
+  <!-- 表格 -->
+  <view>
+    <view class='com_tab_title tab_title'>
+      <view>年月</view>
+      <view>出勤天数</view>
+      <view>异常天数</view>
+    </view>
+
+    <view class='com_tab_title'>
+      <view>2019-3</view>
+      <view>22</view>
+      <view>3</view>
+    </view>
+
+     <view class='com_tab_title'>
+      <view>2019-3</view>
+      <view>22</view>
+      <view>3</view>
+    </view>
+
+     <view class='com_tab_title'>
+      <view>2019-3</view>
+      <view>22</view>
+      <view>3</view>
+    </view> 
+  </view>
+</view>

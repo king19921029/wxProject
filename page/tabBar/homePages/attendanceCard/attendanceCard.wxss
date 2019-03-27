@@ -1,0 +1,31 @@
+.box{
+  font-size: 30rpx
+}
+.headers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40rpx 0;
+}
+.times{
+  font-size: 32rpx;
+  padding: 10rpx 0;
+}
+.headers_mag>view{
+  padding:0 15rpx;
+  font-size: 28rpx;
+}
+
+
+
+/* list*/
+.list{
+  padding:20rpx 0;
+  text-indent: 30rpx;
+  background: #fff;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.margin_top{
+  margin-top: 30rpx;
+}

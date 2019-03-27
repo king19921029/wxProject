@@ -1,12 +1,17 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/homePages/attendanceCard/attendanceCard",
     "page/tabBar/homePages/wageConfirmation/WageConfirmation",
+    "page/tabBar/homePages/wageBlock/wageBlock",
+    "page/tabBar/homePages/wageBlockDetails/wageBlockDetails",
+    "page/tabBar/homePages/attendanceProject/attendanceProject",
+    "page/tabBar/homePages/attendanceDetails/attendanceDetails",
+    "page/tabBar/homePages/attendance/attendance",
     "page/tabBar/homePages/wageDetails/wageDetails",
-   
     "page/tabBar/message/message",
     "page/tabBar/mine/mine"
-    
+   
   ],
   "window": {
     "backgroundTextStyle": "light",

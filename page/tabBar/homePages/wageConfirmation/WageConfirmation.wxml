@@ -19,7 +19,7 @@
   </view>
 
   <!-- list -->
-  <view class='content bg_fff'>
+  <view class='content bg_fff'> 
     <view bindtap='goDetails' class='com_width list_box'>
       <view class='list'>
         <text class='list_title'>姓名:</text>

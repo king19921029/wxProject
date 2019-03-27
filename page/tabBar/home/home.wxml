@@ -39,13 +39,13 @@
       </view>  
     </view>
     <view class='pendingitems'>
-      <view class="pendingitem">
+      <view class="pendingitem" bindtap='goAttendance'>
         <view class="itemIcon">
           <text class="own-ico fa fa-hand-o-up"></text>          
         </view> 
         <text class="itemName">考勤</text>    
       </view>
-      <view class="pendingitem">
+      <view class="pendingitem"  bindtap='goWageBlock'>
         <view class="itemIcon itemColor">
           <text class="own-ico fa fa-credit-card-alt"></text>          
         </view> 

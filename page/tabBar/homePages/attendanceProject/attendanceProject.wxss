@@ -1,0 +1,39 @@
+.headers{
+  padding: 20rpx 0;
+}
+.time_box{
+  text-align: center;
+  padding: 20rpx 0;
+}
+.header_title{
+  display: flex;
+}
+.header_title>view{
+  width: 25%;
+  text-align: center;
+  font-size: 26rpx;
+  padding: 10rpx 0;
+}
+/* 明细 */
+.attDetails{
+  padding: 20rpx 0;
+}
+/* 表格 */
+.com_tab_title{
+  display: flex;
+  border-top: 1rpx solid #efeff4;
+  background: #fff;
+}
+.tab_title{
+  background: #f1fcff;
+}
+.com_tab_title .tab_content{
+  width: 16%;
+  border-right: 1px solid #efeff4;
+  padding: 10rpx 0;
+  font-size: 24rpx;
+  text-align: center;
+}
+.com_tab_title .date{
+  width: 20%;
+}
