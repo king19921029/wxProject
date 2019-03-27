@@ -2,7 +2,7 @@
 <view class="container">
 
   <view class='pending'>
-    <view class='title'>
+    <view class='title' bindtap='goWage'>
       <view class='titleContent'>
         <text class="title-ico fa fa-hourglass-2"></text>
         <text class='titleFont'>待办</text></view>   

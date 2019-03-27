@@ -1,0 +1,64 @@
+<view class='box'>
+  <!-- header -->
+  <view class='headers display_flex bg_fff'>
+  
+    <view class='left_box' catchtap='myWage'>
+      <text class='{{headerBorder? "addBorder" : "" }}'>我的工资</text>
+      <view class='news_box {{headerBorder? "addBorder" : "" }}'>
+        <view class='news'>3</view>
+      </view>
+    </view>
+    <view class='center_border'></view>
+    <view class='right_box' bindtap='youWage'>
+      <text class='{{!headerBorder? "addBorder" : "" }}'>班组工资</text>
+      <view class='news_box {{!headerBorder? "addBorder" : "" }}'>
+        <view class='news'>3</view>
+      </view>
+    </view>
+    
+  </view>
+
+  <!-- list -->
+  <view class='content bg_fff'>
+    <view bindtap='goDetails' class='com_width list_box'>
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+    </view>
+
+    <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
+  </view>
+
+  <!-- 浮层 -->
+  <view hidden='{{blockIsShow}}' class='box_block'>
+    <view class='bg_fff block_content'>
+      <view class='block_title'>获取验证码</view>
+
+      <view class='com_width block_code display_flex'>
+        <input placeholder='输入验证码' type='number'></input>
+        <view class='get_code'>获取验证码</view>
+      </view>
+
+      <view class='btn_box'>
+        <view bindtap='no_tap' class='no'>取消</view>
+        <view class='yes'>确认</view>
+      </view>
+    </view>
+  </view>
+</view>

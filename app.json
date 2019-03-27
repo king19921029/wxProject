@@ -1,8 +1,12 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/homePages/wageConfirmation/WageConfirmation",
+    "page/tabBar/homePages/wageDetails/wageDetails",
+   
     "page/tabBar/message/message",
     "page/tabBar/mine/mine"
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

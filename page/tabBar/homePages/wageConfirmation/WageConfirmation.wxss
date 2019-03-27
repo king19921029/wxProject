@@ -1,0 +1,137 @@
+.box{
+  height: 100vh;
+  font-size: 30rpx;
+}
+.box_block{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* headers */
+.headers{
+  width: 100%;
+  border-top: 1px solid #efeff4;
+  position: relative;
+}
+.center_border{
+  width:1rpx;
+  position: absolute;
+  height:50rpx;
+  border-left: 1px solid #e6e6e6; 
+  left: 50%;
+  top:27%;
+}
+.headers .left_box,.right_box{
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addBorder{
+  border-bottom: 1px solid #3197fb;
+  color: #3197fb;
+}
+.headers text{
+  display:block;
+  padding: 30rpx 5rpx;
+  width: 120rpx;
+}
+.news_box{
+  padding: 35rpx 0;
+  font-size: 28rpx;
+}
+.news{
+  padding: 0;
+  display: block;
+  height:35rpx;
+  width: 35rpx;
+  line-height: 35rpx;
+  text-align: center;
+  background: #fd6103;
+  color: #fff;
+  border-radius: 50%;
+}
+
+/* content */
+.content{
+  margin-top: 24rpx;
+  padding: 20rpx 0 40rpx 0;
+}
+.list{
+  padding: 10rpx 0; 
+}
+.list_title{
+  color: #666666;
+}
+.list_data{
+  margin-left: 20rpx;
+}
+.confirmation{
+  padding: 20rpx 0;
+  text-align: center;
+  background: #3197fb;
+  color: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+}
+
+/* 浮层 */
+.block_content{
+  width: 80%;
+  border-radius: 10rpx;
+  padding: 20rpx 0 40rpx 0;
+}
+.block_title{
+  text-align: center;
+  padding: 25rpx 0;
+  font-weight: 400;
+  font-size: 32rpx;
+}
+.block_code{
+  justify-content:center;
+  align-items: center;
+}
+.block_code input{
+  background: #efeff4;
+  border: none;
+  height: 65rpx;
+  line-height: 65rpx;
+  padding: 0 10rpx;
+  text-indent: 20rpx;
+}
+.get_code{
+  background: #3197fb;
+  color: #fff;
+  height: 65rpx;
+  line-height: 65rpx;
+  padding: 0 10rpx;
+}
+.btn_box{
+  display: flex;
+  justify-content:flex-end;
+  margin-top: 38rpx;
+  margin-right: 6%;
+}
+.btn_box view{
+  padding:0 40rpx;
+  border-radius: 5rpx;
+  height: 65rpx;
+  line-height: 65rpx;
+}
+.yes{
+  background: #3197fb;
+  color: #fff;
+}
+.no{
+  border: 1rpx solid #bbbbbb;
+  margin-right: 40rpx;
+}

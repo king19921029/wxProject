@@ -7,9 +7,9 @@ App({
     openid: null
   },
   onLaunch: function (opts) {
-    console.log('App Launch', opts)
+    
   },
   onShow: function (opts) {
-    console.log('App Show', opts)
+
   },
 })

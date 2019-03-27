@@ -1,0 +1,62 @@
+.box{
+  font-size: 30rpx
+}
+.headers{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40rpx 0;
+}
+.num_font{
+  font-size: 26rpx;
+  text-indent: 15rpx;
+}
+.num{
+  font-size: 45rpx;
+  font-weight: bold;
+}
+.num text{
+  font-size: 30rpx;
+}
+
+/* list*/
+.list{
+  padding:20rpx 0;
+  text-indent: 30rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.phone_title{
+  padding:20rpx 0;
+  text-indent: 30rpx;
+}
+.code_box{
+  display: flex;
+  height: 90rpx;
+  background: #fff;
+}
+.code_box input{
+  width: 70%;
+  height: 100%;
+  margin-left: 30rpx;
+  border-right: 1rpx solid #d9d9d9;
+}
+button::after{
+  border:none;
+}
+button{
+  outline:none;
+  border:none;
+  list-style: none;
+ 
+  border-radius: 0; 
+  color: #2e95ff;
+  background: #fff;
+  border-right: 1rpx solid;
+}
+.btn{
+  padding: 25rpx 0;
+  border-radius: 8rpx;
+  text-align: center;
+  margin-top: 40rpx;
+}

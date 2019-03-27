@@ -1,3 +1,35 @@
+/* box common */
+.com_width{
+  width: 94%;
+  margin-left: 3%;
+}
+.display_flex{
+  display: flex;
+  align-content: center;
+}
+.flex_direction{
+  display: flex;
+  flex-direction: column;
+}
+.space_between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.space_around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.bg_fff{
+  background: #fff;
+}
+.bg_blue{
+  background: #2e95ff;
+  color: #fff;
+}
+
+
 /**app.wxss**/
 page {
   background:#efeff4;
