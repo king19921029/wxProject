@@ -135,3 +135,17 @@
   border: 1rpx solid #bbbbbb;
   margin-right: 40rpx;
 }
+
+/* 没有的时候 */
+.list_none image{
+  width: 379rpx;
+  height: 336rpx;
+  margin: 100rpx 0 70rpx 0;
+}
+.list_none{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 34rpx;
+  color: #88888a;
+}

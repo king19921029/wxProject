@@ -45,6 +45,12 @@
     <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
   </view>
 
+  <view class='list_none'>
+    <view>没有列表的时候</view>
+    <image src="/image/none_record.png"></image>
+    <view>您目前无共工资确认记录</view>
+  </view>
+
   <!-- 浮层 -->
   <view hidden='{{blockIsShow}}' class='box_block'>
     <view class='bg_fff block_content'>
