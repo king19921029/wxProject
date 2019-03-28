@@ -2,7 +2,7 @@
 <view class="container">
 
   <view class='pending'>
-    <view class='title' bindtap='goWage'>
+    <view class='title'>
       <view class='titleContent'>
         <text class="title-ico fa fa-hourglass-2"></text>
         <text class='titleFont'>待办</text></view>   
@@ -17,13 +17,13 @@
           <text class='message-count'>8</text>
         </view>           
       </view>
-      <view class="pendingitem">
+      <view class="pendingitem" bindtap='goStayWage'>
         <view class="itemIcon itemColor">
           <text class="own-ico fa fa-credit-card-alt"></text>       
         </view>
         <text class="itemName">工资</text>     
       </view>
-      <view class="pendingitem">
+      <view class="pendingitem" bindtap='goStayWorkload'>
         <view class="itemIcon">
           <text class="own-ico fa fa-pie-chart"></text>      
         </view> 
@@ -51,13 +51,13 @@
         </view> 
         <text class="itemName">工资</text>    
       </view>
-      <view class="pendingitem">
+      <view class="pendingitem" bindtap='goWorkload'>
         <view class="itemIcon">
           <text class="own-ico fa fa-pie-chart"></text>       
         </view>
         <text class="itemName">工作量</text>     
       </view>
-      <view class="pendingitem">
+      <view class="pendingitem" bindtap='goTeam'>
         <view class="itemIcon">
           <text class="own-ico fa fa-users"></text>        
         </view> 

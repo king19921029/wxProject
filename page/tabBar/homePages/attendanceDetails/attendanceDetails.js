@@ -14,5 +14,10 @@ Page({
   onHide: function () {
 
   },
+  listTap: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/attendanceProject/attendanceProject',
+    })
+  }
 
 })

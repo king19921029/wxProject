@@ -28,7 +28,7 @@
   <!-- 工资明细 -->
   <view class='com_width wage_deta'>考勤明细</view>
   <!-- 表格 -->
-  <view>
+  <view bindtap='listTap'>
     <view class='com_tab_title tab_title'>
       <view>年月</view>
       <view>出勤天数</view>

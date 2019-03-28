@@ -38,7 +38,7 @@
 
    <!-- list -->
   <view wx:else class='content bg_fff'>
-    <view bindtap='goWageDetails' class='com_width list_box'>
+    <view class='com_width list_box'>
       <view class='list'>
         <text class='list_title'>姓名:</text>
         <text class='list_data'>李先生</text>

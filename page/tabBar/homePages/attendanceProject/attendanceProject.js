@@ -14,5 +14,11 @@ Page({
   onHide: function () {
 
   },
+  // 查看-班组
+  goCard: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/attendanceCard/attendanceCard',
+    })
+  }
 
 })

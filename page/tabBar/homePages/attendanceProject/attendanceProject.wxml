@@ -10,7 +10,7 @@
   </view>
   <view class='com_width attDetails'>考勤明细</view>
    <!-- 表格 -->
-  <view>
+  <view bindtap='goCard'>
     <view class='com_tab_title tab_title'>
       <view class='date tab_content'>日期</view>
       <view class='tab_content'>状态</view>

@@ -1,10 +1,10 @@
 
 Page({
   data: {
-    selectStatus:0
+    selectStatus: 0
   },
   onLoad: function (options) {
-   
+
   },
   onShow: function () {
 
@@ -13,9 +13,9 @@ Page({
 
   },
   // 项目
-  peojectTap:function(){
+  peojectTap: function () {
     this.setData({
-      selectStatus:1
+      selectStatus: 1
     })
   },
   // 劳务公司
@@ -31,15 +31,9 @@ Page({
     })
   },
   //查看详情
-  goDetails:function(){
+  goDetails: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails',
-    })
-  },
-  // 工资详情
-  goWageDetails: function () {
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails',
     })
   },
 

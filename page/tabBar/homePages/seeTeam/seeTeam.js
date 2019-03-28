@@ -30,16 +30,11 @@ Page({
       selectStatus: 3
     })
   },
-  // 查看详情
+  //查看详情
   goDetails: function () {
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceProject/attendanceProject',
+      url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails',
     })
   },
-  listTap:function(){
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceDetails/attendanceDetails',
-    })
-  }
 
 })

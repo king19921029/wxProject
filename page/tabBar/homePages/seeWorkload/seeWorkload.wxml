@@ -1,0 +1,66 @@
+<view class='box'>
+  <view class='header bg_fff'>
+    <view class='search_box com_width'>搜索</view>
+    <view class='border_bottom'>
+      <view class='select_header'>
+        <view bindtap='peojectTap'>项目</view>
+        <view bindtap='companyTap'>劳务公司</view>
+        <view bindtap='classTap'>班组</view>
+      </view>
+    </view>
+   
+  </view>
+
+  <!-- select -->
+  <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
+    <block wx:if="{{selectStatus == 1}}">
+      <view>全部</view>
+      <view>北京项目组1</view>
+      <view>北京项目组2</view>
+      <view>北京项目组3</view>
+      <view>北京项目组4</view>
+    </block>
+    <block wx:if="{{selectStatus == 2}}">
+      <view>全部</view>
+      <view>劳务公司1</view>
+      <view>劳务公司1</view>
+      <view>劳务公司1</view>
+      <view>劳务公司1</view>
+    </block>
+    <block wx:if="{{selectStatus == 3}}">
+      <view>全部</view>
+      <view>班组1</view>
+      <view>班组1</view>
+      <view>班组1</view>
+      <view>班组1</view>
+    </block>
+  </view>
+
+   <!-- list -->
+  <view wx:else class='content bg_fff'>
+    <view class='com_width list_box'>
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+    </view>
+
+    <view bindtap='goDetails' class='see_list'>查看详情</view>
+  </view>
+
+</view>

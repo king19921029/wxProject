@@ -12,19 +12,10 @@ Page({
   onHide: function () {
 
   },
-  peojectTap: function () {
-    this.setData({
-      selectStatus: 1
-    })
-  },
-  companyTap: function () {
-    this.setData({
-      selectStatus: 2
-    })
-  },
-  classTap: function () {
-    this.setData({
-      selectStatus: 3
+  // 工资详情
+  goWageDetails: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/wageDetails/wageDetails',
     })
   },
 

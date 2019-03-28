@@ -1,18 +1,19 @@
 {
   "pages": [
     "page/tabBar/home/home",
-    "page/tabBar/homePages/wageConfirmation/WageConfirmation",
-   
+    "page/tabBar/homePages/stayworkload/stayworkload",
+    "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
     "page/tabBar/homePages/attendanceCard/attendanceCard",
-    
-    "page/tabBar/homePages/wageBlock/wageBlock",
+    "page/tabBar/homePages/seeWage/seeWage",
     "page/tabBar/homePages/wageBlockDetails/wageBlockDetails",
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
-    "page/tabBar/homePages/attendance/attendance",
+    "page/tabBar/homePages/seeAttendance/seeAttendance",
     "page/tabBar/homePages/wageDetails/wageDetails",
     "page/tabBar/message/message",
-    "page/tabBar/mine/mine"
+    "page/tabBar/mine/mine",
+    "page/tabBar/homePages/seeWorkload/seeWorkload",
+    "page/tabBar/homePages/seeTeam/seeTeam"
    
   ],
   "window": {
