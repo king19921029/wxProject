@@ -3,9 +3,21 @@
    
     <view class='border_bottom'>
       <view class='select_header'>
-        <view bindtap='peojectTap'>项目</view>
-        <view bindtap='companyTap'>劳务公司</view>
-        <view bindtap='classTap'>班组</view>
+        <view bindtap='peojectTap'>
+          <text class='{{selectStatus == 1 ?"add_class":""}}'>项目</text>
+          <image wx:if="{{selectStatus == 1}}" class='tan_top' src='/image/top_tan.png'></image>
+          <image wx:else class='tan' src='/image/tan.png'></image>
+        </view>
+        <view bindtap='companyTap'>
+          <text class='{{selectStatus == 2 ?"add_class":""}}'>劳务公司</text>
+          <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
+          <image wx:else class='tan' src='/image/tan.png'></image>
+        </view>
+        <view bindtap='classTap'>
+          <text class='{{selectStatus == 3 ?"add_class":""}}'>班组</text>
+          <image wx:if="{{selectStatus == 3}}" class='tan_top' src='/image/top_tan.png'></image>
+          <image wx:else class='tan' src='/image/tan.png'></image>
+        </view>
       </view>
     </view>
    

@@ -1,3 +1,4 @@
+var app = getApp();
 Page({
 
   data: {
@@ -23,6 +24,7 @@ Page({
   },
   //待办-工作量
   goStayWorkload: function () {
+    
     wx.navigateTo({
       url: '/page/tabBar/homePages/stayworkload/stayworkload',
     })
@@ -35,9 +37,25 @@ Page({
   },
   // 查看-工资
   goWageBlock: function () {
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/seeWage/seeWage',
-    })
+    let sum = Math.random();
+    if( sum > 0.5 ){
+      app.showLoading("我是普通员工","none")
+      setTimeout(function () {
+        wx.navigateTo({
+          url: '/page/tabBar/homePages/seeWage/seeWage',
+        })
+      }, 500)
+     
+    }else{
+      app.showLoading("我是班组","none")
+      setTimeout(function(){
+        wx.navigateTo({
+          url: '/page/tabBar/homePages/vipSeeWage/vipSeeWage',
+        })
+      },500)
+     
+    }
+   
   }, 
    // 查看-工作量
   goWorkload: function () {

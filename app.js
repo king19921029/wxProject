@@ -43,4 +43,11 @@ App({
     })
 
   },
+  //打开loading
+  showLoading: function (title, types) {
+    wx.showToast({
+      title: title,
+      icon: types
+    });
+  },
 })

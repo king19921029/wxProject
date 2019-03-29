@@ -33,11 +33,37 @@
 .addClass{
   color: #2e95ff;
 }
+/* 下拉图片 */
+.tan{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 6rpx;
+}
+.tan_top{
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 6rpx;
+}
 /* 下拉框 */
 .selsect_title{
   text-align: center;
-  padding: 30rpx 0;
+  height: 100rpx;
   border-top: 1rpx solid #efeff4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* select_box */
+.select_box{
+  border-top: 1rpx solid #efeff4;
+}
+.select_box>view{
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #efeff4;
+  width: 94%;
+  text-indent: 30rpx;
+  margin-left: 6%;
 }
 
 /* content */

@@ -1,9 +1,12 @@
 {
   "pages": [
-    "page/tabBar/homePages/seeAttendance/seeAttendance",
     "page/tabBar/home/home",
-    "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
     "page/tabBar/homePages/vipSeeWage/vipSeeWage",
+    "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
+
+    "page/tabBar/homePages/seeAttendance/seeAttendance",
+    
+   
     "page/tabBar/homePages/vipWageDetails/vipWageDetails",
     "page/tabBar/homePages/stayworkload/stayworkload",
     "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
@@ -12,7 +15,6 @@
     "page/tabBar/homePages/wageBlockDetails/wageBlockDetails",
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
-   
     "page/tabBar/homePages/wageDetails/wageDetails",
     "page/tabBar/message/message",
     "page/tabBar/mine/mine",

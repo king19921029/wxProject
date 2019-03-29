@@ -52,6 +52,36 @@
   -webkit-box-orient: vertical;
 }
 
+/*开始---- 通用下拉框 */
+.border_bottom{
+  border-bottom: 1rpx solid #efeff4;
+}
+.select_header{
+  width: 80%;
+  margin-left: 10%;
+  display: flex;
+  justify-content: space-between;
+}
+.select_header>view{
+  padding: 25rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+.tan{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 6rpx;
+}
+.tan_top{
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 6rpx;
+}
+.add_class{
+  color: #2f8ce0;
+}
+/*结束---- 通用下拉框 */
+
 
 /**app.wxss**/
 page {
