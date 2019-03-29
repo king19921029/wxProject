@@ -6,6 +6,9 @@
 .box{
   font-size: 30rpx;
 }
+.border_top{
+  border-top: 1rpx solid #efeff4;
+}
 .com_width{
   width: 94%;
   margin-left: 3%;
@@ -34,6 +37,19 @@
 .bg_blue{
   background: #2e95ff;
   color: #fff;
+}
+
+.overflow{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.overflow_tow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 

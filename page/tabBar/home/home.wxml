@@ -10,11 +10,11 @@
     <view class='pendingitems'>
       <view class="pendingitem">
         <view class="itemIcon">
-          <text class="own-ico fa fa-commenting"></text>          
+          <text class="own-ico fa fa-commenting"></text> 
+          <text class='message-count'>8</text>         
         </view> 
         <view class='itemText'>
           <text class="itemName">消息</text>
-          <text class='message-count'>8</text>
         </view>           
       </view>
       <view class="pendingitem" bindtap='goStayWage'>

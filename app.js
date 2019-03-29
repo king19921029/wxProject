@@ -3,13 +3,44 @@
 App({
   // 全局数据，类似于store
   globalData: {
-    hasLogin: false,
-    openid: null
+    openid: null,
+    token:null,
+    url: 'https://www.jinbionline.com',
+    header: {
+      "content-type": "application/x-www-form-urlencoded",
+      "version": "0",
+    },
   },
   onLaunch: function (opts) {
-    
+    var that = this;
+    let token = wx.getStorageSync("token") || null;
+    that.globalData.header["x-authorization"] = token;
+    that.globalData.token = token
   },
   onShow: function (opts) {
+
+  },
+  //封装的请求方法
+  wxRequest: function (url, param, method, success, fail) {
+    var that = this;
+    if (url.indexOf('https') != 0) {
+      url = this.globalData.url + '/' + url
+    }
+    param = param || {}
+    method = method
+
+    wx.request({
+      header: this.globalData.header,
+      url: url,
+      data: param,
+      method: method,
+      success: function (res) {
+        typeof success == 'function' && success(res)
+      },
+      fail: function (res) {
+        typeof fail == 'function' && fail(res)
+      }
+    })
 
   },
 })

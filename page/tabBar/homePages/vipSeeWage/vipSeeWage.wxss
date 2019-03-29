@@ -1,0 +1,66 @@
+.header{
+  border-top: 1rpx solid #efeff4;
+  display: flex;
+}
+.header>view{
+  width: 33.3%;
+  text-align: center;
+  padding: 30rpx 0;
+  position: relative;
+}
+/* 蓝色横线 */
+.addClass .bottom_text{
+  position: absolute;
+  bottom: 1rpx;
+  left: 26%;
+  width: 50%;
+  height: 1rpx;
+  background: #2e95ff;
+}
+/* 左右border */
+.header text{
+  position: absolute;
+  height: 40rpx;
+  width: 1rpx;
+  background: #e6e6e6;
+}
+.left_border{
+  left: 1rpx;
+}
+.right_border{
+  right: 2rpx;
+}
+.addClass{
+  color: #2e95ff;
+}
+/* 下拉框 */
+.selsect_title{
+  text-align: center;
+  padding: 30rpx 0;
+  border-top: 1rpx solid #efeff4;
+}
+
+/* content */
+.content{
+  margin-top: 24rpx;
+  padding: 20rpx 0 20rpx 0;
+  position: relative;
+}
+.list{
+  padding: 10rpx 0; 
+}
+.list_title{
+  color: #666666;
+}
+.list_data{
+  margin-left: 20rpx;
+}
+.see_list{
+  position: absolute;
+  padding: 10rpx 20rpx;
+  border: 1rpx solid #2f8ce0;
+  color: #2f8ce0;
+  border-radius: 8rpx;
+  right: 5%;
+  bottom: 10%;
+}

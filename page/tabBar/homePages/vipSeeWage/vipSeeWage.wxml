@@ -1,0 +1,54 @@
+<view class='box'>
+  <view class='header bg_fff'>
+
+    <view class='addClass'>
+      项目
+      <view class='bottom_text'></view>
+    </view>
+
+    <view>
+      <text class='left_border'></text>
+      考勤
+      <text class='right_border'></text>
+      <view class='bottom_text'></view>
+    </view>
+
+    <view>
+      工作量
+      <view class='bottom_text'></view>
+    </view>
+
+  </view>
+  <view class='selsect_title bg_fff'>
+    项目筛选
+  </view>
+
+
+   <!-- list -->
+  <view class='content bg_fff'>
+    <view class='com_width list_box'>
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>姓名:</text>
+        <text class='list_data'>李先生</text>
+      </view>
+    </view>
+
+    <view bindtap='goDetails' class='see_list'>查看详情</view>
+  </view>
+
+</view>
