@@ -1,0 +1,41 @@
+.com_list{
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.list_tab{
+  padding: 20rpx 0;
+  width: 96%;
+  margin-left: 4%;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #e5e5e5;
+}
+.yes_view{
+  font-size: 24rpx;
+  border:1px solid #e4007f;
+  color: #e4007f;
+  border-radius: 8rpx;
+  padding: 0 10rpx;
+}
+.list_tab .color_gray{
+  font-weight: 400;
+  font-size: 32rpx;
+  margin-right: 10rpx;
+}
+.list_tab .display_flex{
+  align-items: center;
+}
+.list_tab image{
+  width: 34rpx;
+  height: 34rpx;
+}
+.com_rigth_view{
+  margin-right: 4%;
+}
+.border_none{
+  border: none;
+}
+
+.content{
+  margin-top: 50rpx;
+}

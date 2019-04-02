@@ -1,0 +1,68 @@
+<view class='box'>
+  <view class='com_list bg_fff header'>
+    <view class='display_flex list_tab'>
+      <view>身份认证</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>李丽</text>
+        <text class='yes_view'>已实名</text>
+      </view>
+    </view>
+
+    <view class='display_flex list_tab border_none'>
+      <view>文化程度</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>本科</text>
+        <image src='/image/right_j.png'></image>
+      </view>
+    </view>
+  </view>
+
+  <view class='content com_list bg_fff'>
+    <view class='display_flex list_tab'>
+      <view>手机号</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>18801287297</text>
+        <image src='/image/right_j.png'></image>
+      </view>
+    </view>
+
+    <view class='display_flex list_tab'>
+      <view>银行卡</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>建设银行11120001982903198312</text>
+        <image src='/image/right_j.png'></image>
+      </view>
+    </view>
+
+    <view class='display_flex list_tab'>
+      <view>确认密码</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>*******</text>
+        <image src='/image/right_j.png'></image>
+      </view>
+    </view>
+
+    <view class='display_flex list_tab'>
+      <view>主要技能</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>某技能</text>
+        <image src='/image/right_j.png'></image>
+      </view>
+    </view>
+
+    <view class='display_flex list_tab'>
+      <view>技能等级</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_gray'>3级</text>
+        <image src='/image/right_j.png'></image>
+      </view>
+    </view>
+
+    <view class='display_flex list_tab border_none'>
+      <view>附件</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='color_blue'>上传附件</text>
+      </view>
+    </view>
+  </view>
+</view>

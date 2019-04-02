@@ -1,0 +1,43 @@
+.header{
+  padding: 25rpx 0;
+  text-align: center;
+  background: #e64340;
+  color: #fff;
+  font-size: 26rpx;
+}
+.msg{
+  padding: 35rpx 0 20rpx 0;
+}
+.border_t_b{
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.card_num{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22rpx 0;
+  width: 92%;
+  margin-left: 4%;
+}
+.com_titles{
+  font-weight: 400;
+}
+.card_num{
+  font-weight: 400;
+}
+
+.com_input{
+  width: 70%;
+}
+.num{
+  width: 27%;
+}
+.card_input{
+  width: 60%;
+}
+.name_card{
+  width: 96%;
+  margin-left: 4%;
+  border-bottom: 1px solid #e5e5e5;
+}

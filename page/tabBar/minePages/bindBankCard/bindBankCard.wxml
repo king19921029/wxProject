@@ -1,0 +1,25 @@
+<view class='box'>
+  <view class='header'>工资发放到个人银行卡，请您务必使用有效银行卡</view>
+  <view class='com_width msg color_gray'>请输入银行卡号</view>
+  <view class='border_t_b bg_fff'>
+    <view class='card_num'>
+      <text class='num'>银行卡号</text>
+      <input class='card_input' placeholder='请输入银行卡号'></input>
+      <text>📷</text>
+    </view>
+  </view>
+  <!-- 信息 -->
+  <view class='com_width msg color_gray'>请输入银行信息</view>
+  <view class='border_t_b bg_fff'>
+    <view class='card_num name_card'>
+      <text class='com_titles'>姓名</text>
+      <input class='com_input' placeholder='请输入姓名'></input>
+    </view>
+     <view class='card_num'>
+      <text class='com_titles'>开户行</text>
+      <input class='com_input' placeholder='请输入开户行'></input>
+    </view>
+  </view>
+  <!-- 下一步 -->
+  <view class='com_footer_btn bg_blue'>下一步</view>
+</view>

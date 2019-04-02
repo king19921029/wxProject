@@ -1,0 +1,10 @@
+<view class='box'>
+  <view class='header com_width'>绑定新手机</view>
+  <view class='bg_fff content'>
+    <view class='display_flex wx_phone_box com_width'>
+      <input placeholder='输入验证码'></input> 
+      <text class='code_btn'>获取验证码</text>
+    </view>
+  </view>
+  <view class='com_footer_btn bg_blue'>确定</view>
+</view>

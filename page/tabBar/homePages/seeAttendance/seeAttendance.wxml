@@ -1,6 +1,7 @@
 <view class='box'>
   <view class='header bg_fff'>
     <view class='search_box com_width'>搜索</view>
+    
     <view class='border_bottom'>
       <view class='select_header'>
         <view bindtap='peojectTap'>

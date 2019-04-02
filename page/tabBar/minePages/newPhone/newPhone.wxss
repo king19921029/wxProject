@@ -1,0 +1,24 @@
+.header{
+  padding: 20rpx 0;
+}
+.content{
+  border-top: 1px solid #e5e5e5;
+  border-bottom: 1px solid #e5e5e5;
+}
+.wx_phone_box{
+  align-items: center;
+  justify-content: space-between;
+  height: 90rpx;
+}
+.code_btn{
+  background: #fff;
+  border-radius: 4rpx;
+  border:1px solid #2e96ff;
+  color: #2e96ff;
+  font-size: 28rpx;
+  text-align: center;
+  padding: 8rpx 25rpx;
+}
+.com_footer_btn{
+  margin-top: 40rpx;
+}

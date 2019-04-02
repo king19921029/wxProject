@@ -6,12 +6,25 @@
 .box{
   font-size: 30rpx;
 }
+/* 浮层 */
+.box_block{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .border_top{
   border-top: 1rpx solid #efeff4;
 }
 .com_width{
-  width: 94%;
-  margin-left: 3%;
+  width: 92%;
+  margin-left: 4%;
 }
 .display_flex{
   display: flex;
@@ -37,6 +50,29 @@
 .bg_blue{
   background: #2e95ff;
   color: #fff;
+}
+.color_gray{
+  color: #666666;
+}
+.color_blue{
+  color: #2e95ff;
+}
+.color_red{
+  color: red;
+  font-size: 24rpx;
+}
+.box_shadow{
+  box-shadow:rgb(235, 235, 235) 0px 0px 4rpx inset;
+}
+.com_footer_btn{
+  padding: 26rpx 0;
+  border-radius: 10rpx;
+  width: 92%;
+  margin-left: 4%;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight:bold;
+  margin-top: 57rpx;
 }
 
 .overflow{
@@ -79,6 +115,17 @@
 }
 .add_class{
   color: #2f8ce0;
+}
+/* select_box */
+.select_box{
+
+}
+.select_box>view{
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #efeff4;
+  width: 94%;
+  text-indent: 30rpx;
+  margin-left: 6%;
 }
 /*结束---- 通用下拉框 */
 

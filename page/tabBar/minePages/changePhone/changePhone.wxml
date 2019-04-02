@@ -1,0 +1,24 @@
+<view class='box'>
+  <view class='header'>
+    <view class='com_width phone'>原手机号验证</view>
+    <view class='com_width color_gray'>为确保账号安全，修改手机号前，需进行身份认证</view>
+  </view>
+
+  <view class='content bg_fff'>
+    <view class='border_bottomn'>
+      <view class='display_flex wx_phone_box com_width'>
+        <text>+86 18801287297</text>
+        <text class='color_blue'>修改成微信手机号</text>
+      </view>
+    </view>
+
+    <view class=''>
+      <view class='display_flex wx_phone_box  com_width'>
+        <input placeholder='输入新手机号'></input> 
+        <text class='code_btn'>获取验证码</text>
+      </view>
+    </view>
+  </view>
+
+  <view class='com_footer_btn bg_blue'>下一步，填写新手机</view>
+</view>

@@ -2,18 +2,6 @@
   height: 100vh;
   font-size: 30rpx;
 }
-.box_block{
-  height: 100vh;
-  width: 100%;
-  background: rgba(0, 0, 0, .5);
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
 /* headers */
 .headers{
@@ -42,19 +30,19 @@
 }
 .headers text{
   display:block;
-  padding: 30rpx 5rpx;
+  padding: 24rpx 5rpx;
   width: 120rpx;
 }
 .news_box{
-  padding: 35rpx 0;
-  font-size: 28rpx;
+  padding: 29rpx 0;
+  font-size: 22rpx;
 }
 .news{
   padding: 0;
   display: block;
-  height:35rpx;
-  width: 35rpx;
-  line-height: 35rpx;
+  height:32rpx;
+  width: 32rpx;
+  line-height: 32rpx;
   text-align: center;
   background: #fd6103;
   color: #fff;
@@ -76,23 +64,25 @@
   margin-left: 20rpx;
 }
 .confirmation{
-  padding: 20rpx 0;
+  padding: 26rpx 0;
   text-align: center;
   background: #3197fb;
   color: #fff;
   border-radius: 10rpx;
   margin-top: 20rpx;
+  font-size: 34rpx;
+  font-weight:bold;
 }
 
 /* 浮层 */
 .block_content{
   width: 80%;
   border-radius: 10rpx;
-  padding: 20rpx 0 40rpx 0;
+  padding: 15rpx 0 48rpx 0;
 }
 .block_title{
   text-align: center;
-  padding: 25rpx 0;
+  padding: 25rpx 0 30rpx 0;
   font-weight: 400;
   font-size: 32rpx;
 }
@@ -122,10 +112,11 @@
   margin-right: 6%;
 }
 .btn_box view{
-  padding:0 40rpx;
+  padding:0 50rpx;
   border-radius: 5rpx;
-  height: 65rpx;
-  line-height: 65rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  font-size: 28rpx;
 }
 .yes{
   background: #3197fb;

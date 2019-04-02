@@ -1,1 +1,86 @@
-/* page/tabBar/mine/mine.wxss */
+/* header */
+.headers{
+  align-items: center;
+  padding: 30rpx 0;
+}
+.headers image{ 
+  width: 120rpx;
+  height: 120rpx;
+  margin-right: 35rpx;
+}
+.user_name{
+  font-weight: bold;
+}
+.user_msg{
+  font-size: 26rpx;
+  padding: 5rpx 0;
+}
+.tab_btn{
+  margin-left: 10rpx;
+  font-weight: bold;
+}
+
+/*  实名认证 */
+.margin_top{
+  margin-top: 26rpx;
+}
+.color_red{
+  margin-left: 10%;
+}
+.com_right{
+  width: 34rpx;
+  height: 32rpx;
+}
+.sm_icon{
+  width: 48rpx;
+  height: 48rpx;
+}
+
+/* list */
+.com_list{
+  align-items: center;
+  
+}
+.com_list .sm_icon{
+  margin:0 25rpx 0 4%;
+}
+.com_list_right{
+  padding: 30rpx 0;
+  width: 83%;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1rpx solid #efeff4;
+}
+.border_none{
+  border: none;
+}
+/* 退出 */
+.out{
+  padding: 30rpx 0;
+  text-align: center;
+  margin-top: 60rpx;
+}
+/* 浮层 */
+.box_block{
+  font-size: 30rpx;
+}
+.block_view{
+  width: 76%;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.block_title{
+  font-size: 34rpx;
+  font-weight: 400;
+  padding-top:50rpx;
+}
+.block_content{
+  padding: 35rpx 0;
+  font-size: 28rpx;
+}
+.later_on{
+  padding: 30rpx 0;
+  font-size: 34rpx;
+  font-weight: 400;
+  border-top: 1rpx solid #efeff4;
+}

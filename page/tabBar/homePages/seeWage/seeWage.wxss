@@ -35,14 +35,3 @@
   bottom: 10%;
 }
 
-/* select_box */
-.select_box{
-
-}
-.select_box>view{
-  padding: 20rpx 0;
-  border-bottom: 1rpx solid #efeff4;
-  width: 94%;
-  text-indent: 30rpx;
-  margin-left: 6%;
-}
