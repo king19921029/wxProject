@@ -28,7 +28,7 @@
 }
 .display_flex{
   display: flex;
-  align-content: center;
+  align-items: center;
 }
 .flex_direction{
   display: flex;
@@ -49,6 +49,10 @@
 }
 .bg_blue{
   background: #2e95ff;
+  color: #fff;
+}
+.bg_gray{
+  background: #666666;
   color: #fff;
 }
 .color_gray{

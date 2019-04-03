@@ -11,10 +11,25 @@ Page({
     
   },
   onShow: function () {
-    
+    // app.wxRequest("gongguan/api/wechat/myProject",
+    //   {},
+    //   "post", function (res) {
+    //     console.log(res)
+    //     if (res.data.code == 0) {
+          
+    //     } else {
+    //       app.showLoading(res.data.msg, "none");
+    //     }
+    // })
   },
   onHide: function () {
     
+  },
+  // 待办-消息
+  goNews:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/news/news',
+    })
   },
   //待办-工资
   goStayWage:function(){

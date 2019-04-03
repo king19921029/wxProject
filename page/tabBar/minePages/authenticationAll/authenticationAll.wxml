@@ -1,0 +1,45 @@
+<view class='box'>
+  <view class='header'>
+    <view class='card bg_blue com_width'>
+      <image class='right_icon' src='/image/smrz_icon.png'></image>
+
+      <view class='display_flex com_width msg_box'>
+        <image class='photo' src="/image/none_record.png"></image>
+        <view class='name_box'>
+          <view class='name'>爱迪生</view>
+          <view>130*******29</view>
+        </view>
+      </view>
+
+      <view class='com_width address'>地址：北京市朝阳区池水沟子</view>
+    </view>
+  </view>
+
+  <view class='content'>
+    <view class='list'>
+      <view class='left_view'>
+        <view class='font_w'>个人信息</view>
+        <view class='color_gray'>完善身份信息，提供更多服务</view>
+      </view>
+      <view class='color_gray yes'>已完善</view>
+    </view>
+     <view class='list'>
+      <view class='left_view'>
+        <view class='font_w'>证件照片</view>
+        <view class='color_gray'>上次证件照片，完成实名认证</view>
+      </view>
+      <view class='color_gray yes'>已完善</view>
+    </view>
+     <view class='list'>
+      <view class='left_view'>
+        <view class='font_w'>人像照片</view>
+        <view class='color_gray'>打卡人像识别，享受智能考勤</view>
+      </view>
+      <!-- <view class='color_gray yes'>已完善</view> -->
+      <view class='no display_flex'>
+        <text class='color_blue'>去修改</text>
+        <image src="/image/right_j.png"></image>
+      </view>
+    </view>
+  </view>
+</view>

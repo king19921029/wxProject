@@ -14,6 +14,10 @@
 .user_msg{
   font-size: 26rpx;
   padding: 5rpx 0;
+  align-items: center;
+}
+.user_msg icon{
+  margin-right: 10rpx;
 }
 .tab_btn{
   margin-left: 10rpx;
@@ -25,28 +29,34 @@
   margin-top: 26rpx;
 }
 .color_red{
-  margin-left: 10%;
+  margin-left: 11%;
 }
 .com_right{
-  width: 34rpx;
-  height: 32rpx;
+  color: #c7c7cc;
+  margin-right: 30rpx;
 }
-.sm_icon{
-  width: 48rpx;
-  height: 48rpx;
+/* list */
+.color_3{
+  color: #f1674f;
+}
+.color_4{
+  color: #38c880;
+}
+.color_6{
+  color: #f9b038;
 }
 
-/* list */
-.com_list{
-  align-items: center;
-  
+.icon_box{
+  width: 14%;
+  display: flex;
+  justify-content: center;
 }
-.com_list .sm_icon{
-  margin:0 25rpx 0 4%;
+.com_icon{
+  margin:0 0 0 4%;
 }
 .com_list_right{
   padding: 30rpx 0;
-  width: 83%;
+  width: 86%;
   align-items: center;
   justify-content: space-between;
   border-bottom: 1rpx solid #efeff4;

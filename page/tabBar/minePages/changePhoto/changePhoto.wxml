@@ -1,0 +1,15 @@
+<view class='box'>
+  <view class='margin_top header bg_fff'>
+    <view class='com_title com_width'>上传本人头像</view>
+    <view class='photo_view padding_bottom display_flex com_width'>
+      <view class='add_view'>
+        <image src='/image/add_icon.png'></image>
+        <view class='color_gray'>点击拍照上传头像</view>
+      </view>
+      <view class='photo_msg'>
+        <view>注：采集人像供考勤机智能识别，为了你的正常考勤，请拍摄自己的头像上传。</view>
+      </view>
+    </view> 
+  </view>
+  <view class='footer bg_blue'>确认修改</view>
+</view>

@@ -5,10 +5,14 @@
       <image src='/image/none_record.png'></image>
       <view>
         <view class='user_name'>木木</view>
-        <view class='user_msg display_flex'>
+        <!-- <view class='user_msg display_flex'>
           <text class='color_gray'>当前所在项目：</text>
           <text>某个项目</text>
           <view class='add_class tab_btn'>切换</view>
+        </view> -->
+        <view class='user_msg display_flex'>
+          <icon type='success' size='14'></icon>
+          <text class='color_gray'>已实名认证 ></text>
         </view>
       </view>
     </view>
@@ -18,52 +22,65 @@
   <view class='bg_fff margin_top' bindtap='goAuthentication'>
    
     <view class='display_flex com_list certification'>
-      <image class='sm_icon' src='/image/icon_home_HL.png'></image>
+      <view class='icon_box'>
+        <text class='fa com_icon color_blue fa-address-card-o'></text>
+      </view>
+    
       <view class='com_list_right display_flex border_none'>
         <text>实名认证</text>
-        <view class='color_red'>为了确保什么事什么的赶快实名认证</view>
-        <image class='com_right' src="/image/right_j.png"></image>
+        <view class='color_red'>为了确保正常使用，赶快实名认证</view>
+        <text class='fa com_right fa-chevron-right'></text>
       </view> 
     </view>
   </view>
   <!-- list -->
   <view class='bg_fff margin_top '>  
     <view class='display_flex com_list'>
-      <image class='sm_icon' src='/image/icon_home_HL.png'></image>
+      <view class='icon_box'>
+        <text class='fa com_icon color_blue fa-address-card-o'></text>
+      </view>
       <view class='com_list_right display_flex'>
         <text>紧急联系人</text>
-        <image class='com_right' src="/image/right_j.png"></image>
+        <text class='fa com_right fa-chevron-right'></text>
       </view> 
     </view>
 
     <view class='display_flex com_list'>
-      <image class='sm_icon' src='/image/icon_home_HL.png'></image>
+      <view class='icon_box'>
+        <text class='fa color_3 com_icon color_blue fa-balance-scale'></text>
+      </view>
       <view class='com_list_right display_flex'>
         <text>个人奖惩</text>
-        <image class='com_right' src="/image/right_j.png"></image>
+        <text class='fa com_right fa-chevron-right'></text>
       </view> 
     </view>
 
     <view class='display_flex com_list' bindtap='goMyProject'>
-      <image class='sm_icon' src='/image/icon_home_HL.png'></image>
+      <view class='icon_box'>
+        <text class='fa color_4 com_icon color_blue fa-file-text-o'></text>
+      </view>
       <view class='com_list_right display_flex'>
         <text>我的项目</text>
-        <image class='com_right' src="/image/right_j.png"></image>
+        <text class='fa com_right fa-chevron-right'></text>
       </view> 
     </view>
 
     <view class='display_flex com_list' bindtap='goPersonData'>
-      <image class='sm_icon' src='/image/icon_home_HL.png'></image>
+      <view class='icon_box'>
+        <text class='fa com_icon color_blue fa-address-book-o'></text>
+      </view>
       <view class='com_list_right display_flex'>
         <text>个人资料</text>
-        <image class='com_right' src="/image/right_j.png"></image>
+        <text class='fa com_right fa-chevron-right'></text>
       </view> 
     </view>
     <view class='display_flex com_list'>
-      <image class='sm_icon' src='/image/icon_home_HL.png'></image>
+      <view class='icon_box'>
+        <text class='fa color_6 com_icon color_blue fa-handshake-o'></text>
+      </view>
       <view class='com_list_right display_flex border_none'>
         <text>信息反馈</text>
-        <image class='com_right' src="/image/right_j.png"></image>
+        <text class='fa com_right fa-chevron-right'></text>
       </view> 
     </view>
   </view>

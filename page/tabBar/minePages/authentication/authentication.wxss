@@ -21,6 +21,7 @@
   flex-direction: column;
   justify-content:flex-end;
   width: 349rpx;
+  color: #ff7c34;
 }
 .photo_msg text{
   padding: 5rpx 0;

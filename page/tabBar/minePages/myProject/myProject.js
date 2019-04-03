@@ -2,7 +2,7 @@
 Page({
   data: {
     selectStatus: 0,
-    headerBorder: true,//header添加border
+    headerBorder: true ,//header添加border
   },
   onLoad: function (options) {
 

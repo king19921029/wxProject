@@ -1,0 +1,19 @@
+<view class='box'>
+  <view class='content'>
+    <icon class='box_icon' type="success" size="70"/> 
+    <view class='font_weight'>认证成功</view>
+    <view class='color_gray'>身份认证成功，您可以:</view>
+  </view>
+
+  <view class='com_footer_btn bg_blue'>返回首页</view>
+</view>
+
+<view class='box'>
+  <view class='content'>
+    <icon class='box_icon' type="warn" size="70"/> 
+    <view class='font_weight'>认证失败</view>
+    <view class='color_gray'>身份认证未通过，您可以:</view>
+  </view>
+
+  <view class='com_footer_btn bg_blue'>重新认证</view>
+</view>

@@ -1,13 +1,22 @@
 {
   "pages": [
+    "page/tabBar/message/message",
     "page/tabBar/mine/mine",
+    "page/tabBar/home/home",
+    "page/tabBar/homePages/news/news",
+  
+    "page/tabBar/messagePages/ggDetails/ggDetails",
+    
+    
+    "page/tabBar/minePages/changePhoto/changePhoto",
+    "page/tabBar/minePages/authentication/authentication",
+    "page/tabBar/minePages/authenticationRes/authenticationRes",
+    "page/tabBar/minePages/authenticationAll/authenticationAll",
     "page/tabBar/minePages/myProject/myProject",
     "page/tabBar/minePages/personData/personData",
     "page/tabBar/minePages/newPhone/newPhone",
     "page/tabBar/minePages/changePhone/changePhone",
     "page/tabBar/minePages/bindBankCard/bindBankCard",
-    "page/tabBar/minePages/authentication/authentication",
-    "page/tabBar/home/home",
     "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
     "page/tabBar/homePages/vipSeeWage/vipSeeWage",
     "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
@@ -20,10 +29,9 @@
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
     "page/tabBar/homePages/wageDetails/wageDetails",
-    "page/tabBar/message/message",
     "page/tabBar/homePages/seeWorkload/seeWorkload",
     "page/tabBar/homePages/seeTeam/seeTeam"
-   
+    
   ],
   "window": {
     "backgroundTextStyle": "light",

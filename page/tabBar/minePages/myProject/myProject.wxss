@@ -40,8 +40,6 @@
   padding: 6rpx 0;
 }
 .status_text{
-  background: #666666;
-  color: #fff;
   font-weight: 500;
   font-size: 26rpx;
   padding: 2rpx 8rpx;
@@ -54,7 +52,7 @@
 } 
 .big_font{
   font-weight: 499;
-  font-size: 36rpx;
+  font-size: 34rpx;
 }
 .btn_box{
   justify-content: flex-end;
@@ -64,7 +62,7 @@
 }
 .btn_box view{
   margin-right: 30rpx;
-  padding: 15rpx 30rpx;
+  padding: 10rpx 25rpx;
   border-radius: 4rpx;
   font-weight: 400;
 }

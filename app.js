@@ -5,7 +5,7 @@ App({
   globalData: {
     openid: null,
     token:null,
-    url: 'https://www.jinbionline.com',
+    url: 'http://www.jinbionline.com',
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",
@@ -13,7 +13,7 @@ App({
   },
   onLaunch: function (opts) {
     var that = this;
-    let token = wx.getStorageSync("token") || null;
+    let token = wx.getStorageSync("token") || "";
     that.globalData.header["x-authorization"] = token;
     that.globalData.token = token
   },

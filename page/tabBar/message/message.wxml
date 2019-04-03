@@ -1,1 +1,87 @@
-<view>信息</view>
+<view class='box'>
+  <!-- header -->
+  <view class='headers display_flex bg_fff'>
+  
+    <view class='left_box' catchtap='noticeTap'>
+      <text class='{{headerBorder? "addBorder" : "" }}'>公告</text>
+    </view>
+    <view class='center_border'></view>
+    <view class='right_box' bindtap='recruitTap'>
+      <text class='{{!headerBorder? "addBorder" : "" }}'>招聘信息</text>
+    </view>
+    
+  </view>
+  <!-- 公告 -->
+  <view wx:if="{{headerBorder}}" class='notice_box'>
+    <view class='notice_list bg_fff'>
+      <view class='com_width'>
+        <view class='notice_list_title'>【行政】关于海淀区天气的问题规格要求公告</view>
+        <view class='display_flex notice_list_con color_gray'>
+          <view class='display_flex'>
+            <text class='fa fa-user'></text>
+            <text>来源：海淀区政府</text>
+            <text class='fa fa-user time_icon'></text>
+            <text>时间：2019-04-03</text>
+          </view>
+          <view class='add_or'>未读</view>
+        </view>
+      </view>
+
+    </view>
+
+     <view class='notice_list bg_fff'>
+      <view class='com_width'>
+        <view class='notice_list_title'>【行政】关于海淀区天气的问题规格要求公告</view>
+        <view class='display_flex notice_list_con color_gray'>
+          <view class='display_flex'>
+            <text class='fa fa-user'></text>
+            <text>来源：海淀区政府</text>
+            <text class='fa fa-user time_icon'></text>
+            <text>时间：2019-04-03</text>
+          </view>
+          <view class='add_gr'>已读</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+  <!-- 招聘信息 -->
+  <view wx:else class='recruit_box'>
+    <view class='bor_bot'>
+      <view class='recruit_search display_flex com_width'>
+        <view class='color_blue'>
+          <text>北京</text>
+          <image class='bot_icon' src='/image/bottom_icon.png'></image>
+        </view>
+        <view class='display_flex search_box bg_fff'>
+          <icon type="search" size="15"></icon>
+          <view class='color_gray'>搜索</view>
+        </view>
+      </view>
+    </view >
+    <!-- list -->
+    <view class='recruit_list bg_fff'>
+      <view class='list_content'>
+        <view class='list_content_title'>中建二局铁路项目部招聘前端100名</view>
+        <view class='color_gray com_margin_top'>北京市昌平区 | 北京三环工程有限公司</view>
+        <view class='color_gray com_margin_top'>2019年04月03日截止</view>
+        <view class='add_or com_margin_top'>
+          <text>联系人：张平</text>
+          <text>联系电话：028124827</text>
+        </view>
+      </view>
+    </view>
+
+    <view class='recruit_list bg_fff'>
+      <view class='list_content'>
+        <view class='list_content_title'>中建二局铁路项目部招聘前端100名</view>
+        <view class='color_gray com_margin_top'>北京市昌平区 | 北京三环工程有限公司</view>
+        <view class='color_gray com_margin_top'>2019年04月03日截止</view>
+        <view class='add_or com_margin_top'>
+          <text>联系人：张平</text>
+          <text>联系电话：028124827</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

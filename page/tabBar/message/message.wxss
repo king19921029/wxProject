@@ -1,0 +1,106 @@
+/* headers */
+.headers{
+  width: 100%;
+  border-top: 1px solid #efeff4;
+  position: relative;
+  border-bottom: 1px solid #d9d9d9;
+}
+.center_border{
+  width:1rpx;
+  position: absolute;
+  height:50rpx;
+  border-left: 1px solid #e6e6e6; 
+  left: 50%;
+  top:27%;
+}
+.headers .left_box,.right_box{
+  width: 50%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.addBorder{
+  border-bottom: 1px solid #3197fb;
+  color: #3197fb;
+}
+.headers text{
+  display:block;
+  padding: 24rpx 20rpx;
+}
+
+/* 公告 */
+.notice_box{
+  margin-top: 27rpx;
+}
+.notice_list{
+  border-bottom: 1px solid #d9d9d9;
+  padding: 36rpx 0;
+}
+.notice_list_title{
+  font-weight: 400;
+  font-size: 34rpx;
+  margin-left: -2%;
+}
+.notice_list_con{
+  justify-content: space-between; 
+  font-size: 28rpx;
+  margin-top: 10rpx;
+}
+.notice_list_con .fa{  
+  padding:0 5rpx;
+  color:#888888;
+}
+.time_icon{
+  margin: 0 2rpx 0 20rpx;
+}
+.add_or{
+  color: #fe4514;
+}
+.add_gr{
+  color: #47ba44;
+}
+
+/* 招聘信息 */
+.recruit_search{
+  justify-content: space-between; 
+  padding: 20rpx 0;
+}
+.recruit_search .color_blue{
+  font-size: 32rpx;
+}
+.bot_icon{
+  width: 35rpx;
+  height: 35rpx;
+}
+.bor_bot{
+  border-bottom: 1px solid #d9d9d9;
+}
+.search_box{
+  width: 83%;
+  justify-content: center;
+  font-size: 28rpx;
+  padding: 10rpx 0;
+  border-radius: 10rpx;
+}
+.search_box icon{
+  margin-right: 10rpx;
+}
+.recruit_list{
+  border-bottom: 1px solid #d9d9d9; 
+  padding: 30rpx 0;
+}
+.list_content{
+  width: 90%;
+  margin-left: 5%;
+}
+.list_content_title{
+  font-size: 34rpx;
+  font-weight: 400;
+}
+.list_content .color_gray{
+  font-size: 28rpx;
+}
+.com_margin_top{
+  margin-top: 20rpx;
+}

@@ -1,0 +1,74 @@
+.header{
+  padding: 36rpx 0;
+  border-bottom: 1px solid #d3d2d2;
+}
+.card{
+  height: 334rpx;
+  border-radius:13rpx;
+  border:1px solid #108ee9;
+  position: relative;
+}
+.right_icon{
+  position: absolute;
+  width: 287rpx;
+  height: 245rpx;
+  transform:scale(.6);
+  right:-1%;
+  top: 2%;
+}
+.card .photo{
+  width: 130rpx;
+  height: 130rpx;
+  margin-right: 30rpx;
+  border: 2rpx solid #70bbf2;
+  border-radius: 8rpx;
+}
+.msg_box{
+  margin-top: 60rpx;
+  margin-bottom: 50rpx;
+}
+.name_box{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 28rpx;
+}
+.name{
+  font-weight: 400;
+  font-size: 30rpx;
+}
+.address{
+  font-size: 26rpx;
+}
+
+/* content */
+.list{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid #d3d2d2;
+  width: 96%;
+  margin-left: 4%;
+  padding: 30rpx 0;
+}
+.left_view .color_gray{
+  font-size: 28rpx;
+}
+.yes{
+  margin-right: 4%;
+  font-size: 34rpx;
+}
+.font_w{
+  font-weight: 400;
+  font-size: 32rpx;
+}
+.no{
+  margin-right: 1%;
+  align-items: center;
+  font-size: 34rpx;
+}
+.no image{
+  width: 48rpx;
+  height: 48rpx;
+  transform:scale(.6);
+}
