@@ -25,10 +25,16 @@ Page({
   onHide: function () {
     
   },
-  // 待办-消息
+  //待办-消息
   goNews:function(){
     wx.navigateTo({
       url: '/page/tabBar/homePages/news/news',
+    })
+  },
+  //待办-考勤
+  goVipStayAttendance:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/stayVipAttendance/StayVipAttendance',
     })
   },
   //待办-工资
@@ -52,27 +58,11 @@ Page({
   },
   // 查看-工资
   goWageBlock: function () {
-    let sum = Math.random();
-    if( sum > 0.5 ){
-      app.showLoading("我是普通员工","none")
-      setTimeout(function () {
-        wx.navigateTo({
-          url: '/page/tabBar/homePages/seeWage/seeWage',
-        })
-      }, 500)
-     
-    }else{
-      app.showLoading("我是班组","none")
-      setTimeout(function(){
-        wx.navigateTo({
-          url: '/page/tabBar/homePages/vipSeeWage/vipSeeWage',
-        })
-      },500)
-     
-    }
-   
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/seeWage/seeWage',
+    })
   }, 
-   // 查看-工作量
+  // 查看-工作量
   goWorkload: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/seeWorkload/seeWorkload',
@@ -81,7 +71,7 @@ Page({
   // 查看-班组
   goTeam: function () {
     wx.navigateTo({
-      url: '/page/tabBar/homePages/seeTeam/seeTeam',
+      url: '/page/tabBar/homePages/vipBlock/vipBlock',
     })
   }
 })

@@ -1,0 +1,60 @@
+<view class='box'>
+<!-- tab -->
+  <view class='header border_top bg_fff'>
+    <view class='border_bottom display_flex'>
+      <view bindtap='peojectTap'>
+        <text class='{{selectStatus == 1 ?"add_class":""}}'>月份</text>
+        <image wx:if="{{selectStatus == 1}}" class='tan_top' src='/image/top_tan.png'></image>
+        <image wx:else class='tan' src='/image/tan.png'></image>
+      </view>
+      <view bindtap='companyTap'>
+        <text class='{{selectStatus == 2 ?"add_class":""}}'>班组人员选择</text>
+        <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
+        <image wx:else class='tan' src='/image/tan.png'></image>
+      </view>
+    </view>
+  </view>
+  <!-- select -->
+  <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
+    <block wx:if="{{selectStatus == 1}}">
+      <view>全部</view>
+      <view>2019-01</view>
+      <view>2019-02</view>
+      <view>2019-03</view>
+    </block>
+    <block wx:if="{{selectStatus == 2}}">
+      <view>全部</view>
+      <view>张️三</view>
+      <view>李四</view>
+      <view>王五</view>
+    </block>
+  </view>
+  <!-- 表格 -->
+  <view class='tab_box' bindtap='goDetails'>
+    <view class='com_tab_title tab_title'>
+      <view>姓名</view>
+      <view>年月</view>
+      <view>出勤天数</view>
+      <view>异常天数</view>
+      <view>工数</view>
+    </view>
+    
+    <view class='com_tab_title'>
+      <view>爱迪生</view>
+      <view>2019-03</view>
+      <view>20天</view>
+      <view>10天</view>
+      <view>30个</view>
+    </view>
+
+    <view class='com_tab_title'>
+      <view>爱迪安</view>
+      <view>2019-03</view>
+      <view>20天</view>
+      <view>10天</view>
+      <view>30个</view>
+    </view>
+
+  </view>
+
+</view>

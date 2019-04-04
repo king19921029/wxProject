@@ -1,0 +1,4 @@
+@import "../stayWageConfirm/stayWageConfirm.wxss";
+.com_footer_btn{
+  margin-top: 30rpx;
+}

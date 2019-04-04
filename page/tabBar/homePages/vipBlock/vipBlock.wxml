@@ -1,0 +1,112 @@
+<view class='box'>
+  <!-- tab -->
+  <view class='header bg_fff'>
+
+    <view bindtap='peojectTap' class='{{titleStatus == 0 ? "addClass" : "" }}'>
+      工资
+      <view class='bottom_text'></view>
+    </view>
+
+     <view bindtap='attendanceTap' class='{{titleStatus == 1 ? "addClass" : "" }}'>
+      <text class='left_border'></text>
+      考勤
+      <text class='right_border'></text>
+      <view class='bottom_text'></view>
+    </view>
+
+     <view bindtap='workTap' class='{{titleStatus == 2 ? "addClass" : "" }}'>
+      工作量
+      <view class='bottom_text'></view>
+    </view>
+
+  </view>
+  <!-- 项目筛选  -->
+  <view bindtap='screenTap' class='selsect_title bg_fff {{selectBox?"add_class":""}}'>
+    项目筛选
+    <image  wx:if="{{selectBox}}" class='tan_top' src='/image/top_tan.png'></image>
+    <image wx:else class='tan' src='/image/tan.png'></image>
+   
+  </view>
+
+  <!-- select -->
+  <view wx:if="{{selectBox}}" class='select_box bg_fff'>
+    <view>全部</view>
+    <view>北京项目组1</view>
+    <view>北京项目组2</view>
+    <view>北京项目组3</view>
+    <view>北京项目组4</view>
+  </view>
+
+  <!-- 工资 -->
+  <view class='wage_block bg_fff'>
+    <view class='content'>
+      <view class='com_width list_box'>
+        <view class='list'>
+          <text class='list_title'>项目名称：</text>
+          <text class='list_data'>北京三环新城项目</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>劳务公司：</text>
+          <text class='list_data'>北京三环新城项目有限公司</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>班组：</text>
+          <text class='list_data'>某某某班组</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>应发工资：:</text>
+          <text class='list_data'>8654.54元</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>扣款：</text>
+          <text class='list_data'>100元</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>实发工资：</text>
+          <text class='list_data'>8554.54元</text>
+        </view>
+      </view>
+      <view bindtap='wageDetails' class='see_list'>查看详情</view>
+    </view>
+   
+  </view>
+  <!-- 考勤 -->
+  <view class='attendance_block bg_fff'>
+    <view class='content' bindtap='attendanceDtails'>
+      <view class='com_width list_box'>
+        <view class='attendance_block_title'>
+          中建三局铁路项目部某班组
+        </view>
+        <view class='list'>
+          <text class='list_title'>项目名称：</text>
+          <text class='list_data'>北京三环新城项目</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>劳务公司：</text>
+          <text class='list_data'>北京三环新城项目有限公司</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>班组：</text>
+          <text class='list_data'>某某某班组</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>应发工资：:</text>
+          <text class='list_data'>8654.54元</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>扣款：</text>
+          <text class='list_data'>100元</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>实发工资：</text>
+          <text class='list_data'>8554.54元</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

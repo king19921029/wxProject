@@ -4,20 +4,22 @@ Page({
     selectStatus: 0
   },
   onLoad: function (options) {
+
+  },
+  onShow: function () {
     wx.setNavigationBarTitle({
       title: "动态设置的标题"
     })
   },
-  onShow: function () {
-
-  },
   onHide: function () {
 
   },
-  listTap: function () {
+ 
+  //查看详情
+  goDetails: function () {
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceProject/attendanceProject',
+      url: '/page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject',
     })
-  }
+  },
 
 })

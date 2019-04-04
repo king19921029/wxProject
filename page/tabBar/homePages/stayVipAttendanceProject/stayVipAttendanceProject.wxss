@@ -1,0 +1,63 @@
+.box{
+  border-top: 1px solid #efeff4;
+}
+.headers{
+  padding: 10rpx 0 30rpx 0;
+}
+.time_box{
+  text-align: center;
+  padding: 20rpx 0;
+  font-size: 32rpx;
+  font-weight: 400;
+}
+.header_title{
+  display: flex;
+  justify-content: center;
+  font-size: 26rpx;
+}
+.header_title .fa{
+  margin-right: 10rpx;
+}
+.day_f{
+  padding: 0 64rpx;
+}
+.color_2{
+  color: #ff4800;
+}
+
+/* 明细 */
+.attDetails{
+  padding: 20rpx 0;
+}
+/* 表格 */
+.com_tab_title{
+  display: flex;
+  border-top: 1rpx solid #efeff4;
+  background: #fff;
+  text-align: center;
+  font-size: 26rpx;
+}
+.tab_title{
+  background: #f1fcff;
+}
+.tab_content{
+  padding: 25rpx 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.com_tab_title :first-child{
+  width: 30%;
+  border-right: 1px solid #efeff4;
+}
+.com_tab_title :nth-child(2){
+  width: 20%;
+  border-right: 1px solid #efeff4;
+}
+.com_tab_title :nth-child(3){
+  width: 15%;
+  border-right: 1px solid #efeff4;
+}
+.com_tab_title :nth-child(4){
+  width: 45%;
+}

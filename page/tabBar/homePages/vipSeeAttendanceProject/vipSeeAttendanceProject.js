@@ -14,9 +14,10 @@ Page({
   onHide: function () {
 
   },
-  listTap: function () {
+  // 查看打卡详情
+  goCard: function () {
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceProject/attendanceProject',
+      url: '/page/tabBar/homePages/vipAttendanceCard/vipAttendanceCard',
     })
   }
 

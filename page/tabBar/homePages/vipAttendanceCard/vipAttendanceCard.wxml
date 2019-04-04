@@ -1,0 +1,35 @@
+<view class='box'>
+  <view class='headers bg_blue'>
+    <view class='times'>2018-3-25</view>
+    <view class='display_flex headers_mag'>
+      <view>状态：异常</view>
+      <view>班次：白班</view>
+      <view>工数：2个</view>
+    </view>
+  </view>
+
+  <view>
+
+    <view>
+      <view class='list'>早打卡时间：未打卡</view>
+      <view class='list'>打卡人：芭乐</view>
+    </view>
+
+   <view class='margin_top'>
+      <view class='list'>午打卡时间：未打卡</view>
+      <view class='list'>打卡人：芭乐</view>
+   </view>
+
+   <view class='margin_top'>
+      <view class='list'>午打卡时间：未打卡</view>
+      <view class='list'>打卡人：芭乐</view>
+   </view>
+
+    <view class='margin_top'>
+      <view class='list'>午打卡时间：未打卡</view>
+      <view class='list'>打卡人：芭乐</view>
+   </view>
+   
+  </view>
+ 
+</view>

@@ -8,25 +8,31 @@ Page({
 
   },
   onShow: function () {
-    app.wxRequest("gongguan/api/wechat/myJoinGroup",
-      {projectId:"",groupId:"",page:""},
-      "post", function (res) {
-        console.log(res)
-        if (res.data.code == 0) {
+    // app.wxRequest("gongguan/api/wechat/myJoinGroup",
+    //   {projectId:"",groupId:"",page:""},
+    //   "post", function (res) {
+    //     console.log(res)
+    //     if (res.data.code == 0) {
 
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
+    //     } else {
+    //       app.showLoading(res.data.msg, "none");
+    //     }
+    // })
   },
   onHide: function () {
 
   },
  
-  //查看详情
-  goDetails: function () {
+  //工资查看详情
+  wageDetails: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails',
+    })
+  },
+  // 考勤查看详情
+  attendanceDtails:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails',
     })
   },
   // 筛选

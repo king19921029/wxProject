@@ -1,0 +1,35 @@
+
+.header .border_bottom{
+  border-bottom: 1rpx solid #efeff4;
+  padding: 26rpx 0;
+}
+.header .border_bottom > view{
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* select_box 在全局的app.wxss */
+
+.tab_box{
+  margin-top: 30rpx;
+}
+/* 表格 */
+.com_tab_title{
+  display: flex;
+  border-top: 1rpx solid #efeff4;
+  background: #fff;
+}
+.tab_title{
+  background: #f1fcff;
+}
+
+.com_tab_title view{
+  border-right: 1px solid #efeff4;
+  height: 70rpx;
+  line-height: 70rpx;
+  font-size: 24rpx;
+  text-align: center;
+  width: 20%;
+}

@@ -1,14 +1,17 @@
 <!--index.wxml-->
 <view class="container">
-
+  <!-- 待办 -->
   <view class='pending'>
     <view class='title'>
       <view class='titleContent'>
         <text class="title-ico fa fa-hourglass-2"></text>
-        <text class='titleFont'>待办</text></view>   
-      </view>
-    <view class='pendingitems' bindtap='goNews'>
-      <view class="pendingitem">
+        <text class='titleFont'>待办</text>
+      </view>   
+    </view>
+
+    <view class='pendingitems' >
+
+      <view class="pendingitem" bindtap='goNews'>
         <view class="itemIcon">
           <text class="own-ico fa fa-commenting"></text> 
           <text class='message-count'>8</text>         
@@ -17,6 +20,14 @@
           <text class="itemName">消息</text>
         </view>           
       </view>
+
+      <view class="pendingitem" bindtap='goVipStayAttendance'>
+        <view class="itemIcon">
+          <text class="own-ico fa fa-hand-o-up"></text>          
+        </view> 
+        <text class="itemName">考勤</text>    
+      </view>
+
       <view class="pendingitem" bindtap='goStayWage'>
         <view class="itemIcon itemColor">
           <text class="own-ico fa fa-credit-card-alt"></text>       
@@ -31,6 +42,7 @@
       </view>
     </view>
   </view>
+  <!-- 查看 -->
   <view class='pending'>
     <view class='title'>
       <view class='titleContent'>
@@ -65,6 +77,7 @@
       </view>
     </view>
   </view>
+  <!-- 今日打卡 -->
   <view class='pending'>
     <view class='title'>
       <view class='titleContent'>
