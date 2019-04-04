@@ -24,5 +24,11 @@ Page({
       headerBorder:false
     })
   },
+  // 去城市
+  goCity:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/messagePages/city/city',
+    })
+  },
   
 })

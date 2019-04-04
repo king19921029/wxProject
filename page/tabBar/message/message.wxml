@@ -49,7 +49,7 @@
   <view wx:else class='recruit_box'>
     <view class='bor_bot'>
       <view class='recruit_search display_flex com_width'>
-        <view class='color_blue'>
+        <view class='color_blue' bindtap='goCity'>
           <text>北京</text>
           <image class='bot_icon' src='/image/bottom_icon.png'></image>
         </view>

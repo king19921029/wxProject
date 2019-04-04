@@ -1,4 +1,4 @@
-
+var app = getApp();
 Page({
   data: {
     titleStatus:0,//title状态
@@ -8,7 +8,16 @@ Page({
 
   },
   onShow: function () {
+    app.wxRequest("gongguan/api/wechat/myJoinGroup",
+      {projectId:"",groupId:"",page:""},
+      "post", function (res) {
+        console.log(res)
+        if (res.data.code == 0) {
 
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
 
