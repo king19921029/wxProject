@@ -28,48 +28,50 @@
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
       <view>全部</view>
-      <view>北京项目组1</view>
-      <view>北京项目组2</view>
-      <view>北京项目组3</view>
-      <view>北京项目组4</view>
+      <view wx:for="{{peojectData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
+        {{item.name}}
+      </view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
       <view>全部</view>
-      <view>劳务公司1</view>
-      <view>劳务公司1</view>
-      <view>劳务公司1</view>
-      <view>劳务公司1</view>
+      <view wx:for="{{companyData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
+        {{item.labourCompanyName}}
+      </view>
     </block>
     <block wx:if="{{selectStatus == 3}}">
       <view>全部</view>
-      <view>班组1</view>
-      <view>班组1</view>
-      <view>班组1</view>
-      <view>班组1</view>
+      <view wx:for="{{classData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
+        {{item.labourCompanyName}}
+      </view>
     </block>
   </view>
 
    <!-- list -->
   <view wx:else class='content bg_fff'>
-    <view class='com_width list_box'>
+    <view wx:for="{{peojectLIst.t}}" wx:for-item="item" wx:key=""
+     class='com_width list_box'>
       <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生111</text>
+        <text class='list_title'>项目名称:</text>
+        <text class='list_data'>{{item.projectName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
+        <text class='list_title'>劳务公司:</text>
+        <text class='list_data'>{{item.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
+        <text class='list_title'>班组:</text>
+        <text class='list_data'>{{item.groupName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
+        <text class='list_title'>出勤天数:</text>
+        <text class='list_data'>{{item.normalNum}}</text>
+      </view>
+       <view class='list'>
+        <text class='list_title'>异常天数:</text>
+        <text class='list_data'>{{item.errorNum}}</text>
       </view>
     </view>
 

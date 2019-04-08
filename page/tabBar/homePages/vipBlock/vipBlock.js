@@ -1,23 +1,28 @@
 var app = getApp();
 Page({
   data: {
-    titleStatus:0,//title状态
+    titleStatus:1,//title状态
     selectBox:false,
+    attendanceData:[],//考勤数据
   },
   onLoad: function (options) {
 
   },
   onShow: function () {
-    // app.wxRequest("gongguan/api/wechat/myJoinGroup",
-    //   {projectId:"",groupId:"",page:""},
-    //   "post", function (res) {
-    //     console.log(res)
-    //     if (res.data.code == 0) {
-
-    //     } else {
-    //       app.showLoading(res.data.msg, "none");
-    //     }
-    // })
+    var that = this;
+    // 班组考勤
+    app.wxRequest("gongguan/api/wechat/myGroupAttendance",
+      {},
+      "post", function (res) {
+        console.log(res.data.data.t[0])
+        if (res.data.code == 0) {
+          that.setData({
+            attendanceData: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
 

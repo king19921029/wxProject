@@ -18,15 +18,11 @@
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
       <view>全部</view>
-      <view>2019-01</view>
-      <view>2019-02</view>
-      <view>2019-03</view>
+      <view wx:for='{{monthData}}' wx:item="item" wx:key="">{{item}}</view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
       <view>全部</view>
-      <view>张️三</view>
-      <view>李四</view>
-      <view>王五</view>
+      <view wx:for='{{personData}}' id="{{item.id}}" wx:item="item" wx:key="">{{item.name}}</view>
     </block>
   </view>
   <!-- 表格 -->
@@ -39,20 +35,12 @@
       <view>工数</view>
     </view>
     
-    <view class='com_tab_title'>
-      <view>爱迪生</view>
-      <view>2019-03</view>
-      <view>20天</view>
-      <view>10天</view>
-      <view>30个</view>
-    </view>
-
-    <view class='com_tab_title'>
-      <view>爱迪安</view>
-      <view>2019-03</view>
-      <view>20天</view>
-      <view>10天</view>
-      <view>30个</view>
+    <view wx:for='{{tabData.t}}' wx:item="item" wx:key="" class='com_tab_title'>
+      <view>{{item.userName}}</view>
+      <view>{{item.month}}</view>
+      <view>{{item.normalNum}}</view>
+      <view>{{item.errorNum}}</view>
+      <view>{{item.classNum}}</view>
     </view>
 
   </view>

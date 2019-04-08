@@ -1,29 +1,32 @@
 <view class='box'>
   <view class='headers bg_fff'>
-    <view class='time_box'>爱迪生2019年3月考勤明细</view>
+    <view class='time_box'>
+      {{allData.attendanceSum.name}}2019年3月考勤明细
+    </view>
     <view class='header_title'>
       <view>
         <text class='fa color_1 fa-bar-chart'></text> 
-        <text>正常：20天</text>
+        <text>正常：{{allData.attendanceSum.normalNum}}</text>
       </view>
       <view>
         <text class='fa color_2 fa-bar-chart'></text> 
-        <text>异常：10天</text>
+        <text>异常：{{allData.attendanceSum.errorNumm}}</text>
       </view>
       <view>
         <text class='fa color_3 fa-bar-chart'></text> 
-        <text>白班：20天</text>
+        <text>白班：{{allData.attendanceSum.daysNum}}</text>
       </view>
       <view>
         <text class='fa color_4 fa-bar-chart'></text> 
-        <text>夜班：10天</text>
+        <text>夜班：{{allData.attendanceSum.nightNum}}</text>
       </view>
       <view>
         <text class='fa color_blue fa-bar-chart'></text> 
-        <text>工数：20天</text>
+        <text>工数：{{allData.attendanceSum.classNum}}</text>
       </view>
     </view>
   </view>
+
   <view class='com_width attDetails'>考勤明细</view>
    <!-- 表格 -->
   <view bindtap='goCard'>
@@ -37,26 +40,15 @@
       <view class='tab_content'>晚</view>
     </view>
 
-    <view class='com_tab_title'>
-      <view class='tab_content'>04-04</view>
-      <view class='tab_content'>2个</view>
-      <view class='zc_color tab_content'>正常</view>
-      <view class='tab_content'>无</view>
-      <view class='tab_content'>无</view>
-      <view class='tab_content'>9.30</view>
-      <view class='tab_content'>18:00</view>
+    <view wx:for="{{allData.page.t}}" wx:item="item" wx:key="" class='com_tab_title'>
+      <view class='tab_content overflow'>{{item.clockTime}}</view>
+      <view class='tab_content'>{{item.classNum}}</view>
+      <view class='tab_content'>{{item.clockStatus}}</view>
+      <view class='tab_content'>{{item.morning}}</view>
+      <view class='tab_content'>{{item.night}}</view>
+      <view class='tab_content'>{{item.noon1}}</view>
+      <view class='tab_content'>{{item.noon2}}</view>
     </view>
-
-    <view class='com_tab_title'>
-      <view class='tab_content'>04-04</view>
-      <view class='tab_content'>2个</view>
-      <view class='yc_color tab_content'>异常</view>
-      <view class='tab_content'>无</view>
-      <view class='tab_content'>无</view>
-      <view class='tab_content'>9.30</view>
-      <view class='tab_content'>18:00</view>
-    </view>
-   
   </view>
 
 </view>

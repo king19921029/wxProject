@@ -38,7 +38,7 @@
   </view>
 
   <!-- 工资 -->
-  <view class='wage_block bg_fff'>
+  <view wx:if="{{titleStatus == 0}}" class='wage_block bg_fff'>
     <view class='content'>
       <view class='com_width list_box'>
         <view class='list'>
@@ -76,35 +76,32 @@
    
   </view>
   <!-- 考勤 -->
-  <view class='attendance_block bg_fff'>
-    <view class='content' bindtap='attendanceDtails'>
+  <view wx:else class='attendance_block bg_fff'>
+    <view  bindtap='attendanceDtails' wx:for="{{attendanceData.t}}" wx:item="item" 
+      wx:key="" class='content'>
       <view class='com_width list_box'>
         <view class='attendance_block_title'>
-          中建三局铁路项目部某班组
+          {{item.groupName}}
         </view>
         <view class='list'>
           <text class='list_title'>项目名称：</text>
-          <text class='list_data'>北京三环新城项目</text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'>北京三环新城项目有限公司</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
         <view class='list'>
-          <text class='list_title'>班组：</text>
-          <text class='list_data'>某某某班组</text>
+          <text class='list_title'>正常出勤：</text>
+          <text class='list_data'>{{item.normalNum}}</text>
         </view>
         <view class='list'>
-          <text class='list_title'>应发工资：:</text>
-          <text class='list_data'>8654.54元</text>
+          <text class='list_title'>异常出勤：</text>
+          <text class='list_data'>{{item.errorNum}}</text>
         </view>
         <view class='list'>
-          <text class='list_title'>扣款：</text>
-          <text class='list_data'>100元</text>
-        </view>
-        <view class='list'>
-          <text class='list_title'>实发工资：</text>
-          <text class='list_data'>8554.54元</text>
+          <text class='list_title'>累计工数：</text>
+          <text class='list_data'>{{item.classNum}}</text>
         </view>
       </view>
     </view>

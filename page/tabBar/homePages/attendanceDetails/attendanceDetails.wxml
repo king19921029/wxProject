@@ -2,25 +2,30 @@
   <view class='headers'>
     <!-- list -->
     <view class='content bg_fff'>
-      <view bindtap='goDetails' class='com_width list_box'>
+      <view wx:for="{{peojectLIst.t}}" wx:for-item="item" wx:key="" 
+        class='com_width list_box'>
         <view class='list'>
-          <text class='list_title'>姓名:</text>
-          <text class='list_data'>李先生</text>
+          <text class='list_title'>项目名称:</text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
 
         <view class='list'>
-          <text class='list_title'>姓名:</text>
-          <text class='list_data'>李先生</text>
+          <text class='list_title'>劳务公司:</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
-          <text class='list_title'>姓名:</text>
-          <text class='list_data'>李先生</text>
+          <text class='list_title'>班组:</text>
+          <text class='list_data'>{{item.groupName}}</text>
         </view>
 
         <view class='list'>
-          <text class='list_title'>姓名:</text>
-          <text class='list_data'>李先生</text>
+          <text class='list_title'>出勤天数:</text>
+          <text class='list_data'>{{item.normalNum}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>异常天数:</text>
+          <text class='list_data'>{{item.errorNum}}</text>
         </view>
       </view>
     </view>
@@ -28,29 +33,19 @@
   <!-- 工资明细 -->
   <view class='com_width wage_deta'>考勤明细</view>
   <!-- 表格 -->
-  <view bindtap='listTap'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view>年月</view>
       <view>出勤天数</view>
       <view>异常天数</view>
     </view>
 
-    <view class='com_tab_title'>
-      <view>2019-3</view>
-      <view>22</view>
-      <view>3</view>
+    <view id="{{item.id}}" class='com_tab_title' bindtap='listTap' 
+      wx:for="{{tabData.t}}"wx:for-item="item" wx:key="">
+      <view>{{item.month}}</view>
+      <view>{{item.normalNum}}</view>
+      <view>{{item.errorNum}}</view>
     </view>
 
-     <view class='com_tab_title'>
-      <view>2019-3</view>
-      <view>22</view>
-      <view>3</view>
-    </view>
-
-     <view class='com_tab_title'>
-      <view>2019-3</view>
-      <view>22</view>
-      <view>3</view>
-    </view> 
   </view>
 </view>

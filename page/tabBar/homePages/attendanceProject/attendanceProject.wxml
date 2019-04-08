@@ -1,16 +1,29 @@
 <view class='box'>
   <view class='headers bg_fff'>
-    <view class='time_box'>2019年3月</view>
+    <view class='time_box'>{{titleData.month}}</view>
     <view class='header_title'>
-      <view>正常:20天</view>
-      <view>异常:2天</view>
-      <view>白班:10天</view>
-      <view>夜班:10天</view>
+      <view>
+        <text class='fa color_1 calendar-check-o'></text> 
+        <view>正常:{{titleData.normalNumStr}}</view>
+      </view>
+      <view>
+        <text class='fa color_2 calendar-times-o'></text>
+        <view>异常:{{titleData.errorNum}}</view>
+      </view>
+      <view>
+         <text class='fa color_3 fa-bar-chart'></text> 
+        <view>白班:{{titleData.daysNum}}</view>
+      </view>
+      <view>
+        <text class='fa color_4 fa-bar-chart'></text> 
+        <view>夜班:{{titleData.nightNum}}</view>
+      </view>
+      
     </view>
   </view>
   <view class='com_width attDetails'>考勤明细</view>
    <!-- 表格 -->
-  <view bindtap='goCard'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view class='date tab_content'>日期</view>
       <view class='tab_content'>状态</view>
@@ -19,21 +32,13 @@
       <view class='tab_content'>中</view>
       <view class='tab_content'>晚</view>
     </view>
-    <view class='com_tab_title'>
-      <view class='date tab_content'>2019-03-27</view>
-      <view class='tab_content'>正常</view>
-      <view class='tab_content'>9:30</view>
-      <view class='tab_content'>12:00</view>
-      <view class='tab_content'>2:00</view>
-      <view class='tab_content'>9:00</view>
-    </view>
-    <view class='com_tab_title'>
-      <view class='date tab_content'>2019-03-27</view>
-      <view class='tab_content'>正常</view>
-      <view class='tab_content'>9:30</view>
-      <view class='tab_content'>12:00</view>
-      <view class='tab_content'>2:00</view>
-      <view class='tab_content'>9:00</view>
+    <view class='com_tab_title' bindtap='goCard' wx:for="{{tabData.page.t}}" wx:item="item" wx:key="">
+      <view class='date tab_content'>{{item.clockTime}}</view>
+      <view class='tab_content'>{{item.clockStatus}}</view>
+      <view class='tab_content'>{{item.morning}}</view>
+      <view class='tab_content'>{{item.noon1}}</view>
+      <view class='tab_content'>{{item.noon2}}</view>
+      <view class='tab_content'>{{item.night}}</view>
     </view>
   </view>
 

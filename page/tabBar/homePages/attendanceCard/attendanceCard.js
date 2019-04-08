@@ -1,11 +1,13 @@
 
 Page({
   data: {
-    selectStatus: 0
+    selectStatus: 0,
+    userName:"",//打卡人
   },
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: "动态设置的标题"
+    var that = this;
+    that.setData({
+      userName: options.userName
     })
   },
   onShow: function () {

@@ -1,5 +1,6 @@
 .headers{
   padding: 20rpx 0;
+  border-top: 1px solid #efeff4;
 }
 .time_box{
   text-align: center;
@@ -10,9 +11,26 @@
 }
 .header_title>view{
   width: 25%;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 26rpx;
   padding: 10rpx 0;
+}
+.header_title .fa{
+  margin-right: 10rpx;
+}
+.color_1{
+  color: #02c214;
+}
+.color_2{
+  color: #ff0000;
+}
+.color_3{
+  color: #ff4800;
+}
+.color_4{
+  color: #777777;
 }
 /* 明细 */
 .attDetails{
