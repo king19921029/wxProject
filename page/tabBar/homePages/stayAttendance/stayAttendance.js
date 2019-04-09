@@ -39,8 +39,14 @@ Page({
       blockIsShow: true
     })
   },
-  // 去详情
-  goDetails: function () {
+  // 个人详情
+  perDetails: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject',
+    })
+  },
+  // 班组详情
+  classDetails: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails',
     })

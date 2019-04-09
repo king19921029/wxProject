@@ -1,0 +1,30 @@
+<view class='box'>
+  <view class='headers bg_blue'>
+    <view class='num_font'>工作量</view>
+    <view class='num'>200.98m</view>
+  </view>
+  <view class='list_box bg_fff  '>
+    <view class='list'>
+      <text>工作种类：</text>
+      <text></text>
+    </view>
+
+     <view class='list'>
+      <text>子项：</text>
+      <text></text>
+    </view>
+
+     <view class='list'>
+      <text>状态</text>
+      <text></text>
+    </view>
+  </view>
+
+  <view class='phone_title'>手机验证</view>
+  <view class='code_box'>
+    <input type='number' placeholder='请输入验证码'></input>
+    <button>获取验证码</button>
+  </view>
+
+  <view class='bg_blue com_width btn'>{{btnFont}}</view>
+</view>

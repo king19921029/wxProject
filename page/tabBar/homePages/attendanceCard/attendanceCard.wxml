@@ -4,6 +4,7 @@
     <view class='display_flex headers_mag'>
       <view>状态：异常</view>
       <view>班次：白班</view>
+      <view>工数：2个</view>
     </view>
   </view>
 

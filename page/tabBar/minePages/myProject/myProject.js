@@ -36,5 +36,18 @@ Page({
       selectStatus: 2
     })
   },
+  // 添加成员
+  addTap:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/classDetails/classDetails'
+    })
+  },
+  //今日上班
+  dayTap: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/projectDetails/projectDetails'
+    })
+  }
+
 
 })

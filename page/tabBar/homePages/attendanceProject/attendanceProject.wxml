@@ -1,6 +1,6 @@
 <view class='box'>
   <view class='headers bg_fff'>
-    <view class='time_box'>{{titleData.month}}</view>
+    <view class='time_box'>{{titleData.month}}考勤明细</view>
     <view class='header_title'>
       <view>
         <text class='fa color_1 calendar-check-o'></text> 
@@ -17,6 +17,11 @@
       <view>
         <text class='fa color_4 fa-bar-chart'></text> 
         <view>夜班:{{titleData.nightNum}}</view>
+      </view>
+
+      <view>
+        <text class='fa color_blue fa-bar-chart'></text> 
+        <view>工数:{{titleData.classNum}}</view>
       </view>
       
     </view>

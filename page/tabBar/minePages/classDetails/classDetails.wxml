@@ -1,0 +1,56 @@
+<view class='box'>
+  <view class='header bg_blue'>
+    <view class='com_width'>
+      <view class='header_title'>中间三局铁路项目部</view>
+      <view class='class_name'>班组组长：郑成功</view>
+    </view>
+  </view>
+  <!-- 菜单 -->
+  <view class='display_flex bg_fff tab'>
+    <view bindtap='left_tap' class='{{addBoder?"add_border":""}}'>班组基本情况</view>
+    <view bindtap='right_tap' class='{{addBoder?"":"add_border"}}'>班组人员</view>
+  </view>
+  <!-- content -->
+  <view class='content'>
+    <!-- 基本情况 -->
+    <view wx:if="{{addBoder}}" class='list_box bg_fff'>
+      <view class='com_width list display_flex'>
+        <view>项目所在地：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+      <view class='com_width list display_flex'>
+        <view>劳务公司：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+      <view class='com_width list display_flex'>
+        <view>班组人数：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+    </view>
+    <!-- 成员 -->
+    <view wx:else bindtap='goDetails' class='bg_fff class_per_box'>
+      <view class='display_flex class_per'>
+        <image class='photo' src="/image/icon_home_HL.png"></image>
+        <view class='per_box'>
+          <view>
+            <text>爱迪生</text>
+            <text class='color_gray'>（今日不上班）</text>
+          </view>
+          <view class='color_gray'>修灯泡</view>
+        </view>
+      </view>
+      <view class='display_flex class_per'>
+        <image class='photo' src="/image/icon_home_HL.png"></image>
+        <view class='per_box'>
+          <view>
+            <text>爱迪生</text>
+            <text class='color_gray'>（今日不上班）</text>
+          </view>
+          <view class='color_gray'>修灯泡</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view bindtap='addTap' class='bg_blue com_footer_btn'>添加人员</view>
+</view>

@@ -34,7 +34,7 @@ Page({
   //待办-考勤
   goVipStayAttendance:function(){
     wx.navigateTo({
-      url: '/page/tabBar/homePages/stayVipAttendance/StayVipAttendance',
+      url: '/page/tabBar/homePages/stayAttendance/stayAttendance',
     })
   },
   //待办-工资

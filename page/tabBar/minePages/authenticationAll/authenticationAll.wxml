@@ -21,25 +21,21 @@
         <view class='font_w'>个人信息</view>
         <view class='color_gray'>完善身份信息，提供更多服务</view>
       </view>
-      <view class='color_gray yes'>已完善</view>
+      <text class='fa fa-chevron-right addColor'></text>
     </view>
      <view class='list'>
       <view class='left_view'>
         <view class='font_w'>证件照片</view>
         <view class='color_gray'>上次证件照片，完成实名认证</view>
       </view>
-      <view class='color_gray yes'>已完善</view>
+      <text class='fa fa-chevron-right addColor'></text>
     </view>
      <view class='list'>
       <view class='left_view'>
         <view class='font_w'>人像照片</view>
         <view class='color_gray'>打卡人像识别，享受智能考勤</view>
       </view>
-      <!-- <view class='color_gray yes'>已完善</view> -->
-      <view class='no display_flex'>
-        <text class='color_blue'>去修改</text>
-        <image src="/image/right_j.png"></image>
-      </view>
+      <text class='fa fa-chevron-right addColor'></text>
     </view>
   </view>
 </view>

@@ -1,4 +1,4 @@
-
+var app =getApp()
 Page({
   data: {
     headerBorder:true,//header添加border
@@ -11,7 +11,20 @@ Page({
 
   },
   onShow: function () {
-
+    var that = this;
+    // 我的项目考勤列表
+    app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrim",
+      {},
+      "post", function (res) {
+        console.log(res);
+        if (res.data.code == 0) {
+          that.setData({
+            peojectLIst: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
 
@@ -42,7 +55,7 @@ Page({
   // 去详情
   goDetails:function(){
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails',
+      url: '/page/tabBar/homePages/stayworkDetails/stayworkDetails',
     })
   }
 })

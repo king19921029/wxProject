@@ -18,35 +18,74 @@
     
   </view>
 
-  <!-- list -->
-  <view class='content bg_fff'> 
-    <view bindtap='goDetails' class='com_width list_box'>
-      <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
-      </view>
+  <!-- 有工作量的时候 -->
+  <block wx:if="1==1">
+    <!-- 个人工作量 -->
+    <view wx:if="{{headerBorder}}" class='content bg_fff'> 
+      <view bindtap='goDetails' class='com_width list_box'>
+        <view class='list'>
+          <text class='list_title'>姓名：</text>
+          <text class='list_data'>个人工作量</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>项目名称：</text>
+          <text class='list_data'></text>
+        </view>
 
-      <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
-      </view>
+        <view class='list'>
+          <text class='list_title'>劳务公司：</text>
+          <text class='list_data'></text>
+        </view>
 
-      <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
-      </view>
+        <view class='list'>
+          <text class='list_title'>班组：</text>
+          <text class='list_data'></text>
+        </view>
 
-      <view class='list'>
-        <text class='list_title'>姓名:</text>
-        <text class='list_data'>李先生</text>
+        <view class='list'>
+          <text class='list_title'>年月：</text>
+          <text class='list_data'></text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>工作量：</text>
+          <text class='list_data'></text>
+        </view>
       </view>
+      <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
     </view>
+    <!-- 班组工作量 -->
+    <view wx:else class='content bg_fff'> 
+      <view bindtap='goDetails' class='com_width list_box'>
+        <view class='list'>
+          <text class='list_title'>项目名称：</text>
+          <text class='list_data'>班组工作量</text>
+        </view>
 
-    <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
-  </view>
+        <view class='list'>
+          <text class='list_title'>劳务公司：</text>
+          <text class='list_data'></text>
+        </view>
 
-  <view class='list_none'>
-    <view>没有列表的时候</view>
+        <view class='list'>
+          <text class='list_title'>班组：</text>
+          <text class='list_data'></text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>年月：</text>
+          <text class='list_data'></text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>工作量：</text>
+          <text class='list_data'></text>
+        </view>
+      </view>
+
+      <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
+    </view>
+  </block>
+  <!-- 无工作量的时候 -->
+  <view wx:else class='list_none'>
     <image src="/image/none_record.png"></image>
     <view>您目前无共工资确认记录</view>
   </view>

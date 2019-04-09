@@ -56,6 +56,7 @@
 }
 .list{
   padding: 10rpx 0; 
+  font-size: 28rpx;
 }
 .list_title{
   color: #666666;

@@ -52,7 +52,7 @@
   padding: 30rpx 0;
 }
 .left_view .color_gray{
-  font-size: 28rpx;
+  font-size: 26rpx;
 }
 .yes{
   margin-right: 4%;
@@ -60,7 +60,7 @@
 }
 .font_w{
   font-weight: 400;
-  font-size: 32rpx;
+  font-size: 34 rpx;
 }
 .no{
   margin-right: 1%;
@@ -71,4 +71,8 @@
   width: 48rpx;
   height: 48rpx;
   transform:scale(.6);
+}
+.addColor{
+  color: #c8c8cd;
+  margin-right: 20rpx;
 }

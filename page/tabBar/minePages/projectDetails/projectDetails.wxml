@@ -1,0 +1,36 @@
+<view class='box'>
+  <view class='header bg_blue'>
+    <view class='com_width'>
+      <view class='header_title'>中间三局铁路项目部</view>
+      <view class='class_name'>班组组长：郑成功</view>
+      <text class='status'>今日不上班</text>
+    </view>
+  </view>
+
+  <view class='content'>
+    <view class='list_box bg_fff'>
+      <view class='com_width list display_flex'>
+        <view>项目所在地：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+      <view class='com_width list display_flex'>
+        <view>班组名称：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+      <view class='com_width list display_flex'>
+        <view>劳务公司：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+      <view class='com_width list display_flex'>
+        <view>劳动合同：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+      <view class='com_width list display_flex'>
+        <view>安全考试：</view>
+        <view>北京阿斯利康千万路口情</view>
+      </view>
+    </view>
+  </view>
+
+  <view class='bg_blue com_footer_btn'>今日上班</view>
+</view>

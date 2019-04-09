@@ -1,0 +1,62 @@
+.header{
+  display: flex;
+  padding: 35rpx 0;
+}
+.header_title{
+  font-size: 34rpx;
+  font-weight: 500;
+}
+.class_name{
+  font-size: 26rpx;
+  padding: 20rpx 0 0 0;
+  line-height: 1;
+}
+/* 菜单 */
+.tab{
+  border-bottom: 1px solid #e5e5e5;
+}
+.tab view{
+  width: 50%;
+  text-align: center;
+  line-height: 1;
+  padding: 27rpx 0;
+}
+.add_border{
+  color: #2e95ff;
+  border-bottom: 1px solid #2e95ff;
+}
+/* content */
+.content{
+  margin-top: 35rpx;
+}
+/* 基本情况 */
+.list{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 25rpx 0;
+}
+/* 人员 */
+.class_per_box{
+  padding: 15rpx 0 0 0;
+}
+
+.photo{
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: #90baeb;
+  margin: 0 18rpx 0 4%;
+}
+.per_box{
+  border-bottom: 1px solid #e5e5e5;
+  width: 83%;
+  padding: 16rpx 0;
+}
+.per_box .color_gray{
+  font-size: 26rpx;
+}
+/* footer */
+.com_footer_btn{
+  position: fixed;
+  bottom: 5%;
+  left: 0;
+}

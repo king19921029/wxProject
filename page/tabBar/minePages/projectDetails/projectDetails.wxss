@@ -1,0 +1,24 @@
+.header{
+  display: flex;
+  padding: 25rpx 0;
+}
+.header_title{
+  font-size: 34rpx;
+  font-weight: 500;
+}
+.class_name{
+  font-size: 26rpx;
+  padding: 4rpx 0;
+}
+.status{
+  background: #fff;
+  color: #000;
+  font-size: 22rpx;
+  border-radius: 18rpx;
+  padding: 0 20rpx;
+}
+/* content */
+.list{
+  border-bottom: 1px solid #e5e5e5;
+  padding: 25rpx 0;
+}

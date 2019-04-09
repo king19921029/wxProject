@@ -47,8 +47,8 @@
   </view>
 
   <!-- 我加入的项目 -->
-  <view wx:if="{{headerBorder}}" class='my_add_project'>
-    <view class='content bg_fff'>
+  <view wx:if="{{!headerBorder}}" class='my_add_project'>
+    <view class='content bg_fff' bindtap='dayTap'>
       <view class='display_flex com_width com_list'>
         <text class='status_text bg_gray'>今日上班</text>
         <view class='big_font'>中间三局铁路项目部</view>
@@ -76,35 +76,6 @@
 
       <view class='display_flex btn_box'>
         <view class='bg_blue'>今日上班</view>
-        <view class='btn_box_border'>退出班组</view>
-      </view>
-    </view>
-
-    <view class='content bg_fff'>
-      <view class='display_flex com_width com_list'>
-        <text class='status_text bg_blue'>今日上班</text>
-        <view class='big_font'>中间三局铁路项目部</view>
-      </view>
-
-      <view class='com_width com_list'>
-        <text class='color_gray'>项目所在地：</text> <text>北京三环某个街道</text>
-      </view>
-
-      <view class='com_width com_list'>
-        <text class='color_gray'>劳务公司：</text> <text>北京三环某个公司</text>
-      </view>
-
-      <view class='com_width com_list'>
-        <text class='color_gray'>所在班组：</text> <text>霍志明班组</text>
-      </view>
-
-      <view class='com_width com_list'>
-        <text class='color_gray'>劳动合同：</text> <text class='color_blue'>我的合同</text>
-      </view>
-
-      <view class='display_flex btn_box'>
-        <!-- <view class='bg_blue'>上传合同</view> -->
-        <view class='btn_box_border'>退出班组</view>
       </view>
     </view>
   </view>
@@ -128,9 +99,8 @@
         <text class='color_gray'>所在班组：</text> <text>霍志明班组</text>
       </view>
 
-      <view class='display_flex btn_box'>
+      <view bindtap='addTap' class='display_flex btn_box'>
         <view class='bg_blue'>添加人员</view>
-        <view class='btn_box_border'>删除班组</view>
       </view>
     </view>
   </view>
