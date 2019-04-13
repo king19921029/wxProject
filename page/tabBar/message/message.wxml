@@ -46,7 +46,7 @@
     </view>
   </view>
   <!-- 招聘信息 -->
-  <view wx:else class='recruit_box' bindtap='zpDetails'>
+  <view wx:else class='recruit_box'>
     <view class='bor_bot'>
       <view class='recruit_search display_flex com_width'>
         <view class='color_blue' bindtap='goCity'>
@@ -60,7 +60,7 @@
       </view>
     </view >
     <!-- list -->
-    <view class='recruit_list bg_fff'>
+    <view bindtap='zpDetails' class='recruit_list bg_fff'>
       <view class='list_content'>
         <view class='list_content_title'>中建二局铁路项目部招聘前端100名</view>
         <view class='color_gray com_margin_top'>北京市昌平区 | 北京三环工程有限公司</view>
@@ -72,7 +72,7 @@
       </view>
     </view>
 
-    <view class='recruit_list bg_fff'>
+    <view bindtap='zpDetails' class='recruit_list bg_fff'>
       <view class='list_content'>
         <view class='list_content_title'>中建二局铁路项目部招聘前端100名</view>
         <view class='color_gray com_margin_top'>北京市昌平区 | 北京三环工程有限公司</view>

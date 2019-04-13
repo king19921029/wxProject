@@ -1,7 +1,8 @@
 {
   "pages": [
-    "page/tabBar/mine/mine",
     "page/tabBar/home/home",
+    "page/tabBar/mine/mine",
+    
     "page/tabBar/homePages/serachPage/serachPage",
     "page/tabBar/message/message",
     

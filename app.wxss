@@ -5,7 +5,7 @@
 
 /* box common */
 .box{
-  font-size: 30rpx;
+  font-size: 28rpx;
 }
 /* 浮层 */
 .box_block{
