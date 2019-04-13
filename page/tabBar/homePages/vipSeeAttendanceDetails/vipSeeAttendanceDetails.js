@@ -2,6 +2,7 @@ var app = getApp();
 Page({
   data: {
     selectStatus: 0,
+    groupId:"4001201904100002001",
     tabData:{},//表格数据
     monthData:{},//月份数据
     personData:{},//人员数据
@@ -11,11 +12,12 @@ Page({
   },
   onShow: function () {
     var that = this;
-    // 表格数据
-    app.wxRequest("gongguan/api/wechat/myGroupAttendanceToPerson",
-      { groupPersonId: "", attendanceId: "4034201904010004002", month: "", page:""},
+    var groupId = that.data.groupId;
+    // 表格数据groupId、month、page、personId
+    app.wxRequest("gongguan/api/wechat/queryGroupPersonMonthAttendance",
+      { groupId: groupId, month: "", page: "",personId:""},
       "post", function (res) {
-        console.log(res.data.data.t[0])
+        console.log(res.data.data)
         if (res.data.code == 0) {
           that.setData({
             tabData: res.data.data
@@ -25,8 +27,8 @@ Page({
         }
     })
     // 月份
-    app.wxRequest("gongguan/api/wechat/myGroupAttendanceMonth",
-      { groupId: "1" },
+    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceMonth",
+      { groupId: groupId },
       "post", function (res) {
         console.log(res.data)
         if (res.data.code == 0) {
@@ -38,8 +40,8 @@ Page({
         }
     })
     // 所有人员
-    app.wxRequest("gongguan/api/wechat/myGroupAttendancePerson",
-      { groupId: "1" },
+    app.wxRequest("gongguan/api/wechat/queryGroupPerson",
+      { groupId: groupId  },
       "post", function (res) {
         console.log(res.data.data)
         if (res.data.code == 0) {
@@ -49,7 +51,7 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   onHide: function () {
 

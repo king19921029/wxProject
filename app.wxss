@@ -95,6 +95,18 @@
 }
 
 /*开始---- 通用下拉框 */
+.work_select_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.work_select_header view{
+  padding: 25rpx 0;
+  width: 33.3%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .border_bottom{
   border-bottom: 1rpx solid #efeff4;
 }

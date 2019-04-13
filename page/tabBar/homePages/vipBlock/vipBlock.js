@@ -12,18 +12,18 @@ Page({
   onShow: function () {
     var that = this;
     // 班组考勤
-    // app.wxRequest("gongguan/api/wechat/myGroupAttendance",
-    //   {},
-    //   "post", function (res) {
-    //     console.log(res.data.data.t[0])
-    //     if (res.data.code == 0) {
-    //       that.setData({
-    //         attendanceData: res.data.data
-    //       })
-    //     } else {
-    //       app.showLoading(res.data.msg, "none");
-    //     }
-    // })
+    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceToProject",
+      {},
+      "post", function (res) {
+        console.log(res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            attendanceData: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
 
     // 班组查看工作量（projectId）
     app.wxRequest("gongguan/api/wechat/groupQuantity",
@@ -44,7 +44,7 @@ Page({
             }
           ]
         }
-        console.log(res.data.data)
+        // console.log(res.data.data)
         if (res.data.code == 0) {
           that.setData({
             workData: data

@@ -40,7 +40,7 @@
       <view class='tab_content'>晚</view>
     </view>
 
-    <view wx:for="{{allData.page.t}}" wx:item="item" wx:key="" class='com_tab_title'>
+    <view wx:for="{{allData.t}}" wx:item="item" wx:key="" class='com_tab_title'>
       <view class='tab_content overflow'>{{item.clockTime}}</view>
       <view class='tab_content'>{{item.classNum}}</view>
       <view class='tab_content'>{{item.clockStatus}}</view>
