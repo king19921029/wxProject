@@ -1,0 +1,46 @@
+.header{
+  padding: 29rpx 0;
+}
+.header view{
+  line-height: 1;
+}
+.work_title{
+  font-size: 36rpx;
+  font-weight: 400;
+}
+.pic{
+  font-size: 34rpx;
+  color: #fa6c03;
+  padding: 28rpx 0;
+}
+.com_titles{
+  padding: 28rpx 0;
+}
+/* list */
+.list_box{
+  padding: 10rpx 0;
+}
+.list{
+  padding: 10rpx 0; 
+  font-size: 28rpx;
+}
+/* 岗位要求 */
+.com_padding{
+  padding: 35rpx 0;
+  line-height: 50rpx;
+}
+.footer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 90rpx;
+  font-size: 34rpx;
+  font-weight: 400;
+}
+.footer text{
+  margin-right: 10rpx;
+}

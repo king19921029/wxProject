@@ -1,6 +1,9 @@
 <view class='box'>
   <view class='header bg_fff'>
-    <view class='search_box com_width'>搜索</view>
+    <view bindtap='goSerach' class='search_box display_flex com_width'>
+      <icon size='14' type='search'></icon> 
+      搜索
+    </view>
     
     <view class='border_bottom'>
       <view class='select_header'>
@@ -41,7 +44,7 @@
     <block wx:if="{{selectStatus == 3}}">
       <view>全部</view>
       <view wx:for="{{classData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
-        {{item.labourCompanyName}}
+        {{item.groupName}}
       </view>
     </block>
   </view>

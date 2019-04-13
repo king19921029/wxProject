@@ -4,22 +4,32 @@
     <view class='content bg_fff'>
       <view bindtap='goDetails' class='com_width list_box'>
         <view class='list'>
-          <text class='list_title'>姓名:</text>
+          <text class='list_title'>项目名称：</text>
           <text class='list_data'>李先生</text>
         </view>
 
         <view class='list'>
-          <text class='list_title'>姓名:</text>
+          <text class='list_title'>劳务公司：</text>
           <text class='list_data'>李先生</text>
         </view>
 
         <view class='list'>
-          <text class='list_title'>姓名:</text>
+          <text class='list_title'>班组：</text>
           <text class='list_data'>李先生</text>
         </view>
 
         <view class='list'>
-          <text class='list_title'>姓名:</text>
+          <text class='list_title'>应发工资：</text>
+          <text class='list_data'>李先生</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>扣款：</text>
+          <text class='list_data'>李先生</text>
+        </view>
+
+        <view class='list'>
+          <text class='list_title'>实发工资：</text>
           <text class='list_data'>李先生</text>
         </view>
       </view>

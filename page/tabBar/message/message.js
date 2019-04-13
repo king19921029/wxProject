@@ -30,5 +30,18 @@ Page({
       url: '/page/tabBar/messagePages/city/city',
     })
   },
+  // 公告详情
+  ggDetails:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/messagePages/ggDetails/ggDetails',
+    })
+  },
+  // 招聘详情
+  zpDetails:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/messagePages/zpDetails/zpDetails',
+    })
+  },
+
   
 })

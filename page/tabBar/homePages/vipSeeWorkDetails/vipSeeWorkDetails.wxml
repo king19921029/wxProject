@@ -1,0 +1,104 @@
+<view class='box'>
+  <view class='header border_top bg_fff'>
+   
+    <view class='border_bottom'>
+      <view class='work_select_header'>
+        <view bindtap='peojectTap'>
+          <text class='{{selectStatus == 1 ?"add_class":""}}'>月份</text>
+          <image wx:if="{{selectStatus == 1}}" class='tan_top' src='/image/top_tan.png'></image>
+          <image wx:else class='tan' src='/image/tan.png'></image>
+        </view>
+        <view bindtap='companyTap'>
+          <text class='{{selectStatus == 2 ?"add_class":""}}'>班组人员选择</text>
+          <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
+          <image wx:else class='tan' src='/image/tan.png'></image>
+        </view>
+        <view bindtap='classTap'>
+          <text class='{{selectStatus == 3 ?"add_class":""}}'>状态</text>
+          <image wx:if="{{selectStatus == 3}}" class='tan_top' src='/image/top_tan.png'></image>
+          <image wx:else class='tan' src='/image/tan.png'></image>
+        </view>
+      </view>
+    </view>
+   
+  </view>
+
+  <!-- select -->
+  <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
+    <block wx:if="{{selectStatus == 1}}">
+      <view>全部</view>
+      <view wx:for="{{headerDate}}" wx:item="item" wx:key="">{{item}}</view>
+    </block>
+    <block wx:if="{{selectStatus == 2}}">
+      <view>全部</view>
+      <view wx:for="{{perData}}" wx:item="item" wx:key="">{{item.userName}}</view>
+    </block>
+    <block wx:if="{{selectStatus == 3}}">
+      <view>全部</view>
+      <view>已确认</view>
+    </block>
+  </view>
+
+   <!-- list -->
+  <view wx:else class='content bg_fff'>
+    <view class='com_width list_box'  wx:for="{{workData.t}}" wx:item="item" 
+    wx:key="">
+        <view class='list'>
+          <text class='list_title'>项目名称：</text>
+          <text class='list_data'>{{item.projectName}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>劳务公司：</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>班组：</text>
+          <text class='list_data'>{{item.groupName}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>工作总量：</text>
+          <text class='list_data'>{{item.quantity}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>状态：</text>
+          <text class='list_data'>{{item.status}}</text>
+        </view>
+      </view>
+  </view>
+
+  <view class='vip_title'>班组明细</view>
+  <!-- 表格 -->
+  <view>
+    <view class='com_tab_title tab_title'>
+      <view class='first_checkbox'>
+      <label class="checkboxs"> 
+        <checkbox></checkbox>
+      </label>
+      </view>
+      <view>姓名</view>
+      <view>年月</view>
+      <view>子项</view>
+      <view>种类</view>
+      <view>工作量(m³)</view>
+      <view class='last_child'>状态</view>
+    </view>
+    
+    <view wx:for="{{detailsData.t}}" wx:item="" wx:key="" class='com_tab_title'>
+      <view class='first_checkbox'>
+        <label class="checkboxs"> 
+          <checkbox></checkbox>
+        </label>
+      </view>
+      <view>{{item.userName}}</view>
+      <view>{{item.startDate}}</view>
+      <view>{{item.subPro}}</view>
+      <view>{{item.workTypeName}}</view>
+      <view>{{item.quantity}}</view>
+      <view class='last_child'>{{item.status}}</view>
+    </view>
+
+
+  </view>
+
+  <view class='com_width bg_blue all_yes'>确定</view>
+</view>

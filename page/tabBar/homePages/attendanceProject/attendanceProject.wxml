@@ -3,19 +3,19 @@
     <view class='time_box'>{{titleData.month}}考勤明细</view>
     <view class='header_title'>
       <view>
-        <text class='fa color_1 calendar-check-o'></text> 
+        <text class='fa color_1 fa-calendar-check-o'></text> 
         <view>正常:{{titleData.normalNumStr}}</view>
       </view>
       <view>
-        <text class='fa color_2 calendar-times-o'></text>
+        <text class='fa color_2 fa-calendar-times-o'></text>
         <view>异常:{{titleData.errorNum}}</view>
       </view>
       <view>
-         <text class='fa color_3 fa-bar-chart'></text> 
+        <text class='fa color_3 fa-sun-o'></text> 
         <view>白班:{{titleData.daysNum}}</view>
       </view>
       <view>
-        <text class='fa color_4 fa-bar-chart'></text> 
+        <text class='fa color_4 fa-star'></text> 
         <view>夜班:{{titleData.nightNum}}</view>
       </view>
 

@@ -12,17 +12,22 @@
     </view>
 
      <view class='list'>
-      <text>应发工资：</text>
+      <text>实发工资：</text>
       <text>7000</text>
     </view>
 
      <view class='list'>
-      <text>应发工资：</text>
+      <text>扣款：</text>
       <text>7000</text>
     </view>
 
-     <view class='list'>
-      <text>应发工资：</text>
+    <view class='list'>
+      <text>欠发工资：</text>
+      <text>7000</text>
+    </view>
+
+    <view class='list'>
+      <text>累计欠发：</text>
       <text>7000</text>
     </view>
   </view>

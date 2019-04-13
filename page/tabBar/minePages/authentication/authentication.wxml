@@ -2,9 +2,15 @@
   <view class='margin_top header bg_fff'>
     <view class='com_title com_width'>上传本人头像</view>
     <view class='photo_view padding_bottom display_flex com_width'>
-      <view class='add_view'>
-        <image src='/image/add_icon.png'></image>
-        <view class='color_gray'>点击拍照上传头像</view>
+      <view bindtap='photoChooseImage' class='add_view'>
+        <block wx:if="{{imageP == ''}}">
+          <image class='icon' src='/image/add_icon.png'></image>
+          <view class='color_gray'>点击拍照上传头像</view>
+        </block>
+        <block wx:else>
+          <image class='photo' src='{{imageP}}'></image>
+        </block>
+        
       </view>
       <view class='photo_msg'>
         <view>注：采集人像供考勤机智能识别，为了你的正常考勤，请拍摄自己的头像上传。</view>
@@ -14,13 +20,23 @@
   <view class='content bg_fff margin_top'>
     <view class='com_title com_width'>上传证件照</view>
     <view class='photo_view display_flex com_width'>
-      <view class='add_view'>
-        <image src='/image/add_icon.png'></image>
-        <view class='color_gray'>点击上传正面证件照</view>
-      </view>
-      <view class='add_view'>
-        <image src='/image/add_icon.png'></image>
-        <view class='color_gray'>点击上传反面证件照</view>
+      <view bindtap='idCardChooseImageZ' class='add_view'>
+        <block wx:if="{{imageZ == ''}}">
+          <image class='icon' src='/image/add_icon.png'></image>
+          <view class='color_gray'>点击上传正面证件照</view>
+        </block>
+        <block wx:else>
+          <image class='photo' src='{{imageZ}}'></image>
+        </block>
+      </view> 
+      <view bindtap='idCardChooseImageF' class='add_view'>
+        <block wx:if="{{imageF == ''}}">
+          <image class='icon' src='/image/add_icon.png'></image>
+          <view class='color_gray'>点击上传反面证件照</view>
+        </block>
+        <block wx:else>
+          <image class='photo' src='{{imageF}}'></image>
+        </block>
       </view>
     </view> 
     <view class='com_width z_msg color_gray'>

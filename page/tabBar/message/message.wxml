@@ -12,7 +12,7 @@
     
   </view>
   <!-- 公告 -->
-  <view wx:if="{{headerBorder}}" class='notice_box'>
+  <view wx:if="{{headerBorder}}" class='notice_box' bindtap='ggDetails'>
     <view class='notice_list bg_fff'>
       <view class='com_width'>
         <view class='notice_list_title'>【行政】关于海淀区天气的问题规格要求公告</view>
@@ -46,7 +46,7 @@
     </view>
   </view>
   <!-- 招聘信息 -->
-  <view wx:else class='recruit_box'>
+  <view wx:else class='recruit_box' bindtap='zpDetails'>
     <view class='bor_bot'>
       <view class='recruit_search display_flex com_width'>
         <view class='color_blue' bindtap='goCity'>

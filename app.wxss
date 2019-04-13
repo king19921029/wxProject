@@ -1,6 +1,7 @@
-
+/* transform: scale(1.5, 1.5); */
 /* border #efeff4 */
 /* blue  #2e96ff */
+/*  */
 
 /* box common */
 .box{
@@ -19,6 +20,7 @@
   align-items: center;
   justify-content: center;
 }
+
 .border_top{
   border-top: 1rpx solid #efeff4;
 }

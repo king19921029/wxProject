@@ -1,0 +1,13 @@
+
+<view class='login_box'>
+  <image class='home_img' src='/image/home.png'></image>
+  <view class='content'>
+    <image class='logo' src="/image/logo.png"></image>
+    <view>
+      <view>智工在线</view>
+      <view>ZhiGong Online</view>
+    </view>
+  </view> 
+
+  <button bindgetuserinfo="getCode" open-type="getUserInfo" class='com_width bg_blue'>微信授权登录</button>
+</view>

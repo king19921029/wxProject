@@ -7,11 +7,11 @@
         <text>工数：20个</text>
       </view>
       <view class='day_f'>
-        <text class='fa color_2 fa-bar-chart'></text> 
+        <text class='fa color_2 fa-sun-o'></text> 
         <text>白班：10天</text>
       </view>
       <view>
-        <text class='fa color_blue fa-bar-chart'></text> 
+        <text class='fa color_blue fa-star'></text> 
         <text>夜班：20天</text>
       </view>
     </view>

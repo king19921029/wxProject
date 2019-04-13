@@ -2,8 +2,8 @@
   <view class='content bg_fff'>
     <view class='bor_bottom'>
       <view class='list com_width display_flex'>
-        <view class="icon_box color_1">
-          <text class="fa fa-bell-o"></text>       
+        <view class="icon_box">
+          <text></text>       
         </view>
          <view class='font_box overflow'>
           <view>系统消息</view>
@@ -16,8 +16,8 @@
 
     <view class='bor_bottom'>
       <view class='list com_width display_flex'>
-        <view class="icon_box color_2">
-          <text class="fa fa-vcard-o"></text>       
+        <view class="icon_box">
+          <text></text>       
         </view>
         <view class='font_box overflow'>
           <view>实名认证提醒</view>
@@ -31,8 +31,8 @@
     <view class='bor_bottom'>
       <view class='list com_width display_flex'>
 
-        <view class="icon_box color_3">
-          <text class="fa fa-folder-open-o"></text>       
+        <view class="icon_box">
+          <text></text>       
         </view>
         <view class='font_box overflow'>
           <view>项目提醒</view>
@@ -45,8 +45,8 @@
 
     <view class='bor_bottom'>
       <view class='list com_width display_flex'>
-        <view class="icon_box color_4">
-          <text class="fa fa-pencil-square-o"></text>       
+        <view class="icon_box">
+          <text></text>       
         </view>
         <view class='font_box overflow'>
           <view>考试提醒</view>

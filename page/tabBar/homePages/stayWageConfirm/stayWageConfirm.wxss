@@ -31,11 +31,14 @@
 .headers text{
   display:block;
   padding: 24rpx 5rpx;
-  width: 120rpx;
+  /* width: 120rpx; */
 }
 .news_box{
-  padding: 29rpx 0;
+  height: 92rpx;
   font-size: 22rpx;
+  display: flex;
+  justify-content:center;
+  align-items: center;
 }
 .news{
   padding: 0;

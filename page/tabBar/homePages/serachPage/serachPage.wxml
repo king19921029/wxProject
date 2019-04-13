@@ -1,0 +1,21 @@
+<view class='box'>
+  <!-- 搜索框 -->
+  <view class='search_box'>
+    <view class='display_flex bg_fff'>
+      <icon type='search' size='14'></icon>
+      <input placeholder='搜索'></input>
+    </view>
+  </view>
+
+  <view class='content bg_fff'>
+    <view class='com_width titles '>历史搜索</view>
+    <view class='com_width display_flex search_font'>
+      <view>肥牛</view>
+      <view>奶茶</view>
+      <view>肥牛</view>
+      <view>奶茶</view>
+      <view>肥牛</view>
+      <view>奶茶</view>
+    </view>
+  </view> 
+</view>

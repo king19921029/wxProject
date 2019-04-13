@@ -8,6 +8,10 @@
   font-size: 28rpx;
   color: #b2b2b2;
   border-radius: 8rpx;
+  justify-content: center;
+}
+.search_box icon{
+  margin-right: 5rpx;
 }
 
 /* content */

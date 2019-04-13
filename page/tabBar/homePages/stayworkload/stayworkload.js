@@ -1,6 +1,7 @@
 var app =getApp()
 Page({
   data: {
+    vipDetails:{},//班组工作量
     headerBorder:true,//header添加border
     blockIsShow:true,//浮层
   },
@@ -12,14 +13,30 @@ Page({
   },
   onShow: function () {
     var that = this;
-    // 我的项目考勤列表
+    //班组工作量待办
     app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrim",
       {},
       "post", function (res) {
-        console.log(res);
+        var data = {
+          "total": "1",
+          "t": [
+            {
+              "groupName": "大班组A", 
+                "quantity": "122.0", 
+                "labourCompanyId": "4045201903280003005", 
+                "labourCompanyName": "小程序", 
+                "groupId": "1", 
+                "projectName": "小程序", 
+                "projectId": "4034201904010004001", 
+                "startDate": "2019年04月" 
+            }
+          ]
+        }
+
+        console.log(res.data.data);
         if (res.data.code == 0) {
           that.setData({
-            peojectLIst: res.data.data
+            vipDetails: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
@@ -53,9 +70,18 @@ Page({
     })
   },
   // 去详情
-  goDetails:function(){
+  goDetails:function(e){
+    let id = e.currentTarget.datset.groupid
+    console.log(id)
     wx.navigateTo({
-      url: '/page/tabBar/homePages/stayworkDetails/stayworkDetails',
+      url: '/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=' + id,
+    })
+  },
+  // 去详情
+  classDetails: function (e) {
+    let id = e.currentTarget.dataset.groupid
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/stayVipworkDetails/stayVipworkDetails?groupId='+id,
     })
   }
 })

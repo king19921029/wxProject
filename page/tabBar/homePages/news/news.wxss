@@ -8,16 +8,18 @@
 }
 .icon_box{
   height: 100rpx;
-  width: 100rpx;
-  border-radius: 50%;
+  width: 20rpx;
   color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 30rpx;
+  margin-right: 20rpx;
 }
-.icon_box .fa{
-  transform: scale(1.5, 1.5);
+.icon_box text{
+  width: 14rpx;
+  height: 14rpx;
+  background: #3197fb;
+  border-radius: 50%;
 }
 .color_1{
   background: #f1674f;
@@ -41,7 +43,7 @@
 }
 .times{
   position: absolute;
-  top:19%;
+  top:23%;
   right: 0;
 }
 .bor_bottom{

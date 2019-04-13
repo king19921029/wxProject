@@ -48,30 +48,35 @@
 
   <!-- 我加入的项目 -->
   <view wx:if="{{!headerBorder}}" class='my_add_project'>
-    <view class='content bg_fff' bindtap='dayTap'>
+    <view class='content bg_fff' bindtap='dayTap' wx:for="{{addProject.t}}"
+      wx:item="item" wx:key="">
       <view class='display_flex com_width com_list'>
         <text class='status_text bg_gray'>今日上班</text>
-        <view class='big_font'>中间三局铁路项目部</view>
+        <view class='big_font'>{{item.projectName}}</view>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>项目所在地：</text> <text>北京三环某个街道</text>
+        <text class='color_gray'>项目所在地：</text> <text>{{item.groupName}}</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>劳务公司：</text> <text>北京三环某个公司</text>
+        <text class='color_gray'>劳务公司：</text> <text>{{item.groupName}}</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>所在班组：</text> <text>霍志明班组</text>
+        <text class='color_gray'>所在班组：</text> <text>{{item.groupName}}</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>劳动合同：</text> <text>合同未上传</text>
+        <text class='color_gray'>劳动合同：</text> 
+        <text class='color_blue' wx:if="{{item.labourContractId}}">我的合同</text>
+        <text wx:else>合同未上传</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>安全考试：</text> <text>通过</text>
+        <text class='color_gray'>安全考试：</text> 
+        <text wx:if="{{item.isAccredited == 1}}">通过</text>
+        <text wx:else>未参加</text> 
       </view>
 
       <view class='display_flex btn_box'>

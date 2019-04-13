@@ -21,8 +21,8 @@
   <!-- 有工作量的时候 -->
   <block wx:if="1==1">
     <!-- 个人工作量 -->
-    <view wx:if="{{headerBorder}}" class='content bg_fff'> 
-      <view bindtap='goDetails' class='com_width list_box'>
+    <view bindtap='goDetails' wx:if="{{headerBorder}}" class='content bg_fff'> 
+      <view class='com_width list_box'>
         <view class='list'>
           <text class='list_title'>姓名：</text>
           <text class='list_data'>个人工作量</text>
@@ -54,35 +54,38 @@
       <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
     </view>
     <!-- 班组工作量 -->
-    <view wx:else class='content bg_fff'> 
-      <view bindtap='goDetails' class='com_width list_box'>
-        <view class='list'>
-          <text class='list_title'>项目名称：</text>
-          <text class='list_data'>班组工作量</text>
-        </view>
+    <block wx:else>
+      <view  bindtap='classDetails' class='content bg_fff' wx:for='{{vipDetails.t}}'
+        wx:key="" wx:item="item" data-groupid="{{item.groupId}}"> 
+        <view class='com_width list_box'>
+          <view class='list'>
+            <text class='list_title'>项目名称：</text>
+            <text class='list_data'>{{item.projectName}}</text>
+          </view>
 
-        <view class='list'>
-          <text class='list_title'>劳务公司：</text>
-          <text class='list_data'></text>
-        </view>
+          <view class='list'>
+            <text class='list_title'>劳务公司：</text>
+            <text class='list_data'>{{item.labourCompanyName}}</text>
+          </view>
 
-        <view class='list'>
-          <text class='list_title'>班组：</text>
-          <text class='list_data'></text>
-        </view>
+          <view class='list'>
+            <text class='list_title'>班组：</text>
+            <text class='list_data'>{{item.groupName}}</text>
+          </view>
 
-        <view class='list'>
-          <text class='list_title'>年月：</text>
-          <text class='list_data'></text>
+          <view class='list'>
+            <text class='list_title'>年月：</text>
+            <text class='list_data'>{{item.startDate}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>工作量：</text>
+            <text class='list_data'>{{item.quantity}}</text>
+          </view>
         </view>
-        <view class='list'>
-          <text class='list_title'>工作量：</text>
-          <text class='list_data'></text>
-        </view>
+        <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
       </view>
-
-      <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
-    </view>
+    </block>
+    
   </block>
   <!-- 无工作量的时候 -->
   <view wx:else class='list_none'>

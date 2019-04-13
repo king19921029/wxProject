@@ -12,42 +12,21 @@ Page({
   },
   onShow: function () {
     var that = this;
-    // 获取所有项目
-    app.wxRequest("gongguan/api/wechat/myProject",
+    // 获取项目、劳务公司、班组
+    app.wxRequest("gongguan/api/wechat/queryTerm",
       {},
       "post", function (res) {
+        console.log(res.data.data)
         if (res.data.code == 0) {
           that.setData({
-            peojectData: res.data.data
+            peojectData: res.data.data.project,
+            companyData: res.data.data.labourCompany,
+            classData: res.data.data.group,
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
-    // 获取所有劳务公司。参数projectId（选传）
-    app.wxRequest("gongguan/api/wechat/myLabourCompany",
-      {},
-      "post", function (res) {
-        if (res.data.code == 0) {
-          that.setData({
-            companyData: res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
-    // 获取所有班组。参数projectId（选传）
-    app.wxRequest("gongguan/api/wechat/myLabourCompany",
-      {},
-      "post", function (res) {
-        if (res.data.code == 0) {
-          that.setData({
-            classData: res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
+    })
     // 我的项目考勤列表(projectId,labourCompany,groupId,page)
     app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
       {},
@@ -112,6 +91,12 @@ Page({
     })
 
   },
+  // qu搜索
+  goSerach: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/serachPage/serachPage',
+    })
+  }
 
 
 })

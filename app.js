@@ -3,6 +3,7 @@
 App({
   // 全局数据，类似于store
   globalData: {
+    groupId: "4001201904100002001",
     openid: null,
     token:null,
     url: 'http://www.jinbionline.com',
@@ -50,4 +51,5 @@ App({
       icon: types
     });
   },
+  
 })

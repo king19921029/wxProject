@@ -76,7 +76,7 @@
    
   </view>
   <!-- 考勤 -->
-  <view wx:else class='attendance_block bg_fff'>
+  <view wx:elif="{{titleStatus == 1}}" class='attendance_block bg_fff'>
     <view  bindtap='attendanceDtails' wx:for="{{attendanceData.t}}" wx:item="item" 
       wx:key="" class='content'>
       <view class='com_width list_box'>
@@ -102,6 +102,35 @@
         <view class='list'>
           <text class='list_title'>累计工数：</text>
           <text class='list_data'>{{item.classNum}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+   <!-- 工作量 -->
+  <view wx:else class='attendance_block bg_fff'>
+    <view bindtap='attendanceDtails' wx:for="{{workData.t}}" wx:item="item" 
+      wx:key="" class='content'>
+      <view bindtap='goWork' class='see_list'>查看详情</view>
+      <view class='com_width list_box'>
+        <view class='list'>
+          <text class='list_title'>项目名称：</text>
+          <text class='list_data'>{{item.projectName}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>劳务公司：</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>班组：</text>
+          <text class='list_data'>{{item.groupName}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>工作总量：</text>
+          <text class='list_data'>{{item.quantity}}</text>
+        </view>
+        <view class='list'>
+          <text class='list_title'>状态：</text>
+          <text class='list_data'>{{item.status}}</text>
         </view>
       </view>
     </view>
