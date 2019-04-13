@@ -12,5 +12,17 @@ Page({
   onHide: function () {
 
   },
+  // 个人资料
+  goPersonData: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/personData/personData',
+    })
+  },
+  //实名认证
+  goAuthentication: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/authentication/authentication',
+    })
+  },
 
 })

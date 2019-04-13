@@ -16,21 +16,23 @@
   </view>
 
   <view class='content'>
-    <view class='list'>
+    <view bindtap='goPersonData' class='list'>
       <view class='left_view'>
         <view class='font_w'>个人信息</view>
         <view class='color_gray'>完善身份信息，提供更多服务</view>
       </view>
       <text class='fa fa-chevron-right addColor'></text>
     </view>
-     <view class='list'>
+
+    <view bindtap='goAuthentication' class='list'>
       <view class='left_view'>
         <view class='font_w'>证件照片</view>
         <view class='color_gray'>上次证件照片，完成实名认证</view>
       </view>
       <text class='fa fa-chevron-right addColor'></text>
     </view>
-     <view class='list'>
+
+    <view bindtap='goAuthentication' class='list'>
       <view class='left_view'>
         <view class='font_w'>人像照片</view>
         <view class='color_gray'>打卡人像识别，享受智能考勤</view>

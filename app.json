@@ -1,11 +1,12 @@
 {
   "pages": [
+    "page/tabBar/mine/mine",
     "page/tabBar/home/home",
     "page/tabBar/homePages/serachPage/serachPage",
     "page/tabBar/message/message",
     
     "page/tabBar/minePages/myProject/myProject",
-    "page/tabBar/mine/mine",
+   
     "page/tabBar/minePages/authentication/authentication",
     "page/tabBar/login/login",
     "page/tabBar/homePages/vipBlock/vipBlock",
