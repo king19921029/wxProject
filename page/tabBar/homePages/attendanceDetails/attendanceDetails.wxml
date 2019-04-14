@@ -38,6 +38,7 @@
       <view>年月</view>
       <view>出勤天数</view>
       <view>异常天数</view>
+      <view>工数</view>
     </view>
 
     <view id="{{item.id}}" class='com_tab_title' bindtap='listTap' 
@@ -45,6 +46,7 @@
       <view>{{item.month}}</view>
       <view>{{item.normalNum}}</view>
       <view>{{item.errorNum}}</view>
+      <view>12</view>
     </view>
 
   </view>

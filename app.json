@@ -1,6 +1,8 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/login/login",
+    
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
@@ -18,7 +20,7 @@
     "page/tabBar/minePages/myProject/myProject",
    
     "page/tabBar/minePages/authentication/authentication",
-    "page/tabBar/login/login",
+   
     
     "page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails",
     "page/tabBar/homePages/seeWorkload/seeWorkload",
