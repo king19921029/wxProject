@@ -24,5 +24,10 @@ Page({
       url: '/page/tabBar/minePages/authentication/authentication',
     })
   },
-
+  // 修改人像照片
+  goChagngePhoto:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/changePhoto/changePhoto',
+    })
+  }
 })

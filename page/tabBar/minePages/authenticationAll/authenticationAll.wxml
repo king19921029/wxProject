@@ -32,12 +32,16 @@
       <text class='fa fa-chevron-right addColor'></text>
     </view>
 
-    <view bindtap='goAuthentication' class='list'>
+    <view bindtap='goChagngePhoto' class='list'>
       <view class='left_view'>
         <view class='font_w'>人像照片</view>
         <view class='color_gray'>打卡人像识别，享受智能考勤</view>
       </view>
-      <text class='fa fa-chevron-right addColor'></text>
+      <view>
+        <text class='color_blue'>去修改</text>
+        <text class='fa fa-chevron-right addColor'></text>
+      </view>
+      
     </view>
   </view>
 </view>

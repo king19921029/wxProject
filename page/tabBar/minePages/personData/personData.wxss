@@ -1,3 +1,6 @@
+.add_gray{
+  color: #cdcdd2;
+}
 .com_list{
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
@@ -19,7 +22,7 @@
 }
 .list_tab .color_gray{
   font-weight: 400;
-  font-size: 32rpx;
+  font-size: 28rpx;
   margin-right: 10rpx;
 }
 .list_tab .display_flex{
@@ -38,4 +41,7 @@
 
 .content{
   margin-top: 50rpx;
+}
+.fa{
+  margin-left: 10rpx;
 }

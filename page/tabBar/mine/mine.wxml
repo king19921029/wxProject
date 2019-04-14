@@ -1,6 +1,6 @@
 
 
-  <view wx:if="{{!blockIsShow}}" class='box'>
+  <view class='box'>
       <!-- header -->
       <view bindtap='photoTap' class='border_top bg_fff box_shadow'>
         <view class='display_flex com_width headers'>
@@ -90,13 +90,13 @@
       <view class='out bg_fff'>退出</view>
   </view>
   <!-- 实名认证浮层 -->
-  <view wx:else class='box_block'>
+  <view  wx:if="{{blockIsShow}}" class='box_block'>
     <view class='bg_fff block_view'>
       <view class='block_title'>您未实名认证！</view>
       <view class="block_content color_gray">
-        只能看招聘信息,点击进行<text class='add_class'>实名认证></text>
+        只能看招聘信息,点击进行<text bindtap='goAuthentication' class='add_class'>实名认证></text>
       </view>
-      <view class='later_on add_class'>稍后认证</view> 
+      <view bindtap='closeTap' class='later_on add_class'>稍后认证</view> 
     </view>
   </view>
 

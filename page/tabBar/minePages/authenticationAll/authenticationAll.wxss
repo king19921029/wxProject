@@ -74,5 +74,5 @@
 }
 .addColor{
   color: #c8c8cd;
-  margin-right: 20rpx;
+  margin:0 20rpx;
 }

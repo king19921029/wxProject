@@ -58,5 +58,5 @@
       
     </view>
   </view>
-  <view class='footer bg_blue'>下一步</view>
+  <view bindtap='nextTap' class='footer bg_blue'>下一步</view>
 </view>

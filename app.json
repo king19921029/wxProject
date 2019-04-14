@@ -2,6 +2,10 @@
   "pages": [
     "page/tabBar/home/home",
     "page/tabBar/login/login",
+    "page/tabBar/minePages/authentication/authentication",
+    "page/tabBar/mine/mine",
+   
+    
     
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     
@@ -12,14 +16,14 @@
     
     "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
     
-    "page/tabBar/mine/mine",
+    
     
     "page/tabBar/homePages/serachPage/serachPage",
     "page/tabBar/message/message",
     
     "page/tabBar/minePages/myProject/myProject",
    
-    "page/tabBar/minePages/authentication/authentication",
+   
    
     
     "page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails",

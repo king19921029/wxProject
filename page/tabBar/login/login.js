@@ -20,9 +20,17 @@ Page({
             { code: res.code },
             "post", function (res) {
               console.log(res)
-
               if (res.data.code == 0) {
+                app.wxRequest("gongguan/api/wechat/loginΩ",
+                  { code: res.code },
+                  "post", function (res) {
+                    console.log(res)
+                    if (res.data.code == 0) {
 
+                    } else {
+                      app.showLoading(res.data.msg, "none");
+                    }
+                })
               } else {
                 app.showLoading(res.data.msg, "none");
               }

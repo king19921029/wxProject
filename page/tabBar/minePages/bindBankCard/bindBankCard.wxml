@@ -5,7 +5,7 @@
     <view class='card_num'>
       <text class='num'>银行卡号</text>
       <input class='card_input' placeholder='请输入银行卡号'></input>
-      <text>📷</text>
+      <text class='color_gray fa fa-camera'></text>
     </view>
   </view>
   <!-- 信息 -->

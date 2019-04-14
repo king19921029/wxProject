@@ -1,7 +1,7 @@
 var app = getApp();
 Page({
   data: {
-    blockIsShow:false,
+    blockIsShow:true,
     mineData:{},//个人信息
   },
   onLoad: function (options) {
@@ -49,5 +49,11 @@ Page({
       url: '/page/tabBar/minePages/personData/personData',
     })
   },
+  // 稍后认证
+  closeTap:function(){
+    this.setData({
+      blockIsShow:false
+    })
+  }
   
 })
