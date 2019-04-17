@@ -51,7 +51,7 @@ Page({
       // var data = res.data.data;
       if (res.data.code == 0) {
         that.setData({
-          peojectLIst: data
+          peojectLIst: res.data.data
         })
       } else {
         app.showLoading(res.data.msg, "none");
