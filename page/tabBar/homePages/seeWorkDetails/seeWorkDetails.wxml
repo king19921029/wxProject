@@ -29,7 +29,7 @@
   <!-- 工资明细 -->
   <view class='com_width wage_deta'>工资明细</view>
   <!-- 表格 -->
-  <view bindtap='goWageDetails'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view>年月</view>
       <view>子项</view>
@@ -37,33 +37,15 @@
       <view>工程量(m³)</view>
       <view>状态</view>
     </view>
-    <view class='com_tab_title'>
-      <view>2019-03</view>
-      <view>5000</view>
-      <view>500</view>
-      <view>4500</view>
-      <view>未确认</view>
+
+    <view bindtap='goWageDetails' class='com_tab_title'
+      wx:for="{{tabData}}" wx:item="item" wx:key="">
+      <view>{{item.startDate}}</view>
+      <view>{{item.subPro}}</view>
+      <view>{{item.workTypeName}}</view>
+      <view>{{item.classNum}}</view>
+      <view>{{item.status}}</view>
     </view>
-     <view class='com_tab_title'>
-      <view>2019-02</view>
-      <view>5000</view>
-      <view>500</view>
-      <view>4500</view>
-      <view>未确认</view>
-    </view>
-     <view class='com_tab_title'>
-      <view>2019-01</view>
-      <view>5000</view>
-      <view>500</view>
-      <view>4500</view>
-      <view>未确认</view>
-    </view>
-     <view class='com_tab_title'>
-      <view>2019-04</view>
-      <view>5000</view>
-      <view>500</view>
-      <view>4500</view>
-      <view>未确认</view>
-    </view>
+
   </view>
 </view>

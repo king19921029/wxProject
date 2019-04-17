@@ -1,5 +1,6 @@
 .box{
   border-top: 1px solid #efeff4;
+  height: 100vh;
 }
 .header{
   padding: 40rpx 0;
@@ -8,7 +9,4 @@
   font-size: 38rpx;
   font-weight: 400;
   margin-bottom: 15rpx;
-}
-.content{
-  height: 50vh;
 }

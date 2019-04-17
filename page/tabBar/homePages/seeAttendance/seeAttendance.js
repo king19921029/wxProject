@@ -28,17 +28,34 @@ Page({
         }
     })
     // 我的项目考勤列表(projectId,labourCompany,groupId,page)
-    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
+    app.wxRequest("gongguan/api/wechat/salaryList",
       {},
       "post", function (res) {
-        console.log(res);
-        if (res.data.code == 0) {
-          that.setData({
-            peojectLIst: res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
+      console.log(res);
+      var data = {
+        "total": "1",
+        "t": [
+            {
+                "groupName": "大班组A",
+                "labourCompanyId": "4045201903280003005",
+                "normalNum": "10天",
+                "groupId": "4001201904100002001",
+                "labourCompanyName": "小程序劳务公司",
+                "errorNum": "2天",
+                "classNum": "10天",
+                "projectName": "小程序项目",
+                "projectId": "4034201904010004001"
+            }
+        ]
+      }
+      // var data = res.data.data;
+      if (res.data.code == 0) {
+        that.setData({
+          peojectLIst: data
+        })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
     })
   },
   onHide: function () {
@@ -85,9 +102,10 @@ Page({
     }
   },
   // 查看详情
-  goDetails: function () {
+  goDetails: function (e) {
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceDetails/attendanceDetails',
+      url: '/page/tabBar/homePages/attendanceDetails/attendanceDetails?groupId=' + groupId,
     })
    
   },

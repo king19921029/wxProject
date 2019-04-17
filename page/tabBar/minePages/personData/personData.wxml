@@ -17,8 +17,8 @@
     </view>
   </view>
 
-  <view class='content com_list bg_fff' bindtap='go_changePhone'>
-    <view class='display_flex list_tab'>
+  <view class='content com_list bg_fff' >
+    <view bindtap='go_changePhone' class='display_flex list_tab'>
       <view>手机号</view>
       <view class='display_flex com_rigth_view'>
         <text class='color_gray'>18801287297</text>

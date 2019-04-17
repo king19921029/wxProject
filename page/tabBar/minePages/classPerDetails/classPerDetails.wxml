@@ -1,9 +1,10 @@
 <view class='box'>
   <view class='header bg_blue'>
     <view class='com_width'>
-      <view class='header_title'>爱迪生</view>
-      <view class='class_name'>中间三局铁路项目部</view>
-      <text class='status'>今日不上班</text>
+      <view class='header_title'>{{details.projectName}}</view>
+      <view class='class_name'>班组组长：{{details.leaderName}}</view>
+      <text wx:if="{{details.todayWork}}" class='status'>今日上班</text>
+      <text wx:else class='status'>今日不上班</text>
     </view>
   </view>
 
@@ -11,27 +12,25 @@
     <view class='list_box bg_fff'>
       <view class='com_width list display_flex'>
         <view>项目所在地：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view>{{details.projectAddress}}</view>
       </view>
       <view class='com_width list display_flex'>
-        <view>所属班组：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view>班组名称：</view>
+        <view>{{details.groupName}}</view>
       </view>
       <view class='com_width list display_flex'>
-        <view>所属职位：</view>
-        <view>北京阿斯利康千万路口情</view>
-      </view>
-       <view class='com_width list display_flex'>
-        <view>手机号码：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view>劳务公司：</view>
+        <view>{{details.labourCompanyName}}</view>
       </view>
       <view class='com_width list display_flex'>
         <view>劳动合同：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view class='color_blue' wx:if="{{details.attachmentName}}">已上传</view>
+        <view wx:else>未上传</view>
       </view>
       <view class='com_width list display_flex'>
-        <view>安全考试：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view> 安全考试：</view>
+        <view class='gt' wx:if="{{details.isAccredited == '1'}}">通过</view>
+        <view wx:else>未通过</view>
       </view>
     </view>
   </view>

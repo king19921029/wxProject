@@ -94,6 +94,26 @@
   -webkit-box-orient: vertical;
 }
 
+/* 待办确认  全部确认按钮 */
+.one_yes{
+  background: #dfdfe3;
+  color: #000;
+  border:1px solid #bbbbbb;
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius:10rpx; 
+  font-size: 32rpx;
+  margin-top: 35rpx;
+}
+/* 确定 */
+.all_yes{
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius:10rpx; 
+  font-size: 32rpx;
+  margin-top: 50rpx;
+}
+
 /*开始---- 通用下拉框 */
 .work_select_header {
   width: 100%;

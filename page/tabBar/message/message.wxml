@@ -12,37 +12,23 @@
     
   </view>
   <!-- 公告 -->
-  <view wx:if="{{headerBorder}}" class='notice_box' bindtap='ggDetails'>
-    <view class='notice_list bg_fff'>
+  <view wx:if="{{headerBorder}}" class='notice_box' >
+    <view bindtap='ggDetails' class='notice_list bg_fff'
+      wx:for="{{ggData.t}}" wx:item="item" wx:key=""
+      data-id="{{item.id}}">
       <view class='com_width'>
-        <view class='notice_list_title'>【行政】关于海淀区天气的问题规格要求公告</view>
-        <view class='display_flex notice_list_con color_gray'>
-          <view class='display_flex'>
-            <text class='fa fa-user'></text>
-            <text>来源：海淀区政府</text>
-            <text class='fa fa-user time_icon'></text>
-            <text>时间：2019-04-03</text>
+          <view class='notice_list_title'>{{item.title}}</view>
+          <view class='display_flex notice_list_con color_gray'>
+            <view class='display_flex'>
+              <text class='fa fa-user'></text>
+              <text>来源：{{item.sourceName}}</text>
+              <text class='fa fa-user time_icon'></text>
+              <text>时间：{{item.createTime}}</text>
+            </view>
+            <view wx:if="{{item.isRead == '2'}}" class='add_or'>未读</view>
+            <view wx:else class='add_gr'>已读</view>
           </view>
-          <view class='add_or'>未读</view>
-        </view>
       </view>
-
-    </view>
-
-     <view class='notice_list bg_fff'>
-      <view class='com_width'>
-        <view class='notice_list_title'>【行政】关于海淀区天气的问题规格要求公告</view>
-        <view class='display_flex notice_list_con color_gray'>
-          <view class='display_flex'>
-            <text class='fa fa-user'></text>
-            <text>来源：海淀区政府</text>
-            <text class='fa fa-user time_icon'></text>
-            <text>时间：2019-04-03</text>
-          </view>
-          <view class='add_gr'>已读</view>
-        </view>
-      </view>
-
     </view>
   </view>
   <!-- 招聘信息 -->

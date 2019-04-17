@@ -11,16 +11,19 @@ Page({
     
   },
   onShow: function () {
-    // app.wxRequest("gongguan/api/wechat/myProject",
-    //   {},
-    //   "post", function (res) {
-    //     console.log(res)
-    //     if (res.data.code == 0) {
-          
-    //     } else {
-    //       app.showLoading(res.data.msg, "none");
-    //     }
-    // })
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/index",
+      {},
+      "post", function (res) {
+        console.log("首页数据：",res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            indexData:res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
     

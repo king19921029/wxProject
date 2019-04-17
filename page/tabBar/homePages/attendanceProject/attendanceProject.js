@@ -7,7 +7,9 @@ Page({
     groupId: "4001201904100002001",
   },
   onLoad: function (options) {
-   
+   this.setData({
+    id: options.id
+   })
   },
   onShow: function () {
     var that = this;
@@ -18,24 +20,57 @@ Page({
       "post", function (res) {
         console.log(res.data.data)
         if (res.data.code == 0) {
+          var data = {
+            "total": "1",
+            "t": [
+              {
+                "month": "2019-04",
+                "normalNum": "10天",
+                "errorNum": "2天",
+                "id": "4034201904010004002",
+                "daysNum": "2天",
+                "nightNum": "2天"
+            }
+            ]
+          }
+
           that.setData({
-            titleData: res.data.data.t[0]
+            titleData: data.t[0]
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
-    // 某项目考勤明细
+    })
+    // tab数据
     app.wxRequest("gongguan/api/wechat/myAttendanceDetail",
       { id:"4034201904010004002"},
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("tab数据：",res)
         if (res.data.code == 0) {
+
+          var data = {
+            "page": {
+              "total": "1",
+              "t": [
+                {
+                  "noon2": "00:00",
+                  "noon1": "00:00",
+                  "night": "00:00",
+                  "clockStatus": "正常",
+                  "id": "4034201904010004001",
+                  "clockTime": "04-01",
+                  "morning": "00:00"
+                }
+              ]
+            },
+            "userName": "小程序测试用户"
+          }
+
           that.setData({
-            tabData: res.data.data
+            tabData: data.page
           })
           wx.setNavigationBarTitle({
-            title: res.data.data.userName
+            title:data.userName
           })
         } else {
           app.showLoading(res.data.msg, "none");

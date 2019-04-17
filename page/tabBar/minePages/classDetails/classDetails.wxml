@@ -1,8 +1,8 @@
 <view class='box'>
   <view class='header bg_blue'>
     <view class='com_width'>
-      <view class='header_title'>中间三局铁路项目部</view>
-      <view class='class_name'>班组组长：郑成功</view>
+      <view class='header_title'>{{vipMsg.groupName}}</view>
+      <view class='class_name'>所属项目部：{{vipMsg.labourCompanyName}}</view>
     </view>
   </view>
   <!-- 菜单 -->
@@ -16,39 +16,33 @@
     <view wx:if="{{addBoder}}" class='list_box bg_fff'>
       <view class='com_width list display_flex'>
         <view>项目所在地：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view>{{vipMsg.address}}</view>
       </view>
       <view class='com_width list display_flex'>
         <view>劳务公司：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view>{{vipMsg.companyName}}</view>
       </view>
       <view class='com_width list display_flex'>
         <view>班组人数：</view>
-        <view>北京阿斯利康千万路口情</view>
+        <view>{{vipMsg.personNum}}</view>
       </view>
     </view>
     <!-- 成员 -->
-    <view wx:else bindtap='goDetails' class='bg_fff class_per_box'>
-      <view class='display_flex class_per'>
-        <image class='photo' src="/image/icon_home_HL.png"></image>
+    <view wx:else class='bg_fff class_per_box'>
+      <view  bindtap='goDetails' class='display_flex class_per'
+        wx:for="{{classPer.t}}" wx:item="item" wx:key=""
+        data-userid="{{item.userId}}">
+        <image class='photo' src="{{item.headPic}}"></image>
         <view class='per_box'>
           <view>
-            <text>爱迪生</text>
-            <text class='color_gray'>（今日不上班）</text>
+            <text>{{item.userName}}</text>
+            <text wx:if="{{item.status == '0'}}" class='color_gray'>（今日上班）</text>
+            <text wx:else class='color_gray'>（今日不上班）</text>
           </view>
-          <view class='color_gray'>修灯泡</view>
+          <view class='color_gray'>{{item.workName}}</view>
         </view>
       </view>
-      <view class='display_flex class_per'>
-        <image class='photo' src="/image/icon_home_HL.png"></image>
-        <view class='per_box'>
-          <view>
-            <text>爱迪生</text>
-            <text class='color_gray'>（今日不上班）</text>
-          </view>
-          <view class='color_gray'>修灯泡</view>
-        </view>
-      </view>
+      
     </view>
   </view>
 

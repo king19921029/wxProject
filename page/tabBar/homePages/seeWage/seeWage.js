@@ -27,19 +27,35 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 我的项目考勤列表(projectId,labourCompany,groupId,page)
-    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
+    // 详情(projectId,labourCompany,groupId,page)
+    app.wxRequest("gongguan/api/wechat/salaryList",
       {},
       "post", function (res) {
         console.log(res);
+        var data =  {
+          "total": "1",
+          "t": [
+            {
+              "groupName": "大班组A",
+              "deductionSalary": "0.00", 
+              "labourCompanyName": "北京广佳装饰公司丰台总部",
+              "groupId": "4001201904100002001",
+              "realSalary": "32100.00",
+              "id": "4026201904110000019",
+              "projectName": "广佳丰台装饰",
+              "payableSalary": "32100.00"
+            }
+          ]
+        }
+        // var data = res.data.data;
         if (res.data.code == 0) {
           that.setData({
-            peojectLIst: res.data.data
+            peojectLIst: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   onHide: function () {
 
@@ -85,9 +101,10 @@ Page({
     }
   },
   // 查看详情
-  goDetails: function () {
+  goDetails: function (e) {
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails',
+      url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails?groupId=' + groupId,
     })
 
   },

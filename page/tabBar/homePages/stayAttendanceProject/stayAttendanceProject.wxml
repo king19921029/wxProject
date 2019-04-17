@@ -1,18 +1,18 @@
 <view class='box'>
   <view class='headers bg_fff'>
-    <view class='time_box'>{{details.userName}}{{details.month}}考勤明细</view>
+    <view class='time_box'>{{mineData[0].userName}}{{mineData[0].month}}考勤明细</view>
     <view class='header_title'>
       <view>
         <text class='fa color_blue fa-bar-chart'></text> 
-        <text>工数：{{details.classNum}}</text>
+        <text>工数：{{mineData[0].classNum}}</text>
       </view>
       <view class='day_f'>
         <text class='fa color_2 fa-sun-o'></text> 
-        <text>白班：{{details.daysNum}}</text>
+        <text>白班：{{mineData[0].daysNum}}</text>
       </view>
       <view>
         <text class='fa color_blue fa-star'></text> 
-        <text>夜班：{{details.nightNum}}</text>
+        <text>夜班：{{mineData[0].nightNum}}</text>
       </view>
     </view>
   </view>

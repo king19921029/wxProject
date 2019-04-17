@@ -109,15 +109,3 @@ checkbox{
 .com_tab_title :nth-child(6){
   width: 16.5%;
 }
-/* 确定 */
-.all_yes{
-  padding: 20rpx 0;
-  text-align: center;
-  border-radius:10rpx; 
-  font-size: 32rpx;
-  margin-top: 50rpx;
-}
-.yes{
- background: #e0dfe4;
- border: 1rpx solid #bbbbbb;
-}

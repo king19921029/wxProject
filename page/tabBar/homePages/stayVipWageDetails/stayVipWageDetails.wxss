@@ -2,8 +2,3 @@
 .list{
   font-size: 28rpx;
 }
-.one_yes{
-  background: #dfdfe3;
-  color: #000;
-  border:1px solid #bbbbbb;
-}

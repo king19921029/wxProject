@@ -1,9 +1,9 @@
 <view class='box bg_fff'>
   <view class='header com_width'>
-    <view class='titles'>海淀区天气的问题规格要求公告</view>
-    <text class='color_gray'>2018-04-02  maxos</text>
+    <view class='titles'>{{ggData.title}}</view>
+    <text class='color_gray'>{{ggData.createTime}}  {{ggData.sourceName}}</text>
   </view>
-  <view class='content bg_fff'>
-    富文本
+  <view class='content com_width'>
+    {{ggData.content}}
   </view>
 </view>

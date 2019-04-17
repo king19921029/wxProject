@@ -31,18 +31,18 @@
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
       <view>全部</view>
-      <view>北京项目组1</view>
-      <view>北京项目组2</view>
-      <view>北京项目组3</view>
-      <view>北京项目组4</view>
+      <view bindtap='projectSelectTap' wx:for="{{peojectData}}" wx:item="item" wx:key=""
+        data-id="{{item.id}}">
+        {{item.name}}
+      </view>
     </block>
 
     <block wx:if="{{selectStatus == 2}}">
       <view>全部</view>
-      <view>班组1</view>
-      <view>班组2</view>
-      <view>班组3</view>
-      <view>班组4</view>
+      <view bindtap='classSelectTap' wx:for="{{classData}}" wx:item="item" wx:key=""
+        data-id="{{item.id}}">
+        {{item.groupName}}
+      </view>
     </block>
   </view>
 
@@ -51,7 +51,7 @@
     <view class='content bg_fff' bindtap='dayTap' wx:for="{{addProject.t}}"
       wx:item="item" wx:key="">
       <view class='display_flex com_width com_list'>
-        <text class='status_text bg_gray'>今日上班</text>
+        <text wx:if="{{item.todayWork}}" class='status_text bg_gray'>今日上班</text>
         <view class='big_font'>{{item.projectName}}</view>
       </view>
 
@@ -87,24 +87,25 @@
 
   <!-- 我管理的项目 -->
   <view wx:else class='my_project'>
-    <view class='content bg_fff'>
+    <view  class='content bg_fff' wx:for="{{manageProject.t}}"
+      wx:item="item" wx:key="">
       <view class='display_flex com_width com_list'>
-        <view class='big_font'>中间三局铁路项目部</view>
+        <view class='big_font'>{{item.projectName}}</view>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>项目所在地：</text> <text>北京三环某个街道</text>
+        <text class='color_gray'>项目所在地：</text> <text>{{item.address}}</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>劳务公司：</text> <text>北京三环某个公司</text>
+        <text class='color_gray'>劳务公司：</text> <text>{{item.labourCompanyName}}</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>所在班组：</text> <text>霍志明班组</text>
+        <text class='color_gray'>所在班组：</text> <text>{{item.groupName}}</text>
       </view>
 
-      <view bindtap='addTap' class='display_flex btn_box'>
+      <view data-groupid="{{item.groupId}}" bindtap='addTap' class='display_flex btn_box'>
         <view class='bg_blue'>添加人员</view>
       </view>
     </view>

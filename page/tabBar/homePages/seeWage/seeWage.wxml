@@ -59,26 +59,31 @@
       </view>
 
       <view class='list'>
-        <text class='list_title'>劳务公司:</text>
+        <text class='list_title'>劳务公司：</text>
         <text class='list_data'>{{item.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>班组:</text>
+        <text class='list_title'>班组：</text>
         <text class='list_data'>{{item.groupName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>出勤天数:</text>
-        <text class='list_data'>{{item.normalNum}}</text>
+        <text class='list_title'>应发工资：</text>
+        <text class='list_data'>{{item.payableSalary}}</text>
       </view>
-       <view class='list'>
-        <text class='list_title'>异常天数:</text>
-        <text class='list_data'>{{item.errorNum}}</text>
+      <view class='list'>
+        <text class='list_title'>扣款：</text>
+        <text class='list_data'>{{item.deductionSalary}}</text>
       </view>
+      <view class='list'>
+        <text class='list_title'>实发工资：</text>
+        <text class='list_data'>{{item.realSalary}}</text>
+      </view>
+      <view data-groupId="{{item.groupId}}" bindtap='goDetails' class='see_list'>查看详情</view>
     </view>
 
-    <view bindtap='goDetails' class='see_list'>查看详情</view>
+    
   </view>
 
 </view>

@@ -5,37 +5,37 @@
     <view class='com_width list_box'>
       <view class='list'>
         <text class='list_title'>项目名称：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.projectName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>劳务公司：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>班组：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.groupName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>年月：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.date}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>应发工资：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.payableSalary}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>扣款：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.differenceSalary}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>累计实发工资：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.realSalary}}</text>
       </view>
 
     </view>
@@ -44,7 +44,7 @@
 
   <view class='vip_title'>考勤明细</view>
   <!-- 表格 -->
-  <view bindtap='goDetails'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
       <label class="checkboxs"> 
@@ -53,41 +53,28 @@
       </view>
       <view>姓名</view>
       <view>年月</view>
-      <view>班数</view>
-      <view>白班数</view>
-      <view>夜班数</view>
+      <view>应发(元)</view>
+      <view>实发(元)</view>
+      <view>欠发(元)</view>
       <view class='last_child'>状态</view>
     </view>
     
-    <view class='com_tab_title'>
+    <view  bindtap='goDetails' class='com_tab_title'
+      wx:for="{{tabData.t}}" wx:item="item" wx:key="">
       <view class='first_checkbox'>
         <label class="checkboxs"> 
           <checkbox></checkbox>
         </label>
       </view>
-      <view>爱迪生</view>
-      <view>2019-03</view>
-      <view>39</view>
-      <view>20</view>
-      <view>10</view>
-      <view class='last_child'>未确认</view>
-    </view>
-
-    <view class='com_tab_title'>
-      <view class='first_checkbox'>
-        <label class="checkboxs"> 
-          <checkbox></checkbox>
-        </label>
-      </view>
-      <view>五块钱</view>
-      <view>2019-03</view>
-      <view>9</view>
-      <view>22</view>
-      <view>10</view>
-      <view class='last_child'>未确认</view>
+      <view>{{item.userName}}</view>
+      <view>{{item.date}}</view>
+      <view>{{item.payableSalary}}</view>
+      <view>{{item.realSalary}}</view>
+      <view>{{item.differenceSalary}}</view>
+      <view class='last_child'>{{item.status}}</view>
     </view>
 
   </view>
-  <view class='com_width bg_blue all_yes'>全部确认</view>
-  <view class='com_width all_yes one_yes'>确定</view>
+  <view bindtap='confirmBtn' class='com_width bg_blue all_yes'>全部确认</view>
+  <view bindtap='confirmBtn' class='com_width one_yes'>确定</view>
 </view>

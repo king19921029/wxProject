@@ -54,31 +54,39 @@
     <view wx:for="{{peojectLIst.t}}" wx:for-item="item" wx:key=""
      class='com_width list_box'>
       <view class='list'>
-        <text class='list_title'>项目名称:</text>
+        <text class='list_title'>项目名称：</text>
         <text class='list_data'>{{item.projectName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>劳务公司:</text>
+        <text class='list_title'>劳务公司：</text>
         <text class='list_data'>{{item.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>班组:</text>
+        <text class='list_title'>班组：</text>
         <text class='list_data'>{{item.groupName}}</text>
       </view>
 
       <view class='list'>
-        <text class='list_title'>出勤天数:</text>
+        <text class='list_title'>出勤天数：</text>
         <text class='list_data'>{{item.normalNum}}</text>
       </view>
-       <view class='list'>
-        <text class='list_title'>异常天数:</text>
+
+      <view class='list'>
+        <text class='list_title'>异常天数：</text>
         <text class='list_data'>{{item.errorNum}}</text>
       </view>
+
+      <view class='list'>
+        <text class='list_title'>工数：</text>
+        <text class='list_data'>{{item.classNum}}</text>
+      </view>
+
+      <view data-groupId="{{item.groupId}}" bindtap='goDetails' class='see_list'>查看详情</view>
     </view>
 
-    <view bindtap='goDetails' class='see_list'>查看详情</view>
+    
   </view>
 
 </view>

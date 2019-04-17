@@ -11,9 +11,11 @@
     <view class='center_border'></view>
     <view class='right_box' bindtap='youWage'>
       <text class='{{!headerBorder? "addBorder" : "" }}'>班组考勤</text>
-      <view class='news_box {{!headerBorder? "addBorder" : "" }}'>
-        <view class='news'>3</view>
+
+      <view wx:if="{{num.isLeader}}" class='news_box {{!headerBorder? "addBorder" : "" }}'>
+        <view class='news'>{{num.groupAttendanceCount}}</view>
       </view>
+
     </view>
     
   </view>
@@ -21,35 +23,37 @@
   <block wx:if="{{1==1}}">
     <!-- 个人考勤 -->
     <view wx:if="{{headerBorder}}" class='content bg_fff'> 
-      <view bindtap='perDetails' class='com_width list_box'>
+      <view bindtap='perDetails' class='com_width list_box'
+        wx:for="{{mineData}}" wx:item="" wx:key=""
+        data-id="{{item.id}}">
         <view class='list'>
           <text class='list_title'>项目名称:</text>
-          <text class='list_data'>北京三环新城项目</text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'>北京三环新城项目有限公司</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组：</text>
-          <text class='list_data'>某某某</text>
+          <text class='list_data'>{{item.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>姓名：</text>
-          <text class='list_data'>某某某</text>
+          <text class='list_data'>{{item.userName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>年月：</text>
-          <text class='list_data'>2019年2月</text>
+          <text class='list_data'>{{item.month}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班数：</text>
-          <text class='list_data'>80个</text>
+          <text class='list_data'>{{item.classNum}}</text>
         </view>
       </view>
 
@@ -57,30 +61,33 @@
     </view>
     <!-- 班组考勤 -->
     <view wx:else class='content bg_fff'> 
-      <view bindtap='classDetails' class='com_width list_box'>
+      <view bindtap='classDetails' class='com_width list_box'
+        wx:for="{{vipData.t}}" wx:item="item" wx:key=""
+        data-month="{{item.month}}" data-groupid="{{item.groupId}}"
+        data-projectid="{{item.projectId}}">
         <view class='list'>
           <text class='list_title'>项目名称:</text>
-          <text class='list_data'>北京三环新城项目</text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'>北京三环新城项目有限公司</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组：</text>
-          <text class='list_data'>某某某</text>
+          <text class='list_data'>{{item.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>年月：</text>
-          <text class='list_data'>2019年2月</text>
+          <text class='list_data'>{{item.month}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班数：</text>
-          <text class='list_data'>80个</text>
+          <text class='list_data'>{{item.classNum}}</text>
         </view>
       </view>
 

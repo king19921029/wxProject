@@ -12,7 +12,7 @@ Page({
     app.wxRequest("gongguan/api/wechat/queryTerm",
       {},
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("title数据：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             peojectData: res.data.data.project,
@@ -23,19 +23,37 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 我的项目考勤列表(projectId,labourCompany,groupId,page)
-    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
-      {},
+    // 个人工作量列表   (projectId,labourCompany,groupId,page)
+    app.wxRequest("gongguan/api/wechat/myQuantity",
+      { projectId: "", labourCompanyId: "",groupId:"",page:""},
       "post", function (res) {
-        console.log(res);
+        var data = {
+          "total": "1",
+          "t": [
+            {
+              "groupName": "大班组A",
+              "quantity": "122.0",
+              "labourCompanyId": "4045201903280003005",
+              "labourCompanyName": "小程序",
+              "groupId": "4001201904140000001",
+              "projectName": "小程序",
+              "userName": "小程序",
+              "projectId": "4034201904010004001",
+              "startDate": "2019年04月"
+            }
+          ]
+        }
+
+        // var data = res.data.data
+        console.log("工作量列表：",res.data.data);
         if (res.data.code == 0) {
           that.setData({
-            peojectLIst: res.data.data
+            peojectLIst:data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   onHide: function () {
 
@@ -81,9 +99,10 @@ Page({
     }
   },
   //查看详情
-  goDetails: function () {
+  goDetails: function (e) {
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/seeWorkDetails/seeWorkDetails',
+      url: '/page/tabBar/homePages/seeWorkDetails/seeWorkDetails?groupId=' + groupId,
     })
   },
   // qu搜索

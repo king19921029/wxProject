@@ -14,7 +14,9 @@
       <view class="pendingitem" bindtap='goNews'>
         <view class="itemIcon">
           <text class="own-ico fa fa-commenting"></text> 
-          <text class='message-count'>8</text>         
+          <view wx:if="{{indexData.messageCount>0}}" class='message-count'>
+            {{indexData.messageCount}}
+          </view>         
         </view> 
         <view class='itemText'>
           <text class="itemName">消息</text>
@@ -23,14 +25,20 @@
 
       <view class="pendingitem" bindtap='goVipStayAttendance'>
         <view class="itemIcon">
-          <text class="own-ico fa fa-hand-o-up"></text>          
+          <text class="own-ico fa fa-hand-o-up"></text> 
+          <view wx:if="{{indexData.attendanceCount>0}}" class='message-count'>
+            {{indexData.attendanceCount}}
+          </view>         
         </view> 
         <text class="itemName">考勤</text>    
       </view>
 
       <view class="pendingitem" bindtap='goStayWage'>
         <view class="itemIcon itemColor">
-          <text class="own-ico fa fa-credit-card-alt"></text>       
+          <text class="own-ico fa fa-credit-card-alt"></text>  
+          <view wx:if="{{indexData.salaryCount>0}}" class='message-count'>
+            {{indexData.salaryCount}}
+          </view>  
         </view>
         <text class="itemName">工资</text>     
       </view>
@@ -79,6 +87,7 @@
   </view>
   <!-- 今日打卡 -->
   <view class='pending'>
+    <!-- 今日打卡 -->
     <view class='title'>
       <view class='titleContent'>
         <text class="title-ico fa fa-map-marker"></text>
@@ -86,35 +95,34 @@
         <text class='title-date'>2019年3月25日 星期一</text>
       </view>  
     </view>
+    <!-- 项目 -->
     <view class='title attentance'>
       <view class='titleContent'>
         <text class='itemName'>北京三环新城项目</text>
       </view> 
     </view>
-    <view class='attentanceContent'>
-      <view class='attentanceItem'>
-        <view class='left'>
+
+    <view class='content display_flex bg_fff'>
+      <view class='left_view'>
+        
+        <view class='display_flex' wx:for="{{indexData.in}}"
+          wx:item="item" wx:key="">
           <text class='attentanceCome'>进</text>
-          <text class='attentanceTime'>09:24:26</text>
+          <text class='attentanceTime'>{{item}}</text>
         </view>
-        <view class='right'>
+
+      </view>
+      <view class='right_view'>
+        <view class='display_flex' wx:for="{{indexData.out}}"
+          wx:item="item" wx:key="">
           <text class='attentanceOut'>出</text>
-          <text class='attentanceTime'>未打卡</text>
+          <text class='attentanceTime'>{{item}}</text>
         </view>
-      </view>       
+      </view>
     </view>
-    <view class='attentanceContent'>
-      <view class='attentanceItem'>
-        <view class='left'>
-          <text class='attentanceCome'>进</text>
-          <text class='attentanceTime'>未打卡</text>
-        </view>
-        <view class='right'>
-          <text class='attentanceOut'>出</text>
-          <text class='attentanceTime'>18:24:26</text>
-        </view>     
-      </view> 
-    </view>
+
+
+
   </view>
   
 </view>

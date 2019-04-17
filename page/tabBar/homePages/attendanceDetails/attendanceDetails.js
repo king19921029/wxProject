@@ -4,38 +4,41 @@ Page({
     selectStatus: 0,
     tabData:[],//表格数据
     peojectLIst:[],
-    groupId: "4001201904100002001",
+    groupId: "",
   },
   onLoad: function (options) {
-    
+    // this.setData({
+    //   groupId: options.groupId
+    // })
   },
   onShow: function () {
     var that = this;
-    var groupId = that.data.groupId;
-    // 我的项目考勤列表(projectId,labourCompany,groupId,page)
-    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
-      {},
-      "post", function (res) {
-        console.log(res);
-        if (res.data.code == 0) {
-          that.setData({
-            peojectLIst: res.data.data
-          })
-          wx.setNavigationBarTitle({
-            title: res.data.data.t[0].projectName + "考勤汇总"
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
+    var groupId = "4001201904100002001"
+   
     // 项目汇总
     app.wxRequest("gongguan/api/wechat/myAttendanceMonthRecord",
       { groupId: groupId},
       "post", function (res) {
-        console.log(res.data.data.t[0])
+        console.log(res.data.data)
         if (res.data.code == 0) {
+          var data = {
+            "total": "1",
+            "t": [
+              {
+                "month": "2019-04",
+                "normalNum": "10天",
+                "errorNum": "2天",
+                "id": "4034201904010004002",
+                "daysNum": "2天",
+                "nightNum": "2天"
+            }
+            ]
+          }
+
+
+          // var data = res.data.data;
           that.setData({
-            tabData: res.data.data
+            tabData: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
@@ -45,9 +48,10 @@ Page({
   onHide: function () {
 
   },
-  listTap: function () {
+  listTap: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceProject/attendanceProject',
+      url: '/page/tabBar/homePages/attendanceProject/attendanceProject?id=' + id,
     })
   }
 

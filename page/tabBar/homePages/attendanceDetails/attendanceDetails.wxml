@@ -46,7 +46,7 @@
       <view>{{item.month}}</view>
       <view>{{item.normalNum}}</view>
       <view>{{item.errorNum}}</view>
-      <view>12</view>
+      <view>{{item.clasNum}}</view>
     </view>
 
   </view>

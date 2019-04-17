@@ -5,27 +5,27 @@
     <view class='com_width list_box'>
      <view class='list'>
         <text class='list_title'>项目名称:</text>
-        <text class='list_data'>北京三环新城项目</text>
+        <text class='list_data'>{{details.projectName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>劳务公司：</text>
-        <text class='list_data'>北京三环新城项目有限公司</text>
+        <text class='list_data'>{{details.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>班组：</text>
-        <text class='list_data'>某某某</text>
+        <text class='list_data'>{{details.groupName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>年月：</text>
-        <text class='list_data'>2019年2月</text>
+        <text class='list_data'>{{details.month}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>班数：</text>
-        <text class='list_data'>80个</text>
+        <text class='list_data'>{{details.classNum}}</text>
       </view>
     </view>
 
@@ -33,7 +33,7 @@
 
   <view class='vip_title'>考勤明细</view>
   <!-- 表格 -->
-  <view bindtap='goDetails'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
       <label class="checkboxs"> 
@@ -48,35 +48,23 @@
       <view class='last_child'>状态</view>
     </view>
     
-    <view class='com_tab_title'>
-      <view class='first_checkbox'>
+    <view bindtap='goDetails' class='com_tab_title'
+      wx:for="{{tabData.t}}" wx:item="item" wx:key=""
+      data-userid="{{item.userId}}">
+      <view data-types="0" class='first_checkbox'>
         <label class="checkboxs"> 
           <checkbox></checkbox>
         </label>
       </view>
-      <view>爱迪生</view>
-      <view>2019-03</view>
-      <view>39</view>
-      <view>20</view>
-      <view>10</view>
-      <view class='last_child'>未确认</view>
+      <view class='overflow'>{{item.userName}}</view>
+      <view>{{item.month}}</view>
+      <view>{{item.classNum}}</view>
+      <view>{{item.daysNum}}</view>
+      <view>{{item.nigthNum}}</view>
+      <view class='last_child'>{{item.status}}</view>
     </view>
-
-    <view class='com_tab_title'>
-      <view class='first_checkbox'>
-        <label class="checkboxs"> 
-          <checkbox></checkbox>
-        </label>
-      </view>
-      <view>五块钱</view>
-      <view>2019-03</view>
-      <view>9</view>
-      <view>22</view>
-      <view>10</view>
-      <view class='last_child'>未确认</view>
-    </view>
-
   </view>
 
-  <view class='com_width bg_blue all_yes'>确定</view>
+  <view bindtap='confirmBtn' class='com_width bg_blue all_yes'>全部确认</view>
+  <view bindtap='confirmBtn' class='com_width one_yes'>确定</view>
 </view>

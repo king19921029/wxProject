@@ -11,8 +11,8 @@
     <view class='center_border'></view>
     <view class='right_box' bindtap='youWage'>
       <text class='{{!headerBorder? "addBorder" : "" }}'>班组工资</text>
-      <view class='news_box {{!headerBorder? "addBorder" : "" }}'>
-        <view class='news'>3</view>
+      <view wx:if='{{vipNum.isLeader}}' class='news_box {{!headerBorder? "addBorder" : "" }}'>
+        <view class='news'>{{vipNum.groupSalaryCount}}</view>
       </view>
     </view>
     
@@ -21,98 +21,102 @@
   <block wx:if="{{1==1}}">
     <!-- 个人工资 -->
     <view wx:if="{{headerBorder}}" class='content bg_fff'> 
-      <view bindtap='perDetails' class='com_width list_box'>
+      <view bindtap='perDetails' class='com_width list_box'
+        wx:for="{{myWage.data}}" wx:item="item" wx:key=""
+        data-groupId="{{item.groupId}}">
         <view class='list'>
           <text class='list_title'>姓名：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.name}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>项目名称：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>年月：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.date}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>应发工资：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.payableSalary}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>扣款：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.deductionSalary}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>实发工资：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.realSalary}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>本次发放：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.realSalary}}</text>
         </view>
       </view>
-      <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
+      <view data-id="{{item.groupId}}" bindtap='confirmationTap' class='com_width confirmation'>确认</view>
     </view>
     <!-- 班组工资 -->
     <view wx:else class='content bg_fff'> 
-      <view bindtap='classDetails' class='com_width list_box'>
+      <view bindtap='classDetails' class='com_width list_box'
+        wx:for="{{vipWage.data}}" wx:item="item" wx:key=""
+        data-month="{{item.date}}" data-groupid="{{item.groupId}}">
         <view class='list'>
           <text class='list_title'>项目名称：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>年月：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.date}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>应发工资：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.realSalary}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>扣款：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.deductionSalary}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>实发工资：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.realSalary}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>本次发放：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{item.payableSalary}}</text>
         </view>
       </view>
-      <view bindtap='confirmationTap' class='com_width confirmation'>确认</view>
+      <view data-id="{{item.groupId}}" bindtap='confirmationTap' class='com_width confirmation'>确认</view>
     </view>
   </block>
   <!-- 无工资列表的时候 -->
@@ -134,7 +138,7 @@
 
       <view class='btn_box'>
         <view bindtap='no_tap' class='no'>取消</view>
-        <view class='yes'>确认</view>
+        <view bindtap='confirmBtn' class='yes'>确认</view>
       </view>
     </view>
   </view>

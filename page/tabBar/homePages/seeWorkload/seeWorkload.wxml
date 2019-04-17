@@ -69,16 +69,13 @@
       </view>
 
       <view class='list'>
-        <text class='list_title'>出勤天数:</text>
-        <text class='list_data'>{{item.normalNum}}</text>
+        <text class='list_title'>工程总量:</text>
+        <text class='list_data'>{{item.quantity}}</text>
       </view>
-       <view class='list'>
-        <text class='list_title'>异常天数:</text>
-        <text class='list_data'>{{item.errorNum}}</text>
-      </view>
+      <view data-groupid="{{item.groupId}}" bindtap='goDetails' class='see_list'>查看详情</view>
     </view>
 
-    <view bindtap='goDetails' class='see_list'>查看详情</view>
+   
   </view>
 
 </view>

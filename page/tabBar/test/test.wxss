@@ -1,0 +1,50 @@
+/* pages/regular/regular.wxss */
+.regular-view {
+  margin: 0 39rpx 0 39rpx;
+  padding-bottom: 40rpx;
+}
+
+.regular-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 68rpx 10rpx 0 0;
+}
+
+.right-content text {
+  display: block;
+}
+
+.title-text {
+  font-size: 40rpx;
+  color: #000;
+}
+
+.title-tip {
+  font-size: 26rpx;
+  color: #7b7b7b;
+  width: 386rpx;
+  line-height: 48rpx;
+  margin-top: 16rpx;
+}
+
+.pic_xy {
+  width: 191rpx;
+}
+
+.line {
+  width: 659rpx;
+  height: 2px;
+}
+
+.regular-title {
+  font-size: 30rpx;
+  color: #000;
+  padding-top: 19rpx;
+  
+}
+
+.regular-content {
+  font-size: 28rpx;
+  color: #797979;
+  line-height: 42rpx;
+}

@@ -40,7 +40,7 @@
 .notice_list_title{
   font-weight: 400;
   font-size: 30rpx;
-  margin-left: -2%;
+  /* margin-left: -2%; */
 }
 .notice_list_con{
   justify-content: space-between; 

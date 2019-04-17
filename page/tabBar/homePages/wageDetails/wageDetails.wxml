@@ -2,33 +2,28 @@
   <view class='headers bg_blue'>
     <view class='num_font'>实发工资</view>
     <view class='num'>
-    <text>￥</text>8323.99
+    <text>￥</text>{{details.realSalary}}
     </view>
   </view>
   <view class='list_box bg_fff  '>
     <view class='list'>
       <text>应发工资：</text>
-      <text>7000</text>
+      <text>{{details.payableSalary}}</text>
     </view>
 
      <view class='list'>
       <text>实发工资：</text>
-      <text>7000</text>
+      <text>{{details.payableSalary}}</text>
     </view>
 
      <view class='list'>
       <text>扣款：</text>
-      <text>7000</text>
+      <text>{{details.deductionSalary}}</text>
     </view>
 
     <view class='list'>
       <text>欠发工资：</text>
-      <text>7000</text>
-    </view>
-
-    <view class='list'>
-      <text>累计欠发：</text>
-      <text>7000</text>
+      <text>{{details.differenceSalary}}</text>
     </view>
   </view>
 
