@@ -92,13 +92,13 @@
       <view class='titleContent'>
         <text class="title-ico fa fa-map-marker"></text>
         <text class='titleFont'>今日打卡</text>
-        <text class='title-date'>2019年3月25日 星期一</text>
+        <text class='title-date'>{{indexData.date}} {{indexData.dayOfweek}}</text>
       </view>  
     </view>
     <!-- 项目 -->
     <view class='title attentance'>
       <view class='titleContent'>
-        <text class='itemName'>北京三环新城项目</text>
+        <text class='itemName'>{{indexData.projectName}}</text>
       </view> 
     </view>
 

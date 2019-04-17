@@ -23,21 +23,20 @@ Page({
       "post", function (res) {
       console.log("表格：",res.data.data)
       if (res.data.code == 0) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "attendanceType": "白班",
-              "remark": "备注",
-              "id": "4034201904010004001",
-              "classNum": "1",
-              "clockTime": "04-01"
-            }
-          ]
-        }
+        var data = res.data.data;
+        // var data = {
+        //   "total": "1",
+        //   "t": [
+        //     {
+        //       "attendanceType": "白班",
+        //       "remark": "备注",
+        //       "id": "4034201904010004001",
+        //       "classNum": "1",
+        //       "clockTime": "04-01"
+        //     }
+        //   ]
+        // }
         that.setData({
-          details: res.data.data,
           tabData: data
         })
       } else {
@@ -50,22 +49,9 @@ Page({
       "post", function (res) {
       console.log("明细：", res.data.data)
       if (res.data.code == 0) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "attendanceType": "白班",
-              "remark": "备注",
-              "id": "4034201904010004001",
-              "classNum": "1",
-              "clockTime": "04-01"
-            }
-          ]
-        }
+        var data = res.data.data;
         that.setData({
-          details: res.data.data,
-          tabData: data
+          details: data
         })
       } else {
         app.showLoading(res.data.msg, "none");

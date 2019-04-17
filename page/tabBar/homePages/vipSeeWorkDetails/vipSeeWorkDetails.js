@@ -4,13 +4,16 @@ Page({
     selectStatus: 0
   },
   onLoad: function (options) {
-
+    this.setData({
+      groupId: options.groupId
+    })
   },
   onShow: function () {
     var that = this;
+    let groupId = that.data.groupId
     // 月份(groupId必传)
     app.wxRequest("gongguan/api/wechat/groupQuantityMonth",
-      { groupId:"4001201904100002001"},
+      { groupId: groupId},
       "post", function (res) {
         // var data = res.data.data;
         // console.log(res.data.data)
@@ -26,7 +29,7 @@ Page({
     })
     // 班组人员(groupId必传)
     app.wxRequest("gongguan/api/wechat/groupQuantityPerson",
-      { groupId: "4001201904100002001" },
+      { groupId: groupId },
       "post", function (res) {
         // var data = res.data.data;
         // console.log(res.data.data)
@@ -66,7 +69,7 @@ Page({
             }
           ]
         }
-        console.log(res.data.data)
+        console.log("列表：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             workData: data
@@ -75,10 +78,9 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-
     // 表格
     app.wxRequest("gongguan/api/wechat/groupQuantityDetail",
-      { groupId: "4001201904100002001" },
+      { groupId: groupId, page: "", month: "", status: "", personId:"" },
       "post", function (res) {
       //  var data = res.data.data;
         var data = {
@@ -151,7 +153,7 @@ Page({
   //查看详情
   goDetails: function () {
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails',
+      url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId
     })
   },
 

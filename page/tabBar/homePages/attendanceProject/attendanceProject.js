@@ -14,26 +14,26 @@ Page({
   onShow: function () {
     var that = this;
     var groupId = that.data.groupId;
-    // 项目汇总
+    // 明细汇总
     app.wxRequest("gongguan/api/wechat/myAttendanceMonthRecord",
       { groupId: groupId },
       "post", function (res) {
         console.log(res.data.data)
         if (res.data.code == 0) {
-          var data = {
-            "total": "1",
-            "t": [
-              {
-                "month": "2019-04",
-                "normalNum": "10天",
-                "errorNum": "2天",
-                "id": "4034201904010004002",
-                "daysNum": "2天",
-                "nightNum": "2天"
-            }
-            ]
-          }
-
+          // var data = {
+          //   "total": "1",
+          //   "t": [
+          //     {
+          //       "month": "2019-04",
+          //       "normalNum": "10天",
+          //       "errorNum": "2天",
+          //       "id": "4034201904010004002",
+          //       "daysNum": "2天",
+          //       "nightNum": "2天"
+          //   }
+          //   ]
+          // }
+          var data = res.data.data;
           that.setData({
             titleData: data.t[0]
           })
@@ -80,7 +80,7 @@ Page({
   onHide: function () {
 
   },
-  // 查看-班组
+  // 打卡详情
   goCard: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/attendanceCard/attendanceCard?userName=' + this.data.tabData.userName,

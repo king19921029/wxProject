@@ -32,22 +32,22 @@ Page({
       {},
       "post", function (res) {
       console.log(res);
-      var data = {
-        "total": "1",
-        "t": [
-            {
-                "groupName": "大班组A",
-                "labourCompanyId": "4045201903280003005",
-                "normalNum": "10天",
-                "groupId": "4001201904100002001",
-                "labourCompanyName": "小程序劳务公司",
-                "errorNum": "2天",
-                "classNum": "10天",
-                "projectName": "小程序项目",
-                "projectId": "4034201904010004001"
-            }
-        ]
-      }
+      // var data = {
+      //   "total": "1",
+      //   "t": [
+      //       {
+      //           "groupName": "大班组A",
+      //           "labourCompanyId": "4045201903280003005",
+      //           "normalNum": "10天",
+      //           "groupId": "4001201904140000001",
+      //           "labourCompanyName": "小程序劳务公司",
+      //           "errorNum": "2天",
+      //           "classNum": "10天",
+      //           "projectName": "小程序项目",
+      //           "projectId": "4034201904010004001"
+      //       }
+      //   ]
+      // }
       // var data = res.data.data;
       if (res.data.code == 0) {
         that.setData({

@@ -4,32 +4,34 @@ Page({
     selectStatus: 0
   },
   onLoad: function (options) {
-
+    this.setData({
+      groupId: options.groupId
+    })
   },
   onShow: function () {
     var that = this;
     // 月份(groupId必传)
-    app.wxRequest("gongguan/api/wechat/groupQuantityMonth",
-      { groupId: "4001201904100002001" },
+    app.wxRequest("gongguan/api/wechat/groupSalaryMonthList",
+      { groupId: that.data.groupId },
       "post", function (res) {
         // var data = res.data.data;
-        // console.log(res.data.data)
-        var data = ["2019-04"]
+      console.log("月份：",res.data.data)
+      var data = ["2019-04"]
 
-        if (res.data.code == 0) {
-          that.setData({
-            headerDate: data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
+      if (res.data.code == 0) {
+        that.setData({
+          headerDate: data
+        })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
     // 班组人员(groupId必传)
     app.wxRequest("gongguan/api/wechat/groupQuantityPerson",
-      { groupId: "4001201904100002001" },
+      { groupId: that.data.groupId},
       "post", function (res) {
         // var data = res.data.data;
-        // console.log(res.data.data)
+        console.log("班组人员：",res.data.data)
         var data = [
           {
             "userName": "小程序",
@@ -43,67 +45,79 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
-    // 状态 暂无接口(groupId必传)
-
-    // 班组查看工作量（projectId）
-    app.wxRequest("gongguan/api/wechat/groupQuantity",
-      { projectId: "" },
+    })
+    // 状态(groupId必传)
+    app.wxRequest("gongguan/api/wechat/salaryStatus",
+      { groupId: that.data.groupId },
+      "post", function (res) {
+        var data = res.data.data;
+        console.log("状态：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            statusData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+    // 明细汇总
+    app.wxRequest("gongguan/api/wechat/groupSalary",
+      { groupId: that.data.groupId },
       "post", function (res) {
         // var data = res.data.data;
         var data = {
           "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "quantity": "122.0",
-              "labourCompanyId": "4045201903280003005",
-              "labourCompanyName": "小程序",
-              "groupId": "1",
-              "projectName": "小程序",
-              "projectId": "4034201904010004001",
-              "status": "4"
-            }
-          ]
+          "t":
+          {
+            "groupName": "大班组A",
+            "labourCompanyName": "北京广佳装饰公司丰台总部",
+            "groupId": "4001201904100002001",
+            "differenceSalary": "0.00", 
+            "realSalary": "32100.00", 
+            "projectName": "广佳丰台装饰",
+            "payableSalary": "32100.00" 
+          }
+
         }
-        console.log(res.data.data)
+
+        console.log("明细汇总：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
-            workData: data
+            details: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
-
+    })
     // 表格
-    app.wxRequest("gongguan/api/wechat/groupQuantityDetail",
-      { groupId: "4001201904100002001" },
+    app.wxRequest("gongguan/api/wechat/groupSalaryDetail",
+      { page: "", groupId: that.data.groupId, month: "", personId: "", Status:"" },
       "post", function (res) {
-        //  var data = res.data.data;
+        // var data = res.data.data;
+        console.log("tabs数据：", res.data.data)
         var data = {
           "total": "1",
           "t": [
             {
-              "quantity": "122 ",
-              "workTypeName": "混林土工",
-              "subPro": "框架浇筑",
+              "date": "2019-05",
+              "differenceSalary": "0.00",
+              "realSalary": "32100.00",
+              "id": "4026201904110000019",
               "userName": "小程序",
-              "userId": "2070201904010001002",
-              "startDate": "2019-04",
+              "userId": "4046201904110010001",
+              "payableSalary": "32100.00",
               "status": "4"
             }
           ]
         }
-
         if (res.data.code == 0) {
           that.setData({
-            detailsData: data
+            tabData: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   onHide: function () {
 
@@ -150,13 +164,14 @@ Page({
   },
   //查看详情
   goDetails: function () {
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails',
-    })
+    // wx.navigateTo({
+    //   url: '/page/tabBar/homePages/wageBlockDetails/wageBlockDetails',
+    // })
   },
+  // tab点击
   goWageDetails: function () {
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails',
+      url: '/page/tabBar/homePages/wageDetails/wageDetails?groupId=' + this.data.groupId,
     })
   },
 

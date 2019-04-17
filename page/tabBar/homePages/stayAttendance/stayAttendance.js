@@ -19,21 +19,23 @@ Page({
       "post", function (res) {
       console.log("班组考勤：",res.data.data);
       if (res.data.code == 0) {
-        // var data = re.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "month": "2019-04",
-              "labourCompanyId": "4045201903280003005",
-              "groupId": "4001201904140000001",
-              "labourCompanyName": "小程序劳务公司",
-              "classNum": "10",
-              "projectName": "小程序项目",
-              "projectId": "4034201904010004001"
-            }
-          ]
+        var data = res.data.data;
+        if ( data.length == 0 || !data ){
+          var data = {
+            "total": "1",
+            "t": [
+              {
+                "groupName": "大班组A",
+                "month": "2019-04",
+                "labourCompanyId": "4045201903280003005",
+                "groupId": "4001201904140000001",
+                "labourCompanyName": "小程序劳务公司",
+                "classNum": "10",
+                "projectName": "小程序项目",
+                "projectId": "4034201904010004001"
+              }
+            ]
+          }
         }
         that.setData({
           vipData:data
@@ -62,23 +64,23 @@ Page({
       "post", function (res) {
         console.log("个人考勤：",res.data.data);
         if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = [
-            {
-              "groupName": "大班组A",
-              "labourCompanyId": "4045201904100010002",
-              "normalNum": "10天",
-              "groupId": "4001201904140000001",
-              "labourCompanyName": "小程序劳务公司",
-              "errorNum": "2天",
-              "id": "4034201904010004002",
-              "classNum": "10天", 
-              "projectName": "小程序项目",
-              "nightNum": "2天", 
-              "daysNum": "2天", 
-              "projectId": "4034201904100007010"
-            }
-          ]
+          var data = res.data.data;
+          // var data = [
+          //   {
+          //     "groupName": "大班组A",
+          //     "labourCompanyId": "4045201904100010002",
+          //     "normalNum": "10天",
+          //     "groupId": "4001201904140000001",
+          //     "labourCompanyName": "小程序劳务公司",
+          //     "errorNum": "2天",
+          //     "id": "4034201904010004002",
+          //     "classNum": "10天", 
+          //     "projectName": "小程序项目",
+          //     "nightNum": "2天", 
+          //     "daysNum": "2天", 
+          //     "projectId": "4034201904100007010"
+          //   }
+          // ]
 
           that.setData({
             mineData: data

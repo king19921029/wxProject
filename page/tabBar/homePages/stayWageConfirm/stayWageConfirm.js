@@ -18,25 +18,25 @@ Page({
       "post", function (res) {
         console.log("我的工资：",res.data.data)
         if (res.data.code == 0) {
-          var data = {
-            "data": [
-              {
-                "date": "2019-05",
-                "groupName": "大班组A",
-                "deductionSalary": "0.00", 
-                "deductionSalary": "0.00", 
-                "labourCompanyName": "北京广佳装饰公司丰台总部",
-                "groupId": "4001201904100002001",
-                "name": "侯1",
-                "realSalary": "32100.00",
-                "id": "4026201904110000019",
-                "projectName": "广佳丰台装饰",
-                "payableSalary": "32100.00"
-            }
-            ],
-            "mySalaryCount": "1"
-          }
-          // var data = res.data.data;
+          // var data = {
+          //   "data": [
+          //     {
+          //       "date": "2019-05",
+          //       "groupName": "大班组A",
+          //       "deductionSalary": "0.00", 
+          //       "deductionSalary": "0.00", 
+          //       "labourCompanyName": "北京广佳装饰公司丰台总部",
+          //       "groupId": "4001201904100002001",
+          //       "name": "侯1",
+          //       "realSalary": "32100.00",
+          //       "id": "4026201904110000019",
+          //       "projectName": "广佳丰台装饰",
+          //       "payableSalary": "32100.00"
+          //   }
+          //   ],
+          //   "mySalaryCount": "1"
+          // }
+          var data = res.data.data;
           that.setData({
             myWage:data
           })
@@ -64,26 +64,26 @@ Page({
         console.log("班组工资列表:",res.data.data)
 
         if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = {
-            "code": "0",
-            "data": [
-              {
-                "date": "2019-05",
-                "groupName": "大班组A",
-                "deductionSalary": "0.00", 
-                "labourCompanyName": "北京广佳装饰公司丰台总部",
-                "differenceSalary": "0.00", 
-                "realSalary": "32100.00", 
-                "projectName": "广佳丰台装饰",
-                "groupId": "4001201904140000001",
-                "payableSalary": "32100.00" 
-              }
-            ],
-            "msg": "",
-            "visible": true,
-            "success": true
-          }
+          var data = res.data.data;
+          // var data = {
+          //   "code": "0",
+          //   "data": [
+          //     {
+          //       "date": "2019-05",
+          //       "groupName": "大班组A",
+          //       "deductionSalary": "0.00", 
+          //       "labourCompanyName": "北京广佳装饰公司丰台总部",
+          //       "differenceSalary": "0.00", 
+          //       "realSalary": "32100.00", 
+          //       "projectName": "广佳丰台装饰",
+          //       "groupId": "4001201904140000001",
+          //       "payableSalary": "32100.00" 
+          //     }
+          //   ],
+          //   "msg": "",
+          //   "visible": true,
+          //   "success": true
+          // }
           that.setData({
             vipWage: data
           })
@@ -143,9 +143,6 @@ Page({
   },
   //班组详情
   classDetails: function (e) {
-    // wx.navigateTo({
-    //   url: `/page/tabBar/homePages/stayVipWageDetails/stayVipWageDetails?worktype=${worktype}&subpro=${subpro}&status=${status}`
-    // })
     let month = e.currentTarget.dataset.month;
     let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({

@@ -83,7 +83,8 @@
       <view class='last_child'>状态</view>
     </view>
     
-    <view wx:for="{{detailsData.t}}" wx:item="" wx:key="" class='com_tab_title'>
+    <view wx:for="{{detailsData.t}}" wx:item="" wx:key="" class='com_tab_title'
+      bindtap='goDetails'>
       <view class='first_checkbox'>
         <label class="checkboxs"> 
           <checkbox></checkbox>

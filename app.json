@@ -1,6 +1,8 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/homePages/vipBlock/vipBlock",
+    
     "page/tabBar/homePages/stayworkload/stayworkload",
     "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
     "page/tabBar/homePages/stayAttendance/stayAttendance",
@@ -17,7 +19,7 @@
     "page/tabBar/minePages/authentication/authentication",
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     "page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails",
-    "page/tabBar/homePages/vipBlock/vipBlock",
+    
     "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
     "page/tabBar/homePages/serachPage/serachPage",
     "page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails",

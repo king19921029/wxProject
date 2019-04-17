@@ -1,28 +1,28 @@
 <view class='box'>
   <view class='headers bg_fff'>
     <view class='time_box'>
-      {{allData.attendanceSum.name}}2019年3月考勤明细
+      {{allData.name}}2019年3月考勤明细
     </view>
     <view class='header_title'>
       <view>
-        <text class='fa color_1 fa-bar-chart'></text> 
-        <text>正常：{{allData.attendanceSum.normalNum}}</text>
+        <text class='fa color_1 fa-calendar-check-o'></text> 
+        <text>正常：{{allData.normalNum}}</text>
       </view>
       <view>
-        <text class='fa color_2 fa-bar-chart'></text> 
-        <text>异常：{{allData.attendanceSum.errorNumm}}</text>
+        <text class='fa color_2 fa-calendar-times-o'></text> 
+        <text>异常：{{allData.errorNum}}</text>
       </view>
       <view>
-        <text class='fa color_3 fa-bar-chart'></text> 
-        <text>白班：{{allData.attendanceSum.daysNum}}</text>
+        <text class='fa color_3 fa-sun-o'></text> 
+        <text>白班：{{allData.daysNum}}</text>
       </view>
       <view>
-        <text class='fa color_4 fa-bar-chart'></text> 
-        <text>夜班：{{allData.attendanceSum.nightNum}}</text>
+        <text class='fa color_4 fa-star'></text> 
+        <text>夜班：{{allData.nightNum}}</text>
       </view>
       <view>
         <text class='fa color_blue fa-bar-chart'></text> 
-        <text>工数：{{allData.attendanceSum.classNum}}</text>
+        <text>工数：{{allData.classNum}}</text>
       </view>
     </view>
   </view>
@@ -40,7 +40,7 @@
       <view class='tab_content'>晚</view>
     </view>
 
-    <view wx:for="{{allData.t}}" wx:item="item" wx:key="" class='com_tab_title'>
+    <view wx:for="{{tabData.t}}" wx:item="item" wx:key="" class='com_tab_title'>
       <view class='tab_content overflow'>{{item.clockTime}}</view>
       <view class='tab_content'>{{item.classNum}}</view>
       <view class='tab_content'>{{item.clockStatus}}</view>

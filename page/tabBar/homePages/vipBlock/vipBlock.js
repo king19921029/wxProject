@@ -1,7 +1,7 @@
 var app = getApp();
 Page({
   data: {
-    titleStatus:0,//title状态
+    titleStatus:2,//title状态
     selectBox:false,
     attendanceData:[],//考勤数据
     workData:{},//工作量
@@ -10,12 +10,39 @@ Page({
 
   },
   onShow: function () {
-    var that = this;
-    // 班组考勤
+    var that = this; 
+    // 工资   projectId    page
+    app.wxRequest("gongguan/api/wechat/groupSalaryList",
+      { projectId: "" },
+      "post", function (res) {
+        var data = {
+          "total": "1",
+          "t": [
+            {
+              "groupName": "大班组A",
+              "labourCompanyName": "北京广佳装饰公司丰台总部",
+              "groupId": "4001201904140000001",
+              "differenceSalary": "0.00",
+              "realSalary": "32100.00",
+              "projectName": "广佳丰台装饰",
+              "payableSalary": "32100.00"
+            }
+          ]
+        }
+        console.log("工资：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            wageData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+    // 考勤  projectId  page
     app.wxRequest("gongguan/api/wechat/queryGroupAttendanceToProject",
       {},
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("考勤：", res.data.data)
         if (res.data.code == 0) {
           that.setData({
             attendanceData: res.data.data
@@ -24,7 +51,6 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-
     // 班组查看工作量（projectId）
     app.wxRequest("gongguan/api/wechat/groupQuantity",
       { projectId:""},
@@ -37,14 +63,14 @@ Page({
               "quantity": "122.0",
               "labourCompanyId": "4045201903280003005",
               "labourCompanyName": "小程序",
-              "groupId": "1",
+              "groupId": "4001201904140000001",
               "projectName": "小程序",
               "projectId": "4034201904010004001",
               "status": "4"
             }
           ]
         }
-        // console.log(res.data.data)
+        console.log("工作量：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             workData: data
@@ -59,15 +85,17 @@ Page({
   },
  
   //工资查看详情
-  wageDetails: function () {
+  wageDetails: function (e) {
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails',
+      url: '/page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails?groupId=' + groupId,
     })
   },
   // 考勤查看详情
-  attendanceDtails:function(){
+  attendanceDtails:function(e){
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails',
+      url: '/page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails?groupId=' + groupId,
     })
   },
   // 筛选
@@ -98,9 +126,10 @@ Page({
     })
   },
   // 去工作量详情
-  goWork:function(){
+  goWork:function(e){
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails',
+      url: '/page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails?groupId=' + groupId,
     })
   }
 

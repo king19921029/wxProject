@@ -27,24 +27,15 @@
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
       <view>全部</view>
-      <view>北京项目组1</view>
-      <view>北京项目组2</view>
-      <view>北京项目组3</view>
-      <view>北京项目组4</view>
+      <view wx:for="{{headerDate}}" wx:item="item" wx:key="">{{item}}</view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
       <view>全部</view>
-      <view>劳务公司1</view>
-      <view>劳务公司1</view>
-      <view>劳务公司1</view>
-      <view>劳务公司1</view>
+      <view wx:for="{{perData}}" wx:item="item" wx:key="">{{item.userName}}</view>
     </block>
     <block wx:if="{{selectStatus == 3}}">
       <view>全部</view>
-      <view>班组1</view>
-      <view>班组1</view>
-      <view>班组1</view>
-      <view>班组1</view>
+      <view wx:for="{{statusData}}" wx:item="item" wx:key="">{{item}}</view>
     </block>
   </view>
 
@@ -53,40 +44,34 @@
     <view class='com_width list_box'>
       <view class='list'>
         <text class='list_title'>项目名称：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.t.projectName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>劳务公司：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.t.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>班组：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.t.groupName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>应发工资：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.t.payableSalary}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>扣款：</text>
-        <text class='list_data'></text>
-      </view>
-
-      <view class='list'>
-        <text class='list_title'>累计实发工资：</text>
-        <text class='list_data'></text>
+        <text class='list_data'>{{details.t.differenceSalary}}</text>
       </view>
     </view>
-
   </view>
 
   <view class='vip_title'>班组明细</view>
   <!-- 表格 -->
-  <view bindtap='goWageDetails'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
       <label class="checkboxs"> 
@@ -101,32 +86,19 @@
       <view class='last_child'>状态</view>
     </view>
     
-    <view class='com_tab_title'>
+    <view bindtap='goWageDetails' class='com_tab_title'
+      wx:for="{{tabData.t}}" wx:item="" wx:key="">
       <view class='first_checkbox'>
         <label class="checkboxs"> 
           <checkbox></checkbox>
         </label>
       </view>
-      <view>爱迪生</view>
-      <view>2019-03</view>
-      <view>3999.30</view>
-      <view>3000.30</view>
-      <view>1000.10</view>
-      <view class='last_child'>未确认</view>
-    </view>
-
-    <view class='com_tab_title'>
-      <view class='first_checkbox'>
-        <label class="checkboxs"> 
-          <checkbox></checkbox>
-        </label>
-      </view>
-      <view>五块钱</view>
-      <view>2019-03</view>
-      <view>3999.30</view>
-      <view>3000.30</view>
-      <view>1000.10</view>
-      <view class='last_child'>未确认</view>
+      <view>{{item.userName}}</view>
+      <view>{{item.date}}</view>
+      <view>{{item.payableSalary}}</view>
+      <view>{{item.realSalary}}</view>
+      <view>{{item.differenceSalary}}</view>
+      <view class='last_child'>{{item.status}}</view>
     </view>
 
   </view>

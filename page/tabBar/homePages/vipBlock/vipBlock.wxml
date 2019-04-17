@@ -39,46 +39,48 @@
 
   <!-- 工资 -->
   <view wx:if="{{titleStatus == 0}}" class='wage_block bg_fff'>
-    <view class='content'>
+    <view class='content' wx:for="{{wageData.t}}" wx:item="iytem" wx:key="">
       <view class='com_width list_box'>
         <view class='list'>
           <text class='list_title'>项目名称：</text>
-          <text class='list_data'>北京三环新城项目</text>
+          <text class='list_data'>{{item.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'>北京三环新城项目有限公司</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组：</text>
-          <text class='list_data'>某某某班组</text>
+          <text class='list_data'>{{item.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>应发工资：:</text>
-          <text class='list_data'>8654.54元</text>
+          <text class='list_data'>{{item.payableSalary}}元</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>扣款：</text>
-          <text class='list_data'>100元</text>
+          <text class='list_data'>{{item.differenceSalary}}元</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>实发工资：</text>
-          <text class='list_data'>8554.54元</text>
+          <text class='list_data'>{{item.realSalary}}元</text>
         </view>
       </view>
-      <view bindtap='wageDetails' class='see_list'>查看详情</view>
+      <view data-groupId="{{item.groupId}}" bindtap='wageDetails' class='see_list'>
+        查看详情
+      </view>
     </view>
    
   </view>
   <!-- 考勤 -->
   <view wx:elif="{{titleStatus == 1}}" class='attendance_block bg_fff'>
-    <view  bindtap='attendanceDtails' wx:for="{{attendanceData.t}}" wx:item="item" 
-      wx:key="" class='content'>
+    <view bindtap='attendanceDtails' wx:for="{{attendanceData.t}}" wx:item="item" 
+      wx:key="" data-groupId="{{item.groupId}}" class='content'>
       <view class='com_width list_box'>
         <view class='attendance_block_title'>
           {{item.groupName}}
@@ -108,9 +110,9 @@
   </view>
    <!-- 工作量 -->
   <view wx:else class='attendance_block bg_fff'>
-    <view bindtap='attendanceDtails' wx:for="{{workData.t}}" wx:item="item" 
-      wx:key="" class='content'>
-      <view bindtap='goWork' class='see_list'>查看详情</view>
+    <view wx:for="{{workData.t}}" wx:item="item" 
+      wx:key="" class='content' >
+      <view data-groupId="{{item.groupId}}" bindtap='goWork' class='see_list'>查看详情</view>
       <view class='com_width list_box'>
         <view class='list'>
           <text class='list_title'>项目名称：</text>
