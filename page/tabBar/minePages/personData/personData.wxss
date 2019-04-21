@@ -24,6 +24,7 @@
   font-weight: 400;
   font-size: 28rpx;
   margin-right: 10rpx;
+  text-align:end; 
 }
 .list_tab .display_flex{
   align-items: center;

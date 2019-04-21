@@ -1,3 +1,10 @@
+.search_scroll{
+  height: 100vh;
+}
+.search_scroll view{
+  padding: 120rpx 0;
+  font-size: 28rpx;
+}
 /* 搜索框 */
 .search_box{
   width: 100%;

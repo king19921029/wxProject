@@ -2,14 +2,14 @@ var app = getApp();
 Page({
   data: {
     selectStatus: 0,
-    groupId:"",//班组id
-    month:"",//月份
+    groupId:"4001201904140000001",//班组id
+    month:"2019-04",//月份
   },
   onLoad: function (options) {
-    this.setData({
-      groupId: options.groupId,
-      month: options.month
-    })
+    // this.setData({
+    //   groupId: options.groupId,
+    //   month: options.month
+    // })
     wx.setNavigationBarTitle({
       title: "某班组考勤汇总"
     })
@@ -20,12 +20,11 @@ Page({
     let month = that.data.month;
     //表格 groupId、month、page
     app.wxRequest("gongguan/api/wechat/queryGroupAttendaceDetail",
-      { groupId: "4001201904140000001", page: '', month: month,  },
+      { groupId: groupId, page: '', month: month,  },
       "post", function (res) {
-      console.log(res.data.data)
+      console.log("表格数据：",res.data.data)
       if (res.data.code == 0) {
-        var data = res.data.data;
-        if (data.length == 0 || !data){
+          // var data = res.data.data;
           var data = {
             "total": "1",
             "t": [
@@ -37,33 +36,27 @@ Page({
                 "daysNum": "2",
                 "userId": "2070201904010001002",
                 "status": 4
+              },
+              {
+                "nigthNum": "1",
+                "month": "2019-04",
+                "classNum": "10",
+                "userName": "小程序",
+                "daysNum": "2",
+                "userId": "2070201904010001002",
+                "status": 4
               }
             ]
-
+          }
+          var arr = data.t;
+          for (var i = 0; i < arr.length; i++) {
+            console.log(arr[i])
+            arr[i].isChecked = false
           }
           that.setData({
             tabData: data
           })
-          console.log("接口无数据")
-        }
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "nigthNum": "2", 
-              "month": "2019-04", 
-              "classNum": "10", 
-              "userName": "小程序用户", 
-              "daysNum": "2",
-              "userId": "2070201904010001002",
-              "status":4
-            }
-          ]
-
-        }
-        that.setData({
-          tabData: data
-        })
+      
       } else {
         app.showLoading(res.data.msg, "none");
       }
@@ -99,7 +92,6 @@ Page({
     })
   },
   onHide: function () {
-
   },
   //查看详情
   goDetails: function (e) {
@@ -115,6 +107,25 @@ Page({
       url: `/page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject?month=${month}&groupId=${groupId}&userId=${userId}&titles=班组考勤明细`
     })
   },
-  
+  //多选框点击
+  checkboxChange:function(e){
+    let isChecked = e.currentTarget.dataset.ischecked;//是否选中
+    let idx = e.currentTarget.dataset.idx;//下标
+    var tabData = 'tabData.t[' + idx + '].isChecked'
+    this.setData({
+      [tabData]: !isChecked
+    })
+  },
+  // 全选
+  allCheckbox:function(e){
+    var data = this.data.tabData;
+    var arr = data.t
+    for (var i = 0; i < arr.length;i++ ){
+      arr[i].isChecked = !arr[i].isChecked
+    }
+    this.setData({
+      tabData:data
+    })
+  }
 
 })

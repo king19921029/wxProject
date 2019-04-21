@@ -2,25 +2,25 @@
   <view class='headers'>
     <!-- list -->
     <view class='content bg_fff'>
-      <view bindtap='goDetails' class='com_width list_box'>
+      <view class='com_width list_box'>
         <view class='list'>
           <text class='list_title'>项目名称：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{details.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{details.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{details.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>工作总量：</text>
-          <text class='list_data'></text>
+          <text class='list_data'>{{details.quantity}}</text>
         </view>
 
       </view>

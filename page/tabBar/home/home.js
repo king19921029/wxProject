@@ -5,10 +5,13 @@ Page({
     
   },
   onLoad: function (options) {
-    
+   
   },
   onReady: function () {
     
+  },
+  loadConsole:function(){
+    console.log("测试数据："+this.data.testData)
   },
   onShow: function () {
     var that = this;

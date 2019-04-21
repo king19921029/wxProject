@@ -23,19 +23,19 @@ Page({
       "post", function (res) {
       console.log("表格：",res.data.data)
       if (res.data.code == 0) {
-        var data = res.data.data;
-        // var data = {
-        //   "total": "1",
-        //   "t": [
-        //     {
-        //       "attendanceType": "白班",
-        //       "remark": "备注",
-        //       "id": "4034201904010004001",
-        //       "classNum": "1",
-        //       "clockTime": "04-01"
-        //     }
-        //   ]
-        // }
+        // var data = res.data.data;
+        var data = {
+          "total": "1",
+          "t": [
+            {
+              "attendanceType": "白班",
+              "remark": "备注",
+              "id": "4034201904010004001",
+              "classNum": "1",
+              "clockTime": "04-01"
+            }
+          ]
+        }
         that.setData({
           tabData: data
         })

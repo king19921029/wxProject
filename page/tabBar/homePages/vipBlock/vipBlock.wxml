@@ -31,10 +31,10 @@
   <!-- select -->
   <view wx:if="{{selectBox}}" class='select_box bg_fff'>
     <view>全部</view>
-    <view>北京项目组1</view>
-    <view>北京项目组2</view>
-    <view>北京项目组3</view>
-    <view>北京项目组4</view>
+    <view wx:for="{{manageProject.t}}" wx:item="item" wx:key=""
+      data-groupId="{{item.groupId}}" wx:if="{{item.projectName}}">
+     {{item.projectName}}
+    </view>
   </view>
 
   <!-- 工资 -->

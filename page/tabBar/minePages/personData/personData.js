@@ -23,6 +23,12 @@ Page({
     wx.navigateTo({
       url: '/page/tabBar/minePages/changePhone/changePhone'
     })
-  }
+  },
+  // 身份认证中心   authenticationAll
+  go_authent:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/authenticationAll/authenticationAll'
+    })
+  },
 
 })

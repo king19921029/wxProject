@@ -16,7 +16,7 @@ Page({
     app.wxRequest("gongguan/api/wechat/queryTerm",
       {},
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("header数据：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             peojectData: res.data.data.project,
@@ -28,10 +28,10 @@ Page({
         }
     })
     // 我的项目考勤列表(projectId,labourCompany,groupId,page)
-    app.wxRequest("gongguan/api/wechat/salaryList",
+    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
       {},
       "post", function (res) {
-      console.log(res);
+      console.log("考勤列表：",res.data.data);
       // var data = {
       //   "total": "1",
       //   "t": [
@@ -48,10 +48,10 @@ Page({
       //       }
       //   ]
       // }
-      // var data = res.data.data;
+      var data = res.data.data;
       if (res.data.code == 0) {
         that.setData({
-          peojectLIst: res.data.data
+          peojectLIst: data
         })
       } else {
         app.showLoading(res.data.msg, "none");

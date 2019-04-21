@@ -67,17 +67,23 @@
   padding: 20rpx 0;
 }
 .recruit_search .color_blue{
-  font-size: 32rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  width: 23%;
+}
+.recruit_search .color_blue text{
+  width: 63%;
 }
 .bot_icon{
-  width: 35rpx;
-  height: 35rpx;
+  width: 34rpx;
+  height: 34rpx;
 }
 .bor_bot{
   border-bottom: 1px solid #d9d9d9;
 }
 .search_box{
-  width: 83%;
+  width: 76%;
   justify-content: center;
   font-size: 28rpx;
   padding: 10rpx 0;

@@ -36,7 +36,7 @@
     <view class='bor_bot'>
       <view class='recruit_search display_flex com_width'>
         <view class='color_blue' bindtap='goCity'>
-          <text>北京</text>
+          <text class='overflow'>{{city}}</text>
           <image class='bot_icon' src='/image/bottom_icon.png'></image>
         </view>
         <view class='display_flex search_box bg_fff'>

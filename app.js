@@ -3,6 +3,7 @@
 App({
   // 全局数据，类似于store
   globalData: {
+    city:"北京",//城市
     groupId: "4001201904140000001",//班组id
     openid: null,
     token:null,

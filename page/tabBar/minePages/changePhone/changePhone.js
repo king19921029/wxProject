@@ -12,5 +12,11 @@ Page({
   onHide: function () {
 
   },
+  // 下一步
+  next:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/newPhone/newPhone'
+    })
+  },
 
 })

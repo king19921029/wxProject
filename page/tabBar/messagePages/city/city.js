@@ -16,12 +16,14 @@ Page({
     scrollTop: 0,//置顶高度
     scrollTopId: '',//置顶id
     //city: "上海市",
-    hotcityList: []
+    hotcityList: [],
+    listIsShow:true,//全部列表是否显示
   },
   onLoad: function () {
     // 生命周期函数--监听页面加载
     var searchLetter = city.searchLetter;
     var cityList = city.cityList(cityObj);
+   
     //先获取系统信息
     var sysInfo = wx.getSystemInfoSync();
     var winHeight = sysInfo.windowHeight;
@@ -60,7 +62,9 @@ Page({
   },
   //选择城市
   bindCity: function (e) {
-    console.log(e)
+    console.log(e.currentTarget.dataset.city)
+    app.globalData.city = e.currentTarget.dataset.city;
+    wx.navigateBack();
   },
   bindScroll:function(e){
     console.log(e)
@@ -74,5 +78,40 @@ Page({
     this.setData({
       scrollTop: 0,
     })
+  },
+  // 搜索
+  searchChange:function(e){
+    let val = e.detail.value;
+    let list = this.data.cityList;
+
+    if (val == "" ){
+      this.setData({
+        listIsShow:true
+      })
+    }else{
+      this.findFn(list, val)
+    }
+    
+  },
+  // 搜索后的内容点击
+  searchTap:function(e){
+    app.globalData.city = e.currentTarget.dataset.city;
+    wx.navigateBack();
+  },
+  // 查找城市
+  findFn:function (arr, str) {
+    arr.forEach(item => {
+      if (item.cityInfo) {
+        this.findFn(item.cityInfo, str)
+      } else {
+        if (item.city.indexOf(str) == 0) {
+          this.setData({
+            listIsShow: false,
+            searchFont: item.city
+          })
+        }
+      }
+    })
   }
+
 })

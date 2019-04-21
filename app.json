@@ -1,17 +1,25 @@
-{
+  {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/messagePages/city/city",
+    
+    
+    "page/tabBar/message/message",
+    
+    "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",
+    
+    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/homePages/vipBlock/vipBlock",
     
     "page/tabBar/homePages/stayworkload/stayworkload",
     "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
     "page/tabBar/homePages/stayAttendance/stayAttendance",
-    "page/tabBar/message/message",
+    
     "page/tabBar/minePages/myProject/myProject",
     "page/tabBar/minePages/classDetails/classDetails",
     "page/tabBar/minePages/projectDetails/projectDetails",
     "page/tabBar/mine/mine",
-    "page/tabBar/test/test",
     "page/tabBar/minePages/bindBankCard/bindBankCard",
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
     "page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject",
@@ -29,18 +37,18 @@
     "page/tabBar/homePages/seeWage/seeWage",
     "page/tabBar/homePages/stayworkDetails/stayworkDetails",
     "page/tabBar/homePages/seeWorkDetails/seeWorkDetails",
-    "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",
+    
     "page/tabBar/homePages/seeAttendance/seeAttendance",
     "page/tabBar/homePages/vipSeeAttendanceProject/vipSeeAttendanceProject",
     "page/tabBar/homePages/stayVipworkDetails/stayVipworkDetails",
     "page/tabBar/minePages/classPerDetails/classPerDetails",
     "page/tabBar/minePages/addPerson/addPerson",
     "page/tabBar/minePages/authenticationAll/authenticationAll",
-    "page/tabBar/messagePages/city/city",
+    
     "page/tabBar/messagePages/ggDetails/ggDetails",
     "page/tabBar/minePages/changePhoto/changePhoto",
     "page/tabBar/minePages/authenticationRes/authenticationRes",
-    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/minePages/newPhone/newPhone",
     "page/tabBar/minePages/changePhone/changePhone",
     "page/tabBar/homePages/vipWageDetails/vipWageDetails",

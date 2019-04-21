@@ -19,6 +19,5 @@
       </view>
     </view>
   </view>
-
-  <view class='com_footer_btn bg_blue'>下一步，填写新手机</view>
+  <view bindtap='next' class='com_footer_btn bg_blue'>下一步，填写新手机</view>
 </view>

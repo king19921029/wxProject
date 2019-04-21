@@ -30,14 +30,14 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupQuantityPerson",
       { groupId: that.data.groupId},
       "post", function (res) {
-        // var data = res.data.data;
+        var data = res.data.data;
         console.log("班组人员：",res.data.data)
-        var data = [
-          {
-            "userName": "小程序",
-            "userId": "2070201904010001002"
-          }
-        ]
+        // var data = [
+        //   {
+        //     "userName": "小程序",
+        //     "userId": "2070201904010001002"
+        //   }
+        // ]
         if (res.data.code == 0) {
           that.setData({
             perData: data

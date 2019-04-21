@@ -36,9 +36,11 @@
   <view>
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
-      <label class="checkboxs"> 
-        <checkbox></checkbox>
-      </label>
+      <checkbox-group bindchange="allCheckbox">
+        <label class="checkboxs"> 
+          <checkbox></checkbox>
+        </label>
+      </checkbox-group>
       </view>
       <view>姓名</view>
       <view>年月</view>
@@ -48,20 +50,23 @@
       <view class='last_child'>状态</view>
     </view>
     
-    <view bindtap='goDetails' class='com_tab_title'
+    <view class='com_tab_title'
       wx:for="{{tabData.t}}" wx:item="item" wx:key=""
-      data-userid="{{item.userId}}">
+      data-userid="{{item.userId}}" wx:for-index='idx'>
       <view data-types="0" class='first_checkbox'>
-        <label class="checkboxs"> 
-          <checkbox></checkbox>
-        </label>
+        <checkbox-group bindchange="checkboxChange" data-ischecked='{{item.isChecked}}'
+        data-idx="{{idx}}">
+          <label class="checkboxs"> 
+            <checkbox checked='{{item.isChecked}}'></checkbox>
+          </label>
+        </checkbox-group>
       </view>
-      <view class='overflow'>{{item.userName}}</view>
-      <view>{{item.month}}</view>
-      <view>{{item.classNum}}</view>
-      <view>{{item.daysNum}}</view>
-      <view>{{item.nigthNum}}</view>
-      <view class='last_child'>{{item.status}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails'class='overflow'>{{item.userName}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.month}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.classNum}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.daysNum}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.nigthNum}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails' class='last_child'>{{item.status}}</view>
     </view>
   </view>
 

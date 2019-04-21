@@ -2,30 +2,29 @@
   <view class='headers'>
     <!-- list -->
     <view class='content bg_fff'>
-      <view wx:for="{{peojectLIst.t}}" wx:for-item="item" wx:key="" 
-        class='com_width list_box'>
+      <view class='com_width list_box'>
         <view class='list'>
           <text class='list_title'>项目名称:</text>
-          <text class='list_data'>{{item.projectName}}</text>
+          <text class='list_data'>{{details.projectName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>劳务公司:</text>
-          <text class='list_data'>{{item.labourCompanyName}}</text>
+          <text class='list_data'>{{details.labourCompanyName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>班组:</text>
-          <text class='list_data'>{{item.groupName}}</text>
+          <text class='list_data'>{{details.groupName}}</text>
         </view>
 
         <view class='list'>
           <text class='list_title'>出勤天数:</text>
-          <text class='list_data'>{{item.normalNum}}</text>
+          <text class='list_data'>{{details.normalNum}}</text>
         </view>
         <view class='list'>
           <text class='list_title'>异常天数:</text>
-          <text class='list_data'>{{item.errorNum}}</text>
+          <text class='list_data'>{{details.errorNum}}</text>
         </view>
       </view>
     </view>

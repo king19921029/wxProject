@@ -21,13 +21,15 @@
 <view class='search_box'>
   <view class='display_flex bg_fff'>
     <icon type='search' size='14'></icon>
-    <input placeholder='输入城市名称进行搜索'></input>
+    <input bindconfirm='searchChange' placeholder='输入城市名称进行搜索'></input>
   </view>
 </view>
 
 <!-- city列表 -->
-<scroll-view class='scroll_view' scroll-y="true" style="height:{{winHeight}}px" bindscroll="bindScroll" 
- scroll-into-view="{{scrollTopId}}" scroll-top="{{scrollTop}}">
+<scroll-view wx:if="{{listIsShow}}" class='scroll_view' scroll-y="true" 
+  style="height:{{winHeight}}px" bindscroll="bindScroll" 
+  scroll-into-view="{{scrollTopId}}" 
+  scroll-top="{{scrollTop}}">
   <!--<view class="hotcity-common thisCity">当前选择城市</view>
   <view class="thisCityName">{{city}}</view>-->
   <view>
@@ -47,3 +49,8 @@
     </view>
   </view>
 </scroll-view>
+
+<view wx:else class='bg_fff search_scroll'>
+  <view data-city="{{searchFont}}" bindtap='searchTap' class='com_width'>{{searchFont}}</view>
+</view>
+

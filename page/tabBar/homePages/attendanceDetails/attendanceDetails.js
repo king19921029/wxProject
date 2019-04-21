@@ -19,7 +19,6 @@ Page({
       "post", function (res) {
         console.log("tab数据:",res.data.data)
         if (res.data.code == 0) {
-         
           var data = res.data.data;
           that.setData({
             tabData: data
@@ -50,7 +49,7 @@ Page({
 
           var data = res.data.data;
           that.setData({
-            tabData: data
+            details: data
           })
         } else {
           app.showLoading(res.data.msg, "none");

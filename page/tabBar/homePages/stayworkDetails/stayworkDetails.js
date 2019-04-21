@@ -20,7 +20,7 @@ Page({
       if (res.data.code == 0) {
         var data = res.data.data;
         wx.setNavigationBarTitle({
-          title:data.page.startDate
+          title:data.startDate
         })
         that.setData({
           details: data
@@ -29,27 +29,6 @@ Page({
         app.showLoading(res.data.msg, "none");
       }
     })
-
-    // var data = {
-    //   "groupCount": "1",
-    //   "isLeader": true,
-    //   "page": {
-    //     "workTypeName": "混林土工", 
-    //     "subPro": "框架浇筑", 
-    //     "id": "4006201903280003002",
-    //     "startDate": "2019-04",
-    //     "status": "未确认",
-    //     "quantity":"122.0"
-    //   }
-
-    // }
-    // that.setData({
-    //   details:data
-    // })
-    // wx.setNavigationBarTitle({
-    //   title: data.page.startDate
-    // })
-
   },
   onHide: function () {
 

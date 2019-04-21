@@ -2,9 +2,11 @@ var app = getApp();
 Page({
   data: {
     headerBorder:true,
-    ggData:{}
+    ggData:{},
+    city:"",
   },
   onLoad: function (options) {
+
     wx.getLocation({
       type: 'wgs84',
       success(res) {
@@ -18,6 +20,9 @@ Page({
   },
   onShow: function () {
     var that = this;
+    that.setData({
+     city : app.globalData.city 
+    })
     // 公告列表
     app.wxRequest("gongguan/api/wechat/noticeList",
       { page:"" },

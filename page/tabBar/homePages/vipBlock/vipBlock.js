@@ -1,7 +1,7 @@
 var app = getApp();
 Page({
   data: {
-    titleStatus:2,//title状态
+    titleStatus:0,//title状态
     selectBox:false,
     attendanceData:[],//考勤数据
     workData:{},//工作量
@@ -15,20 +15,21 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupSalaryList",
       { projectId: "" },
       "post", function (res) {
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "labourCompanyName": "北京广佳装饰公司丰台总部",
-              "groupId": "4001201904140000001",
-              "differenceSalary": "0.00",
-              "realSalary": "32100.00",
-              "projectName": "广佳丰台装饰",
-              "payableSalary": "32100.00"
-            }
-          ]
-        }
+        // var data = {
+        //   "total": "1",
+        //   "t": [
+        //     {
+        //       "groupName": "大班组A",
+        //       "labourCompanyName": "北京广佳装饰公司丰台总部",
+        //       "groupId": "4001201904140000001",
+        //       "differenceSalary": "0.00",
+        //       "realSalary": "32100.00",
+        //       "projectName": "广佳丰台装饰",
+        //       "payableSalary": "32100.00"
+        //     }
+        //   ]
+        // }
+        var data = res.data.data;
         console.log("工资：", res.data.data)
         if (res.data.code == 0) {
           that.setData({
@@ -51,25 +52,26 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 班组查看工作量（projectId）
+    // 查看工作量（projectId）
     app.wxRequest("gongguan/api/wechat/groupQuantity",
       { projectId:""},
       "post", function (res) {
-        var data =  {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "quantity": "122.0",
-              "labourCompanyId": "4045201903280003005",
-              "labourCompanyName": "小程序",
-              "groupId": "4001201904140000001",
-              "projectName": "小程序",
-              "projectId": "4034201904010004001",
-              "status": "4"
-            }
-          ]
-        }
+        // var data =  {
+        //   "total": "1",
+        //   "t": [
+        //     {
+        //       "groupName": "大班组A",
+        //       "quantity": "122.0",
+        //       "labourCompanyId": "4045201903280003005",
+        //       "labourCompanyName": "小程序",
+        //       "groupId": "4001201904140000001",
+        //       "projectName": "小程序",
+        //       "projectId": "4034201904010004001",
+        //       "status": "4"
+        //     }
+        //   ]
+        // }
+        var data = res.data.data;
         console.log("工作量：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
@@ -78,6 +80,19 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
+    })
+    // 项目筛选
+    app.wxRequest("gongguan/api/wechat/myManageProject",
+      {},
+      "post", function (res) {
+      console.log("项目筛选：", res.data.data)
+      if (res.data.code == 0) {
+        that.setData({
+          manageProject: res.data.data
+        })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
     })
   },
   onHide: function () {

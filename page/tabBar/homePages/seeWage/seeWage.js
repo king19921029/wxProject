@@ -16,7 +16,7 @@ Page({
     app.wxRequest("gongguan/api/wechat/queryTerm",
       {},
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("header数据：", res.data.data)
         if (res.data.code == 0) {
           that.setData({
             peojectData: res.data.data.project,
@@ -31,7 +31,7 @@ Page({
     app.wxRequest("gongguan/api/wechat/salaryList",
       {},
       "post", function (res) {
-        console.log(res);
+        console.log("列表：",res.data.data);
         var data =  {
           "total": "1",
           "t": [

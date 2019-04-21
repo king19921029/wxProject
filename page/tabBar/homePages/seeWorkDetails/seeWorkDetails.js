@@ -35,29 +35,21 @@ Page({
         }
     })
     // 
-    app.wxRequest("gongguan/api/wechat/groupQuantityDetailTotal",
+    // 明细
+    app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrimDetailTotal",
       { groupId: that.data.groupId },
       "post", function (res) {
-        var data = [
-          {
-            "workTypeName": "混林土工",
-            "subPro": "框架浇筑",
-            "id": "4006201903280003002",
-            "startDate": "2019-04",
-            "status": "未确认",
-            "classNum": "1220"
-          }
-        ]
-        // var data = res.data.data
-        console.log(res);
+        console.log("明细", res.data.data);
         if (res.data.code == 0) {
+          var data = res.data.data;
           that.setData({
-            tabData: data
+            details: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
+   
   },
   onHide: function () {
 
