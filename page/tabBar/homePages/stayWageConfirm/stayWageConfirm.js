@@ -12,44 +12,18 @@ Page({
   },
   onShow: function () {
     var that = this;
-    // 我的工资
-    app.wxRequest("gongguan/api/wechat/mySalaryWaitConfirm",
-      {},
-      "post", function (res) {
-        console.log("我的工资：",res.data.data)
-        if (res.data.code == 0) {
-          var data = {
-            "data": [
-              {
-                "date": "2019-05",
-                "groupName": "大班组A",
-                "deductionSalary": "0.00", 
-                "deductionSalary": "0.00", 
-                "labourCompanyName": "北京广佳装饰公司丰台总部",
-                "groupId": "4001201904100002001",
-                "name": "侯1",
-                "realSalary": "32100.00",
-                "id": "4026201904110000019",
-                "projectName": "广佳丰台装饰",
-                "payableSalary": "32100.00"
-            }
-            ],
-            "mySalaryCount": "1"
-          }
-          // var data = res.data.data;
-          that.setData({
-            myWage:data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
     // 班组工资待确认数量
     app.wxRequest("gongguan/api/wechat/groupSalaryWaitConfirmCount",
       {},
       "post", function (res) {
         console.log("班组工资待确认数量:",res.data.data)
         if (res.data.code == 0) {
+          if (res.data.isLeader ){
+            that.perData();
+            that.classData();
+          }else{
+            that.perData();
+          }
           that.setData({
             vipNum: res.data.data
           })
@@ -57,33 +31,36 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 班组工资列表
+   
+  },
+  // 我的工资
+  perData:function(){
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/mySalaryWaitConfirm",
+      {},
+      "post", function (res) {
+        console.log("我的工资：", res.data.data)
+        if (res.data.code == 0) {
+          var data = res.data.data;
+          that.setData({
+            myWage: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  // 班组工资列表
+  classData:function(){
+    var that = this;
     app.wxRequest("gongguan/api/wechat/myGroupSalaryWaitConfirm",
       {},
       "post", function (res) {
-        console.log("班组工资列表:",res.data.data)
+        console.log("班组工资列表:", res.data.data)
 
         if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = {
-            "code": "0",
-            "data": [
-              {
-                "date": "2019-05",
-                "groupName": "大班组A",
-                "deductionSalary": "0.00", 
-                "labourCompanyName": "北京广佳装饰公司丰台总部",
-                "differenceSalary": "0.00", 
-                "realSalary": "32100.00", 
-                "projectName": "广佳丰台装饰",
-                "groupId": "4001201904140000001",
-                "payableSalary": "32100.00" 
-              }
-            ],
-            "msg": "",
-            "visible": true,
-            "success": true
-          }
+          var data = res.data.data;
+
           that.setData({
             vipWage: data
           })
@@ -107,26 +84,28 @@ Page({
     })
   },
   // 确定事件
-  confirmationTap:function(){
+  confirmationTap:function(e){
+    console.log(e.currentTarget.dataset.id)
     this.setData({
-      blockIsShow: false
+      blockIsShow: false,
+      id: e.currentTarget.dataset.id
     })
   },
-  confirmBtn:function(){
+  confirmBtn: function (e) {
     var that = this;
     // 我的工资确认id、verificationCode
     app.wxRequest("gongguan/api/wechat/confirmSalary",
-      {},
+      { id: that.data.id, verificationCode:"111111" },
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("提交工资：", res.data.data)
         if (res.data.code == 0) {
-          that.setData({
-            // myWage: res.data.data
-          })
+          if( res.data.data ){
+            wx.navigateBack()
+          }
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   // 取消
   no_tap:function(){
@@ -136,9 +115,9 @@ Page({
   },
   //个人详情
   perDetails: function (e) {
-    let groupId = e.currentTarget.dataset.groupid;
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails?groupId=' + groupId,
+      url: '/page/tabBar/homePages/perWageDetails/perWageDetails?id=' + id,
     })
   },
   //班组详情

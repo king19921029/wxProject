@@ -14,17 +14,17 @@
     </view>
 
      <view class='list display_flex'>
-      <view>手机号</view>
-      <input class='margin_right' type='number' placeholder='请输入手机号'></input>
+      <view>身份证号</view>
+      <input bindblur='getIdNum' class='margin_right' type='number' placeholder='身份证号'></input>
     </view>
 
-    <view class='list display_flex'>
+    <!-- <view class='list display_flex'>
       <view>劳动合同</view>
       <view class='display_flex color_blue margin_right'>
         上传附件
       </view>
-    </view>
+    </view> -->
   </view>
 
-  <view class='bg_blue com_footer_btn'>确认</view>
+  <view bindtap='addPer' class='bg_blue com_footer_btn'>确认</view>
 </view>

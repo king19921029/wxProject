@@ -5,25 +5,26 @@ Page({
     details:{},//数据
   },
   onLoad: function (options) {
-   
+    var month = options.month.replace(/年/, "-").replace(/月/, "")
     this.setData({
-      groupId: options.groupId
+      groupId: options.groupId,
+      month: month
     })
   },
   onShow: function () {
     var that = this;
-    // 明细
-    app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrimDetailTotal",
-      { groupId: that.data.groupId},
+    // 工作量明细
+    app.wxRequest("gongguan/api/wechat/waitConfirmQuantityDetail",
+      { groupId: that.data.groupId, month: that.data.month},
       "post", function (res) {
       console.log("明细", res.data.data);
       if (res.data.code == 0) {
         var data = res.data.data;
         wx.setNavigationBarTitle({
-          title:data.startDate
+          title: that.data.month
         })
         that.setData({
-          details: data
+          details: data[0]
         })
       } else {
         app.showLoading(res.data.msg, "none");

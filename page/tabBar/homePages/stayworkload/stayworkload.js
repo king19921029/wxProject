@@ -1,4 +1,4 @@
-var app =getApp()
+var app = getApp()
 Page({
   data: {
     perDetails:{},//个人工作量
@@ -14,61 +14,22 @@ Page({
   },
   onShow: function () {
     var that = this;
-    //个人工作量待办
-    app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrim",
+    // 待确认数量
+    app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrimCount",
       {},
       "post", function (res) {
-        console.log("个人工作量：",res.data.data);
+        console.log("待确认数量：", res.data.data);
         if (res.data.code == 0) {
-          // var data = {
-          //   "total": "1",
-          //   "t": [
-          //     {
-          //       "groupName": "大班组A",
-          //       "quantity": "122.0", 
-          //       "labourCompanyId": "4045201903280003005",
-          //       "labourCompanyName": "小程序",
-          //       "groupId": "4001201904100002001",
-          //       "projectName": "小程序",
-          //       "userName": "小程序",
-          //       "projectId": "4034201904010004001",
-          //       "startDate": "2019年04月"
-          //     }
-          //   ]
-          // }
           var data = res.data.data;
           that.setData({
-            perDetails: data
+            vipNum: data
           })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-    //班组工作量待办
-    app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrim",
-      {},
-      "post", function (res) {
-        console.log("班组工作量：",res.data.data);
-        if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = {
-            "total": "1",
-            "t": [
-              {
-                "groupName": "大班组A",
-                "quantity": "122.0",
-                "labourCompanyId": "4045201903280003005",
-                "labourCompanyName": "小程序",
-                "groupId": "4001201904140000001",
-                "projectName": "小程序",
-                "projectId": "4034201904010004001",
-                "startDate": "2019年04月"
-              }
-            ]
+          if (data.isLeader){
+            that.perData(1);
+            that.classData(1);
+          }else{
+            that.perData(1);
           }
-          that.setData({
-            vipDetails: data
-          })
         } else {
           app.showLoading(res.data.msg, "none");
         }
@@ -76,6 +37,41 @@ Page({
   },
   onHide: function () {
 
+  },
+  //个人工作量待办
+  perData:function(page){
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrim",
+      {page:page},
+    "post", function (res) {
+      console.log("个人工作量：", res.data.data);
+      if (res.data.code == 0) {
+
+        var data = res.data.data;
+        that.setData({
+          perDetails: data
+        })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
+  },
+  // 班组工作量待办
+  classData:function(page){
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrim",
+      {page:page},
+      "post", function (res) {
+        console.log("班组工作量：", res.data.data);
+        if (res.data.code == 0) {
+          var data = res.data.data;
+          that.setData({
+            vipDetails: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   // header切换
   myWage:function(){
@@ -100,11 +96,29 @@ Page({
       blockIsShow: true
     })
   },
-  // 去详情
+  // 确定
+  confirmBtn: function (e) {
+    var that = this;
+    // 我的工资确认id、verificationCode
+    app.wxRequest("gongguan/api/wechat/confirmSalary",
+      { id: that.data.id, verificationCode: "111111" },
+      "post", function (res) {
+        console.log("提交工资：", res.data.data)
+        if (res.data.code == 0) {
+          if (res.data.data) {
+            wx.navigateBack()
+          }
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+  },
+  // 个人去详情
   goDetails:function(e){
     let groupId = e.currentTarget.dataset.groupid;
+    let month = e.currentTarget.dataset.month;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=' + groupId,
+      url: '/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=' + groupId + "&month=" + month,
     })
   },
   // 班组去详情

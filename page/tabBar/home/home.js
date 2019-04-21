@@ -4,8 +4,8 @@ Page({
   data: {
     
   },
-  onLoad: function (options) {
-   
+  onLoad: function (options) {    
+
   },
   onReady: function () {
     

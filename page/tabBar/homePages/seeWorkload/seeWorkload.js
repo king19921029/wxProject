@@ -27,24 +27,8 @@ Page({
     app.wxRequest("gongguan/api/wechat/myQuantity",
       { projectId: "", labourCompanyId: "",groupId:"",page:""},
       "post", function (res) {
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "quantity": "122.0",
-              "labourCompanyId": "4045201903280003005",
-              "labourCompanyName": "小程序",
-              "groupId": "4001201904140000001",
-              "projectName": "小程序",
-              "userName": "小程序",
-              "projectId": "4034201904010004001",
-              "startDate": "2019年04月"
-            }
-          ]
-        }
-
-        // var data = res.data.data
+      
+        var data = res.data.data
         console.log("工作量列表：",res.data.data);
         if (res.data.code == 0) {
           that.setData({

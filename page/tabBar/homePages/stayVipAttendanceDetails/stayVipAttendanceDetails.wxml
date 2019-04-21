@@ -36,7 +36,7 @@
   <view>
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
-      <checkbox-group bindchange="allCheckbox">
+      <checkbox-group bindchange="allCheckbox" data-allcheck="{{allCheck}}">
         <label class="checkboxs"> 
           <checkbox></checkbox>
         </label>
@@ -61,7 +61,9 @@
           </label>
         </checkbox-group>
       </view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails'class='overflow'>{{item.userName}}</view>
+      <view data-userid="{{item.userId}}" bindtap='goDetails'class='overflow'>
+        {{item.userName}}
+      </view>
       <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.month}}</view>
       <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.classNum}}</view>
       <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.daysNum}}</view>
@@ -70,6 +72,6 @@
     </view>
   </view>
 
-  <view bindtap='confirmBtn' class='com_width bg_blue all_yes'>全部确认</view>
-  <view bindtap='confirmBtn' class='com_width one_yes'>确定</view>
+  <view bindtap='allConfirm' class='com_width bg_blue all_yes'>全部确认</view>
+  <view bindtap='confirmTap' class='com_width one_yes'>确定</view>
 </view>

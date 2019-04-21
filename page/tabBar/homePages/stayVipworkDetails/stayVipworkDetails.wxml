@@ -48,23 +48,28 @@
       <view class='last_child'>状态</view>
     </view>
     
-    <view bindtap='goDetails' class='com_tab_title' 
-      wx:for="{{tabDetails.t}}" wx:item="item" wx:key="">
+    <view class='com_tab_title' 
+      wx:for="{{tabData.t}}" wx:item="item" wx:key=""
+      wx:for-index='idx'>
 
-      <view class='first_checkbox'>
-        <label class="checkboxs"> 
-          <checkbox></checkbox>
-        </label>
+      <view data-types="0" class='first_checkbox'>
+        <checkbox-group bindchange="checkboxChange" data-ischecked='{{item.isChecked}}'
+        data-idx="{{idx}}">
+          <label class="checkboxs"> 
+            <checkbox checked='{{item.isChecked}}'></checkbox>
+          </label>
+        </checkbox-group>
       </view>
-      <view>{{item.userName}}</view>
-      <view>{{item.startDate}}</view>
-      <view>{{item.subPro}}</view>
-      <view>{{item.workTypeName}}</view>
-      <view>{{item.quantity}}</view>
-      <view class='last_child'>{{item.status}}</view>
+
+      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.userName}}</view>
+      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.startDate}}</view>
+      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.subPro}}</view>
+      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.workTypeName}}</view>
+      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.quantity}}</view>
+      <view data-id="{{item.id}}" bindtap='goDetails' class='last_child'>{{item.status}}</view>
     </view>
 
   </view>
-  <view bindtap='confirmBtn' class='com_width bg_blue all_yes'>全部确认</view>
-  <view bindtap='confirmBtn' class='com_width one_yes'>确定</view>
+  <view bindtap='allConfirm' class='com_width bg_blue all_yes'>全部确认</view>
+  <view bindtap='confirmTap' class='com_width one_yes'>确定</view>
 </view>

@@ -11,9 +11,6 @@ Page({
       groupId: options.groupId,
       month: options.month
     })
-    wx.setNavigationBarTitle({
-      title: "班组工资明细"
-    })
   },
   onShow: function () {
     var that = this;
@@ -21,26 +18,11 @@ Page({
     let month = that.data.month;
     //表格 groupId、month、page
     app.wxRequest("gongguan/api/wechat/groupSalaryWaitConfirmDetail",
-      { groupId: groupId, month: month,page:''},
+      { groupId: groupId, month: month,page:1},
       "post", function (res) {
         console.log("表格数据：",res.data.data)
         if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = {
-            "total": "1",
-            "t": [
-              {
-                "date": "2019-05",
-                "differenceSalary": "0.00", 
-                "realSalary": "32100.00", 
-                "id": "4026201904110000019",
-                "userName": "小程序",
-                "userId": "4046201904110010001",
-                "payableSalary": "32100.00", 
-                "status": "2"
-              }
-            ]
-          }
+          var data = res.data.data;
           that.setData({
             tabData: data
           })
@@ -54,18 +36,7 @@ Page({
       "post", function (res) {
         console.log("明细汇总:",res.data.data)
         if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = {
-            "date": "2019-05",
-            "groupName": "大班组A",
-            "deductionSalary": "0.00", 
-            "labourCompanyName": "北京广佳装饰公司丰台总部",
-            "differenceSalary": "0.00", 
-            "realSalary": "32100.00", 
-            "projectName": "广佳丰台装饰",
-            "groupId": "4001201904100002001",
-            "payableSalary": "32100.00" 
-          }
+          var data = res.data.data;
           that.setData({
             details: data
           })
@@ -94,9 +65,90 @@ Page({
       })
   },
   //查看详情
-  goDetails: function () {
+  goDetails: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails?groupId=' + this.data.groupId,
+      url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' + id,
+    })    
+  },
+  //多选框点击
+  checkboxChange: function (e) {
+    let isChecked = e.currentTarget.dataset.ischecked;//是否选中
+    let idx = e.currentTarget.dataset.idx;//下标
+    var tabData = 'tabData.t[' + idx + '].isChecked'
+    this.setData({
+      [tabData]: !isChecked
+    })
+  },
+  // 全选
+  allCheckbox: function (e) {
+    var data = this.data.tabData;
+    var arr = data.t
+    var allCheck = this.data.allCheck;
+    this.setData({
+      allCheck: !allCheck
+    })
+    if (allCheck) {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].isChecked = false
+      }
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].isChecked = true
+      }
+    }
+
+    this.setData({
+      tabData: data
+    })
+  },
+  // 全部确定
+  allConfirm: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+      arr.push(data[i].id)
+    }
+    var ids = arr.join(',');
+    console.log(ids)
+    // 全部确定
+    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
+      { id: ids, verificationCode:"111111" },
+      "post", function (res) {
+        console.log("全部确定", res.data.data)
+        if (res.data.code == 0) {
+          wx.navigateBack()
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  // 确定
+  confirmTap: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+
+      if (data[i].isChecked) {
+        arr.push(data[i].id)
+      }
+    }
+    var ids = arr.join(',');
+    console.log(ids)
+    // 确定
+    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
+      { id: ids, verificationCode:"111111" },
+      "post", function (res) {
+        console.log("全部确定", res.data.data)
+        if (res.data.code == 0) {
+          if (res.data.data) {
+            wx.navigateBack()
+          }
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
     })
   },
 

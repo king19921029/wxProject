@@ -4,103 +4,106 @@
   
     <view class='left_box' catchtap='myWage'>
       <text class='{{headerBorder? "addBorder" : "" }}'>我的考勤</text>
-      <view class='news_box {{headerBorder? "addBorder" : "" }}'>
-        <view class='news'>3</view>
+      <view wx:if="{{mineData.total>0}}" class='news_box {{headerBorder? "addBorder" : "" }}'>
+        <view class='news'>{{mineData.total}}</view>
       </view>
     </view>
-    <view class='center_border'></view>
-    <view class='right_box' bindtap='youWage'>
+
+    <view wx:if="{{num.isLeader}}" class='center_border'></view>
+    <view wx:if="{{num.isLeader}}" class='right_box' bindtap='youWage'>
       <text class='{{!headerBorder? "addBorder" : "" }}'>班组考勤</text>
 
-      <view wx:if="{{num.isLeader}}" class='news_box {{!headerBorder? "addBorder" : "" }}'>
+      <view wx:if="{{num.groupAttendanceCount > 0}}" class='news_box {{!headerBorder? "addBorder" : "" }}'>
         <view class='news'>{{num.groupAttendanceCount}}</view>
       </view>
 
     </view>
     
   </view>
-  <!-- 有考勤的时候 -->
-  <block wx:if="{{1==1}}">
-    <!-- 个人考勤 -->
-    <view wx:if="{{headerBorder}}" class='content bg_fff'> 
-      <view bindtap='perDetails' class='com_width list_box'
-        wx:for="{{mineData}}" wx:item="" wx:key=""
-        data-id="{{item.id}}">
-        <view class='list'>
-          <text class='list_title'>项目名称:</text>
-          <text class='list_data'>{{item.projectName}}</text>
+  <!-- 个人考勤 -->
+  <view wx:if="{{headerBorder}}" class='content bg_fff'> 
+    <block wx:if="{{mineData.t.length>0}}">
+      <view class='com_width list_box'
+        wx:for="{{mineData.t}}" wx:item="" wx:key="">
+        <view bindtap='perDetails' data-id="{{item.id}}">
+          <view class='list'>
+            <text class='list_title'>项目名称:</text>
+            <text class='list_data'>{{item.projectName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>劳务公司：</text>
+            <text class='list_data'>{{item.labourCompanyName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>班组：</text>
+            <text class='list_data'>{{item.groupName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>姓名：</text>
+            <text class='list_data'>{{item.userName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>年月：</text>
+            <text class='list_data'>{{item.month}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>班数：</text>
+            <text class='list_data'>{{item.classNum}}</text>
+          </view>
         </view>
-
-        <view class='list'>
-          <text class='list_title'>劳务公司：</text>
-          <text class='list_data'>{{item.labourCompanyName}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>班组：</text>
-          <text class='list_data'>{{item.groupName}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>姓名：</text>
-          <text class='list_data'>{{item.userName}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>年月：</text>
-          <text class='list_data'>{{item.month}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>班数：</text>
-          <text class='list_data'>{{item.classNum}}</text>
-        </view>
-      </view>
-
-      <view bindtap='confirmationTap' class='bg_blue com_footer_btn'>确认</view>
-    </view>
-    <!-- 班组考勤 -->
-    <view wx:else class='content bg_fff'> 
-      <view bindtap='classDetails' class='com_width list_box'
-        wx:for="{{vipData.t}}" wx:item="item" wx:key=""
-        data-month="{{item.month}}" data-groupid="{{item.groupId}}"
-        data-projectid="{{item.projectId}}">
-        <view class='list'>
-          <text class='list_title'>项目名称:</text>
-          <text class='list_data'>{{item.projectName}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>劳务公司：</text>
-          <text class='list_data'>{{item.labourCompanyName}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>班组：</text>
-          <text class='list_data'>{{item.groupName}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>年月：</text>
-          <text class='list_data'>{{item.month}}</text>
-        </view>
-
-        <view class='list'>
-          <text class='list_title'>班数：</text>
-          <text class='list_data'>{{item.classNum}}</text>
+      
+        <view data-id="{{item.id}}" bindtap='confirmationTap' 
+          class='bg_blue com_footer_btn'>
+          确认
         </view>
       </view>
-
-      <view bindtap='confirmationTap' class='bg_blue com_footer_btn'>确认</view>
+    </block>
+   
+    <!-- 没有list的时候 -->
+    <view wx:else class='list_none'>
+      <image src="/image/none_record.png"></image>
+      <view>您目前无共考勤确认记录</view>
     </view>
-  </block>
- 
-  <!-- 没有list的时候 -->
-  <view wx:else class='list_none'>
-    <view>没有列表的时候</view>
-    <image src="/image/none_record.png"></image>
-    <view>您目前无共工资确认记录</view>
   </view>
+  <!-- 班组考勤 -->
+  <view wx:else class='content bg_fff'> 
+    <block wx:if="{{vipData!=''}}">
+      <view class='com_width list_box'
+        wx:for="{{vipData}}" wx:item="item" wx:key="" >
+        <view bindtap='classDetails' data-projectid="{{item.projectId}}" 
+          data-month="{{item.month}}" data-groupid="{{item.groupId}}">
+          <view class='list'>
+            <text class='list_title'>项目名称:</text>
+            <text class='list_data'>{{item.projectName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>劳务公司：</text>
+            <text class='list_data'>{{item.labourCompanyName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>班组：</text>
+            <text class='list_data'>{{item.groupName}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>年月：</text>
+            <text class='list_data'>{{item.month}}</text>
+          </view>
+          <view class='list'>
+            <text class='list_title'>班数：</text>
+            <text class='list_data'>{{item.classNum}}</text>
+          </view>
+        </view>
+        <view data-id="{{item.id}}" bindtap='confirmationTap' class='bg_blue com_footer_btn'>确认</view>
+      </view>
+    </block>
+    <!-- 没有list的时候 -->
+    <view wx:else class='list_none'>
+      <image src="/image/none_record.png"></image>
+      <view>您目前无共考勤确认记录</view>
+    </view>
+  </view>
+ 
+
 
   <!-- 浮层 -->
   <view hidden='{{blockIsShow}}' class='box_block'>
@@ -114,7 +117,7 @@
 
       <view class='btn_box'>
         <view bindtap='no_tap' class='no'>取消</view>
-        <view class='yes'>确认</view>
+        <view bindtap='confirmaedTap' class='yes'>确认</view>
       </view>
     </view>
   </view>

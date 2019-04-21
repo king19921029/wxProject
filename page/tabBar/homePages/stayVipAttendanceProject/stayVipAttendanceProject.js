@@ -9,33 +9,18 @@ Page({
       userId:options.userId,
       groupId: options.groupId,
       month: options.month,
-      titles: options.titles
     })
-    wx.setNavigationBarTitle({
-      title: options.titles
-    })
+  
   },
   onShow: function () {
     var that = this;
-    //某人某月考勤明细groupId、month、userId
-    app.wxRequest("gongguan/api/wechat/queryGroupAttendaceDetail",
-      { groupId: that.data.groupId, month: that.data.month,userId: that.data.userId},
+    //tab数据groupId、month、userId
+    app.wxRequest("gongguan/api/wechat/queryGroupAttendancePersonMonthDetail",
+      { groupId: that.data.groupId, month: that.data.month, userId: that.data.userId },
       "post", function (res) {
       console.log("表格：",res.data.data)
       if (res.data.code == 0) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "attendanceType": "白班",
-              "remark": "备注",
-              "id": "4034201904010004001",
-              "classNum": "1",
-              "clockTime": "04-01"
-            }
-          ]
-        }
+        var data = res.data.data;
         that.setData({
           tabData: data
         })
@@ -44,14 +29,14 @@ Page({
       }
     })
     // 明细汇总
-    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceWaitConfirmDetailTotle",
-      { groupId: that.data.groupId},
+    app.wxRequest("gongguan/api/wechat/groupPersonMonthAttendanceDetail",
+      { groupId: that.data.groupId, month: that.data.month, userId: that.data.userId},
       "post", function (res) {
       console.log("明细：", res.data.data)
       if (res.data.code == 0) {
         var data = res.data.data;
         that.setData({
-          details: data
+          details: data[0]
         })
       } else {
         app.showLoading(res.data.msg, "none");
@@ -70,15 +55,17 @@ Page({
   // 确认
   confirmBtn: function () {
     var that = this;
+    let id = that.data.details.id
     // 我的工资确认groupId、Ids多选 英文逗号分开
     app.wxRequest("gongguan/api/wechat/groupConfirmPersonAttendance",
-      { groupId: that.data.groupId,Ids:""},
+      { groupId: that.data.groupId, Ids: id},
       "post", function (res) {
         console.log("确定：",res.data.data)
         if (res.data.code == 0) {
-          that.setData({
-            // myWage: res.data.data
-          })
+          if( res.dara.data ){
+            wx.navigateBack()
+          }
+         
         } else {
           app.showLoading(res.data.msg, "none");
         }

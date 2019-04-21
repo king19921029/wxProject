@@ -12,7 +12,7 @@
       </view>
       <view>
         <text class='fa color_blue fa-star'></text> 
-        <text>夜班：{{details.nightNum}}</text>
+        <text>夜班：{{details.nigthNum}}</text>
       </view>
     </view>
   </view>

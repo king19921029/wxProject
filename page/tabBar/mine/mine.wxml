@@ -7,11 +7,7 @@
           <image src='/image/none_record.png'></image>
           <view>
             <view class='user_name'>{{mineData.realName}}</view>
-            <!-- <view class='user_msg display_flex'>
-              <text class='color_gray'>当前所在项目：</text>
-              <text>某个项目</text>
-              <view class='add_class tab_btn'>切换</view>
-            </view> -->
+        
             <view wx:if="{{mineData.isAuth == 1}}" class='user_msg display_flex'>
               <icon type='success' size='14'></icon>
               <text class='color_gray'>已实名认证 ></text>
@@ -30,7 +26,7 @@
         
           <view class='com_list_right display_flex border_none'>
             <text>实名认证</text>
-            <view class='color_red'>为了确保正常使用，赶快实名认证</view>
+            <view wx:if="{{mineData.isAuth == 0}}" class='color_red'>为了确保正常使用，赶快实名认证</view>
             <text class='fa com_right fa-chevron-right'></text>
           </view> 
         </view>
@@ -87,10 +83,10 @@
         </view>
       </view>
       <!-- 退出 -->
-      <view class='out bg_fff'>退出</view>
+      <view bindtap='eixt' class='out bg_fff'>退出</view>
   </view>
   <!-- 实名认证浮层 -->
-  <view  wx:if="{{blockIsShow}}" class='box_block'>
+  <view  wx:if="{{myInfo.isAuth == 0}}" class='box_block'>
     <view class='bg_fff block_view'>
       <view class='block_title'>您未实名认证！</view>
       <view class="block_content color_gray">

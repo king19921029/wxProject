@@ -14,17 +14,7 @@ Page({
     app.wxRequest("gongguan/api/wechat/myQuantityDetail",
       { groupId: that.data.groupId},
       "post", function (res) {
-        var data = [
-          {
-            "workTypeName": "混林土工", 
-            "subPro": "框架浇筑", 
-            "id": "4006201903280003002",
-            "startDate": "2019-04",
-            "status": "未确认",
-            "classNum":"1220"
-          }
-        ]
-        // var data = res.data.data
+        var data = res.data.data
         console.log("tab数据：",res.data.data);
         if (res.data.code == 0) {
           that.setData({
@@ -54,10 +44,11 @@ Page({
   onHide: function () {
 
   },
-  // 工资详情
-  goWageDetails: function () {
+  // 工作量详情
+  goWageDetails: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=' + this.data.groupId,
+      url: '/page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm?id=' + id
     })
   },
 

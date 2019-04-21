@@ -54,6 +54,12 @@ Page({
     this.setData({
       blockIsShow:false
     })
+  },
+  //退出
+  eixt:function(){
+    wx.redirectTo({
+      url: '/page/tabBar/login/login',
+    })
   }
   
 })

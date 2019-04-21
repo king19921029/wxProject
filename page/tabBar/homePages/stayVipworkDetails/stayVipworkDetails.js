@@ -16,24 +16,13 @@ Page({
   },
   onShow: function () {
     var that = this;
-    // 详情
+    // 项目汇总
     app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrimDetailTotal",
       { groupId: that.data.groupId},
       "post", function (res) {
         console.log("tab上面的数据：",res.data.data)
         if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = {
-            "groupName": "大班组A", 
-            "quantity": "122.0", 
-            "labourCompanyId": "4045201903280003005", 
-            "labourCompanyName": "小程序", 
-            "groupId": "4001201904140000001", 
-            "projectName": "小程序", 
-            "projectId": "4034201904010004001", 
-            "startDate": "2019年04月" 
-          }
-
+          var data = res.data.data;
           that.setData({
             vipDetails: data
           })
@@ -41,27 +30,15 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 明细
+    // tab数据
     app.wxRequest("gongguan/api/wechat/myGroupQuantityDetail",
       { groupId: that.data.groupId, page: "" },
       "post", function (res) {
+        console.log("tab数据：",res.data.data)
       if (res.data.code == 0) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "quantity": "122 ", 
-              "workTypeName": "混林土工", 
-              "subPro": "框架浇筑", 
-              "userName": "小程序", 
-              "startDate": "2019-04", 
-              "status": "4"
-            }
-          ]
-        }
+        var data = res.data.data;
         that.setData({
-          tabDetails: data
+          tabData: data
         })
       } else {
         app.showLoading(res.data.msg, "none");
@@ -69,12 +46,94 @@ Page({
     })
   },
   onHide: function () {
-
   },
   //查看详情
   goDetails: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId
+      url: "/page/tabBar/homePages/stayworkvipDetails/stayworkvipDetails?id=" + id + "&groupId=" + this.data.groupId
+    })
+  },
+  //多选框点击
+  checkboxChange: function (e) {
+    let isChecked = e.currentTarget.dataset.ischecked;//是否选中
+    let idx = e.currentTarget.dataset.idx;//下标
+    console.log(e.currentTarget.dataset)
+    var tabData = 'tabData.t[' + idx + '].isChecked'
+    this.setData({
+      [tabData]: !isChecked
+    })
+  },
+  // 全选
+  allCheckbox: function (e) {
+    var data = this.data.tabData;
+    var arr = data.t
+    var allCheck = this.data.allCheck;
+    this.setData({
+      allCheck: !allCheck
+    })
+    if (allCheck) {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].isChecked = false
+      }
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].isChecked = true
+      }
+    }
+
+    this.setData({
+      tabData: data
+    })
+  },
+  // 全部确定
+  allConfirm: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    let groupId = that.data.groupId;
+    let month = that.data.titleDate.replace('年', '-').replace('月', '');
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+      arr.push(data[i].id)
+    }
+    var ids = arr.join(',');
+    // 全部确定
+    app.wxRequest("gongguan/api/wechat/groupQuantityConfirm",
+      { groupId: groupId, month:month,ids: ids, verificationCode: "111111" },
+      "post", function (res) {
+        console.log("全部确定", res.data.data)
+        if (res.data.code == 0) {
+          wx.navigateBack()
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  // 确定
+  confirmTap: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    let groupId = that.data.groupId;
+    let month = that.data.titleDate.replace('年', '-').replace('月', '');
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+
+      if (data[i].isChecked) {
+        arr.push(data[i].id)
+      }
+    }
+    var ids = arr.join(',');
+    console.log(ids)
+    // 确定
+    app.wxRequest("gongguan/api/wechat/groupQuantityConfirm",
+      { groupId: groupId, month: month, ids: ids, verificationCode: "111111" },
+      "post", function (res) {
+        console.log("全部确定", res.data.data)
+        if (res.data.code == 0) {
+          wx.navigateBack()
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
     })
   },
 

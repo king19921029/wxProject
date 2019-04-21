@@ -4,7 +4,9 @@ Page({
     blockIsShow: false
   },
   onLoad: function (options) {
-
+    this.setData({
+      types: options.types
+    })
   },
   onShow: function () {
 
@@ -12,5 +14,10 @@ Page({
   onHide: function () {
 
   },
+  go_home(){
+    wx.switchTab({
+      url: '/page/tabBar/home/home'
+    })
+  }
 
 })

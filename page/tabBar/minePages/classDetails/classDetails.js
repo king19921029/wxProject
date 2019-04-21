@@ -5,13 +5,15 @@ Page({
     vipMsg:{},
   },
   onLoad: function (options) {
-
+    this.setData({
+      groupId: options.groupId
+    })
   },
   onShow: function () {
     var that = this;
     // 基本情况
     app.wxRequest("gongguan/api/wechat/groupProjectDetail",
-      { groupId:"4001201904140000001"},
+      { groupId: that.data.groupId},
       "post", function (res) {
         console.log("基本情况：", res.data.data)
         if (res.data.code == 0) {
@@ -24,7 +26,7 @@ Page({
     })
     // 班组人员列表
     app.wxRequest("gongguan/api/wechat/groupPersonnel",
-      { groupId: "4001201904140000001" },
+      { groupId: that.data.groupId },
       "post", function (res) {
         console.log("基本情况：", res.data.data)
         if (res.data.code == 0) {
@@ -53,14 +55,14 @@ Page({
   // 添加人员
   addTap:function(){
     wx.navigateTo({
-      url: '/page/tabBar/minePages/addPerson/addPerson'
+      url: '/page/tabBar/minePages/addPerson/addPerson?groupId='+this.data.groupId
     })
   },
   // 人员详情
   goDetails:function(e){
     let userId = e.currentTarget.dataset.userid;
     wx.navigateTo({
-      url: '/page/tabBar/minePages/classPerDetails/classPerDetails?userId=' + userId
+      url: '/page/tabBar/minePages/classPerDetails/classPerDetails?userId=' + userId + "&groupId=" + this.data.groupId
     })
   },
 

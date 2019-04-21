@@ -11,12 +11,14 @@ App({
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",
+      "openId":"",
+      "authorization":""
     },
   },
   onLaunch: function (opts) {
     var that = this;
     let token = wx.getStorageSync("token") || "";
-    that.globalData.header["x-authorization"] = token;
+    that.globalData.header["authorization"] = token;
     that.globalData.token = token
   },
   onShow: function (opts) {

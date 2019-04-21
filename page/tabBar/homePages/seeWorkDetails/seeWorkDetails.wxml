@@ -39,7 +39,8 @@
     </view>
 
     <view bindtap='goWageDetails' class='com_tab_title'
-      wx:for="{{tabData}}" wx:item="item" wx:key="">
+      wx:for="{{tabData}}" wx:item="item" wx:key=""
+      data-id="{{item.id}}">
       <view>{{item.startDate}}</view>
       <view>{{item.subPro}}</view>
       <view>{{item.workTypeName}}</view>

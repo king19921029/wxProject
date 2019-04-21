@@ -28,28 +28,11 @@ Page({
     })
     // 我加入的项目page、projectId、groupId
     app.wxRequest("gongguan/api/wechat/myJoinGroup",
-      { page: "", projectId: "", groupId:""},
+      { page:1, projectId: "", groupId:""},
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("我加入的项目：",res.data.data)
         if (res.data.code == 0) {
-          var data = {
-            "total": "1",
-            "t": [
-              {
-                "groupName": "小程序大班组",
-                "groupId": "4001201904140000001",
-                "labourCompanyName": "北京广佳装饰公司丰台总部",
-                "isAccredited": "1", 
-                "projectAddress": "福建泉州",
-                "projectName": "生态园建设",
-                "projectId": "4034201904100007010",
-                "userId": "4046201904140003001",
-                "todayWork": true, 
-                "labourContractId": "4034201904100007010"
-              }
-            ]
-          }
-          // var data = res.data.data;
+          var data = res.data.data;
           that.setData({
             addProject:data
           })
@@ -114,9 +97,10 @@ Page({
     }
   },
   // 添加成员
-  addTap:function(){
+  addTap:function(e){
+    let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
-      url: '/page/tabBar/minePages/classDetails/classDetails'
+      url: '/page/tabBar/minePages/classDetails/classDetails?groupId=' + groupId
     })
   },
   //今日上班

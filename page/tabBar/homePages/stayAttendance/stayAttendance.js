@@ -4,6 +4,7 @@ Page({
     headerBorder: true,//header添加border
     blockIsShow: true,//浮层
     vipData:{},//班组考勤
+    id:"",//id
   },
   onLoad: function (options) {
 
@@ -13,36 +14,6 @@ Page({
   },
   onShow: function () {
     var that = this;
-    //班组考勤待办projectId、page
-    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceWaitConfirm",
-      { projectId: "", page:""},
-      "post", function (res) {
-      console.log("班组考勤：",res.data.data);
-      if (res.data.code == 0) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "month": "2019-04",
-              "labourCompanyId": "4045201903280003005",
-              "groupId": "4001201904140000001",
-              "labourCompanyName": "小程序劳务公司",
-              "classNum": "10",
-              "projectName": "小程序项目",
-              "projectId": "4034201904010004001"
-            }
-          ]
-        }
-       
-        that.setData({
-          vipData:data
-        })
-      } else {
-        app.showLoading(res.data.msg, "none");
-      }
-    })
     // 待办数量 groupAttendanceWaitConfirmCount
     app.wxRequest("gongguan/api/wechat/groupAttendanceWaitConfirmCount",
       { },
@@ -50,39 +21,14 @@ Page({
         console.log("班组待办数量：",res.data.data);
         if (res.data.code == 0) {
           var data = res.data.data;
+          if (data.isLeader){
+            that.perData(1);
+            that.vipData("",1);
+          }else{
+            that.perData(1);
+          }
           that.setData({
             num: data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-    // 个人考勤待办
-    app.wxRequest("gongguan/api/wechat/myAttendanceWaitConfirm",
-      { page: "" },
-      "post", function (res) {
-        console.log("个人考勤：",res.data.data);
-        if (res.data.code == 0) {
-          // var data = res.data.data;
-          var data = [
-            {
-              "groupName": "大班组A",
-              "labourCompanyId": "4045201904100010002",
-              "normalNum": "10天",
-              "groupId": "4001201904140000001",
-              "labourCompanyName": "小程序劳务公司",
-              "errorNum": "2天",
-              "id": "4034201904010004002",
-              "classNum": "10天", 
-              "projectName": "小程序项目",
-              "nightNum": "2天", 
-              "daysNum": "2天", 
-              "projectId": "4034201904100007010"
-            }
-          ]
-
-          that.setData({
-            mineData: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
@@ -92,27 +38,87 @@ Page({
   onHide: function () {
 
   },
-  // header切换
+  // 个人考勤
+  perData:function(page){
+    var that = this;
+    // 个人考勤待办
+    app.wxRequest("gongguan/api/wechat/myAttendanceWaitConfirm",
+      { page:page },
+      "post", function (res) {
+        console.log("个人考勤：", res.data.data);
+        if (res.data.code == 0) {
+          var data = res.data.data;
+          that.setData({
+            mineData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  // 班组考勤
+  vipData: function (projectId, page){
+    var that = this;
+    //班组考勤待办projectId、page
+    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceWaitConfirm",
+      { projectId: projectId, page:page },
+      "post", function (res) {
+        console.log("班组考勤：", res.data.data);
+        if (res.data.code == 0) {
+          var data = res.data.data;
+
+          that.setData({
+            vipData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  // 我的
   myWage: function () {
     this.setData({
       headerBorder: true
     })
   },
+  // 班组的
   youWage: function () {
     this.setData({
       headerBorder: false
     })
   },
   // 确定事件
-  confirmationTap: function () {
+  confirmationTap: function (e) {
+
     this.setData({
-      blockIsShow: false
+      blockIsShow: false,
+      id:e.currentTarget.dataset.id
     })
   },
-  // 取消
+  // 浮层取消
   no_tap: function () {
     this.setData({
       blockIsShow: true
+    })
+  },
+  // 浮层确认
+  confirmaedTap:function(){
+    var that = this;
+    // 个人考勤待办
+    app.wxRequest("gongguan/api/wechat/myAttendanceConfirm",
+      { id: that.data.id },
+      "post", function (res) {
+      console.log("确认考勤：", res.data.data);
+      if (res.data.code == 0) {
+        var data = res.data.data;
+        if( data){
+          that.setData({
+            blockIsShow:true
+          })
+        }
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
     })
   },
   // 个人详情

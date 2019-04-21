@@ -1,32 +1,30 @@
-var app = getApp()
+var app = getApp();
 Page({
   data: {
-    blockIsShow: false,
-    details: {},
-    userId:"",
+    btnFont: "提交劳务公司审核",
+    details: {},//数据
   },
   onLoad: function (options) {
+
     this.setData({
-      userId: options.userId,
-      groupId: options.groupId
+      id: options.id,
     })
   },
   onShow: function () {
     var that = this;
-    // 人员详情
-    app.wxRequest("gongguan/api/wechat/groupPersonInfo",
-      { groupId: that.data.groupId, userId: that.data.userId },
+    // 工作量明细
+    app.wxRequest("gongguan/api/wechat/quantityDetailList",
+      { id: that.data.id },
       "post", function (res) {
-        console.log(res.data.data)
+        console.log("明细", res.data.data);
         if (res.data.code == 0) {
           var data = res.data.data;
+          wx.setNavigationBarTitle({
+            title: data.month
+          })
           that.setData({
             details: data
           })
-          wx.setNavigationBarTitle({
-            title: data.leaderName
-          })
-
         } else {
           app.showLoading(res.data.msg, "none");
         }
@@ -35,5 +33,4 @@ Page({
   onHide: function () {
 
   },
-
 })

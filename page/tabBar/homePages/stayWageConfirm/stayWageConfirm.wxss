@@ -8,6 +8,8 @@
   width: 100%;
   border-top: 1px solid #efeff4;
   position: relative;
+  display: flex;
+  justify-content: center;
 }
 .center_border{
   width:1rpx;
@@ -143,4 +145,5 @@
   align-items: center;
   font-size: 34rpx;
   color: #88888a;
+  height: 87vh;
 }

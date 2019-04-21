@@ -41,9 +41,9 @@ Page({
             console.log(urlData)
             if (urlData.code == "0") {
               wx.hideLoading();
-              // that.setData({
-              //   imageP: urlData.data
-              // })
+              that.setData({
+                imageP: urlData.data
+              })
             } else {
               app.showLoading(urlData.msg, "none")
             }
@@ -137,6 +137,7 @@ Page({
   },
   //下一步
   nextTap:function(){
+    var that = this;
     app.wxRequest("gongguan/api/wechat/auth",
       {  
         userName: "ll", 
@@ -149,6 +150,9 @@ Page({
       "post", function (res) {
         console.log(res.data)
         if (res.data.code == 0) {
+          wx.navigateTo({
+            url: '/page/tabBar/minePages/authenticationRes/authenticationRes?types=1'
+          })
           that.setData({
             monthData: res.data.data
           })

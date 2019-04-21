@@ -25,7 +25,7 @@
       <view class='tab_content'>工数</view>
       <view class='tab_content'>备注</view>
     </view>
-    <view wx:for="{{tabData.t}}" wx:item="item" wx:key="" 
+    <view wx:for="{{tabData}}" wx:item="item" wx:key="" 
       class='com_tab_title'>
       <view class='tab_content'>{{item.clockTime}}</view>
       <view class='tab_content'>{{item.attendanceType}}</view>
@@ -35,7 +35,7 @@
     </view>
   </view>
 
-  <view bindtap='confirmBtn' class='com_footer_btn bg_blue'>确定</view>
+  <view bindtap='confirmaedTap' class='com_footer_btn bg_blue'>确定</view>
 
 
 </view>
