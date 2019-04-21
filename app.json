@@ -1,11 +1,9 @@
 {
   "pages": [
+    "page/tabBar/login/login",
     "page/tabBar/home/home",
     "page/tabBar/mine/mine",
     "page/tabBar/minePages/addPerson/addPerson",
-    
-    
-    "page/tabBar/login/login",
     "page/tabBar/messagePages/city/city",
     "page/tabBar/message/message",
     "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",

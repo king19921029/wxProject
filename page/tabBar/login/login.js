@@ -1,7 +1,8 @@
 var app = getApp();
 Page({
   data: {
-    blockIsShow: false
+    blockIsShow: false,
+    photoBtn:true
   },
   onLoad: function (options) {
 
@@ -13,19 +14,10 @@ Page({
     
   },
   getCode:function(e){
+    var that = this;
     wx.login({
       success(res) {
         console.log(res);
-
-        wx.openSetting({
-          success(res) {
-            console.log(res.authSetting)
-            res.authSetting = {
-              "scope.userInfo": true,
-              "scope.userLocation": true
-            }
-          }
-        })
         if (res.code) {
           app.wxRequest("gongguan/api/wechat/getOpenIdByCode",
             { code: res.code },
@@ -34,19 +26,8 @@ Page({
               app.globalData.header.openId = res.data.data;
               console.log(app.globalData.header)
               if (res.data.code == 0) {
-                app.wxRequest("gongguan/api/wechat/login",
-                  { phone: "15210406270", verificationCode:"111111" },
-                  "post", function (res) {
-                    console.log(res)
-                    if (res.data.code == 0) {
-                      app.globalData.header.authorization = res.data.data
-                      wx.setStorageSync("token", res.data.data)
-                      wx.switchTab({
-                        url: '/page/tabBar/home/home'
-                      })
-                    } else {
-                      app.showLoading(res.data.msg, "none");
-                    }
+                that.setData({
+                  photoBtn:false
                 })
               } else {
                 app.showLoading(res.data.msg, "none");
@@ -57,15 +38,29 @@ Page({
         }
       }
     })
-
-
-    console.log(e.detail)
-   
   },
   getPhoneNumber: function (e) {
-    console.log(e);
-    console.log(e.detail.errMsg)
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
-  } 
+    app.wxRequest("gongguan/api/wechat/login",
+      { phone: this.data.userPhone, verificationCode: "111111" },
+      "post", function (res) {
+        console.log(res)
+        if (res.data.code == 0) {
+          app.globalData.header.authorization = res.data.data
+          wx.setStorageSync("token", res.data.data)
+          wx.switchTab({
+            url: '/page/tabBar/home/home'
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  getPhone:function(e){
+    console.log(e)
+    this.setData({
+      userPhone: e.detail.value
+    })
+  }
 })
