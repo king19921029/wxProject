@@ -47,7 +47,8 @@
       <view>状态</view>
     </view>
     <view bindtap='goWageDetails' class='com_tab_title'
-      wx:for="{{tabData.t}}" wx:item="item" wx:key="">
+      wx:for="{{tabData.t}}" wx:item="item" wx:key=""
+      data-id="{{item.id}}">
       <view>{{item.month}}</view>
       <view>{{item.payableSalary}}</view>
       <view>{{item.deductionSalary}}</view>

@@ -15,7 +15,7 @@ Page({
     var that = this;   
     // tab数据
     app.wxRequest("gongguan/api/wechat/myAttendanceMonthRecord",
-      { groupId: that.data.groupId},
+      { groupId: that.data.groupId,page:1},
       "post", function (res) {
         console.log("tab数据:",res.data.data)
         if (res.data.code == 0) {
@@ -33,20 +33,7 @@ Page({
       "post", function (res) {
         console.log("明细汇总:", res.data.data)
         if (res.data.code == 0) {
-          // var data = {
-          //   "total": "1",
-          //   "t": [
-          //     {
-          //       "month": "2019-04",
-          //       "normalNum": "10天",
-          //       "errorNum": "2天",
-          //       "id": "4034201904010004002",
-          //       "daysNum": "2天",
-          //       "nightNum": "2天"
-          //     }
-          //   ]
-          // }
-
+          
           var data = res.data.data;
           that.setData({
             details: data
@@ -61,9 +48,10 @@ Page({
 
   },
   listTap: function (e) {
-    let id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.id;
+    console.log(id)
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceProject/attendanceProject?id=' + id,
+      url: '/page/tabBar/homePages/attendanceProject/attendanceProject?groupId=' + this.data.groupId+"&id="+id,
     })
   }
 

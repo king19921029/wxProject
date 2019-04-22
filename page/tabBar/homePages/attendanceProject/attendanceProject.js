@@ -4,15 +4,17 @@ Page({
     selectStatus: 0,
     tabData:{},//tab数据
     titleData:{},//title数据
-    groupId: "4001201904100002001",
+    groupId: "",
   },
   onLoad: function (options) {
    this.setData({
-    id: options.id
+     groupId: options.groupId,
+     id:options.id
    })
   },
   onShow: function () {
     var that = this;
+    var id = that.data.id;
     var groupId = that.data.groupId;
     // 明细汇总
     app.wxRequest("gongguan/api/wechat/myAttendanceMonthRecord",
@@ -20,20 +22,7 @@ Page({
       "post", function (res) {
         console.log("明细汇总：",res.data.data)
         if (res.data.code == 0) {
-          var data = {
-            "total": "1",
-            "t": [
-              {
-                "month": "2019-04",
-                "normalNum": "10天",
-                "errorNum": "2天",
-                "id": "4034201904010004002",
-                "daysNum": "2天",
-                "nightNum": "2天"
-            }
-            ]
-          }
-          // var data = res.data.data;
+          var data = res.data.data;
           that.setData({
             titleData: data.t[0]
           })
@@ -43,13 +32,13 @@ Page({
     })
     // tab数据
     app.wxRequest("gongguan/api/wechat/myAttendanceDetail",
-      { id:"4034201904010004002"},
+      { id: id,page:1},
       "post", function (res) {
         console.log("tab数据：",res)
         if (res.data.code == 0) {
-
+          // var data = res.data.data
           var data = {
-            "page": {
+          
               "total": "1",
               "t": [
                 {
@@ -61,13 +50,11 @@ Page({
                   "clockTime": "04-01",
                   "morning": "00:00"
                 }
-              ]
-            },
-            "userName": "小程序测试用户"
+              ],
+             "userName": "小程序测试用户"
           }
-
           that.setData({
-            tabData: data.page
+            tabData: data
           })
           wx.setNavigationBarTitle({
             title:data.userName
@@ -81,9 +68,10 @@ Page({
 
   },
   // 打卡详情
-  goCard: function () {
+  goCard: function (e) {
+    let userId = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceCard/attendanceCard?userName=' + this.data.tabData.userName,
+      url: '/page/tabBar/homePages/attendanceCard/attendanceCard?userName=' + this.data.tabData.userName + "&day=" + this.data.titleData.month+"&uersId="+userId,
     })
   }
 
