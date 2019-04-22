@@ -35,7 +35,7 @@
     </block>
     <block wx:if="{{selectStatus == 3}}">
       <view>全部</view>
-      <view>已确认</view>
+      <view wx:for="{{statusData}}" wx:item="item" wx:key="">{{item}}</view>
     </block>
   </view>
 
@@ -84,7 +84,7 @@
     </view>
     
     <view wx:for="{{detailsData.t}}" wx:item="" wx:key="" class='com_tab_title'
-      bindtap='goDetails'>
+      bindtap='goDetails' data-month="{{item.startDate}}">
       <view class='first_checkbox'>
         <label class="checkboxs"> 
           <checkbox></checkbox>

@@ -32,6 +32,5 @@ Page({
     })
   },
   onHide: function () {
-
   },
 })

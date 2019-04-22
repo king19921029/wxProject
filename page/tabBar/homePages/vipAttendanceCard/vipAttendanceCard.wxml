@@ -1,33 +1,33 @@
 <view class='box'>
   <view class='headers bg_blue'>
-    <view class='times'>2018-3-25</view>
+    <view class='times'>{{tabData.clockDate}}</view>
     <view class='display_flex headers_mag'>
-      <view>状态：异常</view>
-      <view>班次：白班</view>
-      <view>工数：2个</view>
+      <view>状态：{{tabData.clockStatus}}</view>
+      <view>班次：{{tabData.type}}</view>
+      <view>工数：{{tabData.classNum}}</view>
     </view>
   </view>
 
   <view>
 
     <view>
-      <view class='list'>早打卡时间：未打卡</view>
-      <view class='list'>打卡人：芭乐</view>
+      <view class='list'>早打卡时间：{{tabData.morning}}</view>
+      <view class='list'>打卡人：{{tabData.userName}}</view>
     </view>
 
    <view class='margin_top'>
-      <view class='list'>午打卡时间：未打卡</view>
-      <view class='list'>打卡人：芭乐</view>
+      <view class='list'>午打卡时间：{{tabData.noon1}}</view>
+      <view class='list'>打卡人：{{tabData.userName}}</view>
    </view>
 
    <view class='margin_top'>
-      <view class='list'>午打卡时间：未打卡</view>
-      <view class='list'>打卡人：芭乐</view>
+      <view class='list'>午打卡时间：{{tabData.noon2}}</view>
+      <view class='list'>打卡人：{{tabData.userName}}</view>
    </view>
 
     <view class='margin_top'>
-      <view class='list'>午打卡时间：未打卡</view>
-      <view class='list'>打卡人：芭乐</view>
+      <view class='list'>晚打卡时间：{{tabData.night}}</view>
+      <view class='list'>打卡人：{{tabData.userName}}</view>
    </view>
    
   </view>

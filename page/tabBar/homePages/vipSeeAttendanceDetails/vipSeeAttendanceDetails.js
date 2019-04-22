@@ -86,9 +86,11 @@ Page({
     }
   },
   //查看详情
-  goDetails: function () {
+  goDetails: function (e) {
+    let personId = e.currentTarget.dataset.personid;
+    let month = e.currentTarget.dataset.month;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/vipSeeAttendanceProject/vipSeeAttendanceProject?groupId=' + this.data.groupId,
+      url: '/page/tabBar/homePages/vipSeeAttendanceProject/vipSeeAttendanceProject?groupId=' + this.data.groupId + "&personId=" + personId+"&month="+month,
     })
   },
 

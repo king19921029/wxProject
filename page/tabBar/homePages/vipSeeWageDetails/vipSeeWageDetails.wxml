@@ -44,27 +44,27 @@
     <view class='com_width list_box'>
       <view class='list'>
         <text class='list_title'>项目名称：</text>
-        <text class='list_data'>{{details.t.projectName}}</text>
+        <text class='list_data'>{{details.projectName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>劳务公司：</text>
-        <text class='list_data'>{{details.t.labourCompanyName}}</text>
+        <text class='list_data'>{{details.labourCompanyName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>班组：</text>
-        <text class='list_data'>{{details.t.groupName}}</text>
+        <text class='list_data'>{{details.groupName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>应发工资：</text>
-        <text class='list_data'>{{details.t.payableSalary}}</text>
+        <text class='list_data'>{{details.payableSalary}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>扣款：</text>
-        <text class='list_data'>{{details.t.differenceSalary}}</text>
+        <text class='list_data'>{{details.differenceSalary}}</text>
       </view>
     </view>
   </view>
@@ -87,7 +87,8 @@
     </view>
     
     <view bindtap='goWageDetails' class='com_tab_title'
-      wx:for="{{tabData.t}}" wx:item="" wx:key="">
+      wx:for="{{tabData.t}}" wx:item="" wx:key=""
+      data-id="{{item.id}}">
       <view class='first_checkbox'>
         <label class="checkboxs"> 
           <checkbox></checkbox>

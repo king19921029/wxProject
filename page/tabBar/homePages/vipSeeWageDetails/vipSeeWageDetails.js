@@ -134,9 +134,10 @@ Page({
     // })
   },
   // tab点击
-  goWageDetails: function () {
+  goWageDetails: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails?groupId=' + this.data.groupId,
+      url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' + id
     })
   },
 

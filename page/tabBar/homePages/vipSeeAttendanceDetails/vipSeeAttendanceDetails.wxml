@@ -26,7 +26,7 @@
     </block>
   </view>
   <!-- 表格 -->
-  <view class='tab_box' bindtap='goDetails'>
+  <view class='tab_box' >
     <view class='com_tab_title tab_title'>
       <view>姓名</view>
       <view>年月</view>
@@ -35,7 +35,9 @@
       <view>工数</view>
     </view>
     
-    <view wx:for='{{tabData.t}}' wx:item="item" wx:key="" class='com_tab_title'>
+    <view wx:for='{{tabData.t}}' wx:item="item" wx:key="" class='com_tab_title'
+      data-personid="{{item.userId}}" data-month="{{item.month}}"
+      bindtap='goDetails'>
       <view>{{item.userName}}</view>
       <view>{{item.month}}</view>
       <view>{{item.normalNum}}</view>

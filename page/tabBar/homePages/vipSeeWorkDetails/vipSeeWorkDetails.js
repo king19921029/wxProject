@@ -15,10 +15,8 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupQuantityMonth",
       { groupId: groupId},
       "post", function (res) {
-        // var data = res.data.data;
-        // console.log(res.data.data)
-        var data = ["2019-04"]
-
+        var data = res.data.data;
+        console.log("月份：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             headerDate: data
@@ -31,14 +29,8 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupQuantityPerson",
       { groupId: groupId },
       "post", function (res) {
-        // var data = res.data.data;
-        // console.log(res.data.data)
-        var data = [
-          {
-            "userName": "小程序",
-            "userId": "2070201904010001002"
-          }
-        ]
+        var data = res.data.data;
+        console.log("班组人员:",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             perData: data
@@ -48,27 +40,25 @@ Page({
         }
     })
     // 状态 暂无接口(groupId必传)
+    app.wxRequest("gongguan/api/wechat/salaryStatus",
+      { groupId: groupId },
+      "post", function (res) {
+        var data = res.data.data;
+        console.log("状态人员:", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            statusData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
 
     // 班组查看工作量（projectId）
     app.wxRequest("gongguan/api/wechat/groupQuantity",
       { projectId: "" },
       "post", function (res) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "quantity": "122.0",
-              "labourCompanyId": "4045201903280003005",
-              "labourCompanyName": "小程序",
-              "groupId": "1",
-              "projectName": "小程序",
-              "projectId": "4034201904010004001",
-              "status": "4"
-            }
-          ]
-        }
+        var data = res.data.data;
         console.log("列表：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
@@ -82,22 +72,8 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupQuantityDetail",
       { groupId: groupId, page: "", month: "", status: "", personId:"" },
       "post", function (res) {
-      //  var data = res.data.data;
-        var data = {
-            "total": "1",
-            "t": [
-                {
-                    "quantity": "122 ", 
-                    "workTypeName": "混林土工", 
-                    "subPro": "框架浇筑", 
-                    "userName": "小程序", 
-                    "userId": "2070201904010001002",
-                    "startDate": "2019-04", 
-                    "status": "4"
-                }
-            ]
-        }
-
+        var data = res.data.data;
+        console.log("表格数据：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
             detailsData: data
@@ -151,9 +127,10 @@ Page({
     }
   },
   //查看详情
-  goDetails: function () {
+  goDetails: function (e) {
+    let month = e.currentTarget.dataset.month;
     wx.navigateTo({
-      url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId
+      url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId + "&month=" + month
     })
   },
 

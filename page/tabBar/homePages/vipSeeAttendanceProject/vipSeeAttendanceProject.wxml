@@ -29,7 +29,7 @@
 
   <view class='com_width attDetails'>考勤明细</view>
    <!-- 表格 -->
-  <view bindtap='goCard'>
+  <view>
     <view class='com_tab_title tab_title'>
       <view class='tab_content'>日期</view>
       <view class='tab_content'>工数</view>
@@ -40,7 +40,8 @@
       <view class='tab_content'>晚</view>
     </view>
 
-    <view wx:for="{{tabData.t}}" wx:item="item" wx:key="" class='com_tab_title'>
+    <view wx:for="{{tabData.t}}" wx:item="item" wx:key="" class='com_tab_title'
+      data-month="{{item.clockTime}}" bindtap='goCard'>
       <view class='tab_content overflow'>{{item.clockTime}}</view>
       <view class='tab_content'>{{item.classNum}}</view>
       <view class='tab_content'>{{item.clockStatus}}</view>
