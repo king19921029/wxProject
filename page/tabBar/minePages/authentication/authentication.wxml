@@ -45,15 +45,15 @@
     <view class='bg_fff'>
       <view class='com_width com_list display_flex'>
         <text>姓名：</text>
-        <input placeholder='请编辑姓名'></input>
+        <input bindinput='getName' placeholder='请编辑姓名'></input>
       </view>
       <view class='com_width com_list display_flex'>
         <text>身份证号：</text>
-        <input placeholder='请编辑身份证号'></input>
+        <input bindinput='getNum' placeholder='请编辑身份证号'></input>
       </view>
       <view class='com_width com_list display_flex'>
         <text>地址：</text>
-        <input placeholder='请编辑身份地址'></input>
+        <input bindinput='getCity' placeholder='请编辑身份地址'></input>
       </view>
       
     </view>

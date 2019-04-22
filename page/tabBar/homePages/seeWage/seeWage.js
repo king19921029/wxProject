@@ -27,27 +27,21 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 详情(projectId,labourCompany,groupId,page)
+    that.getList(1);
+  },
+  getList(page, projectId, labourCompany, groupId) {
+    // 我的工资列表(projectId,labourCompany,groupId,page)
+    var that = this;
     app.wxRequest("gongguan/api/wechat/salaryList",
-      {},
+      { 
+        page: page, 
+        projectId: projectId || "", 
+        labourCompany: labourCompany || "",
+        groupId: groupId || "" 
+      },
       "post", function (res) {
-        console.log("列表：",res.data.data);
-        var data =  {
-          "total": "1",
-          "t": [
-            {
-              "groupName": "大班组A",
-              "deductionSalary": "0.00", 
-              "labourCompanyName": "北京广佳装饰公司丰台总部",
-              "groupId": "4001201904100002001",
-              "realSalary": "32100.00",
-              "id": "4026201904110000019",
-              "projectName": "广佳丰台装饰",
-              "payableSalary": "32100.00"
-            }
-          ]
-        }
-        // var data = res.data.data;
+        console.log("工资列表：", res.data.data);
+        var data = res.data.data;
         if (res.data.code == 0) {
           that.setData({
             peojectLIst: data
@@ -112,6 +106,45 @@ Page({
   goSerach: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/serachPage/serachPage',
+    })
+  },
+  // 项目选择
+  peojectList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(e.currentTarget.id)
+    if (id) {
+      this.getList(1, id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 劳务公司选择
+  companyList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(id)
+    if (id) {
+      this.getList(1, "", id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 劳务公司选择
+  classList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(id)
+    if (id) {
+      this.getList(1, "", "", id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
     })
   }
 

@@ -24,7 +24,6 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 
     // 明细
     app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrimDetailTotal",
       { groupId: that.data.groupId },
@@ -48,7 +47,7 @@ Page({
   goWageDetails: function (e) {
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm?id=' + id
+      url: '/page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm?id=' + id + "&groupId="+this.data.groupId
     })
   },
 

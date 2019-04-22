@@ -42,20 +42,20 @@ Page({
   getPhoneNumber: function (e) {
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
-    app.wxRequest("gongguan/api/wechat/login",
-      { phone: this.data.userPhone, verificationCode: "111111" },
-      "post", function (res) {
-        console.log(res)
-        if (res.data.code == 0) {
-          app.globalData.header.authorization = res.data.data
-          wx.setStorageSync("token", res.data.data)
-          wx.switchTab({
-            url: '/page/tabBar/home/home'
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
+    // app.wxRequest("gongguan/api/wechat/login",
+    //   { phone: "15210406270", verificationCode: "111111" },
+    //   "post", function (res) {
+    //     console.log(res)
+    //     if (res.data.code == 0) {
+    //       app.globalData.header.authorization = res.data.data
+    //       wx.setStorageSync("token", res.data.data)
+    //       wx.switchTab({
+    //         url: '/page/tabBar/home/home'
+    //       })
+    //     } else {
+    //       app.showLoading(res.data.msg, "none");
+    //     }
+    // })
   },
   getPhone:function(e){
     console.log(e)

@@ -9,14 +9,13 @@ Page({
     that.setData({
       userName: options.userName,
       day:options.day,
-      userId: options.userId
     })
   },
   onShow: function () {
     var that = this;
-    // 明细汇总
-    app.wxRequest("gongguan/api/wechat/groupClockDetail",
-      { userId: this.data.userId, day: this.data.day },
+    // 打卡
+    app.wxRequest("gongguan/api/wechat/clockDetail",
+      { day: this.data.day },
       "post", function (res) {
         console.log("打卡", res.data.data)
         if (res.data.code == 0) {
@@ -27,7 +26,7 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   onHide: function () {
 

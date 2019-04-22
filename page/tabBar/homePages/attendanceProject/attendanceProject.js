@@ -34,25 +34,9 @@ Page({
     app.wxRequest("gongguan/api/wechat/myAttendanceDetail",
       { id: id,page:1},
       "post", function (res) {
-        console.log("tab数据：",res)
+        console.log("tab数据：",res.data.data)
         if (res.data.code == 0) {
-          // var data = res.data.data
-          var data = {
-          
-              "total": "1",
-              "t": [
-                {
-                  "noon2": "00:00",
-                  "noon1": "00:00",
-                  "night": "00:00",
-                  "clockStatus": "正常",
-                  "id": "4034201904010004001",
-                  "clockTime": "04-01",
-                  "morning": "00:00"
-                }
-              ],
-             "userName": "小程序测试用户"
-          }
+          var data = res.data.data
           that.setData({
             tabData: data
           })
@@ -69,9 +53,9 @@ Page({
   },
   // 打卡详情
   goCard: function (e) {
-    let userId = e.currentTarget.dataset.id;
+    let month = e.currentTarget.dataset.month;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceCard/attendanceCard?userName=' + this.data.tabData.userName + "&day=" + this.data.titleData.month+"&uersId="+userId,
+      url: '/page/tabBar/homePages/attendanceCard/attendanceCard?userName=' + this.data.tabData.userName + "&day=" + month
     })
   }
 

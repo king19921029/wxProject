@@ -8,7 +8,6 @@ Page({
     peojectLIst:[],//项目考勤列表
   },
   onLoad: function (options) {
-
   },
   onShow: function () {
     var that = this;
@@ -28,23 +27,26 @@ Page({
         }
     })
     // 我的项目考勤列表(projectId,labourCompany,groupId,page)
-    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
-      { page: 1, projectId: "", labourCompany: "", groupId:""},
-      "post", function (res) {
-      console.log("考勤列表：",res.data.data);
-
-      var data = res.data.data;
-      if (res.data.code == 0) {
-        that.setData({
-          peojectLIst: data
-        })
-      } else {
-        app.showLoading(res.data.msg, "none");
-      }
-    })
+    that.getList(1)
+   
   },
-  onHide: function () {
+  getList(page, projectId, labourCompany, groupId){
+    // 我的项目考勤列表(projectId,labourCompany,groupId,page)
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/myAttendanceRecord",
+      { page: page, projectId: projectId || "", labourCompany: labourCompany||"", groupId: groupId||"" },
+      "post", function (res) {
+        console.log("考勤列表：", res.data.data);
 
+        var data = res.data.data;
+        if (res.data.code == 0) {
+          that.setData({
+            peojectLIst: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   // 项目
   peojectTap: function () {
@@ -98,6 +100,45 @@ Page({
   goSerach: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/serachPage/serachPage',
+    })
+  },
+  // 项目选择
+  peojectList:function(e){
+    let id = e.currentTarget.id;
+    console.log(e.currentTarget.id)
+    if(id){
+      this.getList(1, id);
+    }else{
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus:0
+    })
+  },
+  // 劳务公司选择
+  companyList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(id)
+    if (id) {
+      this.getList(1,"",id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 劳务公司选择
+  classList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(id)
+    if (id) {
+      this.getList(1, "", "",id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
     })
   }
   

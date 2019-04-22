@@ -11,76 +11,6 @@ Page({
   },
   onShow: function () {
     var that = this; 
-    // 工资   projectId    page
-    app.wxRequest("gongguan/api/wechat/groupSalaryList",
-      { projectId: "" },
-      "post", function (res) {
-        // var data = {
-        //   "total": "1",
-        //   "t": [
-        //     {
-        //       "groupName": "大班组A",
-        //       "labourCompanyName": "北京广佳装饰公司丰台总部",
-        //       "groupId": "4001201904140000001",
-        //       "differenceSalary": "0.00",
-        //       "realSalary": "32100.00",
-        //       "projectName": "广佳丰台装饰",
-        //       "payableSalary": "32100.00"
-        //     }
-        //   ]
-        // }
-        var data = res.data.data;
-        console.log("工资：", res.data.data)
-        if (res.data.code == 0) {
-          that.setData({
-            wageData: data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-    // 考勤  projectId  page
-    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceToProject",
-      {},
-      "post", function (res) {
-        console.log("考勤：", res.data.data)
-        if (res.data.code == 0) {
-          that.setData({
-            attendanceData: res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-    // 查看工作量（projectId）
-    app.wxRequest("gongguan/api/wechat/groupQuantity",
-      { projectId:""},
-      "post", function (res) {
-        // var data =  {
-        //   "total": "1",
-        //   "t": [
-        //     {
-        //       "groupName": "大班组A",
-        //       "quantity": "122.0",
-        //       "labourCompanyId": "4045201903280003005",
-        //       "labourCompanyName": "小程序",
-        //       "groupId": "4001201904140000001",
-        //       "projectName": "小程序",
-        //       "projectId": "4034201904010004001",
-        //       "status": "4"
-        //     }
-        //   ]
-        // }
-        var data = res.data.data;
-        console.log("工作量：",res.data.data)
-        if (res.data.code == 0) {
-          that.setData({
-            workData: data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
     // 项目筛选
     app.wxRequest("gongguan/api/wechat/myManageProject",
       {},
@@ -94,11 +24,55 @@ Page({
         app.showLoading(res.data.msg, "none");
       }
     })
+    that.getList(1)
   },
   onHide: function () {
-
   },
- 
+  getList(page, projectId){
+    var  that = this;
+    // 工资
+    app.wxRequest("gongguan/api/wechat/groupSalaryList",
+      { page:page,projectId: projectId || "" },
+      "post", function (res) {
+
+        var data = res.data.data;
+        console.log("工资：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            wageData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+    // 考勤
+    app.wxRequest("gongguan/api/wechat/queryGroupAttendanceToProject",
+      { page:page,projectId: projectId || "" },
+      "post", function (res) {
+        console.log("考勤：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            attendanceData: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+    // 查看工作量
+    app.wxRequest("gongguan/api/wechat/groupQuantity",
+      { page:page,projectId: projectId || "" },
+      "post", function (res) {
+        var data = res.data.data;
+        console.log("工作量：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            workData: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+  },
   //工资查看详情
   wageDetails: function (e) {
     let groupId = e.currentTarget.dataset.groupid;
@@ -145,6 +119,18 @@ Page({
     let groupId = e.currentTarget.dataset.groupid;
     wx.navigateTo({
       url: '/page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails?groupId=' + groupId,
+    })
+  },
+  // 筛选
+  projectLisre:function(e){
+    let id = e.currentTarget.dataset.id;
+    if(id){
+      this.getList(1,id)
+    }else{
+      this.getList(1)
+    }
+    this.setData({
+      selectBox:false
     })
   }
 

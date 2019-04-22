@@ -31,6 +31,7 @@ Page({
         })
         wx.uploadFile({
           url: app.globalData.url + '/gongguan/api/wechat/personPic/1',
+          header: app.globalData.header,
           filePath: tempFilePaths[0],
           type:1,
           fileFiel: tempFilePaths[0],
@@ -73,6 +74,7 @@ Page({
         wx.uploadFile({
           url: app.globalData.url + '/gongguan/api/wechat/personPic/2',
           filePath: tempFilePaths[0],
+          header: app.globalData.header,
           type: 1,
           fileFiel: tempFilePaths[0],
           name: 'fileField',
@@ -82,9 +84,9 @@ Page({
             console.log(urlData)
             if (urlData.code == "0") {
               wx.hideLoading();
-              // that.setData({
-              //   imageZ: urlData.data
-              // })
+              that.setData({
+                imageZ: urlData.data
+              })
             } else {
               app.showLoading(urlData.msg, "none")
             }
@@ -114,6 +116,7 @@ Page({
         wx.uploadFile({
           url: app.globalData.url + '/gongguan/api/wechat/personPic/3',
           filePath: tempFilePaths[0],
+          header: app.globalData.header,
           type: 1,
           fileFiel: tempFilePaths[0],
           name: 'fileField',
@@ -123,9 +126,9 @@ Page({
             console.log(urlData)
             if (urlData.code == "0") {
               wx.hideLoading();
-              // that.setData({
-              //   imageF: urlData.data
-              // })
+              that.setData({
+                imageF: urlData.data
+              })
             } else {
               app.showLoading(urlData.msg, "none")
             }
@@ -140,12 +143,12 @@ Page({
     var that = this;
     app.wxRequest("gongguan/api/wechat/auth",
       {  
-        userName: "ll", 
-        idNum: "13028319868176281",
-        address:"河北省唐山市",
-        personPic:"http://tmp/wx0aa6d2faa6e11d60.o6zAJs0vjfTL2dNrw59qOTVFAl58.8itsaSBuYWrU3d78097115e6b95e4b56f98d85f09460.png",
-        idCardFrontPic:"http://tmp/wx0aa6d2faa6e11d60.o6zAJs0vjfTL2dNrw59qOTVFAl58.8itsaSBuYWrU3d78097115e6b95e4b56f98d85f09460.png",
-        idCardBackPic:"http://tmp/wx0aa6d2faa6e11d60.o6zAJs0vjfTL2dNrw59qOTVFAl58.8itsaSBuYWrU3d78097115e6b95e4b56f98d85f09460.png",
+        userName: that.data.userName, 
+        idNum: that.data.idNum,
+        address: that.data.address,
+        personPic: that.data.imageP,
+        idCardFrontPic: that.data.imageZ,
+        idCardBackPic: that.data.imageF,
       },
       "post", function (res) {
         console.log(res.data)
@@ -160,7 +163,25 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
       })
-  }
+  },
+  getName:function(e){
+    console.log(e.detail.value);
+    this.setData({
+      userName: e.detail.value
+    })
+  },
+  getNum: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      idNum: e.detail.value
+    })
+  },
+  getCity: function (e) {
+    console.log(e.detail.value);
+    this.setData({
+      address: e.detail.value
+    })
+  },
 
 
 })

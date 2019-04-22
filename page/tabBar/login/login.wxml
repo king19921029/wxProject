@@ -13,12 +13,12 @@
     微信授权
   </button>
 
-  <!-- <button class='com_width bg_blue' wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+  <button wx:else class='com_width bg_blue' wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
     登录
-  </button> -->
+  </button>
 
-  <view wx:else class='com_width bg_fff photo_box'>
+  <!-- <view wx:else class='com_width bg_fff photo_box'>
     <input bindblur='getPhone' class='test' placeholder='请输入手机号码'></input>
     <view bindtap='getPhoneNumber' class='test bg_blue'>登录</view>
-  </view>
+  </view> -->
 </view>

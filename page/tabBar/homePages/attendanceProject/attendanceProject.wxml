@@ -37,8 +37,8 @@
       <view class='tab_content'>中</view>
       <view class='tab_content'>晚</view>
     </view>
-    <view class='com_tab_title' bindtap='goCard' wx:for="{{tabData.t}}" wx:item="item" wx:key=""
-      data-id="{{item.id}}">
+    <view class='com_tab_title' bindtap='goCard' wx:for="{{tabData.page.t}}" 
+      wx:item="item" wx:key="" data-month="{{item.clockTime}}">
       <view class='date tab_content'>{{item.clockTime}}</view>
       <view class='tab_content'>{{item.clockStatus}}</view>
       <view class='tab_content'>{{item.morning}}</view>

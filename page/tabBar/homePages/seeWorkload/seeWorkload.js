@@ -23,24 +23,29 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 个人工作量列表   (projectId,labourCompany,groupId,page)
+    // 个人工作量列表  (projectId,labourCompany,groupId,page)
+    that.getList(1);
+  },
+  onHide: function () {
+
+  },
+  getList(page, projectId, labourCompany, groupId) {
+    // 我的工作量列表(projectId,labourCompany,groupId,page)
+    var that = this;
     app.wxRequest("gongguan/api/wechat/myQuantity",
-      { projectId: "", labourCompanyId: "",groupId:"",page:""},
+      { page: page, projectId: projectId || "", labourCompany: labourCompany || "", groupId: groupId || "" },
       "post", function (res) {
-      
-        var data = res.data.data
-        console.log("工作量列表：",res.data.data);
+        console.log("工作量列表：", res.data.data);
+
+        var data = res.data.data;
         if (res.data.code == 0) {
           that.setData({
-            peojectLIst:data
+            peojectLIst: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-    })
-  },
-  onHide: function () {
-
+      })
   },
   // 项目
   peojectTap: function () {
@@ -93,6 +98,45 @@ Page({
   goSerach: function () {
     wx.navigateTo({
       url: '/page/tabBar/homePages/serachPage/serachPage',
+    })
+  },
+  // 项目选择
+  peojectList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(e.currentTarget.id)
+    if (id) {
+      this.getList(1, id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 劳务公司选择
+  companyList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(id)
+    if (id) {
+      this.getList(1, "", id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 劳务公司选择
+  classList: function (e) {
+    let id = e.currentTarget.id;
+    console.log(id)
+    if (id) {
+      this.getList(1, "", "", id);
+    } else {
+      this.getList(1);
+    }
+    this.setData({
+      selectStatus: 0
     })
   }
 

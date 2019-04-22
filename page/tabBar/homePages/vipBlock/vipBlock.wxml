@@ -23,16 +23,17 @@
   <!-- 项目筛选  -->
   <view bindtap='screenTap' class='selsect_title bg_fff {{selectBox?"add_class":""}}'>
     项目筛选
-    <image  wx:if="{{selectBox}}" class='tan_top' src='/image/top_tan.png'></image>
+    <image wx:if="{{selectBox}}" class='tan_top' src='/image/top_tan.png'></image>
     <image wx:else class='tan' src='/image/tan.png'></image>
    
   </view>
 
   <!-- select -->
   <view wx:if="{{selectBox}}" class='select_box bg_fff'>
-    <view>全部</view>
+    <view bindtap='projectLisre'>全部</view>
     <view wx:for="{{manageProject.t}}" wx:item="item" wx:key=""
-      data-groupId="{{item.groupId}}" wx:if="{{item.projectName}}">
+      data-groupId="{{item.groupId}}" wx:if="{{item.projectName}}"
+      bindtap='projectLisre'>
      {{item.projectName}}
     </view>
   </view>

@@ -22,7 +22,7 @@ Page({
             details: data
           })
           wx.setNavigationBarTitle({
-            title: data.userName + data.month
+            title:data.month
           })
         } else {
           app.showLoading(res.data.msg, "none");

@@ -27,23 +27,27 @@
    
   </view>
 
+ 
   <!-- select -->
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
-      <view>全部</view>
-      <view wx:for="{{peojectData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
+      <view bindtap='peojectList'>全部</view>
+      <view wx:for="{{peojectData}}" id="{{item.id}}"  wx:for-item="item" 
+        wx:key="" bindtap='peojectList'>
         {{item.name}}
       </view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
-      <view>全部</view>
-      <view wx:for="{{companyData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
+      <view bindtap='companyList'>全部</view>
+      <view wx:for="{{companyData}}" id="{{item.id}}"  wx:for-item="item" 
+        wx:key="" bindtap='companyList'>
         {{item.labourCompanyName}}
       </view>
     </block>
     <block wx:if="{{selectStatus == 3}}">
-      <view>全部</view>
-      <view wx:for="{{classData}}" id="{{item.id}}"  wx:for-item="item" wx:key="">
+      <view bindtap='classList'>全部</view>
+      <view wx:for="{{classData}}" id="{{item.id}}"  wx:for-item="item"
+       wx:key="" bindtap='classList'>
         {{item.groupName}}
       </view>
     </block>

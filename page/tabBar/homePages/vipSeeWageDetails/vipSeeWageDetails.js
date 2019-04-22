@@ -32,12 +32,7 @@ Page({
       "post", function (res) {
         var data = res.data.data;
         console.log("班组人员：",res.data.data)
-        // var data = [
-        //   {
-        //     "userName": "小程序",
-        //     "userId": "2070201904010001002"
-        //   }
-        // ]
+  
         if (res.data.code == 0) {
           that.setData({
             perData: data
@@ -64,22 +59,7 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupSalary",
       { groupId: that.data.groupId },
       "post", function (res) {
-        // var data = res.data.data;
-        var data = {
-          "total": "1",
-          "t":
-          {
-            "groupName": "大班组A",
-            "labourCompanyName": "北京广佳装饰公司丰台总部",
-            "groupId": "4001201904100002001",
-            "differenceSalary": "0.00", 
-            "realSalary": "32100.00", 
-            "projectName": "广佳丰台装饰",
-            "payableSalary": "32100.00" 
-          }
-
-        }
-
+        var data = res.data.data;
         console.log("明细汇总：",res.data.data)
         if (res.data.code == 0) {
           that.setData({
@@ -93,23 +73,8 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupSalaryDetail",
       { page: "", groupId: that.data.groupId, month: "", personId: "", Status:"" },
       "post", function (res) {
-        // var data = res.data.data;
+        var data = res.data.data;
         console.log("tabs数据：", res.data.data)
-        var data = {
-          "total": "1",
-          "t": [
-            {
-              "date": "2019-05",
-              "differenceSalary": "0.00",
-              "realSalary": "32100.00",
-              "id": "4026201904110000019",
-              "userName": "小程序",
-              "userId": "4046201904110010001",
-              "payableSalary": "32100.00",
-              "status": "4"
-            }
-          ]
-        }
         if (res.data.code == 0) {
           that.setData({
             tabData: data

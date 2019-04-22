@@ -22,7 +22,7 @@ Page({
           details: data
         })
         wx.setNavigationBarTitle({
-          title: data.userName + data.month
+          title: data.month
         })
       } else {
         app.showLoading(res.data.msg, "none");
@@ -35,15 +35,15 @@ Page({
   confirmBtn: function () {
     var that = this;
     // 我的工资确认id、verificationCode
-    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
-      { id: that.data.id, verificationCode:"012345"},
+    app.wxRequest("gongguan/api/wechat/confirmSalary",
+      { id: that.data.id, verificationCode: "012345" },
       "post", function (res) {
-        console.log("提交工资：",res.data.data)
+        console.log("提交工资：", res.data.data)
         if (res.data.code == 0) {
-          if( res.data.data ){
-           wx.navigateBack({
-             delta: 2,
-           })
+          if (res.data.data) {
+            wx.navigateBack({
+              delta: 2,
+            })
           }
         } else {
           app.showLoading(res.data.msg, "none");
