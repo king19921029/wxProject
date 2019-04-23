@@ -23,7 +23,11 @@ Page({
             { code: res.code },
             "post", function (res) {
               console.log("openid:",res)
-              app.globalData.header.openId = res.data.data;
+              app.globalData.header.openId = res.data.data.openId;
+              that.setData({
+                session_key: res.data.data.session_key
+              })
+    
               if (res.data.code == 0) {
                 that.setData({
                   photoBtn:false
@@ -41,6 +45,7 @@ Page({
   getPhoneNumber: function (e) {
     console.log(e.detail.iv)
     console.log(e.detail.encryptedData)
+    // 登录
     // app.wxRequest("gongguan/api/wechat/login",
     //   { phone: "15210406270", verificationCode: "111111" },
     //   "post", function (res) {
@@ -56,16 +61,15 @@ Page({
     //     }
     // })
 
+    //获取用户手机号
     app.wxRequest("gongguan/api/wechat/getWechatPhone",
-      { phone: "15210406270", verificationCode: "111111" },
+      { session_key: this.data.session_key, encryptedData: e.detail.encryptedData, iv:e.detail.iv},
       "post", function (res) {
-        console.log(res)
+        console.log(res.data.data)
         if (res.data.code == 0) {
-          app.globalData.header.authorization = res.data.data
-          wx.setStorageSync("token", res.data.data)
-          wx.switchTab({
-            url: '/page/tabBar/home/home'
-          })
+          let data = JSON.parse(res.data.data);
+          console.log(data)
+          app.globalData.header.userPhone = res.data.data.phoneNumber
         } else {
           app.showLoading(res.data.msg, "none");
         }

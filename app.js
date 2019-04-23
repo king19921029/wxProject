@@ -4,6 +4,7 @@ App({
   // 全局数据，类似于store
   globalData: {
     city:"北京",//城市
+    userPhone:"",
     groupId: "4001201904140000001",//班组id
     openid: null,
     token:null,
@@ -22,7 +23,6 @@ App({
     that.globalData.token = token
   },
   onShow: function (opts) {
-
   },
   //封装的请求方法
   wxRequest: function (url, param, method, success, fail) {
