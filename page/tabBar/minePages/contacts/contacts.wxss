@@ -1,0 +1,31 @@
+.headers{
+  padding: 24rpx 0;
+  color: #777777;
+}
+.add_btn{
+  justify-content: space-between;
+  padding: 24rpx 0;
+}
+.add_gray{
+  color: #cdcdd2;
+}
+.list_box{
+  border-top: 1px solid #efeff4;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+}
+.list{
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #efeff4;
+  width: 96%;
+  margin-left: 4%;
+  padding: 20rpx 0;
+}
+.list .list_title{
+  width: 14%;
+
+}
+.add_box{
+  border-top: 1px solid #efeff4;
+}

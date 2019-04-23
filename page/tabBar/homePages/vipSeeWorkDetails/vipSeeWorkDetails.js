@@ -39,7 +39,7 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-    // 状态 暂无接口(groupId必传)
+    // 状态(groupId必传)
     app.wxRequest("gongguan/api/wechat/salaryStatus",
       { groupId: groupId },
       "post", function (res) {
@@ -54,7 +54,7 @@ Page({
         }
       })
 
-    // 班组查看工作量（projectId）
+    // tab上面数据（projectId）
     app.wxRequest("gongguan/api/wechat/groupQuantity",
       { projectId: "" },
       "post", function (res) {
@@ -69,22 +69,28 @@ Page({
         }
     })
     // 表格
+    that.getList(groupId,1,"","","")
+  },
+  getList: function (groupId, page, month, status, personId){
+    var that = this;
+    // 表格
     app.wxRequest("gongguan/api/wechat/groupQuantityDetail",
-      { groupId: groupId, page: "", month: "", status: "", personId:"" },
+      { groupId: groupId, page: page, month: month, status: status, personId: personId },
       "post", function (res) {
         var data = res.data.data;
-        console.log("表格数据：",res.data.data)
+        console.log("表格数据：", res.data.data)
         if (res.data.code == 0) {
+          var arr = data.t;
+          for (var i = 0; i < arr.length; i++) {
+            arr[i].isChecked = false
+          }
           that.setData({
-            detailsData: data
+            tabData: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
     })
-  },
-  onHide: function () {
-
   },
   // 月份
   peojectTap: function () {
@@ -133,5 +139,82 @@ Page({
       url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId + "&month=" + month
     })
   },
+  //多选框点击
+  checkboxChange: function (e) {
+    let isChecked = e.currentTarget.dataset.ischecked;//是否选中
+    console.log(isChecked)
+    let idx = e.currentTarget.dataset.idx;//下标
+    var tabData = 'tabData.t[' + idx + '].isChecked'
+    this.setData({
+      [tabData]: !isChecked
+    })
+  },
+  // 确定
+  confirmTap: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+
+      if (data[i].isChecked) {
+        arr.push(data[i].id)
+      }
+    }
+    var ids = arr.join(',');
+    console.log(ids)
+    // 确定
+    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
+      { id: ids, verificationCode: "111111" },
+      "post", function (res) {
+        console.log("确定", res.data.data)
+        if (res.data.code == 0) {
+          if (res.data.data) {
+            wx.navigateBack()
+          }
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+  },
+  // 月份选择
+  peojectList: function (e) {
+    let month = e.currentTarget.dataset.month;
+    console.log(month)
+    
+    if (month) {
+      this.getList(this.data.groupId, 1, month, "", "")
+    } else {
+      this.getList(this.data.groupId, 1, "", "", "")
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 班组人员选择
+  companyList: function (e) {
+    let personid = e.currentTarget.dataset.personid;
+    console.log(personid)
+    if (personid) {
+      this.getList(this.data.groupId, 1, "", personid, "")
+    } else {
+      this.getList(this.data.groupId, 1, "", "", "")
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 状态选择
+  classList: function (e) {
+    let status = e.currentTarget.dataset.status;
+    console.log(status)
+    if (status) {
+      this.getList(this.data.groupId, 1, "", "", status)
+    } else {
+      this.getList(this.data.groupId, 1, "", "", "")
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  }
 
 })

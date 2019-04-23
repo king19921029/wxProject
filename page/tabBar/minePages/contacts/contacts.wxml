@@ -1,0 +1,28 @@
+
+<view wx:if="{{addIsShow}}" class='add_box'>
+  <view class='list_box bg_fff'>
+    <view class='list'>
+      <view class='list_title'>姓名</view>
+      <input class='list_input' placeholder='请输入姓名'></input>
+    </view>
+    <view class='list'>
+      <view class='list_title'>关系</view>
+      <input class='list_input' placeholder='请输入关系'></input>
+    </view>
+    <view class='list'>
+      <view class='list_title'>电话</view>
+      <input class='list_input' placeholder='请输入手机号'></input>
+    </view>
+  </view>
+  <view class='bg_blue com_footer_btn'>确定</view>
+</view>
+
+<view  wx:else class='box' >
+  <view class='headers com_width'>您暂无紧急联系人，添加已确保紧急求助功能</view>
+  <view class=' bg_fff'>
+    <view bindtap='addShow' class=' com_width add_btn display_flex'>
+      <view>添加紧急联系人</view>
+      <text class='fa add_gray fa-chevron-right'></text>
+    </view>
+  </view>
+</view>

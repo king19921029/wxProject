@@ -14,9 +14,8 @@ Page({
     app.wxRequest("gongguan/api/wechat/groupSalaryMonthList",
       { groupId: that.data.groupId },
       "post", function (res) {
-        // var data = res.data.data;
+        var data = res.data.data;
       console.log("月份：",res.data.data)
-      var data = ["2019-04"]
 
       if (res.data.code == 0) {
         that.setData({
@@ -70,11 +69,19 @@ Page({
         }
     })
     // 表格
+    that.getList(1, that.data.groupId,"","","")
+  },
+  getList(page, groupId, month, personId, Status){
+    var that = this;
     app.wxRequest("gongguan/api/wechat/groupSalaryDetail",
-      { page: "", groupId: that.data.groupId, month: "", personId: "", Status:"" },
+      { page: page, groupId: groupId, month: month, personId: personId, Status: Status},
       "post", function (res) {
         var data = res.data.data;
         console.log("tabs数据：", res.data.data)
+        var arr = data.t;
+        for (var i = 0; i < arr.length; i++) {
+          arr[i].isChecked = false
+        }
         if (res.data.code == 0) {
           that.setData({
             tabData: data
@@ -83,9 +90,43 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
+  }, 
+  //多选框点击
+  checkboxChange: function (e) {
+    let isChecked = e.currentTarget.dataset.ischecked;//是否选中
+    console.log(isChecked)
+    let idx = e.currentTarget.dataset.idx;//下标
+    var tabData = 'tabData.t[' + idx + '].isChecked'
+    this.setData({
+      [tabData]: !isChecked
+    })
   },
-  onHide: function () {
+  // 确定
+  confirmTap: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
 
+      if (data[i].isChecked) {
+        arr.push(data[i].id)
+      }
+    }
+    var ids = arr.join(',');
+    console.log(ids)
+    // 确定
+    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
+      { id: ids, verificationCode: "111111" },
+      "post", function (res) {
+        console.log("确定", res.data.data)
+        if (res.data.code == 0) {
+          if (res.data.data) {
+            wx.navigateBack()
+          }
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
   },
   // 月份
   peojectTap: function () {
@@ -140,6 +181,46 @@ Page({
       url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' + id
     })
   },
+  // 月份选择
+  peojectList: function (e) {
+    let month = e.currentTarget.dataset.month;
+    console.log(month)
+
+    if (month) {
+      this.getList(1, this.data.groupId, month, "", "")
+    } else {
+      this.getList(1, this.data.groupId, "", "", "")
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 班组人员选择
+  companyList: function (e) {
+    let personid = e.currentTarget.dataset.personid;
+    console.log(personid)
+    if (personid) {
+      this.getList(1, this.data.groupId, "", personid, "")
+    } else {
+      this.getList(1, this.data.groupId, "", "", "")
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  },
+  // 状态选择
+  classList: function (e) {
+    let status = e.currentTarget.dataset.status;
+    console.log(status)
+    if (status) {
+      this.getList(1, this.data.groupId, "", "", status)
+    } else {
+      this.getList(1, this.data.groupId, "", "", "")
+    }
+    this.setData({
+      selectStatus: 0
+    })
+  }
 
 
 })

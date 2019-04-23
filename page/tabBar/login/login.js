@@ -24,7 +24,6 @@ Page({
             "post", function (res) {
               console.log("openid:",res)
               app.globalData.header.openId = res.data.data;
-              console.log(app.globalData.header)
               if (res.data.code == 0) {
                 that.setData({
                   photoBtn:false
@@ -56,6 +55,21 @@ Page({
     //       app.showLoading(res.data.msg, "none");
     //     }
     // })
+
+    app.wxRequest("gongguan/api/wechat/getWechatPhone",
+      { phone: "15210406270", verificationCode: "111111" },
+      "post", function (res) {
+        console.log(res)
+        if (res.data.code == 0) {
+          app.globalData.header.authorization = res.data.data
+          wx.setStorageSync("token", res.data.data)
+          wx.switchTab({
+            url: '/page/tabBar/home/home'
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   getPhone:function(e){
     console.log(e)

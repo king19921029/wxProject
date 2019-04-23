@@ -26,16 +26,25 @@
   <!-- select -->
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
-      <view>全部</view>
-      <view wx:for="{{headerDate}}" wx:item="item" wx:key="">{{item}}</view>
+      <view bindtap='peojectList'>全部</view>
+      <view bindtap='peojectList' wx:for="{{headerDate}}" wx:item="item" 
+        data-month="{{item}}" wx:key="">
+        {{item}}
+      </view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
-      <view>全部</view>
-      <view wx:for="{{perData}}" wx:item="item" wx:key="">{{item.userName}}</view>
+      <view bindtap='companyList'>全部</view>
+      <view bindtap='companyList' wx:for="{{perData}}" wx:item="item" 
+        data-personid="{{item.userId}}" wx:key="">
+        {{item.userName}}
+      </view>
     </block>
     <block wx:if="{{selectStatus == 3}}">
-      <view>全部</view>
-      <view wx:for="{{statusData}}" wx:item="item" wx:key="">{{item}}</view>
+      <view bindtap='classList'>全部</view>
+      <view bindtap='classList' wx:for="{{statusData}}" wx:item="item" 
+        data-status="{{item}}" wx:key="">
+        {{item}}
+      </view>
     </block>
   </view>
 
@@ -86,23 +95,25 @@
       <view class='last_child'>状态</view>
     </view>
     
-    <view bindtap='goWageDetails' class='com_tab_title'
-      wx:for="{{tabData.t}}" wx:item="" wx:key=""
-      data-id="{{item.id}}">
+    <view class='com_tab_title'
+      wx:for="{{tabData.t}}" wx:item="" wx:key="" wx:for-index='idx'>
       <view class='first_checkbox'>
-        <label class="checkboxs"> 
-          <checkbox></checkbox>
-        </label>
+        <checkbox-group bindchange="checkboxChange" data-ischecked='{{item.isChecked}}'
+          data-idx="{{idx}}">
+          <label class="checkboxs"> 
+            <checkbox checked='{{item.isChecked}}'></checkbox>
+          </label>
+        </checkbox-group>
       </view>
-      <view>{{item.userName}}</view>
-      <view>{{item.date}}</view>
-      <view>{{item.payableSalary}}</view>
-      <view>{{item.realSalary}}</view>
-      <view>{{item.differenceSalary}}</view>
-      <view class='last_child'>{{item.status}}</view>
+      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.userName}}</view>
+      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.date}}</view>
+      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.payableSalary}}</view>
+      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.realSalary}}</view>
+      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.differenceSalary}}</view>
+      <view data-id="{{item.id}}" bindtap='goWageDetails' class='last_child'>{{item.status}}</view>
     </view>
 
   </view>
 
-  <view class='com_width bg_blue all_yes'>确定</view>
+  <view bindtap='confirmTap' class='com_width bg_blue all_yes'>确定</view>
 </view>

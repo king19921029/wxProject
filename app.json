@@ -1,9 +1,11 @@
 {
   "pages": [
-    "page/tabBar/home/home",
-    "page/tabBar/login/login",
-    
     "page/tabBar/mine/mine",
+    "page/tabBar/minePages/feedback/feedback",
+    
+    "page/tabBar/minePages/contacts/contacts",
+    "page/tabBar/login/login",
+    "page/tabBar/home/home",
     "page/tabBar/minePages/addPerson/addPerson",
     "page/tabBar/messagePages/city/city",
     "page/tabBar/message/message",
@@ -16,7 +18,6 @@
     "page/tabBar/minePages/myProject/myProject",
     "page/tabBar/minePages/classDetails/classDetails",
     "page/tabBar/minePages/projectDetails/projectDetails",
-    
     "page/tabBar/minePages/bindBankCard/bindBankCard",
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
     "page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject",
@@ -36,7 +37,6 @@
     "page/tabBar/homePages/vipSeeAttendanceProject/vipSeeAttendanceProject",
     "page/tabBar/homePages/stayVipworkDetails/stayVipworkDetails",
     "page/tabBar/minePages/classPerDetails/classPerDetails",
-    
     "page/tabBar/minePages/authenticationAll/authenticationAll",
     "page/tabBar/messagePages/ggDetails/ggDetails",
     "page/tabBar/minePages/changePhoto/changePhoto",
@@ -54,6 +54,7 @@
     "page/tabBar/homePages/stayworkvipDetails/stayworkvipDetails",
     "page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm",
     "page/tabBar/homePages/perWageDetails/perWageDetails"
+    
   ],
   "permission": {
     "scope.userLocation": {

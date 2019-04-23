@@ -37,6 +37,12 @@ Page({
       url: '/page/tabBar/minePages/authentication/authentication',
     })
   },
+  // 紧急联系人
+  goContacts:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/contacts/contacts',
+    })
+  },
   // 我的项目
   goMyProject: function () {
     wx.navigateTo({
@@ -47,6 +53,12 @@ Page({
   goPersonData: function () {
     wx.navigateTo({
       url: '/page/tabBar/minePages/personData/personData',
+    })
+  },
+  // 信息反馈
+  goFeedback:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/feedback/feedback',
     })
   },
   // 稍后认证

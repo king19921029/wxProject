@@ -17,12 +17,18 @@
   <!-- select -->
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
-      <view>全部</view>
-      <view wx:for='{{monthData}}' wx:item="item" wx:key="">{{item}}</view>
+      <view bindtap='peojectList'>全部</view>
+      <view wx:for='{{monthData}}' wx:item="item" wx:key=""
+        data-month="{{item}}" bindtap='peojectList'>
+        {{item}}
+      </view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
-      <view>全部</view>
-      <view wx:for='{{personData}}' id="{{item.id}}" wx:item="item" wx:key="">{{item.name}}</view>
+      <view bindtap='companyList'>全部</view>
+      <view wx:for='{{personData}}' id="{{item.id}}" wx:item="item" wx:key=""
+        bindtap='companyList'>
+        {{item.name}}
+      </view>
     </block>
   </view>
   <!-- 表格 -->

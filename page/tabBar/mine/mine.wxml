@@ -32,7 +32,7 @@
         </view>
       </view>
       <!-- list -->
-      <view class='bg_fff margin_top '>  
+      <view bindtap='goContacts' class='bg_fff margin_top '>  
         <view class='display_flex com_list'>
           <view class='icon_box'>
             <text class='fa com_icon color_blue fa-address-card-o'></text>
@@ -72,7 +72,7 @@
             <text class='fa com_right fa-chevron-right'></text>
           </view> 
         </view>
-        <view class='display_flex com_list'>
+        <view bindtap='goFeedback' class='display_flex com_list'>
           <view class='icon_box'>
             <text class='fa color_6 com_icon color_blue fa-handshake-o'></text>
           </view>
