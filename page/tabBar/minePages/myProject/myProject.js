@@ -12,34 +12,6 @@ Page({
   },
   onShow: function () {
     var that = this;
-    // 我管理的项目
-    app.wxRequest("gongguan/api/wechat/myManageProject",
-      { },
-      "post", function (res) {
-        console.log("管理项目数据：",res.data.data)
-
-        if (res.data.code == 0) {
-          that.setData({
-            manageProject:res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-    // 我加入的项目page、projectId、groupId
-    app.wxRequest("gongguan/api/wechat/myJoinGroup",
-      { page:1, projectId: "", groupId:""},
-      "post", function (res) {
-        console.log("我加入的项目：",res.data.data)
-        if (res.data.code == 0) {
-          var data = res.data.data;
-          that.setData({
-            addProject:data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
     // 获取项目、班组
     app.wxRequest("gongguan/api/wechat/queryTerm",
       {},
@@ -54,19 +26,56 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
+    that.getManageProject();
+    that.getAddProject(1,"","","");
   },
-  onHide: function () {
+  // 管理的项目
+  getManageProject:function(){
+    var that = this;
+    // 我管理的项目
+    app.wxRequest("gongguan/api/wechat/myManageProject",
+      {},
+      "post", function (res) {
+        console.log("管理项目数据：", res.data.data)
 
+        if (res.data.code == 0) {
+          that.setData({
+            manageProject: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
+  },
+  //加入的项目
+  getAddProject: function (page, projectId, groupId) {
+    var that = this;
+    // 我加入的项目page、projectId、groupId
+    app.wxRequest("gongguan/api/wechat/myJoinGroup",
+      { page: 1, projectId: projectId, groupId: groupId },
+      "post", function (res) {
+        console.log("我加入的项目：", res.data.data)
+        if (res.data.code == 0) {
+          var data = res.data.data;
+          that.setData({
+            addProject: data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   // header切换
   myProject: function () {
     this.setData({
-      headerBorder: true
+      headerBorder: true,
+      selectStatus:0
     })
   },
   youProject: function () {
     this.setData({
-      headerBorder: false
+      headerBorder: false,
+      selectStatus: 0
     })
   },
   // 项目
@@ -111,11 +120,36 @@ Page({
   },
   // 项目下拉框点击
   projectSelectTap: function (e) {
-    console.log(e.currentTarget.dataset.id)
+    if (e.currentTarget.dataset.id ){
+      this.getAddProject(1, e.currentTarget.dataset.id, "")
+      this.setData({
+        projectId: e.currentTarget.dataset.id,
+        selectStatus: 0
+      })
+    }else{
+      this.getAddProject(1, "", "")
+      this.setData({
+        selectStatus: 0
+      })
+    }
+
+    
   },
   // 班组下拉框点击
   classSelectTap:function(e){
-    console.log(e.currentTarget.dataset.id)
+    if (e.currentTarget.dataset.i ){
+      this.getAddProject(1, "", e.currentTarget.dataset.id)
+      this.setData({
+        groupId: e.currentTarget.dataset.id,
+        selectStatus: 0
+      })
+    }else{
+      this.getAddProject(1, "", "")
+      this.setData({
+        selectStatus: 0
+      })
+    }
+    
   }
 
 

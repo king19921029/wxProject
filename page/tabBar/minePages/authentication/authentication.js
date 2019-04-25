@@ -1,9 +1,11 @@
+// 140322199006304391
 var app = getApp();
 Page({
   data: {
     imageP:"",//头像
     imageZ:"",//正面
     imageF:"",//反面
+    region: [""],
   },
   onLoad: function (options) {
 
@@ -138,6 +140,7 @@ Page({
       }
     })
   },
+  
   //下一步
   nextTap:function(){
     var that = this;
@@ -182,6 +185,13 @@ Page({
       address: e.detail.value
     })
   },
+  bindRegionChange(e) {
+    
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      region: e.detail.value
+    })
+  }
 
 
 })

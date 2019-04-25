@@ -51,9 +51,24 @@
         <text>身份证号：</text>
         <input bindinput='getNum' placeholder='请编辑身份证号'></input>
       </view>
+      
       <view class='com_width com_list display_flex'>
-        <text>地址：</text>
-        <input bindinput='getCity' placeholder='请编辑身份地址'></input>
+        <view class="section__title">城市选择：</view>
+        <picker mode="region" bindchange="bindRegionChange"
+          value="{{region}}" custom-item="{{customItem}}"
+          class='picker_view'>
+          <view class="picker">
+          <input placeholder='请选择城市' value="{{region[0]}}{{region[1]}}{{region[2]}}"></input>
+          <!-- <text>{{region[0]}}</text>
+          <text wx:if="{{region[1]}}">{{region[1]}}</text>
+          <text wx:if="{{region[2]}}">{{region[2]}}</text> -->
+          </view>
+        </picker>
+      </view>
+
+      <view class='com_width com_list display_flex'>
+        <text>详细地址：</text>
+        <input bindinput='getCity' placeholder='请输入详细地址'></input>
       </view>
       
     </view>

@@ -1,19 +1,16 @@
-
-
 App({
   // 全局数据，类似于store
   globalData: {
-    city:"北京",//城市
-    userPhone:"",
-    groupId: "4001201904140000001",//班组id
+    city: "北京",//城市
+    userPhone: "",
     openid: null,
-    token:null,
+    token: "",
     url: 'http://www.jinbionline.com',
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",
-      "openId":"",
-      "authorization":""
+      "openId": "",
+      "authorization": ""
     },
   },
   onLaunch: function (opts) {
@@ -54,5 +51,5 @@ App({
       icon: types
     });
   },
-  
+
 })

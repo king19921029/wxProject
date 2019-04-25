@@ -1,17 +1,17 @@
 <view class='box'>
   <view class='header'>
     <view class='card bg_blue com_width'>
-      <image class='right_icon' src='/image/smrz_icon.png'></image>
+      <image wx:if="{{mineData.isAuth == 1}}" class='right_icon' src='/image/smrz_icon.png'></image>
 
       <view class='display_flex com_width msg_box'>
-        <image class='photo' src="/image/none_record.png"></image>
+        <image class='photo' src="{{mineData.headPic}}"></image>
         <view class='name_box'>
-          <view class='name'>爱迪生</view>
-          <view>130*******29</view>
+          <view class='name'>{{mineData.userName}}</view>
+          <view>{{mineData.idNum}}</view>
         </view>
       </view>
 
-      <view class='com_width address'>地址：北京市朝阳区池水沟子</view>
+      <view class='com_width address'>地址：{{mineData.address}}</view>
     </view>
   </view>
 

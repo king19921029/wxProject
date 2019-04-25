@@ -17,5 +17,5 @@
       </view>
     </view> 
   </view>
-  <view class='footer bg_blue'>确认修改</view>
+  <view bindtap='upodateFace' class='footer bg_blue'>确认修改</view>
 </view>

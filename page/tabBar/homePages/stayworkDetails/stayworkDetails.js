@@ -33,4 +33,21 @@ Page({
   },
   onHide: function () {
   },
+  // 确定
+  confirmBtn: function (e) {
+    var that = this;
+    // 确认id、verificationCode
+    app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
+      { ids: that.data.details.id, verificationCode: "111111" },
+      "post", function (res) {
+        console.log("提交工资：", res.data.data)
+        if (res.data.code == 0) {
+          if (res.data.data) {
+            wx.navigateBack()
+          }
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+  },
 })

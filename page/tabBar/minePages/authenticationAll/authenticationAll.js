@@ -1,4 +1,4 @@
-
+var app = getApp();
 Page({
   data: {
     blockIsShow: false
@@ -7,7 +7,19 @@ Page({
 
   },
   onShow: function () {
-
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/idAuthCenter",
+      {},
+      "post", function (res) {
+        console.log("个人信息：",res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            mineData: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
 

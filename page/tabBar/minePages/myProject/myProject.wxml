@@ -30,7 +30,7 @@
   <!-- selectbox -->
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
-      <view>全部</view>
+      <view bindtap='projectSelectTap'>全部</view>
       <view bindtap='projectSelectTap' wx:for="{{peojectData}}" wx:item="item" wx:key=""
         data-id="{{item.id}}">
         {{item.name}}
@@ -38,7 +38,7 @@
     </block>
 
     <block wx:if="{{selectStatus == 2}}">
-      <view>全部</view>
+      <view bindtap='classSelectTap'>全部</view>
       <view bindtap='classSelectTap' wx:for="{{classData}}" wx:item="item" wx:key=""
         data-id="{{item.id}}">
         {{item.groupName}}

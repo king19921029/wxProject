@@ -1,6 +1,6 @@
 <view class='box'>
   <view class='content bg_fff'>
-    <view class='bor_bottom'>
+    <view bindtap='go_details' class='bor_bottom'>
       <view class='list com_width display_flex'>
         <view class="icon_box">
           <text></text>       

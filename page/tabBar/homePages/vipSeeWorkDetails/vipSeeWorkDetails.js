@@ -155,16 +155,20 @@ Page({
     let data = that.data.tabData.t;
     var arr = [];
     for (var i = 0; i < data.length; i++) {
-
       if (data[i].isChecked) {
         arr.push(data[i].id)
+        console
       }
     }
     var ids = arr.join(',');
     console.log(ids)
-    // 确定
-    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
-      { id: ids, verificationCode: "111111" },
+    // 班组查看-确定
+    app.wxRequest("gongguan/api/wechat/groupQuantityConfirm",
+      { 
+        groupId: that.data.groupId, 
+        id: ids, 
+        verificationCode: "111111" 
+      },
       "post", function (res) {
         console.log("确定", res.data.data)
         if (res.data.code == 0) {
@@ -174,7 +178,7 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   // 月份选择
   peojectList: function (e) {

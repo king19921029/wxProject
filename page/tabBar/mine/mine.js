@@ -1,7 +1,7 @@
 var app = getApp();
 Page({
   data: {
-    blockIsShow:true,
+    blockIsShow:false,
     mineData:{},//个人信息
   },
   onLoad: function (options) {
@@ -9,18 +9,35 @@ Page({
   },
   onShow: function () {
     var that = this;
-    app.wxRequest("gongguan/api/wechat/myInfo",
-      { },
-      "post", function (res) {
-        console.log(res.data.data)
-        if (res.data.code == 0) {
-          that.setData({
-            mineData:res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
+    let token = wx.getStorageSync("token");
+    if ( token ){
+      app.wxRequest("gongguan/api/wechat/myInfo",
+        {},
+        "post", function (res) {
+          console.log(res.data.data)
+          if (res.data.code == 0) {
+            if (res.data.data.isAuth == "0"){
+              that.setData({
+                mineData: res.data.data,
+                blockIsShow:true
+              })
+            }else{
+              that.setData({
+                mineData: res.data.data,
+                blockIsShow: false
+              })
+            }
+            
+          } else {
+            app.showLoading(res.data.msg, "none");
+          }
       })
+    }else{
+      wx.redirectTo({
+        url: '/page/tabBar/login/login',
+      })
+    }
+    
   },
   onHide: function () {
 
@@ -69,6 +86,9 @@ Page({
   },
   //退出
   eixt:function(){
+    wx.removeStorageSync("token");
+    app.globalData.header.authorization = "";
+    app.globalData.token = "";
     wx.redirectTo({
       url: '/page/tabBar/login/login',
     })

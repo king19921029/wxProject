@@ -1,0 +1,20 @@
+.list{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 30rpx;
+}
+.new_date{
+  text-align: center;
+  background: #cccccc;
+  color: #fff;
+  padding: 4rpx 20rpx;
+  font-size: 26rpx;
+  margin: 30rpx 0;
+} 
+.new_content{
+  width: 88%;
+  padding: 20rpx 20rpx;
+  border: 1px soid #e5e5e5;
+  border-radius: 5rpx;
+}

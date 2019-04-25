@@ -86,7 +86,7 @@
     </view>
   </view>
   <!-- 今日打卡 -->
-  <view class='pending'>
+  <view wx:if="{{token}}" class='pending'>
     <!-- 今日打卡 -->
     <view class='title'>
       <view class='titleContent'>
@@ -125,4 +125,15 @@
 
   </view>
   
+</view>
+
+<!-- 实名认证浮层 -->
+<view wx:if="{{blockIsShow}}" class='box_block'>
+    <view class='bg_fff block_view'>
+      <view class='block_title'>您未实名认证！</view>
+      <view class="block_content color_gray">
+        只能看招聘信息,点击进行<text bindtap='goAuthentication' class='add_class'>实名认证></text>
+      </view>
+      <view bindtap='closeTap' class='later_on add_class'>稍后认证</view> 
+    </view>
 </view>

@@ -1,0 +1,15 @@
+<view class='box'>
+  <view class='list'>
+    <view class='new_date'>04-24 14:13</view>
+    <view class='new_content bg_fff'>
+      此处是消息详情此处是消息详情此处是消息详情此处是消息详情此处是消息详此处是消息
+    </view>
+  </view>
+
+  <view class='list'>
+    <view class='new_date'>04-24 14:13</view>
+    <view class='new_content bg_fff'>
+      此处是消息详情此处是消息详情此处是消息详情此处是消息详情此处是消息详此处是消息
+    </view>
+  </view>
+</view>

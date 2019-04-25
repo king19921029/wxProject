@@ -31,7 +31,6 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-   
   },
   // 我的工资
   perData:function(){

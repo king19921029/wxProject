@@ -34,8 +34,8 @@ Page({
   },
   confirmBtn: function () {
     var that = this;
-    // 我的工资确认id、verificationCode
-    app.wxRequest("gongguan/api/wechat/confirmSalary",
+    //班组工作确认
+    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
       { id: that.data.id, verificationCode: "012345" },
       "post", function (res) {
         console.log("提交工资：", res.data.data)

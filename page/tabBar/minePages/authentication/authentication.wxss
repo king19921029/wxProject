@@ -69,3 +69,6 @@
   font-weight:bold;
   margin-top: 57rpx;
 }
+.picker_view{
+  width: 75%;
+}

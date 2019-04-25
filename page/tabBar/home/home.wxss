@@ -176,3 +176,28 @@
   width: 120rpx;
   margin-left: 38rpx;
 }
+
+/* 浮层 */
+.box_block{
+  font-size: 30rpx;
+}
+.block_view{
+  width: 76%;
+  border-radius: 10rpx;
+  text-align: center;
+}
+.block_title{
+  font-size: 34rpx;
+  font-weight: 400;
+  padding-top:50rpx;
+}
+.block_content{
+  padding: 35rpx 0;
+  font-size: 28rpx;
+}
+.later_on{
+  padding: 30rpx 0;
+  font-size: 34rpx;
+  font-weight: 400;
+  border-top: 1rpx solid #efeff4;
+}

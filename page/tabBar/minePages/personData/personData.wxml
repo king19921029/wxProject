@@ -11,8 +11,7 @@
     <view class='display_flex list_tab border_none'>
       <view>文化程度</view>
       <view class='display_flex com_rigth_view'>
-        <input class='color_gray' placeholder='请输入您的文化程度'></input> 
-        <!-- <text class='fa add_gray fa-chevron-right'></text> -->
+        <input class='color_gray' bindconfirm='chageW' placeholder='请输入您的文化程度'></input> 
       </view>
     </view>
   </view>
@@ -35,25 +34,9 @@
     </view>
 
     <view class='display_flex list_tab'>
-      <view>确认密码</view>
-      <view class='display_flex com_rigth_view'>
-        <text class='color_gray'>*******</text>
-        <text class='fa add_gray fa-chevron-right'></text>
-      </view>
-    </view>
-
-    <view class='display_flex list_tab'>
       <view>主要技能</view>
       <view class='display_flex com_rigth_view'>
         <input class='color_gray' placeholder='请输入您的技能'></input> 
-        <!-- <text class='fa add_gray fa-chevron-right'></text> -->
-      </view>
-    </view>
-
-    <view class='display_flex list_tab'>
-      <view>技能等级</view>
-      <view class='display_flex com_rigth_view'>
-        <input class='color_gray' placeholder='请输入您的技能等级'></input> 
         <!-- <text class='fa add_gray fa-chevron-right'></text> -->
       </view>
     </view>

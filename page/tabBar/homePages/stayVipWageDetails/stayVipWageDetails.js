@@ -47,23 +47,7 @@ Page({
   },
   onHide: function () {
   },
-  // 工资确定
-  confirmBtn: function () {
-    var that = this;
-    // 我的工资确认id、verificationCode
-    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
-      {},
-      "post", function (res) {
-        console.log(res.data.data)
-        if (res.data.code == 0) {
-          that.setData({
-            // myWage: res.data.data
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
-  },
+
   //查看详情
   goDetails: function (e) {
     let id = e.currentTarget.dataset.id;

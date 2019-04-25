@@ -1,30 +1,29 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/minePages/authentication/authentication",
     "page/tabBar/login/login",
     
+    "page/tabBar/homePages/stayworkload/stayworkload",
+    "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
+    "page/tabBar/minePages/bindBankCard/bindBankCard",
+    "page/tabBar/homePages/newDetails/newDetails",
     "page/tabBar/mine/mine",
     "page/tabBar/minePages/feedback/feedback",
-    
     "page/tabBar/minePages/contacts/contacts",
-   
-    
     "page/tabBar/minePages/addPerson/addPerson",
     "page/tabBar/messagePages/city/city",
     "page/tabBar/message/message",
     "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",
     "page/tabBar/minePages/personData/personData",
     "page/tabBar/homePages/vipBlock/vipBlock",
-    "page/tabBar/homePages/stayworkload/stayworkload",
-    "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
     "page/tabBar/homePages/stayAttendance/stayAttendance",
     "page/tabBar/minePages/myProject/myProject",
     "page/tabBar/minePages/classDetails/classDetails",
     "page/tabBar/minePages/projectDetails/projectDetails",
-    "page/tabBar/minePages/bindBankCard/bindBankCard",
     "page/tabBar/homePages/attendanceDetails/attendanceDetails",
     "page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject",
-    "page/tabBar/minePages/authentication/authentication",
+   
     "page/tabBar/homePages/attendanceProject/attendanceProject",
     "page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails",
     "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
@@ -46,7 +45,7 @@
     "page/tabBar/minePages/authenticationRes/authenticationRes",
     "page/tabBar/minePages/newPhone/newPhone",
     "page/tabBar/minePages/changePhone/changePhone",
-    "page/tabBar/homePages/vipWageDetails/vipWageDetails",
+    
     "page/tabBar/homePages/attendanceCard/attendanceCard",
     "page/tabBar/homePages/wageBlockDetails/wageBlockDetails",
     "page/tabBar/homePages/wageDetails/wageDetails",
@@ -57,7 +56,6 @@
     "page/tabBar/homePages/stayworkvipDetails/stayworkvipDetails",
     "page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm",
     "page/tabBar/homePages/perWageDetails/perWageDetails"
-    
   ],
   "permission": {
     "scope.userLocation": {
@@ -116,5 +114,6 @@
     "uploadFile": 10000,
     "downloadFile": 10000
   },
-  "debug": false
+  "debug": false,
+  "sitemapLocation": "sitemap.json"
 }
