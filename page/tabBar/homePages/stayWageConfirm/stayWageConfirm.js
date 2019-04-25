@@ -18,7 +18,8 @@ Page({
       "post", function (res) {
         console.log("班组工资待确认数量:",res.data.data)
         if (res.data.code == 0) {
-          if (res.data.isLeader ){
+
+          if (res.data.data.isLeader ){
             that.perData();
             that.classData();
           }else{

@@ -3,26 +3,40 @@
   <view class='list_box bg_fff'>
     <view class='list'>
       <view class='list_title'>姓名</view>
-      <input class='list_input' placeholder='请输入姓名'></input>
+      <input bindinput='getName' class='list_input' placeholder='请输入姓名'></input>
     </view>
     <view class='list'>
       <view class='list_title'>关系</view>
-      <input class='list_input' placeholder='请输入关系'></input>
+      <input bindinput='getRelation' class='list_input' placeholder='请输入关系'></input>
     </view>
     <view class='list'>
       <view class='list_title'>电话</view>
-      <input class='list_input' placeholder='请输入手机号'></input>
+      <input bindinput='getPhone' class='list_input' placeholder='请输入手机号'></input>
     </view>
   </view>
-  <view class='bg_blue com_footer_btn'>确定</view>
+  <view bindtap='footerTap' class='bg_blue com_footer_btn'>确定</view>
 </view>
 
-<view  wx:else class='box' >
-  <view class='headers com_width'>您暂无紧急联系人，添加已确保紧急求助功能</view>
-  <view class=' bg_fff'>
-    <view bindtap='addShow' class=' com_width add_btn display_flex'>
+<view wx:else class='box' >
+  <view wx:if="{{1==2}}" class='headers com_width'>
+    您暂无紧急联系人，添加已确保紧急求助功能
+  </view>
+  <view wx:else class='block'></view>
+  <view class='bg_fff border_top'>
+    <view bindtap='addShow' class='com_width add_btn display_flex'>
       <view>添加紧急联系人</view>
       <text class='fa add_gray fa-chevron-right'></text>
+    </view>
+  </view>
+
+  <view class='per_content bg_fff'>
+    <view wx:for="{{perList}}" wx:item="item" wx:key="" 
+      class='per_list display_flex'>
+      <view class='display_flex'>
+        <view class='circle_icon'>{{item.relation}}</view>
+        <view>{{item.name}}</view>
+      </view>
+      <view class='per_photo'>{{item.phone}}</view>
     </view>
   </view>
 </view>

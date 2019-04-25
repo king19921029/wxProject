@@ -56,11 +56,11 @@
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>项目所在地：</text> <text>{{item.groupName}}</text>
+        <text class='color_gray'>项目所在地：</text> <text>{{item.projectAddress}}</text>
       </view>
 
       <view class='com_width com_list'>
-        <text class='color_gray'>劳务公司：</text> <text>{{item.groupName}}</text>
+        <text class='color_gray'>劳务公司：</text> <text>{{item.labourCompanyName}}</text>
       </view>
 
       <view class='com_width com_list'>

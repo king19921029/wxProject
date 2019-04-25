@@ -34,7 +34,7 @@
       <!-- list -->
       <view class='bg_fff margin_top '>  
 
-        <view class='display_flex com_list' bindtap='goMyProject'>
+        <view wx:if="{{!bankData}}" class='display_flex com_list' bindtap='bindbank'>
           <view class='icon_box'>
             <text class='fa color_4 com_icon color_blue fa-file-text-o'></text>
           </view>

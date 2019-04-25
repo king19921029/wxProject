@@ -1,11 +1,6 @@
 <view class='box'>
-  <view class='header bg_fff'>
-    <view bindtap='goSerach' class='search_box display_flex com_width'>
-      <icon size='14' type='search'></icon> 
-      搜索
-    </view>
-    
-    <view class='border_bottom'>
+  <view class='header bg_fff'>    
+   <view class='border_bottom border_top'>
       <view class='select_header'>
         <view bindtap='peojectTap'>
           <text class='{{selectStatus == 1 ?"add_class":""}}'>项目</text>

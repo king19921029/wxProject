@@ -3,16 +3,20 @@
     <view class='display_flex list_tab'>
       <view>身份认证</view>
       <view bindtap='go_authent' class='display_flex com_rigth_view'>
-        <text class='color_gray'>李丽</text>
-        <text class='yes_view'>已实名</text>
+        <text class='color_gray'>{{allData.realName}}</text>
+        <text wx:if="{{allData.isAuth == 1}}" class='yes_view'>已实名</text>
       </view>
     </view>
 
     <view class='display_flex list_tab border_none'>
       <view>文化程度</view>
-      <view class='display_flex com_rigth_view'>
-        <input class='color_gray' bindconfirm='chageW' placeholder='请输入您的文化程度'></input> 
-      </view>
+      <picker  bindchange="bindPickerChange" value="{{idx}}" 
+         class="picker_view" range="{{edArr}}">
+          <view wx:if="{{allData.degreeEducation}}" class="picker">
+            {{allData.degreeEducation}}
+          </view>
+          <view wx:else class="picker">请选择文化程度</view>
+      </picker>
     </view>
   </view>
 
@@ -28,24 +32,19 @@
     <view class='display_flex list_tab' bindtap='go_bindBank'>
       <view>银行卡</view>
       <view class='display_flex com_rigth_view'>
-        <!-- <text class='color_gray'>建设银行11120001982903198312</text> -->
+        <text class='color_gray'>{{bankData.bankCardNum}}</text>
         <text class='fa add_gray fa-chevron-right'></text>
       </view>
     </view>
 
     <view class='display_flex list_tab'>
       <view>主要技能</view>
-      <view class='display_flex com_rigth_view'>
-        <input class='color_gray' placeholder='请输入您的技能'></input> 
-        <!-- <text class='fa add_gray fa-chevron-right'></text> -->
-      </view>
+      <picker  bindchange="pickerSkill" value="{{workTypeName}}" 
+         class="picker_view" range="{{workTypeName}}">
+          <view wx:if="{{allData.skill}}" class="picker">{{allData.skill}}</view>
+          <view wx:else class="picker">请选择主要技能</view>
+      </picker>
     </view>
-
-    <view class='display_flex list_tab border_none'>
-      <view>附件</view>
-      <view class='display_flex com_rigth_view'>
-        <text class='color_blue'>上传附件</text>
-      </view>
-    </view>
+    
   </view>
 </view>

@@ -15,7 +15,7 @@
   <view wx:if="{{headerBorder}}" class='notice_box' >
     <view bindtap='ggDetails' class='notice_list bg_fff'
       wx:for="{{ggData.t}}" wx:item="item" wx:key=""
-      data-id="{{item.id}}">
+      data-id="{{item.id}}" data-types="{{item.type}}">
       <view class='com_width'>
           <view class='notice_list_title'>{{item.title}}</view>
           <view class='display_flex notice_list_con color_gray'>

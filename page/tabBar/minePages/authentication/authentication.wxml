@@ -58,7 +58,7 @@
           value="{{region}}" custom-item="{{customItem}}"
           class='picker_view'>
           <view class="picker">
-          <input placeholder='请选择城市' 
+          <input disabled='ture' placeholder='请选择城市'
             value="{{region[0]}}{{region[1]}}{{region[2]}}">
           </input>
           </view>
@@ -75,7 +75,7 @@
         <picker  bindchange="bindPickerChange" value="{{idx}}" 
          class="picker_view" range="{{edArr}}" data-name="{{}}">
           <view class="picker">
-          <input placeholder='请选择文化程度' 
+          <input placeholder='请选择文化程度' disabled='ture'
             value="{{edType}}">
           </input>
           </view>

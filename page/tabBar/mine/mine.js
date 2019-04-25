@@ -11,6 +11,7 @@ Page({
     var that = this;
     let token = wx.getStorageSync("token");
     if ( token ){
+      // 个人信息
       app.wxRequest("gongguan/api/wechat/myInfo",
         {},
         "post", function (res) {
@@ -32,6 +33,20 @@ Page({
             app.showLoading(res.data.msg, "none");
           }
       })
+      // 获取银行卡
+      app.wxRequest("gongguan/api/wechat/getBankCard",
+        {},
+        "post", function (res) {
+          console.log("银行卡：", res.data.data)
+          if (res.data.code == 0) {
+            var data = res.data.data;
+            that.setData({
+              bankData: data
+            })
+          } else {
+            app.showLoading(res.data.msg, "none");
+          }
+      })
     }else{
       wx.redirectTo({
         url: '/page/tabBar/login/login',
@@ -46,6 +61,11 @@ Page({
   photoTap:function(){
     wx.navigateTo({
       url: '/page/tabBar/minePages/authenticationAll/authenticationAll',
+    })
+  },
+  bindbank:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/bindBankCard/bindBankCard',
     })
   },
   //实名认证

@@ -6,7 +6,7 @@
   <view class='list_box bg_fff  '>
     <view class='list'>
       <text>工作种类：</text>
-      <text>{{details.workType}}</text>
+      <text>{{details.workTypeName}}</text>
     </view>
 
      <view class='list'>

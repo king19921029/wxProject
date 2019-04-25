@@ -1,7 +1,7 @@
 var app = getApp();
 Page({
   data: {
-    btnFont:"提交劳务公司审核"
+    btnFont:"确定"
   },
   onLoad: function (options) {
     this.setData({

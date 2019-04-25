@@ -6,6 +6,45 @@
   justify-content: space-between;
   padding: 24rpx 0;
 }
+.border_top{
+  border-top: 1px solid #efeff4;
+}
+.block{
+  height: 30rpx;
+}
+/* 联系人列表 */
+.per_content{
+  border-top: 1px solid #efeff4;
+  border-bottom: 1px solid #efeff4;
+  margin-top: 30rpx;
+}
+.per_list{
+  padding: 15rpx 0;
+  width: 96%;
+  margin-left: 4%;
+  border-bottom: 1px solid #efeff4;
+  justify-content: space-between;
+  font-weight: 400;
+}
+.per_photo{
+  margin-right: 4%;
+}
+.circle_icon{
+  background: #8aed00;
+  color: #fff;
+  border-radius:50%;
+  width: 70rpx;
+  height: 70rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24rpx;
+  margin-right: 20rpx;
+}
+.per_content :last-child{
+  border-bottom: none;
+}
+
 .add_gray{
   color: #cdcdd2;
 }

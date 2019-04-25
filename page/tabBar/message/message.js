@@ -6,28 +6,28 @@ Page({
     city:"",
   },
   onLoad: function (options) {
-
-    wx.getLocation({
-      type: 'wgs84',
-      success(res) {
-        const latitude = res.latitude
-        const longitude = res.longitude
-        const speed = res.speed
-        const accuracy = res.accuracy
-        console.log(res)
-      }
+    this.setData({
+      city: app.globalData.city
     })
+    // wx.getLocation({
+    //   type: 'wgs84',
+    //   success(res) {
+    //     const latitude = res.latitude
+    //     const longitude = res.longitude
+    //     const speed = res.speed
+    //     const accuracy = res.accuracy
+    //     // console.log(res)
+    //   }
+    // })
   },
   onShow: function () {
     var that = this;
-    that.setData({
-     city : app.globalData.city 
-    })
+    
     // 公告列表
     app.wxRequest("gongguan/api/wechat/noticeList",
       { page:"" },
       "post", function (res) {
-        console.log(res.data);
+        console.log(res);
         var data = res.data.data;
         if (res.data.code == 0) {
           that.setData({

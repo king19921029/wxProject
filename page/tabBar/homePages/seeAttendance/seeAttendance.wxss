@@ -1,1 +1,4 @@
 @import "/page/tabBar/homePages/seeWage/seeWage.wxss";
+.border_top{
+  border-bottom: 1rpx solid #efeff4;
+}

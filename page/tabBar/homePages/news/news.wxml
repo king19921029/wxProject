@@ -1,6 +1,9 @@
 <view class='box'>
   <view class='content bg_fff'>
-    <view bindtap='go_details' class='bor_bottom'>
+
+    <view bindtap='go_details' class='bor_bottom' 
+      wx:for="{{msg.t}}" wx:item="item" wx:key=""
+      data-id="{{item.id}}">
       <view class='list com_width display_flex'>
         <view class="icon_box">
           <text></text>       
@@ -14,7 +17,7 @@
       </view>
     </view>
 
-    <view class='bor_bottom'>
+    <!-- <view class='bor_bottom'>
       <view class='list com_width display_flex'>
         <view class="icon_box">
           <text></text>       
@@ -55,7 +58,7 @@
         
         <view class='times color_gray'>3月18日</view>
       </view>
-    </view>
+    </view> -->
 
   </view>
 </view>

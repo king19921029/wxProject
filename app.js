@@ -36,13 +36,25 @@ App({
       data: param,
       method: method,
       success: function (res) {
+        console.log(res.data.code)
+        if (res.data.code == 10003 ){
+          that.go_login()
+          wx.removeStorageSync("token")
+          return false;
+        }
         typeof success == 'function' && success(res)
       },
       fail: function (res) {
         typeof fail == 'function' && fail(res)
+        console.log(res);
       }
     })
 
+  },
+  go_login:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/login/login',
+    })
   },
   //打开loading
   showLoading: function (title, types) {

@@ -4,8 +4,8 @@
   <view class='border_t_b bg_fff'>
     <view class='card_num'>
       <text class='num'>银行卡号</text>
-      <input bindinput='getUserIdCardNumber' data-types="0" class='card_input' placeholder='请输入银行卡号'></input>
-      <text class='color_gray fa fa-camera'></text>
+      <input bindinput='getUserIdCardNumber' data-types="0" class='card_input' placeholder='请输入银行卡号' value='{{bankData.bankCardNum}}'></input>
+      <!-- <text class='color_gray fa fa-camera'></text> -->
     </view>
   </view>
   <!-- 信息 -->
@@ -13,13 +13,19 @@
   <view class='border_t_b bg_fff'>
     <view class='card_num name_card'>
       <text class='com_titles'>姓名</text>
-      <input data-types="1" bindinput='getInputVal' class='com_input' placeholder='请输入姓名'></input>
+      <input data-types="1" bindinput='getInputVal' class='com_input' placeholder='请输入姓名' value='{{bankData.userName}}'></input>
     </view>
      <view class='card_num'>
       <text class='com_titles'>开户行</text>
-      <input disabled='ture' data-types="2" bindinput='getInputVal' class='com_input' placeholder='开户行' value='{{cardType}}'></input>
+      <input data-types="2" bindinput='getInputVal' class='com_input' placeholder='开户行' value='{{bankData.bankName}}'></input>
     </view>
   </view>
   <!-- 下一步 -->
-  <view bindtap='next' class='com_footer_btn bg_blue'>下一步</view>
+  <view wx:if="{{!bankData.bankCardNum}}" bindtap='next' class='com_footer_btn bg_blue'>
+    下一步
+  </view>
+  <view wx:else bindtap='untieTap' class='com_footer_btn bg_blue'>
+    解绑
+  </view>
+
 </view>

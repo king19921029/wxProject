@@ -46,3 +46,11 @@
 .fa{
   margin-left: 10rpx;
 }
+.picker_view{
+  text-align: end;
+  margin-right:4%;
+  color:#666666;
+}
+input{
+  text-align: end;
+}

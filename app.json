@@ -1,11 +1,13 @@
 {
   "pages": [
     "page/tabBar/home/home",
-    "page/tabBar/minePages/authentication/authentication",
+    "page/tabBar/minePages/personData/personData",
+    
+  
+    "page/tabBar/minePages/feedback/feedback",
+    "page/tabBar/minePages/contacts/contacts",
    
-    
-    
-    
+    "page/tabBar/minePages/authentication/authentication",
     "page/tabBar/login/login",
     
     "page/tabBar/homePages/stayworkload/stayworkload",
@@ -13,13 +15,13 @@
     "page/tabBar/minePages/bindBankCard/bindBankCard",
     "page/tabBar/homePages/newDetails/newDetails",
     "page/tabBar/mine/mine",
-    "page/tabBar/minePages/feedback/feedback",
-    "page/tabBar/minePages/contacts/contacts",
+    
+   
     "page/tabBar/minePages/addPerson/addPerson",
     "page/tabBar/messagePages/city/city",
     "page/tabBar/message/message",
     "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",
-    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/homePages/vipBlock/vipBlock",
     "page/tabBar/homePages/stayAttendance/stayAttendance",
     "page/tabBar/minePages/myProject/myProject",
