@@ -64,8 +64,8 @@ Page({
   },
   onHide: function () {
     var that = this;
-    let skill = that.data.allData.edId;
-    let educationLevel = that.data.allData.wkId;
+    let educationLevel = that.data.allData.edId;
+    let skill = that.data.allData.wkId;
     if ( educationLevel || skill ){
       app.wxRequest("gongguan/api/wechat/savePersonalInfo",
         {

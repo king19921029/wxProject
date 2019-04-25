@@ -2,10 +2,16 @@
   <view class='com_list bg_fff header'>
     <view class='display_flex list_tab'>
       <view>身份认证</view>
-      <view bindtap='go_authent' class='display_flex com_rigth_view'>
+      <view wx:if="{{allData.isAuth == 1}}" class='display_flex com_rigth_view'>
         <text class='color_gray'>{{allData.realName}}</text>
-        <text wx:if="{{allData.isAuth == 1}}" class='yes_view'>已实名</text>
+        <text  class='yes_view'>已实名</text>
       </view>
+
+      <view wx:else bindtap='go_authent' class='display_flex com_rigth_view'>
+        <text class='color_gray'>{{allData.realName}}</text>
+        <text  class='yes_view'>未实名</text>
+      </view>
+      
     </view>
 
     <view class='display_flex list_tab border_none'>
