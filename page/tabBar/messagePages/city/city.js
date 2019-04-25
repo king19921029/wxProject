@@ -62,7 +62,7 @@ Page({
   },
   //选择城市
   bindCity: function (e) {
-    console.log(e.currentTarget.dataset.city)
+    console.log(e.currentTarget)
     app.globalData.city = e.currentTarget.dataset.city;
     wx.navigateBack();
   },
@@ -96,7 +96,8 @@ Page({
   // 搜索后的内容点击
   searchTap:function(e){
     app.globalData.city = e.currentTarget.dataset.city;
-    wx.navigateBack();
+    // wx.navigateBack();
+    console.log(e)
   },
   // 查找城市
   findFn:function (arr, str) {

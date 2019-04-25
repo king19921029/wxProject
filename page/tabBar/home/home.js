@@ -38,9 +38,9 @@ Page({
         console.log(res.data.data)
         if (res.data.code == 0) {
           if (res.data.data.isAuth == "0") {
-            // that.setData({
-            //   blockIsShow: true
-            // })
+            that.setData({
+              blockIsShow: true
+            })
           }
 
         } else {
