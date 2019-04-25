@@ -58,10 +58,9 @@
           value="{{region}}" custom-item="{{customItem}}"
           class='picker_view'>
           <view class="picker">
-          <input placeholder='请选择城市' value="{{region[0]}}{{region[1]}}{{region[2]}}"></input>
-          <!-- <text>{{region[0]}}</text>
-          <text wx:if="{{region[1]}}">{{region[1]}}</text>
-          <text wx:if="{{region[2]}}">{{region[2]}}</text> -->
+          <input placeholder='请选择城市' 
+            value="{{region[0]}}{{region[1]}}{{region[2]}}">
+          </input>
           </view>
         </picker>
       </view>
@@ -69,6 +68,18 @@
       <view class='com_width com_list display_flex'>
         <text>详细地址：</text>
         <input bindinput='getCity' placeholder='请输入详细地址'></input>
+      </view>
+
+      <view class='com_width com_list display_flex'>
+        <view class="section__title">文化程度：</view>
+        <picker  bindchange="bindPickerChange" value="{{idx}}" 
+         class="picker_view" range="{{edArr}}" data-name="{{}}">
+          <view class="picker">
+          <input placeholder='请选择文化程度' 
+            value="{{edType}}">
+          </input>
+          </view>
+        </picker>
       </view>
       
     </view>

@@ -6,6 +6,7 @@ Page({
     imageZ:"",//正面
     imageF:"",//反面
     region: [""],
+    edArr:["初中","高中","职高","大专","本科","研究生"]
   },
   onLoad: function (options) {
 
@@ -185,13 +186,21 @@ Page({
       address: e.detail.value
     })
   },
+  // 城市选择
   bindRegionChange(e) {
     
     console.log('picker发送选择改变，携带值为', e)
     this.setData({
       region: e.detail.value
     })
-  }
+  },
+  // 学历选择
+  bindPickerChange(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      edType: this.data.edArr[e.detail.value]
+    })
+  },
 
 
 })

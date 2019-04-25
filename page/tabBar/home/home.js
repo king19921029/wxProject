@@ -48,7 +48,6 @@ Page({
         }
       })
     }
-    
 
   },
   onHide: function () {
@@ -60,10 +59,12 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/news/news',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
+   
    
   },
   //待办-考勤
@@ -72,10 +73,11 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/stayAttendance/stayAttendance',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
    
   },
   //待办-工资
@@ -84,10 +86,12 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/stayWageConfirm/stayWageConfirm',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
+  
   },
   //待办-工作量
   goStayWorkload: function () {
@@ -95,10 +99,12 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/stayworkload/stayworkload',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
+   
   },
   // 查看-考勤
   goAttendance:function(){
@@ -106,11 +112,11 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/seeAttendance/seeAttendance',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-   
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
   },
   // 查看-工资
   goWageBlock: function () {
@@ -118,10 +124,11 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/seeWage/seeWage',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
   }, 
   // 查看-工作量
   goWorkload: function () {
@@ -129,10 +136,12 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/seeWorkload/seeWorkload',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
+  
   },
   // 查看-班组
   goTeam: function () {
@@ -140,10 +149,11 @@ Page({
       wx.navigateTo({
         url: '/page/tabBar/homePages/vipBlock/vipBlock',
       })
+    }else{
+      wx.navigateTo({
+        url: '/page/tabBar/login/login',
+      })
     }
-    wx.navigateTo({
-      url: '/page/tabBar/login/login',
-    })
   },
   //实名认证
   goAuthentication: function () {
