@@ -3,12 +3,12 @@
   <view class='header border_top bg_fff'>
     <view class='border_bottom display_flex'>
       <view bindtap='peojectTap'>
-        <text class='{{selectStatus == 1 ?"add_class":""}}'>月份</text>
+        <text class='{{selectStatus == 1 ?"add_class":""}}'>{{monthObj.name}}</text>
         <image wx:if="{{selectStatus == 1}}" class='tan_top' src='/image/top_tan.png'></image>
         <image wx:else class='tan' src='/image/tan.png'></image>
       </view>
       <view bindtap='companyTap'>
-        <text class='{{selectStatus == 2 ?"add_class":""}}'>班组人员选择</text>
+        <text class='{{selectStatus == 2 ?"add_class":""}}'>{{companyObj.name}}</text>
         <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
         <image wx:else class='tan' src='/image/tan.png'></image>
       </view>
@@ -25,8 +25,8 @@
     </block>
     <block wx:if="{{selectStatus == 2}}">
       <view bindtap='companyList'>全部</view>
-      <view wx:for='{{personData}}' id="{{item.id}}" wx:item="item" wx:key=""
-        bindtap='companyList'>
+      <view wx:for='{{personData}}' data-id="{{item.id}}" wx:item="item" 
+        wx:key="" bindtap='companyList' data-name="{{item.name}}">
         {{item.name}}
       </view>
     </block>

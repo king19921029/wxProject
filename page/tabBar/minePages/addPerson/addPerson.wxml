@@ -1,22 +1,27 @@
 <view class='box'>
   <view class='content bg_fff'>
+
+    <view class='list display_flex'>
+      <view>身份证号</view>
+      <input bindblur='getIdNum' class='margin_right' type='number' placeholder='身份证号'></input>
+    </view>
     <view class='list display_flex'>
       <view>姓名</view>
-      <input class='margin_right' placeholder='请输入姓名'></input>
+      <input value='{{allData.userName}}' class='margin_right' placeholder='请输入姓名'></input>
     </view>
 
     <view class='list display_flex'>
       <view>工种</view>
-      <view class='display_flex margin_right'>
-        泥瓦工
-        <text class='fa fa-chevron-right'></text>
-      </view>
+      <picker  bindchange="pickerSkill" value="{{workTypeName}}" 
+         class="picker_view" range="{{workTypeName}}">
+        <input disabled='ture' class='margin_right'
+          value="{{allData.workTypeName}}" placeholder='请输入工种'>
+        </input>
+      </picker>
+     
     </view>
 
-     <view class='list display_flex'>
-      <view>身份证号</view>
-      <input bindblur='getIdNum' class='margin_right' type='number' placeholder='身份证号'></input>
-    </view>
+    
 
     <!-- <view class='list display_flex'>
       <view>劳动合同</view>

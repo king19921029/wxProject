@@ -3,17 +3,17 @@
    <view class='border_bottom border_top'>
       <view class='select_header'>
         <view bindtap='peojectTap'>
-          <text class='{{selectStatus == 1 ?"add_class":""}}'>项目</text>
+          <text class='overflow {{selectStatus == 1 ?"add_class":""}}'>{{prjectObj.name}}</text>
           <image wx:if="{{selectStatus == 1}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
         <view bindtap='companyTap'>
-          <text class='{{selectStatus == 2 ?"add_class":""}}'>劳务公司</text>
+          <text class='overflow {{selectStatus == 2 ?"add_class":""}}'>{{companyObj.name}}</text>
           <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
         <view bindtap='classTap'>
-          <text class='{{selectStatus == 3 ?"add_class":""}}'>班组</text>
+          <text class='overflow {{selectStatus == 3 ?"add_class":""}}'>{{classObj.name}}</text>
           <image wx:if="{{selectStatus == 3}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
@@ -27,54 +27,53 @@
   <view wx:if="{{selectStatus > 0}}" class='select_box bg_fff'>
     <block wx:if="{{selectStatus == 1}}">
       <view bindtap='peojectList'>全部</view>
-      <view wx:for="{{peojectData}}" id="{{item.id}}"  wx:for-item="item" 
-        wx:key="" bindtap='peojectList'>
+      <view wx:for="{{peojectData}}" data-id="{{item.id}}"  wx:for-item="item" 
+        wx:key="" bindtap='peojectList' data-name="{{item.name}}">
         {{item.name}}
       </view>
     </block>
     <block wx:if="{{selectStatus == 2}}">
       <view bindtap='companyList'>全部</view>
-      <view wx:for="{{companyData}}" id="{{item.id}}"  wx:for-item="item" 
-        wx:key="" bindtap='companyList'>
+      <view wx:for="{{companyData}}" data-id="{{item.id}}"  wx:for-item="item" 
+        wx:key="" bindtap='companyList' data-name="{{item.labourCompanyName}}">
         {{item.labourCompanyName}}
       </view>
     </block>
     <block wx:if="{{selectStatus == 3}}">
       <view bindtap='classList'>全部</view>
-      <view wx:for="{{classData}}" id="{{item.id}}"  wx:for-item="item"
-       wx:key="" bindtap='classList'>
+      <view wx:for="{{classData}}" data-id="{{item.id}}"  wx:for-item="item"
+       wx:key="" bindtap='classList' data-name="{{item.groupName}}">
         {{item.groupName}}
       </view>
     </block>
   </view>
 
    <!-- list -->
-  <view wx:else class='content bg_fff'>
-    <view wx:for="{{peojectLIst.t}}" wx:for-item="item" wx:key=""
-     class='com_width list_box'>
-      <view class='list'>
-        <text class='list_title'>项目名称:</text>
-        <text class='list_data'>{{item.projectName}}</text>
-      </view>
+  <view wx:else class='content'>
+    <view class='bg_fff' wx:for="{{peojectLIst.t}}" wx:for-item="item" wx:key="">
+      <view class='com_width list_box'>
+        <view class='list'>
+          <text class='list_title'>项目名称:</text>
+          <text class='list_data'>{{item.projectName}}</text>
+        </view>
 
-      <view class='list'>
-        <text class='list_title'>劳务公司:</text>
-        <text class='list_data'>{{item.labourCompanyName}}</text>
-      </view>
+        <view class='list'>
+          <text class='list_title'>劳务公司:</text>
+          <text class='list_data'>{{item.labourCompanyName}}</text>
+        </view>
 
-      <view class='list'>
-        <text class='list_title'>班组:</text>
-        <text class='list_data'>{{item.groupName}}</text>
-      </view>
+        <view class='list'>
+          <text class='list_title'>班组:</text>
+          <text class='list_data'>{{item.groupName}}</text>
+        </view>
 
-      <view class='list'>
-        <text class='list_title'>工程总量:</text>
-        <text class='list_data'>{{item.quantity}}</text>
+        <view class='list'>
+          <text class='list_title'>工程总量:</text>
+          <text class='list_data'>{{item.quantity}}</text>
+        </view>
+        <view data-groupid="{{item.groupId}}" bindtap='goDetails' class='see_list'>查看详情</view>
       </view>
-      <view data-groupid="{{item.groupId}}" bindtap='goDetails' class='see_list'>查看详情</view>
     </view>
-
-   
   </view>
 
 </view>

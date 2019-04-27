@@ -60,3 +60,11 @@ button{
   text-align: center;
   margin-top: 40rpx;
 }
+.get_code{
+  width: 200rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
+  font-size: 28rpx;
+  padding: 0;
+}

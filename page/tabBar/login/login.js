@@ -63,6 +63,7 @@ Page({
           let data = JSON.parse(res.data.data);
           console.log(data)
           app.globalData.userPhone = data.phoneNumber;
+          wx.setStorageSync("userPhone", data.phoneNumber)
           app.wxRequest("gongguan/api/wechat/login",
             { phone: data.phoneNumber, verificationCode: "111111" },
             "post", function (res) {

@@ -40,9 +40,6 @@
 }
 
 /* select_box */
-.select_box{
-
-}
 .select_box>view{
   padding: 20rpx 0;
   border-bottom: 1rpx solid #efeff4;
@@ -50,54 +47,77 @@
   text-indent: 30rpx;
   margin-left: 6%;
 }
-
 /* 班组明细 */
 .vip_title{
   padding: 30rpx 0;
   text-indent: 30rpx;
   font-size: 32rpx;
 }
-
-/* 表格 */
-.com_tab_title{
+/* 新表格 */
+.new_tab{
+  padding-bottom: 40rpx;
+}
+.new_tab .com_tab_title{
   display: flex;
   border-top: 1rpx solid #efeff4;
   background: #fff;
 }
-.tab_title{
+.new_tab .tab_title{
+  background: #f1fcff;
+}
+.new_tab .com_tab_title view{
+  border-right: 1px solid #efeff4;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+  width: 18%;
+}
+.new_table .com_tab_title :first-child{
+  width: 14%;
+}
+.new_table .com_tab_title :last-child{
+  width: 14%;
+}
+/* 旧表格 */
+.old_tab .com_tab_title{
+  display: flex;
+  border-top: 1rpx solid #efeff4;
+  background: #fff;
+}
+.old_tab .tab_title{
   background: #f1fcff;
 }
 checkbox{
-
   transform:scale(.6);
   margin-left: 4rpx;
 }
-.com_tab_title view{
+.old_tab .com_tab_title view{
   border-right: 1px solid #efeff4;
   height: 60rpx;
   line-height: 60rpx;
   font-size: 24rpx;
   text-align: center;
 }
-.com_tab_title .first_checkbox{
+.old_tab  .com_tab_title .first_checkbox{
   width: 8%;
 }
-.com_tab_title .last_child{
+.old_tab .com_tab_title .last_child{
   width: 12%;
 }
-.com_tab_title :nth-child(2){
+.old_tab .com_tab_title :nth-child(2){
   width: 14%;
 }
-.com_tab_title :nth-child(3){
+.old_tab .com_tab_title :nth-child(3){
   width: 16.5%;
 }
-.com_tab_title :nth-child(4){
+.old_tab .com_tab_title :nth-child(4){
   width: 16.5%;
 }
-.com_tab_title :nth-child(5){
+.old_tab .com_tab_title :nth-child(5){
   width: 16.5%;
 }
-.com_tab_title :nth-child(6){
+.old_tab .com_tab_title :nth-child(6){
   width: 16.5%;
 }
 /* 确定 */

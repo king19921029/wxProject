@@ -1,26 +1,24 @@
 <view class='box'>
   <view class='header border_top bg_fff'>
-   
     <view class='border_bottom'>
       <view class='work_select_header'>
         <view bindtap='peojectTap'>
-          <text class='{{selectStatus == 1 ?"add_class":""}}'>月份</text>
+          <text class='{{selectStatus == 1 ?"add_class":""}}'>{{monthObj.name}}</text>
           <image wx:if="{{selectStatus == 1}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
         <view bindtap='companyTap'>
-          <text class='{{selectStatus == 2 ?"add_class":""}}'>班组人员选择</text>
+          <text class='{{selectStatus == 2 ?"add_class":""}}'>{{companyObj.name}}</text>
           <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
         <view bindtap='classTap'>
-          <text class='{{selectStatus == 3 ?"add_class":""}}'>状态</text>
+          <text class='{{selectStatus == 3 ?"add_class":""}}'>{{classObj.name}}</text>
           <image wx:if="{{selectStatus == 3}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
       </view>
     </view>
-   
   </view>
 
   <!-- select -->
@@ -35,7 +33,7 @@
     <block wx:if="{{selectStatus == 2}}">
       <view bindtap='companyList'>全部</view>
       <view bindtap='companyList' wx:for="{{perData}}" wx:item="item" 
-        data-personid="{{item.userId}}" wx:key="">
+        data-personid="{{item.userId}}" data-name="{{item.userName}}" wx:key="">
         {{item.userName}}
       </view>
     </block>
@@ -79,12 +77,12 @@
   </view>
 
   <view class='vip_title'>班组明细</view>
-  <!-- 表格 -->
-  <view>
+  <!-- 旧表格 -->
+  <view wx:if="{{1==2}}" class='old_table'>
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
       <label class="checkboxs"> 
-        <checkbox></checkbox>
+        <checkbox disabled='ture'></checkbox>
       </label>
       </view>
       <view>姓名</view>
@@ -114,6 +112,47 @@
     </view>
 
   </view>
+  <!-- 新表格 -->
+  <view wx:if="{{1==1}}" class='new_table'>
+    <view class='com_tab_title tab_title'>
+      <view>姓名</view>
+      <view>年月</view>
+      <view>应发(元)</view>
+      <view>实发(元)</view>
+      <view>欠发(元)</view>
+      <view>状态</view>
+    </view>
+    
+    <view class='com_tab_title' wx:for="{{tabData.t}}" 
+      wx:item="" wx:key="" wx:for-index='idx'>
+      <view>{{item.userName}}</view>
+      <view>{{item.date}}</view>
+      <view>{{item.payableSalary}}</view>
+      <view>{{item.realSalary}}</view>
+      <view>{{item.differenceSalary}}</view>
+      <view class='last_child'>{{item.status}}</view>
+    </view>
+  </view>
+  <!-- 确认 -->
+  <!-- <view bindtap='allConfirm' class='com_width bg_blue all_yes'>全部确认</view>
+  <view bindtap='confirmTap' class='com_width one_yes'>确定</view> -->
+</view>
 
-  <view bindtap='confirmTap' class='com_width bg_blue all_yes'>确定</view>
+ <!-- 浮层 -->
+<view hidden='{{blockIsShow}}' class='box_block'>
+  <view class='bg_fff block_content'>
+    <view class='block_title'>获取验证码</view>
+
+    <view class='com_width block_code display_flex'>
+      <input bindinput='get_val' placeholder='输入验证码' type='number'></input>
+      <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>
+        {{time}}
+      </button>
+    </view>
+
+    <view class='btn_box'>
+      <view bindtap='no_tap' class='no'>取消</view>
+      <view bindtap='confirmBtn' class='yes'>确认</view>
+    </view>
+  </view>
 </view>

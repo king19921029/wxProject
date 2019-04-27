@@ -28,22 +28,23 @@
       </view>
     </view>
     <!-- 成员 -->
-    <view wx:else class='bg_fff class_per_box'>
-      <view  bindtap='goDetails' class='display_flex class_per'
-        wx:for="{{classPer.t}}" wx:item="item" wx:key=""
-        data-userid="{{item.userId}}">
-        <image class='photo' src="{{item.headPic}}"></image>
-        <view class='per_box'>
-          <view>
-            <text>{{item.userName}}</text>
-            <text wx:if="{{item.status == '0'}}" class='color_gray'>（今日上班）</text>
-            <text wx:else class='color_gray'>（今日不上班）</text>
+    <block wx:else>
+      <view hidden='{{classPer.t.length == 0}}' class='bg_fff class_per_box'>
+        <view bindtap='goDetails' class='display_flex class_per'
+          wx:for="{{classPer.t}}" wx:item="item" wx:key=""
+          data-userid="{{item.userId}}">
+          <image class='photo' src="{{item.headPic}}"></image>
+          <view class='per_box'>
+            <view>
+              <text>{{item.userName}}</text>
+              <text wx:if="{{item.status == '0'}}" class='color_gray'>（今日上班）</text>
+              <text wx:else class='color_gray'>（今日不上班）</text>
+            </view>
+            <view class='color_gray'>{{item.workName}}</view>
           </view>
-          <view class='color_gray'>{{item.workName}}</view>
         </view>
       </view>
-      
-    </view>
+    </block>
   </view>
 
   <view bindtap='addTap' class='bg_blue com_footer_btn'>添加人员</view>

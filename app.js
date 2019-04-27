@@ -16,8 +16,10 @@ App({
   onLaunch: function (opts) {
     var that = this;
     let token = wx.getStorageSync("token") || "";
+    let userPhone = wx.getStorageSync("userPhone") || "";
     that.globalData.header["authorization"] = token;
-    that.globalData.token = token
+    that.globalData.token = token;
+    that.globalData.userPhone = userPhone
   },
   onShow: function (opts) {
   },
@@ -36,7 +38,6 @@ App({
       data: param,
       method: method,
       success: function (res) {
-        console.log(res.data.code)
         if (res.data.code == 10003 ){
           that.go_login()
           wx.removeStorageSync("token")

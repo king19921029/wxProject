@@ -5,6 +5,9 @@
   border-top: 1px solid #e5e5e5;
   border-bottom: 1px solid #e5e5e5;
 }
+.border_top{
+  border-top: 1px solid #e5e5e5;
+}
 .wx_phone_box{
   align-items: center;
   justify-content: space-between;
@@ -17,7 +20,11 @@
   color: #2e96ff;
   font-size: 28rpx;
   text-align: center;
-  padding: 8rpx 25rpx;
+  margin: 0;
+  padding: 0;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
 }
 .com_footer_btn{
   margin-top: 40rpx;

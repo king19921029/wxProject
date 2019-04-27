@@ -38,7 +38,7 @@
       <view class='first_checkbox'>
       <checkbox-group bindchange="allCheckbox" data-allcheck="{{allCheck}}">
         <label class="checkboxs"> 
-          <checkbox></checkbox>
+          <checkbox disabled='ture'></checkbox>
         </label>
       </checkbox-group>
       </view>
@@ -61,17 +61,36 @@
           </label>
         </checkbox-group>
       </view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails'class='overflow'>
+      <view class='overflow'>
         {{item.userName}}
       </view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.month}}</view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.classNum}}</view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.daysNum}}</view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails'>{{item.nigthNum}}</view>
-      <view data-userid="{{item.userId}}" bindtap='goDetails' class='last_child'>{{item.status}}</view>
+      <view>{{item.month}}</view>
+      <view>{{item.classNum}}</view>
+      <view>{{item.daysNum}}</view>
+      <view>{{item.nigthNum}}</view>
+      <view class='last_child'>{{item.status}}</view>
     </view>
   </view>
 
   <view bindtap='allConfirm' class='com_width bg_blue all_yes'>全部确认</view>
   <view bindtap='confirmTap' class='com_width one_yes'>确定</view>
+</view>
+
+ <!-- 浮层 -->
+<view hidden='{{blockIsShow}}' class='box_block'>
+  <view class='bg_fff block_content'>
+    <view class='block_title'>获取验证码</view>
+
+    <view class='com_width block_code display_flex'>
+      <input bindinput='get_val' placeholder='输入验证码' type='number'></input>
+      <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>
+        {{time}}
+      </button>
+    </view>
+
+    <view class='btn_box'>
+      <view bindtap='no_tap' class='no'>取消</view>
+      <view bindtap='confirmBtn' class='yes'>确认</view>
+    </view>
+  </view>
 </view>

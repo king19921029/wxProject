@@ -2,6 +2,18 @@ var app = getApp();
 Page({
   data: {
     selectStatus: 0,
+    prjectObj: {
+      name: "项目",
+      id: ""
+    },
+    companyObj: {
+      name: "劳务公司",
+      id: ""
+    },
+    classObj: {
+      name: "班组",
+      id: ""
+    },
   },
   onLoad: function (options) {
 
@@ -25,9 +37,6 @@ Page({
     })
     // 个人工作量列表  (projectId,labourCompany,groupId,page)
     that.getList(1);
-  },
-  onHide: function () {
-
   },
   getList(page, projectId, labourCompany, groupId) {
     // 我的工作量列表(projectId,labourCompany,groupId,page)
@@ -94,50 +103,72 @@ Page({
       url: '/page/tabBar/homePages/seeWorkDetails/seeWorkDetails?groupId=' + groupId,
     })
   },
-  // qu搜索
-  goSerach: function () {
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/serachPage/serachPage',
-    })
-  },
   // 项目选择
   peojectList: function (e) {
-    let id = e.currentTarget.id;
-    console.log(e.currentTarget.id)
-    if (id) {
-      this.getList(1, id);
-    } else {
-      this.getList(1);
+    var that = this;
+    let page = 1;
+    // 项目id
+    let projectId = e.currentTarget.dataset.id;
+    let name = e.currentTarget.dataset.name;
+    // 劳务公司
+    let labourCompany = that.data.companyObj.id;
+    // 班组
+    let groupId = that.data.classObj.id;
+
+    that.getList(page, projectId, labourCompany, groupId)
+    var obj = {
+      name: name || "项目",
+      id: projectId || ""
     }
     this.setData({
-      selectStatus: 0
+      selectStatus: 0,
+      prjectObj: obj
     })
   },
   // 劳务公司选择
   companyList: function (e) {
-    let id = e.currentTarget.id;
-    console.log(id)
-    if (id) {
-      this.getList(1, "", id);
-    } else {
-      this.getList(1);
+    var that = this;
+    let page = 1;
+    // 项目id
+    let projectId = that.data.prjectObj.id;
+    // 劳务公司
+    let labourCompany = e.currentTarget.dataset.id;
+    let name = e.currentTarget.dataset.name;
+    // 班组
+    let groupId = that.data.classObj.id;
+
+    that.getList(page, projectId, labourCompany, groupId)
+    var obj = {
+      name: name || "劳务公司",
+      id: labourCompany || ""
     }
     this.setData({
-      selectStatus: 0
+      selectStatus: 0,
+      companyObj: obj
     })
+
   },
   // 劳务公司选择
   classList: function (e) {
-    let id = e.currentTarget.id;
-    console.log(id)
-    if (id) {
-      this.getList(1, "", "", id);
-    } else {
-      this.getList(1);
+    var that = this;
+    let page = 1;
+    // 项目id
+    let projectId = that.data.prjectObj.id;
+    // 劳务公司
+    let labourCompany = that.data.companyObj.id;
+    // 班组
+    let groupId = e.currentTarget.dataset.id;
+    let name = e.currentTarget.dataset.name;
+
+    that.getList(page, projectId, labourCompany, groupId)
+    var obj = {
+      name: name || "班组",
+      id: groupId || ""
     }
     this.setData({
-      selectStatus: 0
+      selectStatus: 0,
+      classObj: obj
     })
-  }
+  },
 
 })

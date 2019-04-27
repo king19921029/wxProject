@@ -2,12 +2,13 @@ var app = getApp();
 Page({
   data: {
     headerBorder: true,//header添加border
-    blockIsShow: true,//浮层
     vipData:{},//班组考勤
     id:"",//id
   },
   onLoad: function (options) {
-
+    this.setData({
+      userPhone: app.globalData.userPhone
+    })
   },
   onReady: function () {
 
@@ -34,9 +35,6 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
-  },
-  onHide: function () {
-
   },
   // 个人考勤
   perData:function(page){
@@ -90,45 +88,12 @@ Page({
   // 确定事件
   confirmationTap: function (e) {
 
-    this.setData({
-      blockIsShow: false,
-      id:e.currentTarget.dataset.id
-    })
-  },
-  // 浮层取消
-  no_tap: function () {
-    this.setData({
-      blockIsShow: true
-    })
-  },
-  // 浮层确认
-  confirmaedTap:function(){
-    var that = this;
-    // 个人考勤待办
-    app.wxRequest("gongguan/api/wechat/myAttendanceConfirm",
-      { id: that.data.id },
-      "post", function (res) {
-      console.log("确认考勤：", res.data.data);
-      if (res.data.code == 0) {
-        var data = res.data.data;
-        if( data){
-          that.setData({
-            blockIsShow:true
-          })
-        }
-      } else {
-        app.showLoading(res.data.msg, "none");
-      }
-    })
-  },
-  // 个人详情
-  perDetails: function (e) {
     let id = e.currentTarget.dataset.id;
     wx.navigateTo({
       url: '/page/tabBar/homePages/stayAttendanceProject/stayAttendanceProject?id=' + id,
     })
   },
-  //查看详情
+  //班组查看详情
   classDetails: function (e) {
     let month = e.currentTarget.dataset.month;
     let groupId = e.currentTarget.dataset.groupid;
@@ -136,4 +101,5 @@ Page({
       url: `/page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails?month=${month}&groupId=${groupId}`
     })
   },
+
 })

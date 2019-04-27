@@ -24,7 +24,8 @@
       <text class='fa fa-chevron-right addColor'></text>
     </view>
 
-    <view bindtap='goAuthentication' class='list'>
+    <view hidden="{{mineData.isAuth == 1}}" 
+      bindtap='goAuthentication' class='list'>
       <view class='left_view'>
         <view class='font_w'>证件照片</view>
         <view class='color_gray'>上次证件照片，完成实名认证</view>

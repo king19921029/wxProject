@@ -49,7 +49,7 @@
       </view>
       <view class='com_width com_list display_flex'>
         <text>身份证号：</text>
-        <input bindinput='getNum' placeholder='请编辑身份证号'></input>
+        <input onkeyup="this.value=this.value.replace(/\D/g,'')" bindinput='getNum' placeholder='请编辑身份证号'></input>
       </view>
       
       <view class='com_width com_list display_flex'>

@@ -8,7 +8,7 @@ Page({
     vipNum:{},//班组工资待确认数量
   },
   onLoad: function (options) {
-
+   
   },
   onShow: function () {
     var that = this;
@@ -69,48 +69,16 @@ Page({
         }
     })
   },
-  onHide: function () {
-
-  },
-  // header切换
+  // 我的工资
   myWage:function(){
     this.setData({
       headerBorder:true
     })
   },
+  // 班组工资
   youWage: function () {
     this.setData({
       headerBorder: false
-    })
-  },
-  // 确定事件
-  confirmationTap:function(e){
-    console.log(e.currentTarget.dataset.id)
-    this.setData({
-      blockIsShow: false,
-      id: e.currentTarget.dataset.id
-    })
-  },
-  confirmBtn: function (e) {
-    var that = this;
-    // 我的工资确认id、verificationCode
-    app.wxRequest("gongguan/api/wechat/confirmSalary",
-      { id: that.data.id, verificationCode:"111111" },
-      "post", function (res) {
-        console.log("提交工资：", res.data.data)
-        if (res.data.code == 0) {
-          if( res.data.data ){
-            wx.navigateBack()
-          }
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-  },
-  // 取消
-  no_tap:function(){
-    this.setData({
-      blockIsShow: true
     })
   },
   //个人详情

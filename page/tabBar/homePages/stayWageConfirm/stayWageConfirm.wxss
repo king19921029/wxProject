@@ -32,11 +32,13 @@
 }
 .headers text{
   display:block;
-  padding: 24rpx 5rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding:0 5rpx;
   /* width: 120rpx; */
 }
 .news_box{
-  height: 92rpx;
+  height: 90rpx;
   font-size: 22rpx;
   display: flex;
   justify-content:center;
@@ -52,6 +54,7 @@
   background: #fd6103;
   color: #fff;
   border-radius: 50%;
+  margin-bottom: 4rpx;
 }
 
 /* content */
@@ -86,72 +89,4 @@
   margin-top: 20rpx;
   font-size: 34rpx;
   font-weight:bold;
-}
-
-/* 浮层 */
-.block_content{
-  width: 80%;
-  border-radius: 10rpx;
-  padding: 15rpx 0 48rpx 0;
-}
-.block_title{
-  text-align: center;
-  padding: 25rpx 0 30rpx 0;
-  font-weight: 400;
-  font-size: 32rpx;
-}
-.block_code{
-  justify-content:center;
-  align-items: center;
-}
-.block_code input{
-  background: #efeff4;
-  border: none;
-  height: 65rpx;
-  line-height: 65rpx;
-  padding: 0 10rpx;
-  text-indent: 20rpx;
-}
-.get_code{
-  background: #3197fb;
-  color: #fff;
-  height: 65rpx;
-  line-height: 65rpx;
-  padding: 0 10rpx;
-}
-.btn_box{
-  display: flex;
-  justify-content:flex-end;
-  margin-top: 38rpx;
-  margin-right: 6%;
-}
-.btn_box view{
-  padding:0 50rpx;
-  border-radius: 5rpx;
-  height: 62rpx;
-  line-height: 62rpx;
-  font-size: 28rpx;
-}
-.yes{
-  background: #3197fb;
-  color: #fff;
-}
-.no{
-  border: 1rpx solid #bbbbbb;
-  margin-right: 40rpx;
-}
-
-/* 没有的时候 */
-.list_none image{
-  width: 379rpx;
-  height: 336rpx;
-  margin: 100rpx 0 70rpx 0;
-}
-.list_none{
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  font-size: 34rpx;
-  color: #88888a;
-  height: 87vh;
 }

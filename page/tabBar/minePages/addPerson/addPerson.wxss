@@ -10,6 +10,8 @@
 }
 .list input{
   text-align: end;
+  display:flex;
+  justify-content: end;
 }
 .margin_right{
   margin-right: 4%;
@@ -17,4 +19,9 @@
 .fa{
   color: #c7c7cc;
   margin-left: 10rpx;
+}
+.picker_view{
+  text-align: end;
+  margin-right:2%;
+  color:#666666;
 }

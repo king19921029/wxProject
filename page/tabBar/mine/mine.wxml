@@ -6,7 +6,10 @@
         <view class='display_flex com_width headers'>
           <image src='/image/none_record.png'></image>
           <view>
-            <view class='user_name'>{{mineData.realName}}</view>
+            <view class='user_name'>
+              <text>{{mineData.realName}}</text>
+              <text class='user_phone'>{{userPhone}}</text>
+            </view>
         
             <view wx:if="{{mineData.isAuth == 1}}" class='user_msg display_flex'>
               <icon type='success' size='14'></icon>
@@ -34,12 +37,12 @@
       <!-- list -->
       <view class='bg_fff margin_top '>  
 
-        <view wx:if="{{!bankData}}" class='display_flex com_list' bindtap='bindbank'>
+        <view wx:if="{{bankData}}" class='display_flex com_list' bindtap='bindbank'>
           <view class='icon_box'>
-            <text class='fa color_4 com_icon color_blue fa-file-text-o'></text>
+            <text class='fa color_4 com_icon color_blue fa-credit-card'></text>
           </view>
           <view class='com_list_right display_flex'>
-            <text>绑定工资卡</text>
+            <text>工资卡</text>
             <text class='fa com_right fa-chevron-right'></text>
           </view> 
         </view>

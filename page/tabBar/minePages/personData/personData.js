@@ -64,13 +64,13 @@ Page({
   },
   onHide: function () {
     var that = this;
-    let educationLevel = that.data.allData.edId;
-    let skill = that.data.allData.wkId;
-    if ( educationLevel || skill ){
+    let educationLevel = that.data.allData.edId || "";
+    let skill = that.data.allData.wkId || "";
+    if (educationLevel != "" || skill !=""){
       app.wxRequest("gongguan/api/wechat/savePersonalInfo",
         {
-          skill: skill || "",
-          educationLevel: educationLevel || ""
+          skill: skill,
+          educationLevel: educationLevel
         },
         "post", function (res) {
           console.log("保存资料:", res.data.data)
@@ -79,19 +79,18 @@ Page({
           } else {
             app.showLoading(res.data.msg, "none");
           }
-      })
+        })
     }
-   
   },
   onUnload:function(){
     var that = this;
-    let skill = that.data.allData.edId;
-    let educationLevel = that.data.allData.edIdwkId;
-    if (educationLevel || skill) {
+    let educationLevel = that.data.allData.edId || "";
+    let skill = that.data.allData.wkId || "";
+    if (educationLevel != "" || skill != "") {
       app.wxRequest("gongguan/api/wechat/savePersonalInfo",
         {
-          skill: skill || "",
-          educationLevel: educationLevel || ""
+          skill: skill,
+          educationLevel: educationLevel
         },
         "post", function (res) {
           console.log("保存资料:", res.data.data)
@@ -100,7 +99,7 @@ Page({
           } else {
             app.showLoading(res.data.msg, "none");
           }
-      })
+        })
     }
   },
   // 学历选择

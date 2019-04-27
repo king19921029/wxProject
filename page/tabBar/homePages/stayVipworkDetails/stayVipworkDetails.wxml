@@ -37,7 +37,7 @@
     <view class='com_tab_title tab_title'>
       <view class='first_checkbox'>
       <label class="checkboxs"> 
-        <checkbox></checkbox>
+        <checkbox disabled='ture'></checkbox>
       </label>
       </view>
       <view>姓名</view>
@@ -72,4 +72,23 @@
   </view>
   <view bindtap='allConfirm' class='com_width bg_blue all_yes'>全部确认</view>
   <view bindtap='confirmTap' class='com_width one_yes'>确定</view>
+</view>
+
+ <!-- 浮层 -->
+<view hidden='{{blockIsShow}}' class='box_block'>
+  <view class='bg_fff block_content'>
+    <view class='block_title'>获取验证码</view>
+
+    <view class='com_width block_code display_flex'>
+      <input bindinput='get_val' placeholder='输入验证码' type='number'></input>
+      <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>
+        {{time}}
+      </button>
+    </view>
+
+    <view class='btn_box'>
+      <view bindtap='no_tap' class='no'>取消</view>
+      <view bindtap='confirmBtn' class='yes'>确认</view>
+    </view>
+  </view>
 </view>

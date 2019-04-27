@@ -1,6 +1,5 @@
-
-<view class='login_box'>
-  <image class='home_img' src='/image/home.png'></image>
+<view wx:if="{{photoBtn}}" class='login_box'>
+  <image mode="widthFix" class='home_img' src='/image/home.png'></image>
   <view class='content'>
     <image class='logo' src="/image/logo.png"></image>
     <view>
@@ -9,16 +8,24 @@
     </view>
   </view> 
 
-  <button wx:if="{{photoBtn}}" bindgetuserinfo="getCode" open-type="getUserInfo" class='com_width bg_blue'>
+  <button bindgetuserinfo="getCode" 
+    open-type="getUserInfo" class='com_width bg_blue'>
     微信授权
   </button>
+</view>
 
-  <button wx:else class='com_width bg_blue' wx:else open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+<view wx:else class='login_box'>
+  <image mode="widthFix" class='home_img' src='/image/home2.jpg'></image>
+  <view class='content'>
+    <image class='logo' src="/image/logo.png"></image>
+    <view>
+      <view>智工在线</view>
+      <view>ZhiGong Online</view>
+    </view>
+  </view> 
+
+  <button class='com_width bg_blue'open-type="getPhoneNumber"
+   bindgetphonenumber="getPhoneNumber">
     登录
   </button>
-
-  <!-- <view wx:else class='com_width bg_fff photo_box'>
-    <input bindblur='getPhone' class='test' placeholder='请输入手机号码'></input>
-    <view bindtap='getPhoneNumber' class='test bg_blue'>登录</view>
-  </view> -->
 </view>

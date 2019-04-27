@@ -27,5 +27,9 @@
   color: #2e96ff;
   font-size: 28rpx;
   text-align: center;
-  padding: 8rpx 25rpx;
+  margin: 0;
+  padding: 0;
+  width: 200rpx;
+  height: 60rpx;
+  line-height: 60rpx;
 }

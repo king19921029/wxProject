@@ -6,6 +6,14 @@ Page({
     tabData:{},//表格数据
     monthData:{},//月份数据
     personData:{},//人员数据
+    monthObj: {
+      name: "月份",
+      id:""
+    },
+    companyObj:{
+      name:"班组人员选择",
+      id:""
+    },
   },
   onLoad: function (options) {
     this.setData({
@@ -99,30 +107,53 @@ Page({
       url: '/page/tabBar/homePages/vipSeeAttendanceProject/vipSeeAttendanceProject?groupId=' + this.data.groupId + "&personId=" + personId+"&month="+month,
     })
   },
+  // 月份筛选
   peojectList:function(e){
-    let month = e.currentTarget.dataset.month;
+    var that = this;
+    // 月份
+    let month = e.currentTarget.dataset.month || "";
+    // 班组id
     let groupId = this.data.groupId;
-    if (month) {
-      this.getList(groupId, month, 1, "")
-    } else {
-      this.getList(groupId, "", 1, "")
+    // 人员id
+    let id = that.data.companyObj.id || "";
+    // 分页
+    let page = 1;
+
+    var obj = {
+      name: month || "月份",
+      id: month
     }
-    this.setData({
-      selectStatus:0
+
+    this.getList(groupId, month, page, id);
+
+    that.setData({
+      selectStatus: 0,
+      monthObj: obj
     })
+    
   },
+  // 班组人员筛选
   companyList: function (e) {
-    let id = e.currentTarget.id;
-    let groupId = this.data.groupId;
-    if(id){
-      this.getList(groupId, "", 1, id)
-    }else{
-      this.getList(groupId, "", 1, "")
+    var that = this;
+    // 月份
+    let month = that.data.monthObj.id || "";
+    // 班组id
+    let groupId = that.data.groupId;
+    // 人员id
+    let id = e.currentTarget.dataset.id || "";
+    let name = e.currentTarget.dataset.name || "";
+    // 分页
+    let page = 1;
+    var obj = {
+      name: name || "班组人员选择",
+      id: id || ""
     }
-   
-    this.setData({
-      selectStatus: 0
+    that.getList(groupId, month, page, id);
+    that.setData({
+      selectStatus: 0,
+      companyObj: obj
     })
   },
+
 
 })

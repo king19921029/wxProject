@@ -35,7 +35,26 @@
     </view>
   </view>
 
-  <view bindtap='confirmaedTap' class='com_footer_btn bg_blue'>确定</view>
+  <view bindtap='confirmationTap' class='com_footer_btn bg_blue'>确定</view>
 
 
+</view>
+
+<!-- 浮层 -->
+<view hidden='{{blockIsShow}}' class='box_block'>
+  <view class='bg_fff block_content'>
+    <view class='block_title'>获取验证码</view>
+
+    <view class='com_width block_code display_flex'>
+      <input bindinput='get_val' placeholder='输入验证码' type='number'></input>
+      <button disabled='{{disabled}}' bindtap='getCode' class='get_code'>
+        {{time}}
+      </button>
+    </view>
+
+    <view class='btn_box'>
+      <view bindtap='no_tap' class='no'>取消</view>
+      <view bindtap='confirmaedTap' class='yes'>确认</view>
+    </view>
+  </view>
 </view>

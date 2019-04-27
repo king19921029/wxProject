@@ -54,7 +54,7 @@
             </view>
             <view bindtap='goDetails' data-groupId="{{item.groupId}}" 
               data-month="{{item.startDate}}" 
-              class='com_width confirmation'>
+              class='confirmation'>
               确认
             </view>
           </view>
@@ -100,7 +100,7 @@
                 <text class='list_data'>{{item.quantity}}</text>
               </view>
             </view>
-            <view bindtap='classDetails' class='com_width confirmation'
+            <view bindtap='classDetails' class='confirmation'
               data-groupid="{{item.groupId}}" data-groupName="{{item.groupName}}"
               data-titledate="{{item.startDate}}">
               确认

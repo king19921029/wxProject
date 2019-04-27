@@ -5,6 +5,10 @@ Page({
     selectBox:false,
     attendanceData:[],//考勤数据
     workData:{},//工作量
+    projectObj:{
+      "name":"项目筛选",
+      "id":""
+    }
   },
   onLoad: function (options) {
 
@@ -124,13 +128,19 @@ Page({
   // 筛选
   projectLisre:function(e){
     let id = e.currentTarget.dataset.id;
+    let name = e.currentTarget.dataset.name;
+    var obj = {
+      id:id||"",
+      name:name||"项目筛选"
+    }
     if(id){
       this.getList(1,id)
     }else{
       this.getList(1)
     }
     this.setData({
-      selectBox:false
+      selectBox:false,
+      projectObj: obj
     })
   }
 

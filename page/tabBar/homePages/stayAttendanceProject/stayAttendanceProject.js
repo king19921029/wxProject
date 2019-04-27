@@ -1,12 +1,18 @@
 var app = getApp();
 Page({
   data: {
-    id:""
+    id:"",
+    blockIsShow: true,//浮层
+    headerBorder: false,//header添加border
+    time: "获取验证码",
+    countTime: 60,
+    disabled: false,
+    codeVal: "",
   },
   onLoad: function (options) {
-
     this.setData({
       id: options.id,
+      userPhone: app.globalData.userPhone
     })
   },
   onShow: function () {
@@ -50,19 +56,80 @@ Page({
   onHide: function () {
 
   },
-  // 浮层确认
+  // 呼起浮层
+  confirmationTap: function () {
+
+    this.setData({
+      blockIsShow: false
+    })
+  },
+  // 浮层取消
+  no_tap: function () {
+    this.setData({
+      blockIsShow: true
+    })
+  },
+  // 浮层确定
   confirmaedTap: function () {
-    // 个人考勤待办
+    var that = this;
+    //确定
     app.wxRequest("gongguan/api/wechat/myAttendanceConfirm",
-      { id: this.data.id },
+      { id: that.data.id, verificationCode: that.data.codeVal },
       "post", function (res) {
         console.log("确认考勤：", res.data.data);
         if (res.data.code == 0) {
           var data = res.data.data;
+          if (data) {
+            that.setData({
+              blockIsShow: true
+            })
+            wx.navigateBack()
+          }
         } else {
           app.showLoading(res.data.msg, "none");
         }
       })
   },
+  // 获取验证吗
+  getCode: function () {
+    var that = this;
+    // 验证码倒计时
+    that.setData({
+      disabled: true
+    })
+    var countTime = that.data.countTime
+    var interval = setInterval(function () {
+      countTime--
+      that.setData({
+        time: countTime + 's'
+      })
+      if (countTime <= 0) {
+        clearInterval(interval)
+        that.setData({
+          time: '重新发送',
+          countTime: 60,
+          disabled: false
+        })
+      }
+    }, 1000)
+    app.wxRequest("gongguan/front/isSendSmsCode.action",
+      { tel: that.data.userPhone,type:4 },
+      "post", function (res) {
+        console.log("验证码：", res.data.data);
+        if (res.data.code == 0) {
+          var data = res.data.data;
+
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+
+  },
+  // 获取输入的code
+  get_val: function (e) {
+    this.setData({
+      codeVal: e.detail.value
+    })
+  }
 
 })

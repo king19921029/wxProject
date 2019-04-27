@@ -13,7 +13,8 @@
   </view>
   <!-- 公告 -->
   <view wx:if="{{headerBorder}}" class='notice_box' >
-    <view bindtap='ggDetails' class='notice_list bg_fff'
+    <view bindtap='ggDetails' 
+    class='notice_list bg_fff'
       wx:for="{{ggData.t}}" wx:item="item" wx:key=""
       data-id="{{item.id}}" data-types="{{item.type}}">
       <view class='com_width'>
@@ -30,6 +31,7 @@
           </view>
       </view>
     </view>
+    
   </view>
   <!-- 招聘信息 -->
   <view wx:else class='recruit_box'>

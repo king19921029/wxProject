@@ -1,4 +1,4 @@
-<view class='box'>
+<view wx:if="{{msg.t.length>0}}" class='box'>
   <view class='content bg_fff'>
 
     <view bindtap='go_details' class='bor_bottom' 
@@ -61,4 +61,8 @@
     </view> -->
 
   </view>
+</view>
+<view wx:else class='list_none'>
+  <image src="/image/none_record.png"></image>
+  <view>您目前暂无消息列表</view>
 </view>

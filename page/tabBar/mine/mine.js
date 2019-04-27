@@ -5,7 +5,12 @@ Page({
     mineData:{},//个人信息
   },
   onLoad: function (options) {
-
+    var tel = app.globalData.userPhone;
+    tel = "" + tel;
+    var userPhone = tel.replace(tel.substring(3, 7), "****")
+    this.setData({
+      userPhone: userPhone
+    })
   },
   onShow: function () {
     var that = this;

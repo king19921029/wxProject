@@ -48,15 +48,23 @@ button{
   outline:none;
   border:none;
   list-style: none;
- 
+  font-size: 28rpx;
   border-radius: 0; 
   color: #2e95ff;
   background: #fff;
   border-right: 1rpx solid;
+  padding-right: 0;
+  padding-left: 0;
 }
 .btn{
   padding: 25rpx 0;
   border-radius: 8rpx;
   text-align: center;
   margin-top: 40rpx;
+}
+.get_code{
+  width: 200rpx;
+  height: 90rpx;
+  text-align: center;
+  line-height: 90rpx;
 }

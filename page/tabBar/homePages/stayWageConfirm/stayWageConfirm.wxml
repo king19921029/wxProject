@@ -24,7 +24,7 @@
       <view class='bg_fff list_box'
         wx:for="{{myWage.data}}" wx:item="item" wx:key="">
         <view class='com_width'>
-          <view bindtap="perDetails" data-id="{{item.id}}">
+          <view>
               <view class='list'>
                 <text class='list_title'>姓名：</text>
                 <text class='list_data'>{{item.name}}</text>
@@ -62,7 +62,8 @@
                 <text class='list_data'>{{item.realSalary}}</text>
               </view>   
           </view>
-          <view data-id="{{item.id}}" bindtap='confirmationTap' class='com_width confirmation'>
+          <view data-id="{{item.id}}" bindtap='perDetails' 
+            class='confirmation'>
             确认
           </view>  
         </view>
@@ -85,8 +86,7 @@
       <view class='list_box bg_fff'
         wx:for="{{vipWage}}" wx:item="item" wx:key="">
         <view class='com_width'>
-          <view bindtap='classDetails' data-month="{{item.date}}"
-            data-groupid="{{item.groupId}}">
+          <view data-month="{{item.date}}" data-groupid="{{item.groupId}}">
             <view class='list'>
               <text class='list_title'>项目名称：</text>
               <text class='list_data'>{{item.projectName}}</text>
@@ -128,7 +128,7 @@
             </view>
           </view>
           <view bindtap='classDetails' data-month="{{item.date}}"
-            data-groupid="{{item.groupId}}" class='com_width confirmation'>
+            data-groupid="{{item.groupId}}" class='confirmation'>
             确认
           </view>
         </view>
@@ -151,8 +151,10 @@
       <view class='block_title'>获取验证码</view>
 
       <view class='com_width block_code display_flex'>
-        <input placeholder='输入验证码' type='number'></input>
-        <view class='get_code'>获取验证码</view>
+        <input bindinput='get_val' placeholder='输入验证码' type='number'></input>
+        <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>
+         {{time}}
+        </button>
       </view>
 
       <view class='btn_box'>

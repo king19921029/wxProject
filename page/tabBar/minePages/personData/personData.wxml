@@ -30,7 +30,7 @@
     <view bindtap='go_changePhone' class='display_flex list_tab'>
       <view>手机号</view>
       <view class='display_flex com_rigth_view'>
-        <text class='color_gray'>18801287297</text>
+        <text class='color_gray'>{{allData.phone}}</text>
         <text class='fa add_gray fa-chevron-right'></text>
       </view>
     </view>

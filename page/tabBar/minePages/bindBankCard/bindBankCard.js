@@ -6,7 +6,7 @@ Page({
     bankCardNum:null,
     openBank:"",
     cardType:"",
-    bankData:{}
+    bankData:{},
   },
   onLoad: function (options) {
 
@@ -69,14 +69,14 @@ Page({
   next:function(){
     var that = this;
     let userName = that.data.userName;
-    let bankCardNum = that.data.bankCardNum;
+    let bankCardNum = that.data.bankNumber;
     let openBank = that.data.openBank;
     if (userName && bankCardNum && openBank ){
       app.wxRequest("gongguan/api/wechat/bindBankCard",
         {
           userName: that.data.userName,
           bankCardNum: that.data.bankNumber,
-          openBank: that.data.cardType
+          openBank: that.data.openBank
         },
         "post", function (res) {
           console.log(res.data);

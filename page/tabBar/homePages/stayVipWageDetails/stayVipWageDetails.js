@@ -1,15 +1,21 @@
 var app = getApp();
 Page({
   data: {
+    blockIsShow: true,
     selectStatus: 0,
     groupId:"",//id
     month:"",//月份
     tabData:{},//表格数据
+    time: "获取验证码",
+    countTime: 60,
+    disabled: false,
+    codeVal: "",
   },
   onLoad: function (options) {
     this.setData({
       groupId: options.groupId,
-      month: options.month
+      month: options.month,
+      userPhone: app.globalData.userPhone
     })
   },
   onShow: function () {
@@ -47,14 +53,13 @@ Page({
   },
   onHide: function () {
   },
-
   //查看详情
-  goDetails: function (e) {
-    let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' + id,
-    })    
-  },
+  // goDetails: function (e) {
+  //   let id = e.currentTarget.dataset.id;
+  //   wx.navigateTo({
+  //     url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' + id,
+  //   })    
+  // },
   //多选框点击
   checkboxChange: function (e) {
     let isChecked = e.currentTarget.dataset.ischecked;//是否选中
@@ -95,17 +100,9 @@ Page({
       arr.push(data[i].id)
     }
     var ids = arr.join(',');
-    console.log(ids)
-    // 全部确定
-    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
-      { id: ids, verificationCode:"111111" },
-      "post", function (res) {
-        console.log("全部确定", res.data.data)
-        if (res.data.code == 0) {
-          wx.navigateBack()
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
+    that.setData({
+      ids: ids,
+      blockIsShow:false
     })
   },
   // 确定
@@ -120,20 +117,81 @@ Page({
       }
     }
     var ids = arr.join(',');
-    console.log(ids)
-    // 确定
-    app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
-      { id: ids, verificationCode:"111111" },
+    that.setData({
+      ids: ids,
+      blockIsShow: false
+    })
+  },
+  // 取消
+  no_tap: function () {
+    this.setData({
+      blockIsShow: true
+    })
+  },
+  // 获取验证吗
+  getCode: function () {
+    var that = this;
+    // 验证码倒计时
+    that.setData({
+      disabled: true
+    })
+    var countTime = that.data.countTime
+    var interval = setInterval(function () {
+      countTime--
+      that.setData({
+        time: countTime + 's'
+      })
+      if (countTime <= 0) {
+        clearInterval(interval)
+        that.setData({
+          time: '重新发送',
+          countTime: 60,
+          disabled: false
+        })
+      }
+    }, 1000)
+    app.wxRequest("gongguan/front/isSendSmsCode.action",
+      { tel: that.data.userPhone, type: 2 },
       "post", function (res) {
-        console.log("全部确定", res.data.data)
+        console.log("验证码：", res.data.data);
         if (res.data.code == 0) {
-          if (res.data.data) {
-            wx.navigateBack()
-          }
+          var data = res.data.data;
+
         } else {
           app.showLoading(res.data.msg, "none");
         }
+      })
+
+  },
+  // 获取输入的code
+  get_val: function (e) {
+    this.setData({
+      codeVal: e.detail.value
     })
   },
+  // 确定
+  confirmBtn: function () {
+    var that = this;
+    if (that.data.ids) {
+      // 全部确定
+      app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
+        { 
+          ids: that.data.ids, 
+          groupId: that.data.groupId,
+          verificationCode: that.data.codeVal
+        },
+        "post", function (res) {
+          console.log("全部确定", res.data.data)
+          if (res.data.code == 0) {
+            wx.navigateBack()
+          } else {
+            app.showLoading(res.data.msg, "none");
+          }
+      })
+    } else {
+      app.showLoading("最少勾选一项", "none")
+    }
+
+  }
 
 })

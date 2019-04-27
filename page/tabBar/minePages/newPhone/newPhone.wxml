@@ -2,9 +2,14 @@
   <view class='header com_width'>绑定新手机</view>
   <view class='bg_fff content'>
     <view class='display_flex wx_phone_box com_width'>
-      <input placeholder='输入验证码'></input> 
-      <text class='code_btn'>获取验证码</text>
+      <input bindinput='get_phone_val' placeholder='输入新手机号'></input> 
+      <button bindtap='getCode' disabled='{{disabled}}' class='code_btn'>
+        {{time}}
+      </button>
+    </view>
+    <view class='display_flex border_top wx_phone_box com_width'>
+      <input bindinput='get_code_val' placeholder='输入验证码'></input> 
     </view>
   </view>
-  <view class='com_footer_btn bg_blue'>确定</view>
+  <view bindtap='next' class='com_footer_btn bg_blue'>确定</view>
 </view>

@@ -1,11 +1,29 @@
 var app = getApp();
 Page({
   data: {
-    selectStatus: 0
+    selectStatus: 0,
+    monthObj: {
+      name: "月份",
+      id: ""
+    },
+    companyObj: {
+      name: "班组人员选择",
+      id: ""
+    },
+    classObj: {
+      name: "状态",
+      id: ""
+    },
+    blockIsShow: true,
+    time: "获取验证码",
+    countTime: 60,
+    disabled: false,
+    codeVal: "",
   },
   onLoad: function (options) {
     this.setData({
-      groupId: options.groupId
+      groupId: options.groupId,
+      userPhone: app.globalData.userPhone
     })
   },
   onShow: function () {
@@ -71,6 +89,7 @@ Page({
     // 表格
     that.getList(groupId,1,"","","")
   },
+  // 获取列表
   getList: function (groupId, page, month, status, personId){
     var that = this;
     // 表格
@@ -90,6 +109,71 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
+    })
+  },
+  //多选框点击
+  checkboxChange: function (e) {
+    let isChecked = e.currentTarget.dataset.ischecked;//是否选中
+    let idx = e.currentTarget.dataset.idx;//下标
+    console.log(e.currentTarget.dataset)
+    var tabData = 'tabData.t[' + idx + '].isChecked'
+    this.setData({
+      [tabData]: !isChecked
+    })
+  },
+  // 全选
+  allCheckbox: function (e) {
+    var data = this.data.tabData;
+    var arr = data.t
+    var allCheck = this.data.allCheck;
+    this.setData({
+      allCheck: !allCheck
+    })
+    if (allCheck) {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].isChecked = false
+      }
+    } else {
+      for (var i = 0; i < arr.length; i++) {
+        arr[i].isChecked = true
+      }
+    }
+
+    this.setData({
+      tabData: data
+    })
+  },
+  // 全部确定
+  allConfirm: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    let groupId = that.data.groupId;
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+      arr.push(data[i].id)
+    }
+    var ids = arr.join(',');
+    that.setData({
+      ids: ids,
+      blockIsShow: false,
+    })
+  },
+  // 呼出浮层
+  confirmTap: function () {
+    var that = this;
+    let data = that.data.tabData.t;
+    var arr = [];
+    for (var i = 0; i < data.length; i++) {
+
+      if (data[i].isChecked) {
+        arr.push(data[i].id)
+      }
+    }
+    var ids = arr.join(',');
+    console.log(ids)
+    that.setData({
+      ids:ids,
+      blockIsShow: false
     })
   },
   // 月份
@@ -135,9 +219,9 @@ Page({
   //查看详情
   goDetails: function (e) {
     let month = e.currentTarget.dataset.month;
-    wx.navigateTo({
-      url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId + "&month=" + month
-    })
+    // wx.navigateTo({
+    //   url: "/page/tabBar/homePages/stayworkDetails/stayworkDetails?groupId=" + this.data.groupId + "&month=" + month
+    // })
   },
   //多选框点击
   checkboxChange: function (e) {
@@ -149,76 +233,153 @@ Page({
       [tabData]: !isChecked
     })
   },
-  // 确定
-  confirmTap: function () {
-    var that = this;
-    let data = that.data.tabData.t;
-    var arr = [];
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].isChecked) {
-        arr.push(data[i].id)
-        console
-      }
-    }
-    var ids = arr.join(',');
-    console.log(ids)
-    // 班组查看-确定
-    app.wxRequest("gongguan/api/wechat/groupQuantityConfirm",
-      { 
-        groupId: that.data.groupId, 
-        id: ids, 
-        verificationCode: "111111" 
-      },
-      "post", function (res) {
-        console.log("确定", res.data.data)
-        if (res.data.code == 0) {
-          if (res.data.data) {
-            wx.navigateBack()
-          }
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-    })
-  },
   // 月份选择
   peojectList: function (e) {
-    let month = e.currentTarget.dataset.month;
-    console.log(month)
-    
-    if (month) {
-      this.getList(this.data.groupId, 1, month, "", "")
-    } else {
-      this.getList(this.data.groupId, 1, "", "", "")
+    var that = this;
+    // 月份
+    let month = e.currentTarget.dataset.month || "";
+    // 班组id
+    let groupId = that.data.groupId;
+    // 人员id
+    let personid = that.data.companyObj.id || "";
+    // 状态
+    let status = that.data.classObj.id || "";
+    // 分页
+    let page = 1;
+
+    var obj = {
+      name: month || "月份",
+      id: month
     }
-    this.setData({
-      selectStatus: 0
+    that.getList(groupId, page, month, status,personid)
+
+    that.setData({
+      selectStatus: 0,
+      monthObj: obj
     })
   },
   // 班组人员选择
   companyList: function (e) {
-    let personid = e.currentTarget.dataset.personid;
-    console.log(personid)
-    if (personid) {
-      this.getList(this.data.groupId, 1, "", personid, "")
-    } else {
-      this.getList(this.data.groupId, 1, "", "", "")
+    var that = this;
+    // 月份
+    let month = that.data.monthObj.id || "";
+    // 班组id
+    let groupId = this.data.groupId;
+    // 人员id
+    let personid = e.currentTarget.dataset.personid || "";
+    let name = e.currentTarget.dataset.name;
+    // 状态
+    let status = that.data.classObj.id || "";
+    // 分页
+    let page = 1;
+
+
+    var obj = {
+      name: name || "班组人员选择",
+      id: personid || ""
     }
+
+    that.getList(groupId, page, month, status, personid)
+
     this.setData({
-      selectStatus: 0
+      selectStatus: 0,
+      companyObj: obj
     })
   },
   // 状态选择
   classList: function (e) {
-    let status = e.currentTarget.dataset.status;
-    console.log(status)
-    if (status) {
-      this.getList(this.data.groupId, 1, "", "", status)
-    } else {
-      this.getList(this.data.groupId, 1, "", "", "")
+    var that = this;
+    // 月份
+    let month = that.data.monthObj.id || "";
+    // 班组id
+    let groupId = that.data.groupId;
+    // 人员id
+    let personid = that.data.companyObj.id || "";
+    // 状态
+    let status = e.currentTarget.dataset.status || "";
+    // 分页
+    let page = 1;
+
+    var obj = {
+      name: status || "状态",
+      id: status
     }
+    that.getList(groupId, page, month, status, personid)
     this.setData({
-      selectStatus: 0
+      selectStatus: 0,
+      classObj: obj
     })
+  },
+  // 取消
+  no_tap: function () {
+    this.setData({
+      blockIsShow: true
+    })
+  },
+  // 获取验证吗
+  getCode: function () {
+    var that = this;
+    // 验证码倒计时
+    that.setData({
+      disabled: true
+    })
+    var countTime = that.data.countTime
+    var interval = setInterval(function () {
+      countTime--
+      that.setData({
+        time: countTime + 's'
+      })
+      if (countTime <= 0) {
+        clearInterval(interval)
+        that.setData({
+          time: '重新发送',
+          countTime: 60,
+          disabled: false
+        })
+      }
+    }, 1000)
+    app.wxRequest("gongguan/front/isSendSmsCode.action",
+      { tel: that.data.userPhone },
+      "post", function (res) {
+        console.log("验证码：", res.data.data);
+        if (res.data.code == 0) {
+          var data = res.data.data;
+
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+
+  },
+  // 获取输入的code
+  get_val: function (e) {
+    this.setData({
+      codeVal: e.detail.value
+    })
+  },
+  // 确定
+  confirmBtn: function () {
+    var that = this;
+    if (that.data.ids) {
+      // 全部确定
+      app.wxRequest("gongguan/api/wechat/groupQuantityConfirm",
+        {
+          ids: that.data.ids,
+          groupId: that.data.groupId,
+          verificationCode: that.data.codeVal
+        },
+        "post", function (res) {
+          console.log("确定", res.data.data)
+          if (res.data.code == 0) {
+            wx.navigateBack()
+          } else {
+            app.showLoading(res.data.msg, "none");
+          }
+        })
+    } else {
+      app.showLoading("最少勾选一项", "none")
+    }
+
   }
 
 })

@@ -126,8 +126,9 @@ Page({
     let id = e.currentTarget.dataset.groupid
     let groupName = e.currentTarget.dataset.groupname;
     let titleDate = e.currentTarget.dataset.titledate;
+    let month = e.currentTarget.dataset.titledate;
     wx.navigateTo({
-      url: `/page/tabBar/homePages/stayVipworkDetails/stayVipworkDetails?groupId=${id}&groupName=${groupName}&titleDate=${titleDate}`
+      url: `/page/tabBar/homePages/stayVipworkDetails/stayVipworkDetails?groupId=${id}&groupName=${groupName}&titleDate=${titleDate}&month=${month}`
     })
   }
 })

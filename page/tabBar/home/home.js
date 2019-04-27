@@ -4,7 +4,8 @@ Page({
   data: {
     blockIsShow: false,
   },
-  onLoad: function (options) {    
+  onLoad: function (options) {
+
   },
   onReady: function () {
     
@@ -34,7 +35,7 @@ Page({
       app.wxRequest("gongguan/api/wechat/myInfo",
         {},
         "post", function (res) {
-        console.log(res.data.data)
+        console.log("个人信息：",res.data.data)
         if (res.data.code == 0) {
           if (res.data.data.isAuth == "0") {
             that.setData({

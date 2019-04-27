@@ -67,49 +67,74 @@
   font-size: 32rpx;
 }
 
-/* 表格 */
-.com_tab_title{
+/*新表格*/
+.new_table{
+  padding-bottom: 40rpx;
+}
+.new_table .com_tab_title{
   display: flex;
   border-top: 1rpx solid #efeff4;
   background: #fff;
 }
-.tab_title{
+.new_table .tab_title{
+  background: #f1fcff;
+}
+.new_table .com_tab_title view{
+  border-right: 1px solid #efeff4;
+  height: 60rpx;
+  line-height: 60rpx;
+  font-size: 24rpx;
+  text-align: center;
+  width: 18%;
+}
+.new_table .com_tab_title :first-child{
+  width: 14%;
+}
+.new_table .com_tab_title :last-child{
+  width: 14%;
+}
+
+/* 旧表格 */
+.old_table .com_tab_title{
+  display: flex;
+  border-top: 1rpx solid #efeff4;
+  background: #fff;
+}
+.old_table .tab_title{
   background: #f1fcff;
 }
 checkbox{
-
   transform:scale(.6);
   margin-left: 4rpx;
 }
-.com_tab_title view{
+.old_table .com_tab_title view{
   border-right: 1px solid #efeff4;
   height: 60rpx;
   line-height: 60rpx;
   font-size: 24rpx;
   text-align: center;
 }
-.com_tab_title .first_checkbox{
+.old_table .com_tab_title .first_checkbox{
   width: 8%;
 }
-.com_tab_title .last_child{
+.old_table .com_tab_title .last_child{
   width: 12%;
 }
-.com_tab_title :nth-child(2){
+.old_table .com_tab_title :nth-child(2){
   width: 14%;
 }
 .com_tab_title :nth-child(3){
   width: 16.5%;
 }
-.com_tab_title :nth-child(4){
+.old_table .com_tab_title :nth-child(4){
   width: 16.5%;
 }
-.com_tab_title :nth-child(5){
+.old_table .com_tab_title :nth-child(5){
   width: 16.5%;
 }
-.com_tab_title :nth-child(6){
+.old_table .com_tab_title :nth-child(6){
   width: 16.5%;
 }
-/* 确定 */
 .all_yes{
   padding: 20rpx 0;
   text-align: center;
