@@ -1,0 +1,36 @@
+.list_box{
+  margin-top: 37rpx;
+  padding: 28rpx 0;
+  position: relative;
+}
+.list{
+  padding: 6rpx 0;
+  font-weight: 400;
+}
+.bg_green{
+  background: #03a71e;
+}
+.bg_gray{
+  background: #858886;
+}
+.btn{
+  position: absolute;
+  color: #fff;
+  padding: 6rpx 20rpx;
+  right: 0;
+  bottom: 33rpx;
+}
+
+.footer{
+  justify-content: center;
+  padding: 30rpx 0;
+  font-size: 30rpx;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.footer .fa{
+  transform: scale(1.2, 1.2);
+  margin-right: 12rpx;
+}

@@ -41,6 +41,10 @@ Page({
             that.setData({
               blockIsShow: true
             })
+          }else{
+            that.setData({
+              blockIsShow: false
+            })
           }
 
         } else {

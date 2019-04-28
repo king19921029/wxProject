@@ -25,7 +25,7 @@ Page({
         }
     })
     // 明细
-    app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrimDetailTotal",
+    app.wxRequest("gongguan/api/wechat/myQuantityDetailTotal",
       { groupId: that.data.groupId },
       "post", function (res) {
         console.log("明细", res.data.data);

@@ -1,0 +1,26 @@
+<view class='box'>
+  <view bindtap='go_changeWorkWanted' class='bg_fff'>
+    <view class='list_box com_width'>
+      <view class='list'>工种：混领土工</view>
+      <view class='list'>求职地区：北京通州</view>
+      <view class='list'>截止时间：2019年5月1日</view>
+      <view class='list'>阅读公司数量：10</view>
+      <view wx:if="{{1==1}}" class='btn bg_green'>发布中</view>
+      <view wx:else class='btn bg_gray'>已失效</view>
+    </view>
+  </view>
+  <view class='bg_fff'>
+    <view class='list_box com_width'>
+      <view class='list'>工种：瓦工</view>
+      <view class='list'>求职地区：北京海淀</view>
+      <view class='list'>截止时间：2019年4月30日</view>
+      <view class='list'>阅读公司数量：20</view>
+      <view wx:if="{{1==2}}" class='btn bg_green'>发布中</view>
+      <view wx:else class='btn bg_gray'>已失效</view>
+    </view>
+  </view>
+  <view bindtap='go_setWork' class='footer display_flex bg_blue'>
+    <text class='fa fa-pencil-square-o'></text>
+    发布求职
+  </view>
+</view>

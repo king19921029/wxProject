@@ -103,6 +103,12 @@ Page({
       url: '/page/tabBar/minePages/feedback/feedback',
     })
   },
+  // 我的求职
+  goWorkWanted: function () {
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/workWanted/workWanted',
+    })
+  },
   // 稍后认证
   closeTap:function(){
     this.setData({

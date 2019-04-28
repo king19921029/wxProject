@@ -44,7 +44,10 @@
       </view>
       <view class="pendingitem" bindtap='goStayWorkload'>
         <view class="itemIcon">
-          <text class="own-ico fa fa-pie-chart"></text>      
+          <text class="own-ico fa fa-pie-chart"></text>
+           <view wx:if="{{indexData.quantityCount>0}}" class='message-count'>
+            {{indexData.quantityCount}}
+          </view>      
         </view> 
         <text class="itemName">工作量</text>
       </view>

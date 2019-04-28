@@ -22,6 +22,8 @@ Page({
     var that = this;
     wx.chooseImage({
       count: 1,
+      // sizeType: ['original', 'compressed'],
+      // sourceType: ['album', 'camera'],
       sizeType: [ 'compressed'],
       sourceType: [ 'camera'],
       success(res) {
