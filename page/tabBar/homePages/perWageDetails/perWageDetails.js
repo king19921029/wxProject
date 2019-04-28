@@ -27,7 +27,7 @@ Page({
             details: data
           })
           wx.setNavigationBarTitle({
-            title:data.month
+            title: data.month +"工资明细"
           })
         } else {
           app.showLoading(res.data.msg, "none");
@@ -40,24 +40,29 @@ Page({
   // 我的工资确认
   confirmBtn: function () {
     var that = this;
-    // 我的工资确认id、verificationCode
-    app.wxRequest("gongguan/api/wechat/confirmSalary",
-      { 
-        id: that.data.id, 
-        verificationCode: that.data.codeVal 
-      },
-      "post", function (res) {
-        console.log("提交工资：", res.data.data)
-        if (res.data.code == 0) {
-          if (res.data.data) {
-            wx.navigateBack({
-              delta: 2,
-            })
+    if (that.data.codeVal) {
+      // 我的工资确认id、verificationCode
+      app.wxRequest("gongguan/api/wechat/confirmSalary",
+        {
+          id: that.data.id,
+          verificationCode: that.data.codeVal
+        },
+        "post", function (res) {
+          console.log("提交工资：", res.data.data)
+          if (res.data.code == 0) {
+            if (res.data.data) {
+              wx.navigateBack({
+                delta: 2,
+              })
+            }
+          } else {
+            app.showLoading(res.data.msg, "none");
           }
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
+        })
+    }else{
+      app.showLoading("请输入验证码", "none");
+    }
+   
   },
   // 获取验证吗
   getCode: function () {

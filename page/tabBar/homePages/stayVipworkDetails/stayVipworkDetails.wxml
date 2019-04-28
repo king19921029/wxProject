@@ -31,7 +31,7 @@
 
   </view>
 
-  <view class='vip_title'>考勤明细</view>
+  <view class='vip_title'>工作量明细</view>
   <!-- 表格 -->
   <view>
     <view class='com_tab_title tab_title'>
@@ -45,7 +45,7 @@
       <view>子项</view>
       <view>种类</view>
       <view>工作量</view>
-      <view class='last_child'>状态</view>
+      <view class='last_child'>备注</view>
     </view>
     
     <view class='com_tab_title' 

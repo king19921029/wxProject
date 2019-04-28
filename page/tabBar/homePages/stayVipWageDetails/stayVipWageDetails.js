@@ -173,21 +173,26 @@ Page({
   confirmBtn: function () {
     var that = this;
     if (that.data.ids) {
-      // 全部确定
-      app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
-        { 
-          ids: that.data.ids, 
-          groupId: that.data.groupId,
-          verificationCode: that.data.codeVal
-        },
-        "post", function (res) {
-          console.log("全部确定", res.data.data)
-          if (res.data.code == 0) {
-            wx.navigateBack()
-          } else {
-            app.showLoading(res.data.msg, "none");
-          }
-      })
+      if (that.data.codeVal){
+        // 全部确定
+        app.wxRequest("gongguan/api/wechat/groupConfirmSalary",
+          {
+            ids: that.data.ids,
+            groupId: that.data.groupId,
+            verificationCode: that.data.codeVal
+          },
+          "post", function (res) {
+            console.log("全部确定", res.data.data)
+            if (res.data.code == 0) {
+              wx.navigateBack()
+            } else {
+              app.showLoading(res.data.msg, "none");
+            }
+        })
+      }else{
+        app.showLoading("请输入验证码", "none")
+      }
+     
     } else {
       app.showLoading("最少勾选一项", "none")
     }

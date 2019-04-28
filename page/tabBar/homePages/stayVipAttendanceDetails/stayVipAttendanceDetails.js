@@ -182,20 +182,25 @@ Page({
   confirmBtn:function(){
     var that = this;
     if (that.data.ids ){
-      app.wxRequest("gongguan/api/wechat/groupConfirmPersonAttendance",
-        { 
-          groupId: that.data.groupId, 
-          ids: that.data.ids, 
-          verificationCode: that.data.codeVal 
-        },
-        "post", function (res) {
-          console.log("确定", res.data.data)
-          if (res.data.code == 0) {
-            wx.navigateBack()
-          } else {
-            app.showLoading(res.data.msg, "none");
-          }
-      })
+      if (that.data.codeVal) {
+        app.wxRequest("gongguan/api/wechat/groupConfirmPersonAttendance",
+          {
+            groupId: that.data.groupId,
+            ids: that.data.ids,
+            verificationCode: that.data.codeVal
+          },
+          "post", function (res) {
+            console.log("确定", res.data.data)
+            if (res.data.code == 0) {
+              wx.navigateBack()
+            } else {
+              app.showLoading(res.data.msg, "none");
+            }
+        })
+      }else{
+        app.showLoading("请输入验证码", "none")
+      }
+      
     }else{
       app.showLoading("最少勾选一项","none")
     }

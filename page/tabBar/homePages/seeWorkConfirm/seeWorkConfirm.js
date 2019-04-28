@@ -25,7 +25,7 @@ Page({
         if (res.data.code == 0) {
           var data = res.data.data;
           wx.setNavigationBarTitle({
-            title: data.month
+            title: data.month+"工作量确认"
           })
           that.setData({
             details: data
@@ -43,22 +43,27 @@ Page({
     var that = this;
     let id = that.data.id;
     let groupId = that.data.groupId;
-    // 确定
-    app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
-      { 
-        ids: id, 
-        verificationCode: that.data.codeVal 
-      },
-      "post", function (res) {
-        console.log("全部确定", res.data.data)
-        if (res.data.code == 0) {
-          wx.navigateBack({
-            delta: 2,
-          })
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
+    if (that.data.codeVal){
+      // 确定
+      app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
+        {
+          ids: id,
+          verificationCode: that.data.codeVal
+        },
+        "post", function (res) {
+          console.log("全部确定", res.data.data)
+          if (res.data.code == 0) {
+            wx.navigateBack({
+              delta: 2,
+            })
+          } else {
+            app.showLoading(res.data.msg, "none");
+          }
       })
+    }else{
+      app.showLoading("请输入验证码", "none");
+    }
+    
   },
   // 获取验证吗
   getCode: function () {

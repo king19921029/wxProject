@@ -47,7 +47,7 @@
       <view>班数</view>
       <view>白班数</view>
       <view>夜班数</view>
-      <view class='last_child'>状态</view>
+      <view class='last_child'>备注</view>
     </view>
     
     <view class='com_tab_title'

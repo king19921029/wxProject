@@ -58,7 +58,7 @@
                 <text class='list_data'>{{item.realSalary}}</text>
               </view>
               <view class='list'>
-                <text class='list_title'>本次发放：</text>
+                <text class='list_title'>本月发放：</text>
                 <text class='list_data'>{{item.realSalary}}</text>
               </view>   
           </view>
@@ -123,7 +123,7 @@
             </view>
 
             <view class='list'>
-              <text class='list_title'>本次发放：</text>
+              <text class='list_title'>本月发放：</text>
               <text class='list_data'>{{item.payableSalary}}</text>
             </view>
           </view>

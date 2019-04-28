@@ -42,21 +42,24 @@ Page({
   confirmBtn: function (e) {
     var that = this;
     // 确认id、verificationCode
-    app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
-      { 
-        ids: that.data.details.id, 
-        verificationCode: that.data.codeVal
-      },
-      "post", function (res) {
-        console.log("提交工资：", res.data.data)
-        if (res.data.code == 0) {
-          if (res.data.data) {
-            wx.navigateBack()
+    if (that.data.codeVal){
+      app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
+        { 
+          ids: that.data.details.id, 
+          verificationCode: that.data.codeVal
+        },
+        "post", function (res) {
+          if (res.data.code == 0) {
+            if (res.data.data) {
+              wx.navigateBack()
+            }
+          } else {
+            app.showLoading(res.data.msg, "none");
           }
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
       })
+    }else{
+      app.showLoading("请输入验证码", "none");
+    }
   },
   // 获取验证吗
   getCode: function () {

@@ -80,8 +80,9 @@
   </view>
   <!-- 考勤 -->
   <view wx:elif="{{titleStatus == 1}}" class='attendance_block bg_fff'>
-    <view bindtap='attendanceDtails' wx:for="{{attendanceData.t}}" wx:item="item" 
-      wx:key="" data-groupId="{{item.groupId}}" class='content'>
+    <view bindtap='attendanceDtails' wx:for="{{attendanceData.t}}" 
+      wx:item="item" wx:key="" data-groupId="{{item.groupId}}" 
+      class='content' data-groupName="{{item.groupName}}">
       <view class='com_width list_box'>
         <view class='attendance_block_title'>
           {{item.groupName}}
@@ -113,7 +114,10 @@
   <view wx:else class='attendance_block bg_fff'>
     <view wx:for="{{workData.t}}" wx:item="item" 
       wx:key="" class='content' >
-      <view data-groupId="{{item.groupId}}" bindtap='goWork' class='see_list'>查看详情</view>
+      <view data-groupId="{{item.groupId}}" bindtap='goWork' 
+        data-groupname="{{item.groupName}}" class='see_list'>
+        查看详情
+      </view>
       <view class='com_width list_box'>
         <view class='list'>
           <text class='list_title'>项目名称：</text>

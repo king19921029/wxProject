@@ -88,6 +88,7 @@
   padding-top:50rpx;
 }
 .block_content{
+  width: 100%;
   padding: 35rpx 0;
   font-size: 28rpx;
 }

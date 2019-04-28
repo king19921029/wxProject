@@ -19,6 +19,9 @@ Page({
     this.setData({
       groupId: options.groupId
     })
+    wx.setNavigationBarTitle({
+      title: options.groupName + "考勤"
+    })
   },
   onShow: function () {
     var that = this;

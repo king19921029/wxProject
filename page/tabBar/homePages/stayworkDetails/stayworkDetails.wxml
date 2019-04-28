@@ -15,7 +15,7 @@
     </view>
 
      <view class='list'>
-      <text>状态：</text>
+      <text>备注：</text>
       <text>{{details.status}}</text>
     </view>
   </view>

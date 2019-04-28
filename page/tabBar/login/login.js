@@ -11,6 +11,7 @@ Page({
         url: '/page/tabBar/home/home',
       })
     }
+    console.log(app.globalData.openId)
   },
   onShow: function () {
 
@@ -28,6 +29,7 @@ Page({
             { code: res.code },
             "post", function (res) {
               console.log("openid:", res)
+              app.globalData.openId = res.data.data.openId;
               app.globalData.header.openId = res.data.data.openId;
               that.setData({
                 session_key: res.data.data.session_key

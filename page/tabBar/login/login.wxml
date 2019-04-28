@@ -1,5 +1,5 @@
 <view wx:if="{{photoBtn}}" class='login_box'>
-  <image mode="widthFix" class='home_img' src='/image/home.png'></image>
+  <image mode="widthFix" class='home_img' src='/image/home.jpg'></image>
   <view class='content'>
     <image class='logo' src="/image/logo.png"></image>
     <view>

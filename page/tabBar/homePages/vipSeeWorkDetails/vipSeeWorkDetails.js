@@ -23,7 +23,11 @@ Page({
   onLoad: function (options) {
     this.setData({
       groupId: options.groupId,
+      groupName: options.groupName,
       userPhone: app.globalData.userPhone
+    })
+    wx.setNavigationBarTitle({
+      title: options.groupName+"工作量"
     })
   },
   onShow: function () {

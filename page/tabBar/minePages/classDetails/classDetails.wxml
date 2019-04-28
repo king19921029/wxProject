@@ -22,7 +22,7 @@
         <view>劳务公司：</view>
         <view>{{vipMsg.companyName}}</view>
       </view>
-      <view class='com_width list display_flex'>
+      <view class='com_width last_list list display_flex'>
         <view>班组人数：</view>
         <view>{{vipMsg.personNum}}</view>
       </view>

@@ -11,22 +11,22 @@
       <text>{{details.payableAmount}}</text>
     </view>
 
+    <view class='list'>
+      <text>扣款：</text>
+      <text>{{details.deduction}}</text>
+    </view>
+
      <view class='list'>
       <text>实发工资：</text>
       <text>{{details.realAmount}}</text>
     </view>
 
-     <view class='list'>
-      <text>扣款：</text>
-      <text>{{details.deduction}}</text>
-    </view>
-
     <view class='list'>
-      <text>欠发工资：</text>
+      <text>本月欠发：</text>
       <text>{{details.difference}}</text>
     </view>
      <view class='list'>
-      <text>累计欠发工资：</text>
+      <text>备注：</text>
       <text>{{details.cumulativeDifference}}</text>
     </view>
   </view>

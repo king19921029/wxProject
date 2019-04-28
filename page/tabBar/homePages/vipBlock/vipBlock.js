@@ -11,7 +11,7 @@ Page({
     }
   },
   onLoad: function (options) {
-
+    
   },
   onShow: function () {
     var that = this; 
@@ -87,8 +87,17 @@ Page({
   // 考勤查看详情
   attendanceDtails:function(e){
     let groupId = e.currentTarget.dataset.groupid;
+    let groupName = e.currentTarget.dataset.groupname;
     wx.navigateTo({
-      url: '/page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails?groupId=' + groupId,
+      url: '/page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails?groupId=' + groupId + "&groupName=" + groupName,
+    })
+  },
+  // 去工作量详情
+  goWork: function (e) {
+    let groupId = e.currentTarget.dataset.groupid;
+    let groupName = e.currentTarget.dataset.groupname;
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails?groupId=' + groupId + "&groupName=" + groupName,
     })
   },
   // 筛选
@@ -118,13 +127,7 @@ Page({
       selectBox: false
     })
   },
-  // 去工作量详情
-  goWork:function(e){
-    let groupId = e.currentTarget.dataset.groupid;
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails?groupId=' + groupId,
-    })
-  },
+ 
   // 筛选
   projectLisre:function(e){
     let id = e.currentTarget.dataset.id;

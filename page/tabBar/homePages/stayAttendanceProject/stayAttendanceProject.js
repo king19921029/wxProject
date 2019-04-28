@@ -73,22 +73,27 @@ Page({
   confirmaedTap: function () {
     var that = this;
     //确定
-    app.wxRequest("gongguan/api/wechat/myAttendanceConfirm",
-      { id: that.data.id, verificationCode: that.data.codeVal },
-      "post", function (res) {
-        console.log("确认考勤：", res.data.data);
-        if (res.data.code == 0) {
-          var data = res.data.data;
-          if (data) {
-            that.setData({
-              blockIsShow: true
-            })
-            wx.navigateBack()
+    if (that.data.codeVal ){
+      app.wxRequest("gongguan/api/wechat/myAttendanceConfirm",
+        { id: that.data.id, verificationCode: that.data.codeVal },
+        "post", function (res) {
+          console.log("确认考勤：", res.data.data);
+          if (res.data.code == 0) {
+            var data = res.data.data;
+            if (data) {
+              that.setData({
+                blockIsShow: true
+              })
+              wx.navigateBack()
+            }
+          } else {
+            app.showLoading(res.data.msg, "none");
           }
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
       })
+    }else{
+      app.showLoading("请输入验证码", "none")
+    }
+    
   },
   // 获取验证吗
   getCode: function () {

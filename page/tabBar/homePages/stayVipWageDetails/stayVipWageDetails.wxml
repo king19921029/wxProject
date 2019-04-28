@@ -42,7 +42,7 @@
 
   </view>
 
-  <view class='vip_title'>考勤明细</view>
+  <view class='vip_title'>工资明细</view>
   <!-- 表格 -->
   <view>
     <view class='com_tab_title tab_title'>
@@ -56,7 +56,7 @@
       <view>应发(元)</view>
       <view>实发(元)</view>
       <view>欠发(元)</view>
-      <view class='last_child'>状态</view>
+      <view class='last_child'>备注</view>
     </view>
     
     <view class='com_tab_title'
