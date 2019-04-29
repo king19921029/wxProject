@@ -19,7 +19,26 @@ App({
     let userPhone = wx.getStorageSync("userPhone") || "";
     that.globalData.header["authorization"] = token;
     that.globalData.token = token;
-    that.globalData.userPhone = userPhone
+    that.globalData.userPhone = userPhone;
+    // 获取设备
+    wx.getSystemInfo({
+      success: function (res) {
+        console.log(res)
+        let windowSize = {
+          windowWidth: res.windowWidth,
+          windowHeight: res.windowHeight
+        }
+        that.globalData.windowSize = windowSize;
+        if (res.model.search('iPhone X') != -1) {
+          that.globalData.isIpx = true;
+        } else {
+          that.globalData.isIpx = false;
+        }
+        wx.setStorageSync("model", res.platform)
+        that.globalData.model = res.platform
+      }
+    })
+    console.log(that.globalData)
   },
   onShow: function (opts) {
   },

@@ -1,5 +1,6 @@
 <view wx:if="{{photoBtn}}" class='login_box'>
-  <image mode="widthFix" class='home_img' src='/image/home.jpg'></image>
+  <image hidden='{{isIpx}}'  class='home_img' src='/image/home.jpg'></image>
+  <image hidden='{{!isIpx}}' class='home_img' src='/image/iphonex1.png'></image>
   <view class='content'>
     <image class='logo' src="/image/logo.png"></image>
     <view>
@@ -15,7 +16,8 @@
 </view>
 
 <view wx:else class='login_box'>
-  <image mode="widthFix" class='home_img' src='/image/home2.jpg'></image>
+  <image hidden='{{isIpx}}'  class='home_img' src='/image/home2.jpg'></image>
+  <image hidden='{{!isIpx}}' class='home_img' src='/image/iphonex2.png'></image>
   <view class='content'>
     <image class='logo' src="/image/logo.png"></image>
     <view>
