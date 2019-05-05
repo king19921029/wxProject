@@ -1,3 +1,4 @@
 {
-  "navigationBarTitleText": "工作量确认"
+  "navigationBarTitleText": "工作量确认",
+  "enablePullDownRefresh": true
 }

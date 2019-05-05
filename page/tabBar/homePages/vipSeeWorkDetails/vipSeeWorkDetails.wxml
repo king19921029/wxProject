@@ -69,7 +69,7 @@
           <text class='list_data'>{{item.quantity}}</text>
         </view>
         <view class='list'>
-          <text class='list_title'>状态：</text>
+          <text class='list_title'>备注：</text>
           <text class='list_data'>{{item.status}}</text>
         </view>
       </view>

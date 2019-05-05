@@ -1,17 +1,17 @@
 var app = getApp();
+import PageList from "../../../util/util.js";
 Page({
 
   data: {
     blockIsShow: false,
   },
   onLoad: function (options) {
-
+    // PageList.getDate().then((res)=>{
+    //   console.log(res)
+    // });
   },
   onReady: function () {
     
-  },
-  loadConsole:function(){
-    console.log("测试数据："+this.data.testData)
   },
   onShow: function () {
     var that = this;
@@ -170,5 +170,10 @@ Page({
     this.setData({
       blockIsShow: false
     })
+  },
+  onReachBottom: function () {
+    console.log('加载更多')
+    setTimeout(() => {
+    }, 1000)
   },
 })

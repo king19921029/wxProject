@@ -95,7 +95,7 @@
   border-radius: 50%;
   background-color: red;
   color: white;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 .itemText{
   display: flex;

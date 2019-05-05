@@ -11,7 +11,6 @@ Page({
         url: '/page/tabBar/home/home',
       })
     }
-    console.log(app.globalData)
     this.setData({
       isIpx: app.globalData.isIpx
     })

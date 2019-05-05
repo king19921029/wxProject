@@ -141,5 +141,11 @@ Page({
       url: '/page/tabBar/minePages/authenticationAll/authenticationAll'
     })
   },
+  // 确认密码
+  go_pass:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/setPassword/setPassword'
+    })
+  },
 
 })

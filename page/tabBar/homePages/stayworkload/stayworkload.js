@@ -38,6 +38,11 @@ Page({
   onHide: function () {
 
   },
+  onReachBottom: function () {
+    console.log('加载更多')
+    setTimeout(() => {
+    }, 1000)
+  },
   //个人工作量待办
   perData:function(page){
     var that = this;

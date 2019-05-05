@@ -35,7 +35,7 @@
       <view>子项</view>
       <view>种类</view>
       <view>工程量(m³)</view>
-      <view>状态</view>
+      <view>备注</view>
     </view>
 
     <view bindtap='goWageDetails' class='com_tab_title'
@@ -44,7 +44,7 @@
       <view>{{item.startDate}}</view>
       <view>{{item.subPro}}</view>
       <view>{{item.workTypeName}}</view>
-      <view>{{item.classNum}}</view>
+      <view>{{item.quantity}}</view>
       <view>{{item.status}}</view>
     </view>
 

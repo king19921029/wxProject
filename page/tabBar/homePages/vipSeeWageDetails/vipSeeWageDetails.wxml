@@ -68,10 +68,20 @@
         <text class='list_title'>应发工资：</text>
         <text class='list_data'>{{details.payableSalary}}</text>
       </view>
+      
+      <view class='list'>
+        <text class='list_title'>实发工资：</text>
+        <text class='list_data'>{{details.realSalary }}</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>欠发工资：</text>
+        <text class='list_data'>{{details.differenceSalary }}</text>
+      </view>
 
       <view class='list'>
         <text class='list_title'>扣款：</text>
-        <text class='list_data'>{{details.differenceSalary}}</text>
+        <text class='list_data'>{{details.deduction}}</text>
       </view>
     </view>
   </view>
@@ -90,7 +100,7 @@
       <view>应发(元)</view>
       <view>实发(元)</view>
       <view>欠发(元)</view>
-      <view class='last_child'>状态</view>
+      <view class='last_child'>备注</view>
     </view>
     
     <view class='com_tab_title'

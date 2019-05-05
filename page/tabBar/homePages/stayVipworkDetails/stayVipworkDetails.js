@@ -25,7 +25,7 @@ Page({
     var that = this;
     // 项目汇总
     app.wxRequest("gongguan/api/wechat/myGroupQuantityWaitConfrimDetailTotal",
-      { groupId: that.data.groupId},
+      { groupId: that.data.groupId, month: that.data.month},
       "post", function (res) {
         console.log("tab上面的数据：",res.data.data)
         if (res.data.code == 0) {
@@ -39,7 +39,7 @@ Page({
     })
     // tab数据
     app.wxRequest("gongguan/api/wechat/myGroupQuantityDetail",
-      { groupId: that.data.groupId, page: "" },
+      { groupId: that.data.groupId, page: "", month: that.data.month},
       "post", function (res) {
         console.log("tab数据：",res.data.data)
       if (res.data.code == 0) {

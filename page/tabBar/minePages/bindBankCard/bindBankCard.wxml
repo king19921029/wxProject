@@ -13,7 +13,7 @@
   <view class='border_t_b bg_fff'>
     <view class='card_num name_card'>
       <text class='com_titles'>姓名</text>
-      <input data-types="1" bindinput='getInputVal' class='com_input' placeholder='请输入姓名' value='{{bankData.userName}}'></input>
+      <input disabled='ture' data-types="1" bindinput='getInputVal' class='com_input' placeholder='请输入姓名' value='{{bankData.userName}}'></input>
     </view>
      <view class='card_num'>
       <text class='com_titles'>开户行</text>

@@ -38,7 +38,7 @@ Page({
     })
     // 明细汇总
     app.wxRequest("gongguan/api/wechat/groupSalaryDetailTotal",
-      { groupId: groupId},
+      { groupId: groupId, month: that.data.month},
       "post", function (res) {
         console.log("明细汇总:",res.data.data)
         if (res.data.code == 0) {

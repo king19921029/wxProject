@@ -33,11 +33,6 @@
         <text class='list_data'>{{details.differenceSalary}}</text>
       </view>
 
-      <view class='list'>
-        <text class='list_title'>累计实发工资：</text>
-        <text class='list_data'>{{details.realSalary}}</text>
-      </view>
-
     </view>
 
   </view>

@@ -1,3 +1,5 @@
+var app = getApp();
+
 const formatTime = date => {
   const year = date.getFullYear()
   const month = date.getMonth() + 1
@@ -13,9 +15,24 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
+function getDate(url,data) {
+  
+  var promise = new Promise((resolve, reject) => {
+    var that = this;
+    app.wxRequest(url,data,"post", function (res) {
+      if (res.data.code == 0) {
+        resolve(res.data.data);
+      } else {
+        reject(res.data.meg);
+      }
+    })
+  });
+  return promise;
+}
 
 module.exports = {
-  formatTime: formatTime
+  formatTime: formatTime,
+  getDate: getDate
 }
 
 //test url : https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?cardNo=6222005865412565805&cardBinCheck=true
@@ -1567,4 +1584,5 @@ function verifyIDCard(id) {
     'msg': '校验通过'
   }
 }
+
 module.exports.verifyIDCard = verifyIDCard

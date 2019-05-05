@@ -6,9 +6,7 @@ Page({
     groupId: "",
   },
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: "某班组考勤"
-    })
+   
     this.setData({
       groupId: options.groupId,
       personId: options.personId,
@@ -30,6 +28,7 @@ Page({
         that.setData({
           tabData: data
         })
+       
       } else {
         app.showLoading(res.data.msg, "none");
       }
@@ -43,6 +42,9 @@ Page({
         if (res.data.code == 0) {
           that.setData({
             allData: data
+          })
+          wx.setNavigationBarTitle({
+            title: data.groupName + "考勤"
           })
         } else {
           app.showLoading(res.data.msg, "none");

@@ -44,7 +44,7 @@
       <view>应发(元)</view>
       <view>扣款(元)</view>
       <view>实发(元)</view>
-      <view>状态</view>
+      <view>备注</view>
     </view>
     <view bindtap='goWageDetails' class='com_tab_title'
       wx:for="{{tabData.t}}" wx:item="item" wx:key=""

@@ -23,7 +23,6 @@ App({
     // 获取设备
     wx.getSystemInfo({
       success: function (res) {
-        console.log(res)
         let windowSize = {
           windowWidth: res.windowWidth,
           windowHeight: res.windowHeight
@@ -38,7 +37,6 @@ App({
         that.globalData.model = res.platform
       }
     })
-    console.log(that.globalData)
   },
   onShow: function (opts) {
   },
