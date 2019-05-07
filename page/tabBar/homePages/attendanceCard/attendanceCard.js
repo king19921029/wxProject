@@ -3,6 +3,7 @@ Page({
   data: {
     selectStatus: 0,
     userName:"",//打卡人
+    imglist:[],
   },
   onLoad: function (options) {
     var that = this;
@@ -35,6 +36,15 @@ Page({
     wx.navigateTo({
       url: '/page/tabBar/homePages/attendanceProject/attendanceProject',
     })
-  }
+  },
+  previewImage: function (e) {
+    var current = e.target.dataset.src;
+    var arr = [];
+    arr.push(current)
+    wx.previewImage({
+      current: current, // 当前显示图片的http链接  
+      urls: arr // 需要预览的图片http链接列表  
+    })
+  }, 
 
 })

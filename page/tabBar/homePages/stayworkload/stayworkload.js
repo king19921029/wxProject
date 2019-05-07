@@ -1,10 +1,12 @@
 var app = getApp()
+import PageList from "../../../../util/util.js";
 Page({
   data: {
     perDetails:{},//个人工作量
     vipDetails:{},//班组工作量
     headerBorder:true,//header添加border
     blockIsShow:true,//浮层
+    page:1,
   },
   onLoad: function (options) {
 
@@ -36,22 +38,37 @@ Page({
     })
   },
   onHide: function () {
-
   },
   onReachBottom: function () {
-    console.log('加载更多')
-    setTimeout(() => {
-    }, 1000)
+    var that = this;
+    let page = that.data.page + 1;
+    let obj = {
+      page:page
+    }
+    PageList.getDate("gongguan/api/wechat/myGroupQuantityWaitConfrim", obj).then((res)=>{
+      console.log(res)
+      // if( res.data.data.t ){
+      //   that.setData({
+      //     page: page
+      //   })
+      // }else{
+      //   app.showLoading("已经到底了","none")
+      // }
+      
+    });
   },
   //个人工作量待办
   perData:function(page){
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     app.wxRequest("gongguan/api/wechat/myQuantityWaitConfrim",
       {page:page},
     "post", function (res) {
       console.log("个人工作量：", res.data.data);
       if (res.data.code == 0) {
-
+        wx.hideLoading()
         var data = res.data.data;
         that.setData({
           perDetails: data

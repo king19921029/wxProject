@@ -147,5 +147,11 @@ Page({
       url: '/page/tabBar/minePages/setPassword/setPassword'
     })
   },
+  // 去修改密码
+  go_chage:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/chagePassword/chagePassword'
+    })
+  }
 
 })

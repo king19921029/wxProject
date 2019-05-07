@@ -48,28 +48,19 @@
       </view>
     </view >
     <!-- list -->
-    <view bindtap='zpDetails' class='recruit_list bg_fff'>
+    <view bindtap='zpDetails' class='recruit_list bg_fff'
+      wx:for="{{zpData.t}}" wx:item="item" wx:key=""
+      data-id="{{item.id}}">
       <view class='list_content'>
-        <view class='list_content_title'>中建二局铁路项目部招聘前端100名</view>
-        <view class='color_gray com_margin_top'>北京市昌平区 | 北京三环工程有限公司</view>
-        <view class='color_gray com_margin_top'>2019年04月03日截止</view>
+        <view class='list_content_title'>{{item.title}}</view>
+        <view class='color_gray com_margin_top'>{{item.city}} | {{item.companyName}}</view>
+        <view class='color_gray com_margin_top'>{{item.expiryDate}}截止</view>
         <view class='add_or com_margin_top'>
-          <text>联系人：张平</text>
-          <text>联系电话：028124827</text>
+          <text>联系人：{{item.personName}}</text>
+          <text>联系电话：{{item.personPhone}}</text>
         </view>
       </view>
     </view>
 
-    <view bindtap='zpDetails' class='recruit_list bg_fff'>
-      <view class='list_content'>
-        <view class='list_content_title'>中建二局铁路项目部招聘前端100名</view>
-        <view class='color_gray com_margin_top'>北京市昌平区 | 北京三环工程有限公司</view>
-        <view class='color_gray com_margin_top'>2019年04月03日截止</view>
-        <view class='add_or com_margin_top'>
-          <text>联系人：张平</text>
-          <text>联系电话：028124827</text>
-        </view>
-      </view>
-    </view>
   </view>
 </view>

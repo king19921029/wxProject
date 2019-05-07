@@ -87,14 +87,14 @@ Page({
     app.wxRequest("gongguan/front/isSendSmsCode.action",
       { tel: that.data.userPhone,type:5 },
       "post", function (res) {
-        console.log("验证码：", res.data.data);
-        if (res.data.code == 0) {
-          var data = res.data.data;
+      console.log("验证码：", res.data.data);
+      if (res.data.code == 0) {
+        var data = res.data.data;
 
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
 
   },
   // 获取输入的code

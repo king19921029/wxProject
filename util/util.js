@@ -15,12 +15,12 @@ const formatNumber = n => {
   n = n.toString()
   return n[1] ? n : '0' + n
 }
-function getDate(url,data) {
-  
+function getDate(url,data,n) {
   var promise = new Promise((resolve, reject) => {
     var that = this;
     app.wxRequest(url,data,"post", function (res) {
       if (res.data.code == 0) {
+        console.log(res.data.data)
         resolve(res.data.data);
       } else {
         reject(res.data.meg);

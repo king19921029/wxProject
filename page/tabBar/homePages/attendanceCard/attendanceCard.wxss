@@ -29,3 +29,7 @@
 .margin_top{
   margin-top: 30rpx;
 }
+.list image{
+  width: 90rpx;
+  height: 90rpx;
+}

@@ -1,5 +1,5 @@
 var app = getApp();
-import PageList from "../../../util/util.js";
+
 Page({
 
   data: {

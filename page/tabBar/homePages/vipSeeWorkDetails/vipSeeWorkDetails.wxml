@@ -13,11 +13,11 @@
           <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
-        <view bindtap='classTap'>
+        <!-- <view bindtap='classTap'>
           <text class='{{selectStatus == 3 ?"add_class":""}}'>{{classObj.name}}</text>
           <image wx:if="{{selectStatus == 3}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
-        </view>
+        </view> -->
       </view>
     </view>
    
@@ -89,7 +89,7 @@
       <view>子项</view>
       <view>种类</view>
       <view>工作量(m³)</view>
-      <view class='last_child'>状态</view>
+      <view class='last_child'>备注</view>
     </view>
     
     <view wx:for="{{tabData.t}}" wx:item="" wx:key="" class='com_tab_title'
@@ -123,7 +123,7 @@
       <view>子项</view>
       <view>种类</view>
       <view>工作量(m³)</view>
-      <view>状态</view>
+      <view>备注</view>
     </view>
     
     <view wx:for="{{tabData.t}}" wx:item="" wx:key="" class='com_tab_title'

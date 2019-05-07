@@ -13,6 +13,10 @@
     <view>
       <view class='list'>早打卡时间：{{titleData.morning}}</view>
       <view class='list'>打卡人：{{titleData.userName}}</view>
+      <view class='list display_flex'>
+        <view>打卡图片：</view>
+        <image bindtap='previewImage' data-src="/image/none_record.png" src="/image/none_record.png"></image>
+      </view>
     </view>
 
     <view class='margin_top'>

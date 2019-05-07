@@ -2,9 +2,9 @@
 
   <view class='header border_top bg_fff'>
     <view class='com_width'>
-      <view class='work_title'>中间三局铁路维修技术部</view>
-      <view class='pic'>200-300/天</view>
-      <view class='color_gray'>截止时间：2019-04-12</view>
+      <view class='work_title'>{{zpData.title}}</view>
+      <view class='pic'>{{zpData.startSalary}}-{{zpData.endSalary}}/天</view>
+      <view class='color_gray'>截止时间：{{zpData.expiryDate}}</view>
     </view>
   </view>
 
@@ -14,7 +14,7 @@
     <view class='com_width list_box'>
       <view class='list'>
         <text class='list_title'>招聘单位：</text>
-        <text class='list_data'>北京三环新城项目</text>
+        <text class='list_data'>{{zpData.companyName}}</text>
       </view>
 
       <view class='list'>
@@ -24,22 +24,22 @@
 
       <view class='list'>
         <text class='list_title'>招聘岗位：</text>
-        <text class='list_data'>某某某</text>
+        <text class='list_data'>{{zpData.workTypeName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>招聘人数：</text>
-        <text class='list_data'>2019年2月</text>
+        <text class='list_data'>{{zpData.companyName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>联系人：</text>
-        <text class='list_data'>80个</text>
+        <text class='list_data'>{{zpData.relationName}}</text>
       </view>
 
       <view class='list'>
         <text class='list_title'>联系电话：</text>
-        <text class='list_data'>80个</text>
+        <text class='list_data'>{{zpData.phone}}</text>
       </view>
     </view>
   </view>
@@ -47,7 +47,7 @@
   <view class='color_gray com_width com_titles'>岗位要求：</view>
 
   <view class='bg_fff'>
-    <view class='com_width com_padding'>岗位要求：岗位要求：岗位要求：岗位要求：岗位要求：岗位要求：</view>
+    <view class='com_width com_padding'>{{zpData.recruitmentDesc}}</view>
   </view>
 
   <view class='color_gray com_width com_titles'>备注：</view>

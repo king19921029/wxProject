@@ -1,1 +1,4 @@
-@import '../authentication/authentication.wxss'
+@import '../authentication/authentication.wxss';
+.margin_block{
+  margin-top: 30rpx;
+}

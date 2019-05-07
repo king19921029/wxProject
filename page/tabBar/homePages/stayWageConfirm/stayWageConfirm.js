@@ -36,11 +36,15 @@ Page({
   // 我的工资
   perData:function(){
     var that = this;
+    wx.showLoading({
+      title: '加载中',
+    })
     app.wxRequest("gongguan/api/wechat/mySalaryWaitConfirm",
       {},
       "post", function (res) {
         console.log("我的工资：", res.data.data)
         if (res.data.code == 0) {
+          wx.hideLoading()
           var data = res.data.data;
           that.setData({
             myWage: data

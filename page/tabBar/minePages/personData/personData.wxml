@@ -43,10 +43,12 @@
       </view>
     </view>
 
-    <view bindtap='go_pass' class='display_flex list_tab'>
+    <view  class='display_flex list_tab'>
       <view>确认密码</view>
       <view class='display_flex com_rigth_view'>
-        <text class='color_gray'>未设置</text>
+        
+        <text wx:if="{{allData.hasPassword}}" bindtap='go_chage' class='color_gray'>*****</text>
+        <text wx:else bindtap='go_pass' class='color_gray'>未设置</text>
         <text class='fa add_gray fa-chevron-right'></text>
       </view>
     </view>

@@ -48,7 +48,7 @@ App({
     }
     param = param || {}
     method = method
-
+    
     wx.request({
       header: this.globalData.header,
       url: url,

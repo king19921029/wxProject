@@ -64,6 +64,7 @@ Page({
   bindCity: function (e) {
     console.log(e.currentTarget)
     app.globalData.city = e.currentTarget.dataset.city;
+    app.globalData.cityCode = e.currentTarget.dataset.code;
     wx.navigateBack();
   },
   bindScroll:function(e){

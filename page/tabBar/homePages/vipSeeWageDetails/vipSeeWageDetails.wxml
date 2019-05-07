@@ -12,11 +12,13 @@
           <image wx:if="{{selectStatus == 2}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
         </view>
-        <view bindtap='classTap'>
+
+        <!-- <view bindtap='classTap'>
           <text class='{{selectStatus == 3 ?"add_class":""}}'>{{classObj.name}}</text>
           <image wx:if="{{selectStatus == 3}}" class='tan_top' src='/image/top_tan.png'></image>
           <image wx:else class='tan' src='/image/tan.png'></image>
-        </view>
+        </view> -->
+
       </view>
     </view>
   </view>
@@ -130,7 +132,7 @@
       <view>应发(元)</view>
       <view>实发(元)</view>
       <view>欠发(元)</view>
-      <view>状态</view>
+      <view>备注</view>
     </view>
     
     <view class='com_tab_title' wx:for="{{tabData.t}}" 

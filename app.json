@@ -1,9 +1,19 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/minePages/retPassword/retPassword",
     "page/tabBar/minePages/chagePassword/chagePassword",
     "page/tabBar/minePages/setPassword/setPassword",
+    
+    "page/tabBar/homePages/attendanceCard/attendanceCard",
+    
+    "page/tabBar/message/message",
+    
+    
+    
+   
     "page/tabBar/login/login",
     
     "page/tabBar/minePages/setWorkWanted/setWorkWanted",
@@ -18,7 +28,7 @@
     "page/tabBar/homePages/seeAttendance/seeAttendance",
     "page/tabBar/minePages/addPerson/addPerson",
     "page/tabBar/homePages/vipBlock/vipBlock",
-    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/minePages/feedback/feedback",
     "page/tabBar/minePages/contacts/contacts",
     "page/tabBar/homePages/stayworkload/stayworkload",
@@ -26,7 +36,7 @@
     "page/tabBar/minePages/bindBankCard/bindBankCard",
     "page/tabBar/homePages/newDetails/newDetails",
     "page/tabBar/messagePages/city/city",
-    "page/tabBar/message/message",
+    
     "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",
     "page/tabBar/homePages/stayAttendance/stayAttendance",
     "page/tabBar/minePages/classDetails/classDetails",
@@ -50,7 +60,7 @@
     "page/tabBar/minePages/changePhoto/changePhoto",
     "page/tabBar/minePages/authenticationRes/authenticationRes",
     "page/tabBar/minePages/newPhone/newPhone",
-    "page/tabBar/homePages/attendanceCard/attendanceCard",
+    
     "page/tabBar/homePages/wageBlockDetails/wageBlockDetails",
     "page/tabBar/homePages/wageDetails/wageDetails",
     "page/tabBar/homePages/seeTeam/seeTeam",
