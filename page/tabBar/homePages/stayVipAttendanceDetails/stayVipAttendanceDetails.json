@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "某班组考勤汇总"
+  "navigationBarTitleText": "某班组考勤汇总",
+  "usingComponents": {
+    "template-toast": "/components/toast/toast"
+  }
 }

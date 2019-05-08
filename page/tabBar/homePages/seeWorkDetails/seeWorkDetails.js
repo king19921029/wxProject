@@ -44,11 +44,11 @@ Page({
 
   },
   // 工作量详情
-  goWageDetails: function (e) {
-    let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm?id=' + id + "&groupId="+this.data.groupId
-    })
-  },
+  // goWageDetails: function (e) {
+  //   let id = e.currentTarget.dataset.id;
+  //   wx.navigateTo({
+  //     url: '/page/tabBar/homePages/seeWorkConfirm/seeWorkConfirm?id=' + id + "&groupId="+this.data.groupId
+  //   })
+  // },
 
 })

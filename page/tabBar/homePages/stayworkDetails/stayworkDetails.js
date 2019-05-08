@@ -35,31 +35,58 @@ Page({
         app.showLoading(res.data.msg, "none");
       }
     })
+    // 获取解密token
+    app.wxRequest("gongguan/api/wechat/getIndex",
+      {},
+      "post", function (res) {
+      console.log("getIndex", res.data.data)
+      if (res.data.code == 0) {
+        let token = app.globalData.token;
+        that.setData({
+          getIndex: res.data.data,
+          token: token
+        })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
   },
   onHide: function () {
   },
   // 确定
   confirmBtn: function (e) {
     var that = this;
-    // 确认id、verificationCode
-    if (that.data.codeVal){
-      app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
-        { 
-          ids: that.data.details.id, 
-          verificationCode: that.data.codeVal
-        },
-        "post", function (res) {
-          if (res.data.code == 0) {
-            if (res.data.data) {
-              wx.navigateBack()
-            }
-          } else {
-            app.showLoading(res.data.msg, "none");
-          }
-      })
+    let codeVal = that.data.codeVal;
+    let url = "gongguan/api/wechat/confirmQuantityStatus";
+    let bodyData = {
+      ids: that.data.details.id, 
+    };
+    let data = that.data.getIndex;
+    let token = that.data.token;
+    if (codeVal) {
+      app.confirmaed(codeVal, url, bodyData, data, token)
     }else{
       app.showLoading("请输入验证码", "none");
     }
+    // 确认id、verificationCode
+    // if (that.data.codeVal){
+    //   app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
+    //     { 
+    //       ids: that.data.details.id, 
+    //       verificationCode: that.data.codeVal
+    //     },
+    //     "post", function (res) {
+    //       if (res.data.code == 0) {
+    //         if (res.data.data) {
+    //           wx.navigateBack()
+    //         }
+    //       } else {
+    //         app.showLoading(res.data.msg, "none");
+    //       }
+    //   })
+    // }else{
+    //   app.showLoading("请输入验证码", "none");
+    // }
   },
   // 获取验证吗
   getCode: function () {

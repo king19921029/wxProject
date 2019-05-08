@@ -130,6 +130,13 @@
   
 </view>
 
+<template-toast
+  wx:if="{{1==2}}"
+  bindfgetVal="fgetVal"
+  bind:fno_tap="fno_tap"
+  bind:fconfirmaed="confirmTap">
+</template-toast>
+
 <!-- 实名认证浮层 -->
 <view wx:if="{{blockIsShow}}" class='box_block'>
     <view class='bg_fff block_view'>

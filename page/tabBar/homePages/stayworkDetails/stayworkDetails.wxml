@@ -20,10 +20,10 @@
     </view>
   </view>
 
-  <view class='phone_title'>手机验证</view>
+  <view class='phone_title'>确认密码</view>
   <view class='code_box'>
-    <input bindinput='get_val' type='number' placeholder='请输入验证码'></input>
-    <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>{{time}}</button>
+    <input bindinput='get_val' type='number' placeholder='请输入确认密码'></input>
+    <!-- <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>{{time}}</button> -->
   </view>
 
   <view bindtap='confirmBtn' class='bg_blue com_width btn'>{{btnFont}}</view>

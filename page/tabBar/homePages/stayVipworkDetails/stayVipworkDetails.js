@@ -51,6 +51,21 @@ Page({
         app.showLoading(res.data.msg, "none");
       }
     })
+    // 获取解密token
+    app.wxRequest("gongguan/api/wechat/getIndex",
+      {},
+      "post", function (res) {
+        console.log("getIndex", res.data.data)
+        if (res.data.code == 0) {
+          let token = app.globalData.token;
+          that.setData({
+            getIndex: res.data.data,
+            token: token
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   //查看详情
   // goDetails: function (e) {
@@ -200,6 +215,37 @@ Page({
       app.showLoading("最少勾选一项", "none")
     }
 
-  }
+  },
+  //--------------------------------- 
+  // 取消
+  fno_tap: function () {
+    this.setData({
+      blockIsShow: true
+    })
+  },
+  // 获取value
+  fgetVal: function (e) {
+    this.setData({
+      codeVal: e.detail.val
+    })
+  },
+  // 密码确认
+  fconfirmTap: function () {
+    var that = this;
+    let codeVal = that.data.codeVal;
+    let url = "gongguan/api/wechat/groupQuantityConfirm";
+    let bodyData = {
+      groupId: that.data.groupId,
+      ids: that.data.ids,
+    }
+    const data = that.data.getIndex;
+    const token = that.data.token;
+    if (codeVal) {
+      app.confirmaed(codeVal, url, bodyData, data, token)
+    } else {
+      app.showLoading("请输入确认密码", "none")
+    }
+
+  },
 
 })

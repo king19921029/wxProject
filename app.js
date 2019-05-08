@@ -1,3 +1,4 @@
+var util = require('./util/encrypt.js');
 App({
   // 全局数据，类似于store
   globalData: {
@@ -81,5 +82,44 @@ App({
       icon: types
     });
   },
+  // 浮层确定
+  confirmaed: function (codeVal,url,bodyData,data,token) {
+   
+    //确定
+    if (codeVal) {
+      // let key = token.substring(data.index1, data.index2)
+      let key = this.getKey(data, token)
+      console.log(key)
+      let password = util.encrypt(key, codeVal)
+      bodyData.password = password
+      this.wxRequest(url, bodyData,
+        "post", function (res) {
+          console.log("确认考勤：", res.data.data);
+          if (res.data.code == 0) {
+            if (res.data.data) {
+              wx.navigateBack()
+            }
+          } else {
+            this.showLoading(res.data.msg, "none");
+          }
+      })
+    } else {
+      this.showLoading("请输入确认密码", "none")
+    }
+  },
+  // 获取key
+  getKey: function (data, token){
+    var key = "";
+    if (data.index2 > token.length) {
+      let idx = data.index2 - token.length;
+      //补0 
+      let test = idx + 1;
+      let z = (Array(test).join(0)).slice(-test);
+      key = token.substring(data.index1) + z
+    } else {
+      key = token.substring(data.index, data.index2)
+    }
+    return key;
+  }
 
 })

@@ -1,17 +1,18 @@
 var app = getApp();
-
+var util = require('../../../util/encrypt.js');
 Page({
 
   data: {
-    blockIsShow: false,
+    toast:true,
+    blockIsShow: true,
   },
   onLoad: function (options) {
     // PageList.getDate().then((res)=>{
     //   console.log(res)
     // });
   },
-  onReady: function () {
-    
+  fgetVal:function(e){
+    console.log(e.detail.val)
   },
   onShow: function () {
     var that = this;
@@ -56,6 +57,11 @@ Page({
   },
   onHide: function () {
     
+  },
+  fno_tap:function () {
+    this.setData({
+      toast: false
+    })
   },
   //待办-消息
   goNews:function(){

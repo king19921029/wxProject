@@ -4,6 +4,7 @@ Page({
     time: "获取验证码",
     countTime: 60,
     disabled: false,
+   
   },
   onLoad: function (options) {
 
@@ -71,7 +72,7 @@ Page({
           var data = res.data.data;
           if(data){
             wx.navigateTo({
-              url: '/page/tabBar/minePages/setPassword/setPassword?type='+2,
+              url: '/page/tabBar/minePages/setPassword/setPassword?type=' + 2 + "&code=" + that.data.codeVal,
             })
           }
         } else {

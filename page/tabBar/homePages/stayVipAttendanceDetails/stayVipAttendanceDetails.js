@@ -51,23 +51,26 @@ Page({
           app.showLoading(res.data.msg, "none");
         }
     })
+
+    // 获取解密token
+    app.wxRequest("gongguan/api/wechat/getIndex",
+      {},
+      "post", function (res) {
+        console.log("getIndex", res.data.data)
+        if (res.data.code == 0) {
+          let token = app.globalData.token;
+          that.setData({
+            getIndex: res.data.data,
+            token: token
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
   },
-  //查看详情
-  // goDetails: function (e) {
-  //   var that = this;
-  //   let types = e.currentTarget.dataset.types;
-  //   if( types == 0 ){
-  //     return false;
-  //   }
-  //   let userId = e.currentTarget.dataset.userid;
-  //   let month = that.data.month;
-  //   let groupId = that.data.groupId;
-  //   wx.navigateTo({
-  //     url: `/page/tabBar/homePages/stayVipAttendanceProject/stayVipAttendanceProject?month=${month}&groupId=${groupId}&userId=${userId}`
-  //   })
-  // },
+
   //多选框点击
   checkboxChange:function(e){
     let isChecked = e.currentTarget.dataset.ischecked;//是否选中
@@ -132,51 +135,34 @@ Page({
     
   },
   // 取消
-  no_tap: function () {
+  fno_tap: function () {
     this.setData({
       blockIsShow: true
     })
   },
-  // 获取验证吗
-  getCode: function () {
-    var that = this;
-    // 验证码倒计时
-    that.setData({
-      disabled: true
-    })
-    var countTime = that.data.countTime
-    var interval = setInterval(function () {
-      countTime--
-      that.setData({
-        time: countTime + 's'
-      })
-      if (countTime <= 0) {
-        clearInterval(interval)
-        that.setData({
-          time: '重新发送',
-          countTime: 60,
-          disabled: false
-        })
-      }
-    }, 1000)
-    app.wxRequest("gongguan/front/isSendSmsCode.action",
-      { tel: that.data.userPhone, type: 1 },
-      "post", function (res) {
-        console.log("验证码：", res.data.data);
-        if (res.data.code == 0) {
-          var data = res.data.data;
-
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
-
-  },
-  // 获取输入的code
-  get_val: function (e) {
+  // 获取value
+  fgetVal: function (e) {
     this.setData({
-      codeVal: e.detail.value
+      codeVal: e.detail.val
     })
+  },
+  // 密码确认
+  fconfirmTap:function(){
+    var that = this;
+    if (that.data.ids) {
+      let codeVal = that.data.codeVal;
+      let url = "gongguan/api/wechat/groupConfirmPersonAttendance";
+      let bodyData = {
+        groupId: that.data.groupId,
+        ids: that.data.ids,
+      }
+      const data = that.data.getIndex;
+      const token = that.data.token;
+      app.confirmaed(codeVal, url, bodyData, data, token)
+    }else {
+      app.showLoading("最少勾选一项", "none")
+    }
+    
   },
   // 确定
   confirmBtn:function(){

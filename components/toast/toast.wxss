@@ -1,0 +1,249 @@
+/* transform: scale(1.5, 1.5); */
+/* border #efeff4 */
+/* blue  #2e96ff */
+/*  */
+
+/* box common */
+.box{
+  font-size: 28rpx;
+}
+/* 浮层 */
+.box_block{
+  height: 100vh;
+  width: 100%;
+  background: rgba(0, 0, 0, .5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 浮层 */
+.block_content{
+  width: 80%;
+  border-radius: 10rpx;
+  padding: 15rpx 0 48rpx 0;
+  z-index: 998;
+}
+.block_title{
+  text-align: center;
+  padding: 25rpx 0 30rpx 0;
+  font-weight: 400;
+  font-size: 32rpx;
+}
+.block_code{
+  justify-content:center;
+  align-items: center;
+}
+.block_code input{
+  background: #efeff4;
+  border: none;
+  height: 65rpx;
+  line-height: 65rpx;
+  padding: 0 10rpx;
+  text-indent: 20rpx;
+  font-size: 26rpx;
+  width: 100%;
+}
+.get_code{
+  width: 190rpx;
+  text-align: center;
+  background: #3197fb;
+  color: #fff;
+  height: 65rpx;
+  line-height: 65rpx;
+  font-size: 28rpx;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+}
+.btn_box{
+  display: flex;
+  align-items: center;
+  justify-content:center;
+  margin-top: 38rpx;
+  padding: 10rpx 0;
+}
+.btn_box view{
+  /* padding:0 50rpx; */
+  width: 172rpx;
+  text-align: center;
+  height: 62rpx;
+  font-size: 28rpx;
+  line-height: 62rpx;
+  border-radius: 5rpx;
+}
+
+/* 没有的时候 */
+.list_none image{
+  width: 379rpx;
+  height: 336rpx;
+  margin: 100rpx 0 70rpx 0;
+}
+.list_none{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 34rpx;
+  color: #88888a;
+  height: 87vh;
+}
+.box_block .yes{
+  background: #3197fb;
+  color: #fff;
+}
+.no{
+  border: 1px solid #bbbbbb;
+  margin-right: 40rpx;
+}
+
+.border_top{
+  border-top: 1rpx solid #efeff4;
+}
+.com_width{
+  width: 92%;
+  margin-left: 4%;
+}
+.display_flex{
+  display: flex;
+  align-items: center;
+}
+.flex_direction{
+  display: flex;
+  flex-direction: column;
+}
+.space_between{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.space_around{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.bg_fff{
+  background: #fff;
+}
+.bg_blue{
+  background: #2e95ff;
+  color: #fff;
+}
+.bg_gray{
+  background: #666666;
+  color: #fff;
+}
+.color_gray{
+  color: #666666;
+}
+.color_blue{
+  color: #2e95ff;
+}
+.color_red{
+  color: red;
+  font-size: 24rpx;
+}
+.box_shadow{
+  box-shadow:rgb(235, 235, 235) 0px 0px 4rpx inset;
+}
+.com_footer_btn{
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+  width: 92%;
+  margin-left: 4%;
+  text-align: center;
+  font-size: 34rpx;
+  font-weight:bold;
+  margin-top: 57rpx;
+}
+
+.overflow{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
+.overflow_tow{
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* 待办确认  全部确认按钮 */
+.one_yes{
+  background: #dfdfe3;
+  color: #000;
+  border:1px solid #bbbbbb;
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius:10rpx; 
+  font-size: 32rpx;
+  margin-top: 35rpx;
+}
+/* 确定 */
+.all_yes{
+  padding: 20rpx 0;
+  text-align: center;
+  border-radius:10rpx; 
+  font-size: 32rpx;
+  margin-top: 50rpx;
+}
+
+/*开始---- 通用下拉框 */
+.work_select_header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.work_select_header view{
+  padding: 25rpx 0;
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.border_bottom{
+  border-bottom: 1rpx solid #efeff4;
+}
+.select_header{
+  display: flex;
+  justify-content: space-between;
+}
+.select_header>view{
+  padding: 25rpx 0;
+  width: 33.3%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tan{
+  width: 30rpx;
+  height: 30rpx;
+  margin-left: 6rpx;
+}
+.tan_top{
+  width: 25rpx;
+  height: 25rpx;
+  margin-left: 6rpx;
+}
+.add_class{
+  color: #2f8ce0;
+}
+/* select_box */
+.select_box{
+
+}
+.select_box>view{
+  padding: 20rpx 0;
+  border-bottom: 1rpx solid #efeff4;
+  width: 94%;
+  text-indent: 30rpx;
+  margin-left: 6%;
+}
+/*结束---- 通用下拉框 */
+page {
+  background:#efeff4;
+}

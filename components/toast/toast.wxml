@@ -1,0 +1,18 @@
+<!-- 浮层 -->
+<view class='box_block'>
+  <view class='bg_fff block_content'>
+    <view class='block_title'>请确认</view>
+
+    <view class='com_width block_code display_flex'>
+      <input bindinput='_getVal' placeholder='输入确认密码' type='number'></input>
+      <!-- <button disabled='{{disabled}}' bindtap='getCode' class='get_code'>
+        {{time}}
+      </button> -->
+    </view>
+
+    <view class='btn_box'>
+      <view bindtap='_none_tap' class='no'>取消</view>
+      <view bindtap='_confirmaed' class='yes'>确认</view>
+    </view>
+  </view>
+</view>

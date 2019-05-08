@@ -33,7 +33,22 @@ Page({
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
+    // 获取解密token
+    app.wxRequest("gongguan/api/wechat/getIndex",
+      {},
+      "post", function (res) {
+        console.log("getIndex", res.data.data)
+        if (res.data.code == 0) {
+          let token = app.globalData.token;
+          that.setData({
+            getIndex: res.data.data,
+            token: token
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+    })
   },
   onHide: function () {
 
@@ -41,27 +56,33 @@ Page({
   // 确定
   confirmTap: function () {
     var that = this;
-    let id = that.data.id;
-    let groupId = that.data.groupId;
-    if (that.data.codeVal){
+    let codeVal = that.data.codeVal;
+    let url = "gongguan/api/wechat/confirmQuantityStatus";
+    let bodyData = {
+      ids: that.data.id
+    };
+    let data = that.data.getIndex;
+    let token = that.data.token;
+    if (codeVal){
+      app.confirmaed(codeVal, url, bodyData, data, token)
       // 确定
-      app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
-        {
-          ids: id,
-          verificationCode: that.data.codeVal
-        },
-        "post", function (res) {
-          console.log("全部确定", res.data.data)
-          if (res.data.code == 0) {
-            wx.navigateBack({
-              delta: 2,
-            })
-          } else {
-            app.showLoading(res.data.msg, "none");
-          }
-      })
+      // app.wxRequest("gongguan/api/wechat/confirmQuantityStatus",
+      //   {
+      //     ids: id,
+      //     verificationCode: that.data.codeVal
+      //   },
+      //   "post", function (res) {
+      //     console.log("全部确定", res.data.data)
+      //     if (res.data.code == 0) {
+      //       wx.navigateBack({
+      //         delta: 2,
+      //       })
+      //     } else {
+      //       app.showLoading(res.data.msg, "none");
+      //     }
+      // })
     }else{
-      app.showLoading("请输入验证码", "none");
+      app.showLoading("请输入确认密码", "none");
     }
     
   },

@@ -47,11 +47,11 @@ Page({
 
   },
   // 工资详情
-  goWageDetails: function (e) {
-  let id = e.currentTarget.dataset.id;
-    wx.navigateTo({
-      url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' +id,
-    })
-  },
+  // goWageDetails: function (e) {
+  // let id = e.currentTarget.dataset.id;
+  //   wx.navigateTo({
+  //     url: '/page/tabBar/homePages/wageDetails/wageDetails?id=' +id,
+  //   })
+  // },
 
 })

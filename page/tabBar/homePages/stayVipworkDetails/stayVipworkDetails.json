@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "动态设置标题"
+  "navigationBarTitleText": "动态设置标题",
+  "usingComponents": {
+    "template-toast": "/components/toast/toast"
+  }
 }

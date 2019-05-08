@@ -21,13 +21,13 @@
   <view class='margin_top header bg_fff'>
     <view class='com_title com_width'>上传工作照片</view>
     <view class='photo_view padding_bottom display_flex com_width'>
-      <view bindtap='photoChooseImage' class='add_view'>
-        <block wx:if="{{imageP == ''}}">
+      <view bindtap='photoChooseImageG' class='add_view'>
+        <block wx:if="{{imageG == ''}}">
           <image class='icon' src='/image/add_icon.png'></image>
           <view class='color_gray'>点击拍照上传照片</view>
         </block>
         <block wx:else>
-          <image class='photo' src='{{imageP}}'></image>
+          <image class='photo' src='{{imageG}}'></image>
         </block>
         
       </view>
