@@ -82,6 +82,16 @@ App({
       icon: types
     });
   },
+  // 打开loading并跳转
+  showLoading2: function (title, types) {
+    wx.showToast({
+      title: title,
+      icon: types
+    });
+    setTimeout(()=>{
+      wx.navigateBack()
+    },1000)
+  },
   // 浮层确定
   confirmaed: function (codeVal,url,bodyData,data,token) {
    
@@ -120,6 +130,17 @@ App({
       key = token.substring(data.index, data.index2)
     }
     return key;
-  }
+  },
+  // 跳转
+  router:function(url,data){
+    var promise = data;
+    if (typeof promise == 'object' ){
+      promise = JSON.stringify(data)
+    }
+    wx.navigateTo({
+      url: url + "?routerData=" + promise
+    })
+    
+  },
 
 })

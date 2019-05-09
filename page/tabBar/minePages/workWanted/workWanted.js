@@ -1,13 +1,25 @@
 var app = getApp();
 Page({
   data: {
-    val: "",
+    workList:{},
   },
   onLoad: function (options) {
 
   },
   onShow: function () {
-
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/queryJobWanted",
+      {},
+      "post", function (res) {
+        console.log("求职信息：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            workList:{...res.data.data}
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
   },
   getVal: function (e) {
     this.setData({
@@ -34,9 +46,10 @@ Page({
     })
   },
   // 去修改
-  go_changeWorkWanted: function () {
+  go_changeWorkWanted: function (e) {
+    let id = e.currentTarget.dataset.id;
     wx.navigateTo({
-      url: '/page/tabBar/minePages/changeWorkWanted/changeWorkWanted'
+      url: '/page/tabBar/minePages/changeWorkWanted/changeWorkWanted?id='+id,
     })
   },
 

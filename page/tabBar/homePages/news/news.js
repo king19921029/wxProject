@@ -4,7 +4,7 @@ Page({
     msg:{},
   },
   onLoad: function (options) {
-
+    
   },
   onShow: function () {
     var that = this;

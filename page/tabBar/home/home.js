@@ -10,6 +10,7 @@ Page({
     // PageList.getDate().then((res)=>{
     //   console.log(res)
     // });
+    
   },
   fgetVal:function(e){
     console.log(e.detail.val)
@@ -29,6 +30,7 @@ Page({
             that.setData({
               indexData: res.data.data
             })
+            
           } else {
             app.showLoading(res.data.msg, "none");
           }
@@ -53,7 +55,7 @@ Page({
         }
       })
     }
-
+    
   },
   onHide: function () {
     
@@ -67,11 +69,12 @@ Page({
   goNews:function(){
     if(this.data.token){
       wx.navigateTo({
-        url: '/page/tabBar/homePages/news/news',
+        url: '/page/tabBar/homePages/news/news?obj='+obj,
       })
+      // app.router("/page/tabBar/homePages/news/news", this.data.indexData)
     }else{
       wx.navigateTo({
-        url: '/page/tabBar/login/login',
+        url: '/page/tabBar/login/loginthis.data.indexData',
       })
     }
    
@@ -82,10 +85,6 @@ Page({
     if (this.data.token) {
       wx.navigateTo({
         url: '/page/tabBar/homePages/stayAttendance/stayAttendance',
-      })
-    }else{
-      wx.navigateTo({
-        url: '/page/tabBar/login/login',
       })
     }
    

@@ -2,17 +2,17 @@
   <view class='border_top form_box bg_fff'>
     <view class='form_list display_flex'>
       <view>姓名</view>
-      <view class='margin_right'>张三</view>
+      <input bindinput='getName' value="{{allData.userName}}" class='margin_right'></input>
     </view>
     <view class='form_list display_flex'>
       <view>手机号码</view>
-      <view class='margin_right'>18801287297</view>
+      <input bindinput='getPhone' value="{{allData.phone}}" class='margin_right'></input>
     </view>
     <view class='form_list display_flex'>
       <view>工种</view>
        <picker  bindchange="pickerSkill" value="{{workTypeName}}" 
          class="picker_view margin_right" range="{{workTypeName}}">
-          <view wx:if="{{allData.skill}}" class="picker">{{allData.skill}}</view>
+          <view wx:if="{{allData.workType}}" class="picker">{{allData.workType}}</view>
           <view wx:else class="color_gray picker">请选择</view>
       </picker>
     </view>
@@ -44,12 +44,19 @@
           </input>
         </picker>
     </view>
-    <view class='form_list last_list display_flex'>
-      <view>求职说明</view>
+
+    <view class='form_list display_flex'>
+      <view>阅读公司数量</view>
+      <view class='margin_right'>{{allData.readNum}}</view>
     </view>
-    <textarea class='com_width' placeholder='输入求职说明'>
-      <text class='textarea_text'>10/50</text>
+
+    <view class='form_list last_list display_flex'>
+      <view class='color_gray'>求职说明</view>
+    </view>
+    <textarea class='com_width' value="{{content}}" 
+      placeholder='输入求职说明' maxlength="50" bindinput='getVal'>
+      <text class='textarea_text'>{{font_num}}/50</text>
     </textarea>
   </view>
-  <view class='bg_blue com_footer_btn'>修改</view>
+  <view bindtap='next' class='bg_blue com_footer_btn'>修改</view>
 </view>

@@ -1,6 +1,9 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/minePages/workWanted/workWanted",
+    "page/tabBar/minePages/setWorkWanted/setWorkWanted",
+  
     "page/tabBar/minePages/chagePassword/chagePassword",
     
     "components/toast/toast",
@@ -14,9 +17,9 @@
     "page/tabBar/homePages/attendanceCard/attendanceCard",
     "page/tabBar/message/message",
     "page/tabBar/login/login",
-    "page/tabBar/minePages/setWorkWanted/setWorkWanted",
+    
     "page/tabBar/minePages/changeWorkWanted/changeWorkWanted",
-    "page/tabBar/minePages/workWanted/workWanted",
+    
     "page/tabBar/mine/mine",
     "page/tabBar/minePages/changePhone/changePhone",
     "page/tabBar/minePages/myProject/myProject",

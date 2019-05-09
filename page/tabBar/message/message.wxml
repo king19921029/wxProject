@@ -56,8 +56,8 @@
         <view class='color_gray com_margin_top'>{{item.city}} | {{item.companyName}}</view>
         <view class='color_gray com_margin_top'>{{item.expiryDate}}截止</view>
         <view class='add_or com_margin_top'>
-          <text>联系人：{{item.personName}}</text>
-          <text>联系电话：{{item.personPhone}}</text>
+          <text>联系人：{{item.personName}}    </text>
+          <text>     联系电话：{{item.personPhone}}</text>
         </view>
       </view>
     </view>
