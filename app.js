@@ -119,28 +119,74 @@ App({
   },
   // 获取key
   getKey: function (data, token){
+
     var key = "";
     if (data.index2 > token.length) {
+      
       let idx = data.index2 - token.length;
       //补0 
       let test = idx + 1;
       let z = (Array(test).join(0)).slice(-test);
       key = token.substring(data.index1) + z
+      console.log("补0")
+      console.log("key=",key)
+      console.log("token=",token.length)
     } else {
-      key = token.substring(data.index, data.index2)
+      console.log("不补0")
+      console.log("index2-index1=",data.index2 - data.index1)
+      console.log("key=",key)
+      key = token.substring(data.index1, data.index2)
     }
     return key;
   },
-  // 跳转
-  router:function(url,data){
-    var promise = data;
-    if (typeof promise == 'object' ){
-      promise = JSON.stringify(data)
+  // 路由带参
+  router(types,url,data){
+    if ( data instanceof Object ) {
+      if (data instanceof Array ){
+        this.routerTpye(types, url, "arrData", data)
+        console.log("Array")
+      }else{
+        data = JSON.stringify(data)
+        this.routerTpye(types, url, "objData", data)
+        console.log("Object")
+      }
+    }else if (typeof data == "string") {
+      this.routerTpye(types, url, "strData", data)
+      console.log("String")
     }
-    wx.navigateTo({
-      url: url + "?routerData=" + promise
-    })
-    
+
   },
+  // 判断带参类型
+  routerTpye(types,url,dataType,data){
+    if( types == 1 ){
+      wx.navigateTo({
+        url: url + "?"+ dataType + "=" + data,
+      })
+    } else if(types == 2){
+      wx.redirectTo({
+        url: url + "?" + dataType + "=" + data,
+      })
+    }else if(types == 3){
+      wx.switchTab({
+        url: url
+      })
+    }else{
+      wx.reLaunch({
+        rl: url + "?" + dataType + "=" + data,
+      })
+    }
+  },
+  // 获取上页面
+  getDataType(data){
+    if( data.arrData ){
+      return data.arrData.split(",")
+    }
+    if (data.objData){
+      return JSON.parse(data.objData)
+    }
+    if (data.strData) {
+      return data.strData
+    }
+  }
 
 })

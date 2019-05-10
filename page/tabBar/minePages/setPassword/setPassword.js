@@ -1,5 +1,6 @@
 
 var util = require('../../../../util/encrypt.js');
+import pass from "../../../../util/util.js"
 var app = getApp();
 Page({
   data: {
@@ -54,8 +55,12 @@ Page({
     let val2 = that.data.val2;
     const data = that.data.getIndex;
     const token = that.data.token;
-    const key = app.getKey(data.token);
-    console.log(key)
+    const key = app.getKey(data,token);
+    
+    if (!pass.isPasswd(val1)){
+      return false;
+    }
+    
     if ( val1 && val2) {
       let password1 = util.encrypt(key, val1)
       let password2 = util.encrypt(key, val2)
@@ -83,7 +88,9 @@ Page({
     const data = that.data.getIndex;
     const token = that.data.token;
     const key = app.getKey(data,token);
-    console.log(key)
+    if (!pass.isPasswd(val1)) {
+      return false;
+    }
     if (val1 && val2) {
       let password1 = util.encrypt(key, val1)
       let password2 = util.encrypt(key, val2)

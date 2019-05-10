@@ -29,10 +29,25 @@ function getDate(url,data,n) {
   });
   return promise;
 }
+function showLoading() {
+  wx.showToast({
+    title: "密码必须由数字、字母组合而成",
+    icon: "none"
+  })
+}
+function isPasswd(val){
+  var fn = /^(\w){6,20}$/;
+  if (!fn.exec(val)){
+    return showLoading()
+  }else{
+    return val
+  }
+}  
 
 module.exports = {
   formatTime: formatTime,
-  getDate: getDate
+  getDate: getDate,
+  isPasswd: isPasswd
 }
 
 //test url : https://ccdcapi.alipay.com/validateAndCacheCardInfo.json?cardNo=6222005865412565805&cardBinCheck=true

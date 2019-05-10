@@ -4,7 +4,8 @@ Page({
     msg:{},
   },
   onLoad: function (options) {
-    
+    console.log(options)
+    console.log(app.getDataType(options))
   },
   onShow: function () {
     var that = this;

@@ -1,5 +1,6 @@
 
 var util = require('../../../../util/encrypt.js');
+import pass from "../../../../util/util.js"
 function PrefixInteger(m) {
   return (Array(m).join(0)).slice(-m);
 }
@@ -9,7 +10,7 @@ Page({
 
   },
   onLoad: function (options) {
-    
+   
   },
   onShow: function () {
     var that = this;
@@ -24,6 +25,7 @@ Page({
             getIndex: res.data.data,
             token: token
           })
+          console.log(app.getKey(res.data.data, token))
         } else {
           app.showLoading(res.data.msg, "none");
         }
@@ -52,6 +54,13 @@ Page({
     const data = that.data.getIndex;
     const token = that.data.token;
     const key = app.getKey(data, token);
+    if (!pass.isPasswd(val1)) {
+      return false;
+    }
+    console.log(data)
+    console.log(key)
+    console.log(key.length)
+
     if (oldVal && val1 && val2 ){
       let newPassword1 = util.encrypt(key, val1)
       let newPassword2 = util.encrypt(key, val2)
@@ -63,7 +72,10 @@ Page({
         {},
         "post", function (res) {
           if (res.data.code == 0) {
-            wx.navigateBack()
+            if( res.data.data){
+              wx.navigateBack()
+            }
+           
           } else {
             app.showLoading(res.data.msg, "none");
           }

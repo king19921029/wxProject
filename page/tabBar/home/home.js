@@ -10,7 +10,6 @@ Page({
     // PageList.getDate().then((res)=>{
     //   console.log(res)
     // });
-    
   },
   fgetVal:function(e){
     console.log(e.detail.val)
@@ -67,10 +66,23 @@ Page({
   },
   //待办-消息
   goNews:function(){
+    var arr = this.data.indexData.in;
+    var arr2 = [1,2,3,4]
+    var str = "乐乐"
+    var obj = {
+      name:"lele",
+      age:11
+    }
+
     if(this.data.token){
-      wx.navigateTo({
-        url: '/page/tabBar/homePages/news/news?obj='+obj,
-      })
+      // wx.navigateTo({
+      //   url: '/page/tabBar/homePages/news/news?obj='+obj,
+      // })
+      app.router(
+        1,
+        "/page/tabBar/homePages/news/news",
+        str
+      )
       // app.router("/page/tabBar/homePages/news/news", this.data.indexData)
     }else{
       wx.navigateTo({

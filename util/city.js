@@ -25,7 +25,6 @@ function cityList(cityObj) {
 }
 
 function pushCity() {
-
 }
 
 module.exports = {

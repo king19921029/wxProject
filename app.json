@@ -1,16 +1,24 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/minePages/setPassword/setPassword",
+    
+   
+    "page/tabBar/minePages/chagePassword/chagePassword",
+    
+    "page/tabBar/mine/mine",
+   
+    
     "page/tabBar/minePages/workWanted/workWanted",
     "page/tabBar/minePages/setWorkWanted/setWorkWanted",
   
-    "page/tabBar/minePages/chagePassword/chagePassword",
+    
     
     "components/toast/toast",
 
     "page/tabBar/minePages/retPassword/retPassword",
     
-    "page/tabBar/minePages/setPassword/setPassword",
+    
 
     "page/tabBar/minePages/personData/personData",
     
@@ -20,7 +28,7 @@
     
     "page/tabBar/minePages/changeWorkWanted/changeWorkWanted",
     
-    "page/tabBar/mine/mine",
+    
     "page/tabBar/minePages/changePhone/changePhone",
     "page/tabBar/minePages/myProject/myProject",
     "page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails",
