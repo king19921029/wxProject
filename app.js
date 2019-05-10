@@ -122,19 +122,12 @@ App({
 
     var key = "";
     if (data.index2 > token.length) {
-      
       let idx = data.index2 - token.length;
       //补0 
       let test = idx + 1;
       let z = (Array(test).join(0)).slice(-test);
       key = token.substring(data.index1) + z
-      console.log("补0")
-      console.log("key=",key)
-      console.log("token=",token.length)
     } else {
-      console.log("不补0")
-      console.log("index2-index1=",data.index2 - data.index1)
-      console.log("key=",key)
       key = token.substring(data.index1, data.index2)
     }
     return key;

@@ -31,6 +31,7 @@ Page({
             getIndex:res.data.data,
             token: token
           })
+          // console.log("key=",app.getKey(res.data.data, token)) 
         } else {
           app.showLoading(res.data.msg, "none");
         }
@@ -56,6 +57,10 @@ Page({
     const data = that.data.getIndex;
     const token = that.data.token;
     const key = app.getKey(data,token);
+
+    console.log("下标=", data)
+    console.log("token=", token)
+    console.log("key=", key)
     
     if (!pass.isPasswd(val1)){
       return false;
@@ -88,6 +93,9 @@ Page({
     const data = that.data.getIndex;
     const token = that.data.token;
     const key = app.getKey(data,token);
+    console.log("下标=", data)
+    console.log("token=", token)
+    console.log("key=", key)
     if (!pass.isPasswd(val1)) {
       return false;
     }
