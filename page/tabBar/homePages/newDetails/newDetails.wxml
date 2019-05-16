@@ -1,15 +1,10 @@
 <view class='box'>
   <view class='list'>
-    <view class='new_date'>04-24 14:13</view>
+    <view class='new_date'>{{ggData.createTime}}</view>
     <view class='new_content bg_fff'>
-      此处是消息详情此处是消息详情此处是消息详情此处是消息详情此处是消息详此处是消息
-    </view>
-  </view>
-
-  <view class='list'>
-    <view class='new_date'>04-24 14:13</view>
-    <view class='new_content bg_fff'>
-      此处是消息详情此处是消息详情此处是消息详情此处是消息详情此处是消息详此处是消息
+      <text>{{ggData.content}}</text>
+      <text bindtap='goDetails' data-types="{{ggData.optType}}" class='red' wx:if="{{ggData.attribute1}}">{{ggData.attribute1}}</text>
+      <text wx:if="{{ggData.attribute2}}">{{ggData.attribute2}}</text>
     </view>
   </view>
 </view>

@@ -1,6 +1,8 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/homePages/news/news",
+    
     "page/tabBar/minePages/setPassword/setPassword",
     
    
@@ -56,7 +58,7 @@
     "page/tabBar/homePages/vipSeeAttendanceDetails/vipSeeAttendanceDetails",
     "page/tabBar/homePages/serachPage/serachPage",
     "page/tabBar/homePages/seeWorkload/seeWorkload",
-    "page/tabBar/homePages/news/news",
+    
     "page/tabBar/messagePages/zpDetails/zpDetails",
     "page/tabBar/homePages/seeWage/seeWage",
     "page/tabBar/homePages/stayworkDetails/stayworkDetails",

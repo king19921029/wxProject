@@ -27,9 +27,11 @@ Page({
   onHide: function () {
 
   },
-  go_details:function(){
+  go_details:function(e){
+    let id = e.currentTarget.dataset.id;
+    console.log(id)
     wx.navigateTo({
-      url: '/page/tabBar/homePages/newDetails/newDetails'
+      url: '/page/tabBar/homePages/newDetails/newDetails?id='+id
     })
   }
 

@@ -36,12 +36,13 @@ function showLoading() {
   })
 }
 function isPasswd(val){
-  var fn = /^(\w){6,20}$/;
-  if (!fn.exec(val)){
-    return showLoading()
-  }else{
-    return val
-  }
+  // var fn = /^(\w){6,20}$/;
+  // if (!fn.exec(val)){
+  //   return showLoading()
+  // }else{
+  //   return val
+  // }
+  return val
 }  
 
 module.exports = {

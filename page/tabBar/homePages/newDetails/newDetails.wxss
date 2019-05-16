@@ -13,8 +13,11 @@
   margin: 30rpx 0;
 } 
 .new_content{
-  width: 88%;
+  width: 90%;
   padding: 20rpx 20rpx;
   border: 1px soid #e5e5e5;
-  border-radius: 5rpx;
+  border-radius: 5rpx;  
+}
+.red{
+  color: red;
 }

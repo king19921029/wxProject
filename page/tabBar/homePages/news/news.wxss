@@ -18,7 +18,6 @@
 .icon_box text{
   width: 14rpx;
   height: 14rpx;
-  background: #3197fb;
   border-radius: 50%;
 }
 .color_1{

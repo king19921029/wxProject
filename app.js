@@ -94,15 +94,15 @@ App({
   },
   // 浮层确定
   confirmaed: function (codeVal,url,bodyData,data,token) {
-   
+   var that = this;
     //确定
     if (codeVal) {
       // let key = token.substring(data.index1, data.index2)
-      let key = this.getKey(data, token)
+      let key = that.getKey(data, token)
       console.log(key)
       let password = util.encrypt(key, codeVal)
       bodyData.password = password
-      this.wxRequest(url, bodyData,
+      that.wxRequest(url, bodyData,
         "post", function (res) {
           console.log("确认考勤：", res.data.data);
           if (res.data.code == 0) {
@@ -110,11 +110,11 @@ App({
               wx.navigateBack()
             }
           } else {
-            this.showLoading(res.data.msg, "none");
+            that.showLoading(res.data.msg, "none")
           }
       })
     } else {
-      this.showLoading("请输入确认密码", "none")
+      that.showLoading("请输入确认密码", "none")
     }
   },
   // 获取key

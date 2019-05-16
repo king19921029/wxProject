@@ -6,14 +6,14 @@
       data-id="{{item.id}}">
       <view class='list com_width display_flex'>
         <view class="icon_box">
-          <text></text>       
+          <text class='{{item.status=="1"?"":"color_2"}}'></text>       
         </view>
          <view class='font_box overflow'>
-          <view>系统消息</view>
-          <view class='color_gray margin_tops'>实名认证成功、工资卡已抽卡萨丁口的</view>
+          <view>{{item.optType}}</view>
+          <view class='color_gray margin_tops'>{{item.content}}</view>
         </view>
 
-        <view class='times color_gray'>3月18日</view>
+        <view class='times color_gray'>{{item.createTime}}</view>
       </view>
     </view>
 

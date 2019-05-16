@@ -43,8 +43,8 @@ Page({
         })
       }
     }, 1000)
-    app.wxRequest("gongguan/front/isSendSmsCode.action",
-      { tel: that.data.tel},
+    app.wxRequest("gongguan/front/sendCode",
+      { tel: that.data.tel,type:8},
       "post", function (res) {
       console.log("验证码：", res.data.data);
       if (res.data.code == 0) {

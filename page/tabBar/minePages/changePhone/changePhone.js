@@ -66,7 +66,7 @@ Page({
         })
       }
     }, 1000)
-    app.wxRequest("gongguan/front/isSendSmsCode.action",
+    app.wxRequest("gongguan/front/sendCode",
       { tel: that.data.oldPhone, type: 7 },
       "post", function (res) {
         console.log("验证码：", res.data.data);

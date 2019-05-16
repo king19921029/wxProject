@@ -15,7 +15,11 @@ Page({
     }
   },
   onLoad: function (options) {
-
+    if (options.types == "3" ){
+      this.setData({
+        headerBorder:false
+      })
+    }
   },
   onShow: function () {
     var that = this;
