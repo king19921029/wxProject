@@ -16,18 +16,30 @@ Page({
   onShow: function () {
     var that = this; 
     // 项目筛选
-    app.wxRequest("gongguan/api/wechat/myManageProject",
+    // app.wxRequest("gongguan/api/wechat/myManageProject",
+    //   {},
+    //   "post", function (res) {
+    //   console.log("项目筛选：", res.data.data)
+    //   if (res.data.code == 0) {
+    //     that.setData({
+    //       manageProject: res.data.data
+    //     })
+    //   } else {
+    //     app.showLoading(res.data.msg, "none");
+    //   }
+    // })
+    app.wxRequest("gongguan/api/wechat/getMyManageProject",
       {},
       "post", function (res) {
-      console.log("项目筛选：", res.data.data)
-      if (res.data.code == 0) {
-        that.setData({
-          manageProject: res.data.data
-        })
-      } else {
-        app.showLoading(res.data.msg, "none");
-      }
-    })
+        console.log("项目筛选------------", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            manageProject: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
     that.getList(1)
   },
   onHide: function () {
@@ -130,7 +142,7 @@ Page({
  
   // 筛选
   projectLisre:function(e){
-    let id = e.currentTarget.dataset.id;
+    let id = e.currentTarget.dataset.projectid;
     let name = e.currentTarget.dataset.name;
     var obj = {
       id:id||"",

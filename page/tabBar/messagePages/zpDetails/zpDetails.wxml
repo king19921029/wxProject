@@ -50,9 +50,9 @@
     <view class='com_width com_padding'>{{zpData.recruitmentDesc}}</view>
   </view>
 
-  <view class='color_gray com_width com_titles'>备注：</view>
+  <view class='color_gray com_width com_titles'>备注：{{zpData.remark}}</view>
   <view class='bg_fff'>
-    <view class='com_width com_padding'>备注：备注：备注：备注：备注：备注：备注：备注：备注：备注：</view>
+    <view class='com_width com_padding'></view>
   </view>
 
   <view bindtap='phoneCall' class='footer bg_blue'>

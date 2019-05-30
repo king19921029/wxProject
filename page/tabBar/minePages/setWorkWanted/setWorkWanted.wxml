@@ -2,11 +2,11 @@
   <view class='border_top form_box bg_fff'>
     <view class='form_list display_flex'>
       <view>姓名</view>
-      <input bindinput='getName' placeholder='请输入姓名' class='margin_right'></input>
+      <input bindinput='getName' disabled value="{{name}}" placeholder='请输入姓名' class='margin_right'></input>
     </view>
     <view class='form_list display_flex'>
       <view>手机号码</view>
-      <input bindinput='getPhone' placeholder='请输入手机号' class='margin_right'></input>
+      <input bindinput='getPhone' disabled value="{{phone}}" placeholder='请输入手机号' class='margin_right'></input>
     </view>
     <view class='form_list display_flex'>
       <view>工种</view>
@@ -31,14 +31,13 @@
     <!-- 日期 -->
     <view class='form_list display_flex'>
       <view>有效期</view>
+       <!-- start="2019-04-01" -->
+          <!-- end="2019-04-30" -->
         <picker
           mode="date"
           value="{{date}}"
-          start="2019-04-01"
-          end="2019-04-30"
           class='margin_right'
-          bindchange="bindDateChange"
-          >
+          bindchange="bindDateChange">
           <input class='city_input' disabled='ture' placeholder='请选择'
             value="{{date}}">
           </input>

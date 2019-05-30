@@ -39,12 +39,13 @@ Page({
   },
   previewImage: function (e) {
     var current = e.target.dataset.src;
+    console.log(e.currentTarget.dataset.srcimg)
     var arr = [];
-    arr.push(current)
+    arr.push(e.currentTarget.dataset.srcimg)
     wx.previewImage({
-      current: current, // 当前显示图片的http链接  
+      current: e.currentTarget.dataset.srcimg, // 当前显示图片的http链接  
       urls: arr // 需要预览的图片http链接列表  
     })
-  }, 
+  },
 
 })

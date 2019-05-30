@@ -28,9 +28,6 @@ Page({
       sourceType: [ 'camera'],
       success(res) {
         const tempFilePaths = res.tempFilePaths
-        that.setData({
-          imageP: tempFilePaths
-        })
         wx.showLoading({
           title: '上传中'
         })
@@ -147,14 +144,32 @@ Page({
   //下一步
   nextTap:function(){
     var that = this;
+    // 城市
+    let citys = that.data.region;
+    // 文化
+    let edType = that.data.edType;
+    // 地址
+    let address = that.data.address;
+    // code
+    let regionCode = that.data.regionCode;
+
+
     app.wxRequest("gongguan/api/wechat/auth",
       {  
         userName: that.data.userName, 
         idNum: that.data.idNum,
         address: that.data.address,
-        personPic: that.data.imageP,
-        idCardFrontPic: that.data.imageZ,
-        idCardBackPic: that.data.imageF,
+        personPic: that.data.imageP.realUrl,
+        idCardFrontPic: that.data.imageZ.realUrl,
+        idCardBackPic: that.data.imageF.realUrl,
+        egreeEducation: that.data.edCode,
+        province: citys[0],
+        city: citys[1],
+        country: citys[2],
+        provinceCode: regionCode[0],
+        cityCode: regionCode[1],
+        countryCode: regionCode[2]
+
       },
       "post", function (res) {
         console.log(res.data)
@@ -193,14 +208,16 @@ Page({
     
     console.log('picker发送选择改变，携带值为', e)
     this.setData({
-      region: e.detail.value
+      region: e.detail.value,
+      regionCode: e.detail.code
     })
   },
   // 学历选择
   bindPickerChange(e) {
     console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({
-      edType: this.data.edArr[e.detail.value]
+      edType: this.data.edArr[e.detail.value],
+      edCode: e.detail.value
     })
   },
 

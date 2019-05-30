@@ -78,6 +78,10 @@
           <text class='list_title'>实发工资：</text>
           <text class='list_data'>{{item.realSalary}}</text>
         </view>
+         <view class='list'>
+          <text class='list_title'>欠发工资：</text>
+          <text class='list_data'>{{item.differenceSalary}}</text>
+        </view>
         <view data-groupId="{{item.groupId}}" bindtap='goDetails' class='see_list'>查看详情</view>
       </view>
     </view>

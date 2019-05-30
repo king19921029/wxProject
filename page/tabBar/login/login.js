@@ -73,6 +73,7 @@ Page({
             "post", function (res) {
               if (res.data.code == 0) {
                 app.globalData.header.authorization = res.data.data
+                app.globalData.token = res.data.data
                 wx.setStorageSync("token", res.data.data)
                 wx.switchTab({
                   url: '/page/tabBar/home/home'

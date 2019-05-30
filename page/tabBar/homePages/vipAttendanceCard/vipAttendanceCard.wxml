@@ -1,34 +1,50 @@
 <view class='box'>
   <view class='headers bg_blue'>
-    <view class='times'>{{tabData.clockDate}}</view>
+    <view class='times'>{{titleData.clockDate}}</view>
     <view class='display_flex headers_mag'>
-      <view>状态：{{tabData.clockStatus}}</view>
-      <view>班次：{{tabData.type}}</view>
-      <view>工数：{{tabData.classNum}}</view>
+      <view>状态：{{titleData.clockStatus}}</view>
+      <view>班次：{{titleData.type}}</view>
+      <view>工数：{{titleData.classNum}}</view>
     </view>
   </view>
 
   <view>
 
     <view>
-      <view class='list'>早打卡时间：{{tabData.morning}}</view>
-      <view class='list'>打卡人：{{tabData.userName}}</view>
+      <view class='list'>早打卡时间：{{titleData.morning}}</view>
+      <view class='list'>打卡人：{{titleData.userName}}</view>
+      <view wx:if="{{titleData.morningPic}}" class='list display_flex'>
+        <view>打卡图片：</view>
+        <image bindtap='previewImage' data-srcimg="{{titleData.morningPic}}" src="{{titleData.morningPic}}"></image>
+      </view>
     </view>
 
-   <view class='margin_top'>
-      <view class='list'>午打卡时间：{{tabData.noon1}}</view>
-      <view class='list'>打卡人：{{tabData.userName}}</view>
-   </view>
-
-   <view class='margin_top'>
-      <view class='list'>午打卡时间：{{tabData.noon2}}</view>
-      <view class='list'>打卡人：{{tabData.userName}}</view>
-   </view>
+    <view class='margin_top'>
+        <view class='list'>午打卡时间：{{titleData.noon1}}</view>
+        <view class='list'>打卡人：{{titleData.userName}}</view>
+        <view wx:if="{{titleData.noon1Pic}}" class='list display_flex'>
+          <view>打卡图片：</view>
+          <image bindtap='previewImage' data-srcimg="{{titleData.noon1Pic}}" src="{{titleData.noon1Pic}}"></image>
+        </view>
+    </view>
 
     <view class='margin_top'>
-      <view class='list'>晚打卡时间：{{tabData.night}}</view>
-      <view class='list'>打卡人：{{tabData.userName}}</view>
-   </view>
+      <view class='list'>午打卡时间：{{titleData.noon2}}</view>
+      <view class='list'>打卡人：{{titleData.userName}}</view>
+      <view wx:if="{{titleData.noon2Pic}}" class='list display_flex'>
+          <view>打卡图片：</view>
+          <image bindtap='previewImage' data-srcimg="{{titleData.noon2Pic}}" src="{{titleData.noon2Pic}}"></image>
+        </view>
+    </view>
+
+     <view class='margin_top'>
+      <view class='list'>晚打卡时间：{{titleData.night}}</view>
+      <view class='list'>打卡人：{{titleData.userName}}</view>
+      <view wx:if="{{titleData.nightPic}}" class='list display_flex'>
+        <view>打卡图片：</view>
+        <image bindtap='previewImage' data-srcimg="{{titleData.nightPic}}" src="{{titleData.nightPic}}"></image>
+      </view>
+    </view>
    
   </view>
  

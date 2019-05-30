@@ -182,6 +182,11 @@ Page({
       url: '/page/tabBar/minePages/authentication/authentication',
     })
   },
+  go_todetails:function(){
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/hometoCard/hometoCard'
+    })
+  },
   // 稍后认证
   closeTap: function () {
     this.setData({

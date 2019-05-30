@@ -32,6 +32,11 @@
           <text class='list_title'>实发工资：</text>
           <text class='list_data'>{{details.realSalary}}</text>
         </view>
+
+        <view class='list'>
+          <text class='list_title'>欠发工资：</text>
+          <text class='list_data'>{{details.differenceSalary}}</text>
+        </view>
       </view>
     </view>
   </view>
@@ -44,7 +49,7 @@
       <view>应发(元)</view>
       <view>扣款(元)</view>
       <view>实发(元)</view>
-      <view>备注</view>
+      <view>欠发(元)</view>
     </view>
     <view bindtap='goWageDetails' class='com_tab_title'
       wx:for="{{tabData.t}}" wx:item="item" wx:key=""
@@ -53,7 +58,7 @@
       <view>{{item.payableSalary}}</view>
       <view>{{item.deductionSalary}}</view>
       <view>{{item.realSalary}}</view>
-      <view>{{item.status}}</view>
+      <view>{{item.differenceSalary}}</view>
     </view>
   </view>
 </view>

@@ -1,35 +1,29 @@
 var app = getApp();
 Page({
   data: {
-    selectStatus: 0
+    selectStatus: 0,
+    userName: "",//打卡人
+    imglist: [],
   },
   onLoad: function (options) {
-   this.setData({
-     month: options.month,
-     userId: options.userId
-   })
+    var that = this;
   },
   onShow: function () {
     var that = this;
-    //tab数据
-    let month = that.data.month;
-    let userId = that.data.userId;
-    app.wxRequest("gongguan/api/wechat/groupClockDetail",
-      {day: month,userId: userId },
+    // 打卡
+    app.wxRequest("gongguan/api/wechat/todayClockDetail",
+      { },
       "post", function (res) {
-        console.log("打卡数据：", res.data.data)
-        var data = res.data.data;
+        console.log("打卡", res.data.data)
         if (res.data.code == 0) {
+          var data = res.data.data;
           that.setData({
-            tabData: data
-          })
-          wx.setNavigationBarTitle({
-            title: data.clockDate
+            titleData: data
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
-      })
+    })
   },
   onHide: function () {
 

@@ -33,7 +33,7 @@
 
   <view class='phone_title'>确认密码</view>
   <view class='code_box'>
-    <input bindinput='get_val' type='number' placeholder='请输入确认密码'></input>
+    <input bindinput='get_val' password type='number' placeholder='请输入确认密码'></input>
     <!-- <button class='get_code' disabled='{{disabled}}' bindtap='getCode'>
       {{time}}
     </button> -->

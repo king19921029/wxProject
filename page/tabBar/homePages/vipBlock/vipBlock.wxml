@@ -28,11 +28,11 @@
     <image wx:else class='tan' src='/image/tan.png'></image>
   </view>
 
-  <!-- select -->
+  <!-- sezlect -->
   <view wx:if="{{selectBox}}" class='select_box bg_fff'>
     <view bindtap='projectLisre'>全部</view>
-    <view wx:for="{{manageProject.t}}" wx:item="item" wx:key=""
-      data-groupId="{{item.groupId}}" wx:if="{{item.projectName}}"
+    <view wx:for="{{manageProject}}" wx:item="item" wx:key=""
+      data-projectId="{{item.projectId}}" wx:if="{{item.projectName}}"
       data-name="{{item.projectName}}"
       bindtap='projectLisre'>
      {{item.projectName}}
@@ -72,6 +72,10 @@
           <text class='list_title'>实发工资：</text>
           <text class='list_data'>{{item.realSalary}}元</text>
         </view>
+        <view class='list'>
+          <text class='list_title'>欠发：</text>
+          <text class='list_data'>{{item.differenceSalary}}</text>
+        </view>   
       </view>
       <view data-groupId="{{item.groupId}}" bindtap='wageDetails' class='see_list'>
         查看详情

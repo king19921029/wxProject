@@ -20,13 +20,14 @@ Page({
       app.wxRequest("gongguan/api/wechat/myInfo",
         {},
         "post", function (res) {
-          console.log(res.data.data)
+          app.globalData.name = res.data.data.realName
           if (res.data.code == 0) {
             if (res.data.data.isAuth == "0"){
               that.setData({
                 mineData: res.data.data,
                 blockIsShow:true
               })
+             
             }else{
               that.setData({
                 mineData: res.data.data,

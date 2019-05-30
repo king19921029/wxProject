@@ -8,7 +8,7 @@
           <view class='color_gray'>点击拍照上传头像</view>
         </block>
         <block wx:else>
-          <image class='photo' src='{{imageP}}'></image>
+          <image class='photo' src='{{imageP.visitUrl}}'></image>
         </block>
         
       </view>
@@ -27,7 +27,7 @@
           <view class='color_gray'>点击拍照上传照片</view>
         </block>
         <block wx:else>
-          <image class='photo' src='{{imageG}}'></image>
+          <image class='photo' src='{{imageG.visitUrl}}'></image>
         </block>
         
       </view>

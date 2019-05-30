@@ -31,11 +31,12 @@
     <!-- 日期 -->
     <view class='form_list display_flex'>
       <view>有效期</view>
+      <!-- start="2019-04-01" -->
+          <!-- end="2019-04-30" -->
         <picker
           mode="date"
           value="{{date}}"
-          start="2019-04-01"
-          end="2019-04-30"
+          
           class='margin_right'
           bindchange="bindDateChange"
           >

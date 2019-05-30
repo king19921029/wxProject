@@ -78,7 +78,7 @@
           </view> 
         </view>
 
-        <view class='display_flex com_list'>
+        <!-- <view class='display_flex com_list'>
           <view class='icon_box'>
             <text class='fa color_3 com_icon color_blue fa-balance-scale'></text>
           </view>
@@ -86,7 +86,7 @@
             <text>个人奖惩</text>
             <text class='fa com_right fa-chevron-right'></text>
           </view> 
-        </view>
+        </view> -->
         
         <view bindtap='goFeedback' class='display_flex com_list'>
           <view class='icon_box'>

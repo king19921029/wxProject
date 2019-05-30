@@ -2,7 +2,7 @@
   <view class='header bg_blue'>
     <view class='com_width'>
       <view class='header_title'>{{vipMsg.groupName}}</view>
-      <view class='class_name'>所属项目部：{{vipMsg.labourCompanyName}}</view>
+      <view class='class_name'>所属项目部：{{vipMsg.companyName}}</view>
     </view>
   </view>
   <!-- 菜单 -->
@@ -20,7 +20,7 @@
       </view>
       <view class='com_width list display_flex'>
         <view>劳务公司：</view>
-        <view>{{vipMsg.companyName}}</view>
+        <view>{{vipMsg.labourCompanyName }}</view>
       </view>
       <view class='com_width last_list list display_flex'>
         <view>班组人数：</view>

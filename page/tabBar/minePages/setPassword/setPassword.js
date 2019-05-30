@@ -1,11 +1,12 @@
 
 var util = require('../../../../util/encrypt.js');
-import pass from "../../../../util/util.js"
+// import pass from "../../../../util/util.js"
 var app = getApp();
 Page({
   data: {
     init_font:"为了保证你正常使用功能，请设置确认密码",
-    isRet: false
+    isRet: false,
+    token:"",
   },
   onLoad: function (options) {
     if ( options.type  ){
@@ -26,7 +27,8 @@ Page({
       "post", function (res) {
         console.log("getIndex", res.data.data)
         if (res.data.code == 0) {
-          let token = app.globalData.token;
+          let token = wx.getStorageSync("token");
+          console.log(token)
           that.setData({
             getIndex:res.data.data,
             token: token
@@ -62,9 +64,9 @@ Page({
     console.log("token=", token)
     console.log("key=", key)
     
-    if (!pass.isPasswd(val1)){
-      return false;
-    }
+    // if (!pass.isPasswd(val1)){
+    //   return false;
+    // }
     
     if ( val1 && val2) {
       let password1 = util.encrypt(key, val1)
@@ -96,16 +98,17 @@ Page({
     console.log("下标=", data)
     console.log("token=", token)
     console.log("key=", key)
-    if (!pass.isPasswd(val1)) {
-      return false;
-    }
+    // if (!pass.isPasswd(val1)) {
+    //   return false;
+    // }
     if (val1 && val2) {
       let password1 = util.encrypt(key, val1)
       let password2 = util.encrypt(key, val2)
       app.globalData.header.newPassword1 = password1
       app.globalData.header.newPassword2 = password2
       app.globalData.header.verificationCode = that.data.code
-      app.wxRequest("gongguan/api/wechat/resetPassword2",
+      let url = "gongguan/api/wechat/resetPassword2/" + that.data.code
+      app.wxRequest(url,
         {},
         "post", function (res) {
           if (res.data.code == 0) {

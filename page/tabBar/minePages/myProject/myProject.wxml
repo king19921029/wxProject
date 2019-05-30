@@ -69,7 +69,7 @@
       <view class='com_width com_list'>
         <text class='color_gray'>劳动合同：</text> 
         <text class='color_blue' wx:if="{{item.labourContractId}}">我的合同</text>
-        <text wx:else>合同未上传</text>
+        <text bindtap='previewImage' data-id="{{item.id}}" wx:else>合同未上传</text>
       </view>
       <view class='com_width last_list com_list'>
         <text class='color_gray'>安全考试：</text> 

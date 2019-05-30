@@ -8,7 +8,7 @@
           <view class='color_gray'>点击拍照上传头像</view>
         </block>
         <block wx:else>
-          <image class='photo' src='{{imageP}}'></image>
+          <image class='photo' src='{{imageP.visitUrl}}'></image>
         </block>
         
       </view>
@@ -26,7 +26,7 @@
           <view class='color_gray'>点击上传正面证件照</view>
         </block>
         <block wx:else>
-          <image class='photo' src='{{imageZ}}'></image>
+          <image class='photo' src='{{imageZ.visitUrl}}'></image>
         </block>
       </view> 
       <view bindtap='idCardChooseImageF' class='add_view'>
@@ -35,7 +35,7 @@
           <view class='color_gray'>点击上传反面证件照</view>
         </block>
         <block wx:else>
-          <image class='photo' src='{{imageF}}'></image>
+          <image class='photo' src='{{imageF.visitUrl}}'></image>
         </block>
       </view>
     </view> 

@@ -9,12 +9,19 @@ Page({
     font_num:0,
     date:"",
     content:"",
+    name:"",
+    phone:""
   },
   onLoad: function (options) {
 
   },
   onShow: function () {
     var that = this;
+    console.log(app.globalData.name)
+    this.setData({
+      name: app.globalData.name,
+      phone: wx.getStorageSync("userPhone")
+    })
     // 工种
     app.wxRequest("gongguan/api/wechat/getWorkType",
       {},
@@ -87,7 +94,7 @@ Page({
     const that = this;
     let allData = that.data.allData || {};
     let phone = that.data.phone;
-    let userName = that.data.userName;
+    let userName = that.data.name;
     let workType = allData.wkId || "";
     let provinceCode = that.data.cityCode[0];
     let cityCode = that.data.cityCode[1];

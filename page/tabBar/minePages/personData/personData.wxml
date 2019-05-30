@@ -52,6 +52,12 @@
         <text class='fa add_gray fa-chevron-right'></text>
       </view>
     </view>
+    <view bindtap='go_photo' class='display_flex list_tab'>
+      <view>上传头像</view>
+      <view class='display_flex com_rigth_view'>
+        <text class='fa add_gray fa-chevron-right'></text>
+      </view>
+    </view>
 
     <view class='display_flex list_tab'>
       <view>主要技能</view>

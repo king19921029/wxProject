@@ -57,9 +57,9 @@ Page({
     console.log("下标=",data)
     console.log("token=",token)
     console.log("key=",key)
-    if (!pass.isPasswd(val1)) {
-      return false;
-    }
+    // if (!pass.isPasswd(val1)) {
+    //   return false;
+    // }
     if (oldVal && val1 && val2 ){
       let newPassword1 = util.encrypt(key, val1)
       let newPassword2 = util.encrypt(key, val2)

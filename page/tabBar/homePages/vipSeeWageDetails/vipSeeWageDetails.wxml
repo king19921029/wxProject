@@ -85,6 +85,10 @@
         <text class='list_title'>扣款：</text>
         <text class='list_data'>{{details.deduction}}</text>
       </view>
+      <view class='list'>
+        <text class='list_title'>欠发：</text>
+        <text class='list_data'>{{details.differenceSalary}}</text>
+      </view>   
     </view>
   </view>
 
@@ -102,7 +106,7 @@
       <view>应发(元)</view>
       <view>实发(元)</view>
       <view>欠发(元)</view>
-      <view class='last_child'>备注</view>
+      <view class='last_child'>欠发</view>
     </view>
     
     <view class='com_tab_title'
@@ -132,7 +136,7 @@
       <view>应发(元)</view>
       <view>实发(元)</view>
       <view>欠发(元)</view>
-      <view>备注</view>
+      <view>欠发</view>
     </view>
     
     <view class='com_tab_title' wx:for="{{tabData.t}}" 
@@ -142,7 +146,7 @@
       <view>{{item.payableSalary}}</view>
       <view>{{item.realSalary}}</view>
       <view>{{item.differenceSalary}}</view>
-      <view class='last_child'>{{item.status}}</view>
+      <view class='last_child'>{{item.differenceSalary}}</view>
     </view>
   </view>
   <!-- 确认 -->

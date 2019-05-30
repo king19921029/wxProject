@@ -43,13 +43,12 @@ Page({
         })
       }
     }, 1000)
-    app.wxRequest("gongguan/front/sendCode",
+    app.wxRequest("gongguan/api/wechat/sendCode",
       { tel: that.data.tel,type:8},
       "post", function (res) {
       console.log("验证码：", res.data.data);
       if (res.data.code == 0) {
         var data = res.data.data;
-
       } else {
         app.showLoading(res.data.msg, "none");
       }
@@ -64,20 +63,25 @@ Page({
   },
   next:function(){
     var that = this;
-    app.wxRequest("gongguan/api/wechat/checkPhoneCodeResetPassword",
-      { verificationCode: that.data.codeVal },
-      "post", function (res) {
-        console.log("验证码：", res.data.data);
-        if (res.data.code == 0) {
-          var data = res.data.data;
-          if(data){
-            wx.navigateTo({
-              url: '/page/tabBar/minePages/setPassword/setPassword?type=' + 2 + "&code=" + that.data.codeVal,
-            })
+    if (that.data.codeVal ){
+      app.wxRequest("gongguan/api/wechat/checkPhoneCodeResetPassword",
+        { verificationCode: that.data.codeVal },
+        "post", function (res) {
+          console.log("验证码：", res.data.data);
+          if (res.data.code == 0) {
+            var data = res.data.data;
+            if (data) {
+              wx.navigateTo({
+                url: '/page/tabBar/minePages/setPassword/setPassword?type=' + 2 + "&code=" + that.data.codeVal,
+              })
+            }
+          } else {
+            app.showLoading(res.data.msg, "none");
           }
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
+        })
+    }else{
+      app.showLoading("请输入验证码",'none')
+    }
+    
   }
 })

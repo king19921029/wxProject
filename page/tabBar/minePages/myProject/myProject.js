@@ -21,6 +21,26 @@ Page({
       })
     }
   },
+  previewImage: function (e) {
+    var id = e.target.dataset.id;
+    app.wxRequest("gongguan/api/wechat/getConcatList",
+      {id:id},
+    "post", function (res) {
+      console.log("图片：", res.data.data)
+      if (res.data.code == 0) {
+        
+        wx.previewImage({
+          current: res.data.data[0], // 当前显示图片的http链接  
+          urls: res.data.data // 需要预览的图片http链接列表  
+        })
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
+
+
+    
+  },
   onShow: function () {
     var that = this;
     // 获取项目、班组

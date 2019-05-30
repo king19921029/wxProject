@@ -89,7 +89,7 @@
     </view>
   </view>
   <!-- 今日打卡 -->
-  <view wx:if="{{token}}" class='pending'>
+  <view wx:if="{{token}}" class='pending' bindtap='go_todetails'>
     <!-- 今日打卡 -->
     <view class='title'>
       <view class='titleContent'>
@@ -138,7 +138,7 @@
 </template-toast>
 
 <!-- 实名认证浮层 -->
-<view wx:if="{{blockIsShow}}" class='box_block'>
+<view wx:if="{{blockIsShow && token}}" class='box_block'>
     <view class='bg_fff block_view'>
       <view class='block_title'>您未实名认证！</view>
       <view class="block_content color_gray">

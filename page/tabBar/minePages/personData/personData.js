@@ -62,6 +62,11 @@ Page({
         }
     })
   },
+  go_photo(){
+    wx.navigateTo({
+      url: '/page/tabBar/minePages/changePhoto/changePhoto',
+    })
+  },
   onHide: function () {
     var that = this;
     let educationLevel = that.data.allData.edId || "";
@@ -104,12 +109,13 @@ Page({
   },
   // 学历选择
   bindPickerChange(e) {
-    // console.log('picker发送选择改变，携带值为', e.detail.value)
+    console.log('picker发送选择改变，携带值为', e.detail.value)
     let edType = "allData.degreeEducation";
     let edId = "allData.edId";
     this.setData({
       [edId]: e.detail.value,
       [edType]: this.data.edArr[e.detail.value],
+      
     })
   },
   //技能

@@ -6,10 +6,14 @@ Page({
     bankCardNum:null,
     openBank:"",
     cardType:"",
+    branch:"",
+    bankNet:"",
     bankData:{},
   },
   onLoad: function (options) {
-
+    this.setData({
+      userName: app.globalData.name
+    })
   },
   onShow: function () {
     var that = this;
@@ -21,12 +25,29 @@ Page({
         if (res.data.code == 0) {
           var data = res.data.data;
           that.setData({
-            bankData: data
+            bankData: data,
+            bankName: data.bankName||""
           })
         } else {
           app.showLoading(res.data.msg, "none");
         }
     })
+  },
+  get_carname(){
+    var that = this;
+    app.wxRequest("gongguan/api/wechat/getBankName", {
+      bankCardNum: that.data.bankNumber
+    },
+      "post", function (res) {
+        console.log("银行卡：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            bankName: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
   },
   // 获取input val
   getInputVal:function(e){
@@ -65,18 +86,35 @@ Page({
       })
     }
   },
+  // 分行
+  getbranch(e){
+    let val = e.detail.value;
+    this.setData({
+      branch:e.detail.value
+    })
+  },
+  // 支行
+  getbankNet(e){
+    let val = e.detail.value;
+    this.setData({
+      bankNet: e.detail.value
+    })
+  },
   //下一步
   next:function(){
     var that = this;
     let userName = that.data.userName;
     let bankCardNum = that.data.bankNumber;
-    let openBank = that.data.openBank;
-    if (userName && bankCardNum && openBank ){
+    let bankName = that.data.bankName;
+ 
+    if (userName && bankCardNum && bankName ){
       app.wxRequest("gongguan/api/wechat/bindBankCard",
         {
           userName: that.data.userName,
           bankCardNum: that.data.bankNumber,
-          openBank: that.data.openBank
+          openBank: bankName,
+          // branch: branch,
+          // bankNet: bankNet
         },
         "post", function (res) {
           console.log(res.data);

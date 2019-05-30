@@ -6,7 +6,7 @@ App({
     userPhone: "",
     openid: null,
     token: "",
-    url: 'http://www.jinbionline.com',
+    url: 'https://www.jinbionline.com',
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",

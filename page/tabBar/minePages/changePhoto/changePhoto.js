@@ -97,9 +97,9 @@ Page({
   // 确认修改
   upodateFace:function(){
     var that = this;
-    if (that.data.imageP || that.data.imageG ){
+    if (that.data.imageP.realUrl || that.data.imageG.realUrl ){
       app.wxRequest("gongguan/api/wechat/upodateFace",
-        { headPic1: that.data.imageP||"", headPic2: that.data.imageG||"" },
+        { headPic1: that.data.imageP.realUrl || "", headPic2: that.data.imageG.realUrl||"" },
         "post", function (res) {
           if (res.data.code == 0) {
             if (res.data.data) {

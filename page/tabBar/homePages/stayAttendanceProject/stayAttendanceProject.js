@@ -59,7 +59,7 @@ Page({
       "post", function (res) {
         console.log("getIndex", res.data.data)
         if (res.data.code == 0) {
-          let token = app.globalData.token;
+          let token = wx.getStorageSync("token");
           that.setData({
             getIndex: res.data.data,
             token: token

@@ -31,7 +31,7 @@
   scroll-into-view="{{scrollTopId}}" 
   scroll-top="{{scrollTop}}">
  
-  <view>
+  <!-- <view>
     <view class="weui-grids">
       <block wx:for-items="{{hotcityList}}" wx:key="">
         <view class="weui-grid" data-id="{{item.id}}" data-code="{{item.code}}" data-city="{{item.city}}" bindtap="bindHotCity" >
@@ -39,10 +39,10 @@
         </view>
       </block>
     </view>
-  </view>
+  </view> -->
 
   <view class="selection" wx:for="{{cityList}}" wx:key="{{item.initial}}">
-    <view class="item_letter"  id="{{item.initial}}">{{item.initial}}</view>
+    <view class="item_letter" id="{{item.initial}}">{{item.initial}}</view>
     <view class="item_city"  wx:for="{{item.cityInfo}}" wx:key="" wx:for-item="ct" data-id="{{ct.id}}" data-code="{{ct.code}}" data-city="{{ct.city}}" bindtap="bindCity">
       {{ct.city}}
     </view>
