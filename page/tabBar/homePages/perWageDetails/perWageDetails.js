@@ -80,7 +80,7 @@ Page({
       //     }
       // })
     }else{
-      app.showLoading("请输入验证码", "none");
+      app.showLoading("请输入确认密码", "none");
     }
    
   },

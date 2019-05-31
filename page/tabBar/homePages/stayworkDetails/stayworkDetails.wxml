@@ -22,7 +22,7 @@
 
   <view class='phone_title'>确认密码</view>
   <view class='code_box'>
-    <input bindinput='get_val' type='number' placeholder='请输入确认密码'></input>
+    <input password bindinput='get_val' type='number' placeholder='请输入确认密码'></input>
     <!-- <button bindtap='getCode' disabled='{{disabled}}' class='get_code'>{{time}}</button> -->
   </view>
 

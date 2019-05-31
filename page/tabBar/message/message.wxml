@@ -23,11 +23,11 @@
             <view class='display_flex'>
               <text class='fa fa-user'></text>
               <text>来源：{{item.sourceName}}</text>
-              <text class='fa fa-user time_icon'></text>
+              <text class='fa fa-time time_icon'></text>
               <text>时间：{{item.createTime}}</text>
             </view>
-            <view wx:if="{{item.isRead == '2'}}" class='add_or'>未读</view>
-            <view wx:else class='add_gr'>已读</view>
+            <!-- <view wx:if="{{item.isRead == '2'}}" class='add_or'>未读</view>
+            <view wx:else class='add_gr'>已读</view> -->
           </view>
       </view>
     </view>

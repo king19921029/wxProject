@@ -111,20 +111,19 @@
               <text class='list_title'>应发工资：</text>
               <text class='list_data'>{{item.realSalary}}</text>
             </view>
-
             <view class='list'>
-              <text class='list_title'>扣款：</text>
-              <text class='list_data'>{{item.deductionSalary}}</text>
-            </view>
-
-            <view class='list'>
-              <text class='list_title'>实发工资：</text>
+              <text class='list_title'>本月发放：</text>
               <text class='list_data'>{{item.realSalary}}</text>
             </view>
 
             <view class='list'>
-              <text class='list_title'>本月发放：</text>
-              <text class='list_data'>{{item.payableSalary}}</text>
+              <text class='list_title'>本月欠发：</text>
+              <text class='list_data'>{{item.differenceSalary}}</text>
+            </view>
+            
+            <view class='list'>
+              <text class='list_title'>扣款：</text>
+              <text class='list_data'>{{item.deductionSalary}}</text>
             </view>
           </view>
           <view bindtap='classDetails' data-month="{{item.date}}"

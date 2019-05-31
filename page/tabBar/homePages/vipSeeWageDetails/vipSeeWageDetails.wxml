@@ -70,21 +70,17 @@
         <text class='list_title'>应发工资：</text>
         <text class='list_data'>{{details.payableSalary}}</text>
       </view>
-      
-      <view class='list'>
-        <text class='list_title'>实发工资：</text>
-        <text class='list_data'>{{details.realSalary }}</text>
-      </view>
-
-      <view class='list'>
-        <text class='list_title'>欠发工资：</text>
-        <text class='list_data'>{{details.differenceSalary }}</text>
-      </view>
 
       <view class='list'>
         <text class='list_title'>扣款：</text>
-        <text class='list_data'>{{details.deduction}}</text>
+        <text class='list_data'>{{details.deductionSalary}}</text>
       </view>
+      
+      <view class='list'>
+        <text class='list_title'>实发工资：</text>
+        <text class='list_data'>{{details.realSalary}}</text>
+      </view>
+
       <view class='list'>
         <text class='list_title'>欠发：</text>
         <text class='list_data'>{{details.differenceSalary}}</text>
@@ -93,49 +89,14 @@
   </view>
 
   <view class='vip_title'>班组明细</view>
-  <!-- 旧表格 -->
-  <view wx:if="{{1==2}}" class='old_table'>
-    <view class='com_tab_title tab_title'>
-      <view class='first_checkbox'>
-      <label class="checkboxs"> 
-        <checkbox disabled='ture'></checkbox>
-      </label>
-      </view>
-      <view>姓名</view>
-      <view>年月</view>
-      <view>应发(元)</view>
-      <view>实发(元)</view>
-      <view>欠发(元)</view>
-      <view class='last_child'>欠发</view>
-    </view>
-    
-    <view class='com_tab_title'
-      wx:for="{{tabData.t}}" wx:item="" wx:key="" wx:for-index='idx'>
-      <view class='first_checkbox'>
-        <checkbox-group bindchange="checkboxChange" data-ischecked='{{item.isChecked}}'
-          data-idx="{{idx}}">
-          <label class="checkboxs"> 
-            <checkbox checked='{{item.isChecked}}'></checkbox>
-          </label>
-        </checkbox-group>
-      </view>
-      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.userName}}</view>
-      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.date}}</view>
-      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.payableSalary}}</view>
-      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.realSalary}}</view>
-      <view data-id="{{item.id}}" bindtap='goWageDetails'>{{item.differenceSalary}}</view>
-      <view data-id="{{item.id}}" bindtap='goWageDetails' class='last_child'>{{item.status}}</view>
-    </view>
-
-  </view>
   <!-- 新表格 -->
-  <view wx:if="{{1==1}}" class='new_table'>
+  <view class='new_table'>
     <view class='com_tab_title tab_title'>
       <view>姓名</view>
       <view>年月</view>
-      <view>应发(元)</view>
-      <view>实发(元)</view>
-      <view>欠发(元)</view>
+      <view>应发</view>
+      <view>扣款</view>
+      <view>实发</view>
       <view>欠发</view>
     </view>
     
@@ -144,8 +105,8 @@
       <view>{{item.userName}}</view>
       <view>{{item.date}}</view>
       <view>{{item.payableSalary}}</view>
+      <view>{{item.deductionSalary}}</view>
       <view>{{item.realSalary}}</view>
-      <view>{{item.differenceSalary}}</view>
       <view class='last_child'>{{item.differenceSalary}}</view>
     </view>
   </view>

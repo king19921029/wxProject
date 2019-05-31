@@ -30,6 +30,15 @@
 
       <view class='list'>
         <text class='list_title'>扣款：</text>
+        <text class='list_data'>{{details.deductionSalary}}</text>
+      </view>
+
+      <view class='list'>
+        <text class='list_title'>本月发放：</text>
+        <text class='list_data'>{{details.realSalary}}</text>
+      </view>
+      <view class='list'>
+        <text class='list_title'>本月欠发：</text>
         <text class='list_data'>{{details.differenceSalary}}</text>
       </view>
 
@@ -48,10 +57,10 @@
       </view>
       <view>姓名</view>
       <view>年月</view>
-      <view>应发(元)</view>
-      <view>实发(元)</view>
-      <view>欠发(元)</view>
-      <view class='last_child'>备注</view>
+      <view>应发</view>
+      <view>扣款</view>
+      <view>实发</view>
+      <view class='last_child'>欠发</view>
     </view>
     
     <view class='com_tab_title'
@@ -69,9 +78,10 @@
       <view data-id="{{item.id}}" bindtap='goDetails'>{{item.userName}}</view>
       <view data-id="{{item.id}}" bindtap='goDetails'>{{item.date}}</view>
       <view data-id="{{item.id}}" bindtap='goDetails'>{{item.payableSalary}}</view>
+      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.deductionSalary}}</view>
       <view data-id="{{item.id}}" bindtap='goDetails'>{{item.realSalary}}</view>
-      <view data-id="{{item.id}}" bindtap='goDetails'>{{item.differenceSalary}}</view>
-      <view data-id="{{item.id}}" bindtap='goDetails' class='last_child'>{{item.status}}</view>
+      <view data-id="{{item.id}}" class='last_child' bindtap='goDetails'>{{item.differenceSalary}}</view>
+      
     </view>
 
   </view>
