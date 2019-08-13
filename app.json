@@ -1,16 +1,15 @@
 {
   "pages": [
+    "page/tabBar/home/home",
     "page/tabBar/minePages/authentication/authentication",
     "page/tabBar/minePages/authenticationAll/authenticationAll",
-    "page/tabBar/home/home",
+    
     "page/tabBar/minePages/bindBankCard/bindBankCard",
     
     "page/tabBar/mine/mine",
     
    
-   
-   
-   
+
   
     "page/tabBar/minePages/myProject/myProject",
     
