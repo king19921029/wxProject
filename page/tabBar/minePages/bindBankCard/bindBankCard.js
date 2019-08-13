@@ -2,6 +2,7 @@ var app = getApp();
 var util = require('../../../../util/util.js');
 Page({
   data: {
+    flag:"0",
     userName:"",
     bankCardNum:null,
     openBank:"",
@@ -14,8 +15,6 @@ Page({
     this.setData({
       userName: app.globalData.name
     })
-  },
-  onShow: function () {
     var that = this;
     // 获取银行卡
     app.wxRequest("gongguan/api/wechat/getBankCard",
@@ -24,19 +23,60 @@ Page({
         console.log("银行卡：", res.data.data)
         if (res.data.code == 0) {
           var data = res.data.data;
-          that.setData({
-            bankData: data,
-            bankName: data.bankName||""
-          })
+          if (data.flag ){
+            that.setData({
+              flag: data.flag
+            })
+          }else{
+            that.setData({
+              bankData: data,
+              bankName: data.bankName || ""
+            })
+          }
+         
         } else {
           app.showLoading(res.data.msg, "none");
         }
     })
   },
+  bankSuccess(e){
+    var that = this;
+    console.log(e.detail)
+    let banknum = 'bankData.bankCardNum'
+
+    if (e.detail.number) {
+      console.log(48,e.detail.numbe)
+      this.setData({
+        flag: "1"
+      })
+    }
+    this.setData({
+      bankCardNum: e.detail.number,
+      [banknum]: e.detail.number,
+    })
+    
+    app.wxRequest("gongguan/api/wechat/getBankName", {
+      bankCardNum: e.detail.number
+    },
+      "post", function (res) {
+        console.log("银行卡：", res.data.data)
+        if (res.data.code == 0) {
+          that.setData({
+            bankName: res.data.data
+          })
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+  },
+  onShow: function () {
+   
+  },
+  // 6227000181380371642
   get_carname(){
     var that = this;
     app.wxRequest("gongguan/api/wechat/getBankName", {
-      bankCardNum: that.data.bankNumber
+      bankCardNum: that.data.bankCardNum
     },
       "post", function (res) {
         console.log("银行卡：", res.data.data)
@@ -73,7 +113,7 @@ Page({
   //银行卡号
   getUserIdCardNumber: function (e) {
     this.setData({
-      bankNumber: e.detail.value
+      bankCardNum: e.detail.value
     })
     var temp = util.bankCardAttribution(e.detail.value)
     console.log(temp)
@@ -82,7 +122,7 @@ Page({
       temp.cardTypeName = '';
     }else {
       this.setData({
-        cardType: temp.bankName || ""
+        openBank: temp.bankName || ""
       })
     }
   },
@@ -104,14 +144,14 @@ Page({
   next:function(){
     var that = this;
     let userName = that.data.userName;
-    let bankCardNum = that.data.bankNumber;
+    let bankCardNum = that.data.bankCardNum;
     let bankName = that.data.bankName;
  
     if (userName && bankCardNum && bankName ){
       app.wxRequest("gongguan/api/wechat/bindBankCard",
         {
           userName: that.data.userName,
-          bankCardNum: that.data.bankNumber,
+          bankCardNum: that.data.bankCardNum,
           openBank: bankName,
           // branch: branch,
           // bankNet: bankNet
@@ -144,7 +184,9 @@ Page({
   // 解绑
   untieTap:function(){
     this.setData({
-      bankData:{}
+      bankData:{},
+      bankName:"",
+      flag:1
     })
   }
 })

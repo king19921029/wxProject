@@ -1,6 +1,11 @@
 .header{
 
 }
+.id_button{
+  width:80%;
+  margin-top: 60rpx;
+  margin-bottom: 60rpx;
+}
 .margin_top{
   margin-top: 18rpx;
 } 

@@ -44,7 +44,7 @@ Page({
               } else {
                 app.showLoading(res.data.msg, "none");
               }
-            })
+          })
         } else {
           console.log('登录失败！' + res.errMsg)
         }

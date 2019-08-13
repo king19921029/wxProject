@@ -36,8 +36,7 @@
   </view>
 
   <view bindtap='confirmationTap' class='com_footer_btn bg_blue'>确定</view>
-
-
+  
 </view>
 
 <template-toast

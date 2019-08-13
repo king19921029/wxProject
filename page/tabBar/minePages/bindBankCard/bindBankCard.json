@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "绑定银行卡"
+  "navigationBarTitleText": "绑定银行卡",
+  "usingComponents": {
+    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator"
+  }
 }

@@ -4,6 +4,7 @@
     <text class='color_gray'>{{ggData.createTime}}  {{ggData.sourceName}}</text>
   </view>
   <view class='content com_width'>
-    {{ggData.content}}
+    
+    <rich-text nodes="{{ggData.content}}"></rich-text>
   </view>
 </view>

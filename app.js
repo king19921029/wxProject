@@ -6,7 +6,8 @@ App({
     userPhone: "",
     openid: null,
     token: "",
-    url: 'https://www.jinbionline.com',
+    // url: 'https://www.jinbionline.com',
+    url:"https://zhigongzx.com",
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",
@@ -38,7 +39,9 @@ App({
         that.globalData.model = res.platform
       }
     })
+    
   },
+
   onShow: function (opts) {
   },
   //封装的请求方法

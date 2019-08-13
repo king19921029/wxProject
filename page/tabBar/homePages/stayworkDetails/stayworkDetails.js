@@ -1,6 +1,7 @@
 var app = getApp();
 Page({
   data: {
+    blockIsShow:true,
     btnFont: "确定",
     details:{},//数据
     time: "获取验证码",
@@ -88,44 +89,29 @@ Page({
     //   app.showLoading("请输入验证码", "none");
     // }
   },
-  // 获取验证吗
-  getCode: function () {
-    var that = this;
-    let disabled = that.data.disabled;
-    that.setData({
-      disabled: true
-    })
-    // 验证码倒计时
-    var countTime = that.data.countTime
-    var interval = setInterval(function () {
-      countTime--
-      that.setData({
-        time: countTime + 's'
-      })
-      if (countTime <= 0) {
-        clearInterval(interval)
-        that.setData({
-          time: '重新发送',
-          countTime: 60,
-          disabled: false
-        })
-      }
-    }, 1000)
-    app.wxRequest("gongguan/front/isSendSmsCode.action",
-      { tel: that.data.userPhone, type: 6},
-      "post", function (res) {
-        console.log("验证码：", res.data.data);
-        if (res.data.code == 0) {
-          var data = res.data.data;
-        } else {
-          app.showLoading(res.data.msg, "none");
-        }
-      })
-  },
   // 获取输入的code
   get_val: function (e) {
     this.setData({
       codeVal: e.detail.value
     })
-  }
+  },
+  // 取消
+  fno_tap: function () {
+    this.setData({
+      blockIsShow: true
+    })
+  },
+  // 获取value
+  fgetVal: function (e) {
+    this.setData({
+      codeVal: e.detail.val
+    })
+  },
+  // 呼起浮层
+  confirmationTap: function () {
+    this.setData({
+      blockIsShow: false
+    })
+  },
+
 })

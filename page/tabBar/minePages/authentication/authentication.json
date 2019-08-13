@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "实名认证"
+  "navigationBarTitleText": "实名认证",
+  "usingComponents": {
+    "ocr-navigator": "plugin://ocr-plugin/ocr-navigator"
+  }
 }

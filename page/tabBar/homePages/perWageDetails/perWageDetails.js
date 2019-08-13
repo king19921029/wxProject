@@ -1,6 +1,7 @@
   var app = getApp();
 Page({
   data: {
+    blockIsShow: true,//浮层
     btnFont: "确认",
     time: "获取验证码",
     countTime: 60,
@@ -89,5 +90,36 @@ Page({
     this.setData({
       codeVal: e.detail.value
     })
-  }
+  },
+  // 呼起浮层
+  confirmationTap: function () {
+    this.setData({
+      blockIsShow: false
+    })
+  },
+  // 浮层确定
+  confirmaedTap: function () {
+    var that = this;
+    //确定
+    let codeVal = that.data.codeVal;
+    let url = "gongguan/api/wechat/myAttendanceConfirm";
+    let bodyData = {
+      id: that.data.id
+    }
+    const data = that.data.getIndex;
+    const token = that.data.token;
+    app.confirmaed(codeVal, url, bodyData, data, token)
+  },
+  // 取消
+  fno_tap: function () {
+    this.setData({
+      blockIsShow: true
+    })
+  },
+  // 获取value
+  fgetVal: function (e) {
+    this.setData({
+      codeVal: e.detail.val
+    })
+  },
 })

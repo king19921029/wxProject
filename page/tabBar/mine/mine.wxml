@@ -1,6 +1,7 @@
 
 
   <view class='box'>
+
       <!-- header -->
       <view bindtap='photoTap' class='border_top bg_fff box_shadow'>
         <view class='display_flex com_width headers'>

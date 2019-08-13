@@ -1,12 +1,23 @@
 {
   "pages": [
+    "page/tabBar/minePages/authentication/authentication",
+    "page/tabBar/minePages/authenticationAll/authenticationAll",
     "page/tabBar/home/home",
+    "page/tabBar/minePages/bindBankCard/bindBankCard",
+    
+    "page/tabBar/mine/mine",
+    
+   
+   
+   
+   
+  
     "page/tabBar/minePages/myProject/myProject",
     
     "page/tabBar/homePages/hometoCard/hometoCard",
    
     "page/tabBar/messagePages/city/city",
-    "page/tabBar/mine/mine",
+    
     "page/tabBar/homePages/news/news",
     "page/tabBar/minePages/setPassword/setPassword",
     "page/tabBar/minePages/chagePassword/chagePassword",
@@ -23,7 +34,7 @@
     
     "page/tabBar/homePages/vipSeeWorkDetails/vipSeeWorkDetails",
     "page/tabBar/homePages/vipSeeWageDetails/vipSeeWageDetails",
-    "page/tabBar/minePages/authentication/authentication",
+    
     "page/tabBar/homePages/seeAttendance/seeAttendance",
     "page/tabBar/minePages/addPerson/addPerson",
     "page/tabBar/homePages/vipBlock/vipBlock",
@@ -31,7 +42,7 @@
     "page/tabBar/minePages/contacts/contacts",
     "page/tabBar/homePages/stayworkload/stayworkload",
     "page/tabBar/homePages/stayWageConfirm/stayWageConfirm",
-    "page/tabBar/minePages/bindBankCard/bindBankCard",
+   
     "page/tabBar/homePages/newDetails/newDetails",
     "page/tabBar/homePages/stayVipAttendanceDetails/stayVipAttendanceDetails",
     "page/tabBar/homePages/stayAttendance/stayAttendance",
@@ -50,7 +61,7 @@
     "page/tabBar/homePages/vipSeeAttendanceProject/vipSeeAttendanceProject",
     "page/tabBar/homePages/stayVipworkDetails/stayVipworkDetails",
     "page/tabBar/minePages/classPerDetails/classPerDetails",
-    "page/tabBar/minePages/authenticationAll/authenticationAll",
+    
     "page/tabBar/messagePages/ggDetails/ggDetails",
     "page/tabBar/minePages/changePhoto/changePhoto",
     "page/tabBar/minePages/authenticationRes/authenticationRes",
@@ -124,5 +135,11 @@
     "downloadFile": 10000
   },
   "debug": false,
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "plugins": {
+    "ocr-plugin": {
+      "version": "2.0.2",
+      "provider": "wx4418e3e031e551be"
+    }
+  }
 }

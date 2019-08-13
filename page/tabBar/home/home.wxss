@@ -109,14 +109,15 @@
 .itemName{
   font-family: PingFangSC-Medium, sans-serif;
   font-size: 26rpx;
-  padding-top: 10rpx;
+}
+.className{
+  font-size: 26rpx;
+  /* color: gray; */
 }
 .attentance{
   display: flex;
   flex-direction: column;
-  height:60rpx;
-  line-height: 60rpx;
-  padding-bottom: 10rpx;
+  padding:30rpx 0;
 }
 /*进出 */
 .left_view{

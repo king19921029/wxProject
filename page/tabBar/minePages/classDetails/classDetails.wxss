@@ -28,6 +28,9 @@
 /* content */
 .content{
   margin-top: 35rpx;
+  /* margin-bottom: 100rpx; */
+  height: 74vh;
+  overflow-y: scroll;
 }
 /* 基本情况 */
 .list{
@@ -59,7 +62,11 @@
 }
 /* footer */
 .com_footer_btn{
-  position: fixed;
-  bottom: 5%;
+  /* position: fixed; */
+  position:absolute;
+  bottom:0;
   left: 0;
+  right: 0;
+  width: 100%;
+  margin:0;
 }

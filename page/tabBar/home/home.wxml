@@ -99,9 +99,10 @@
       </view>  
     </view>
     <!-- 项目 -->
-    <view class='title attentance'>
-      <view class='titleContent'>
-        <text class='itemName'>{{indexData.projectName}}</text>
+    <view class='attentance'>
+      <view class='com_width'>
+        <text class='itemName'>{{indexData.projectName}} </text>
+        <text class='className'>{{indexData.groupName}}</text> 
       </view> 
     </view>
 

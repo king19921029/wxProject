@@ -61,14 +61,38 @@
           </label>
         </checkbox-group>
       </view>
-      <view class='overflow'>
-        {{item.userName}}
-      </view>
-      <view>{{item.month}}</view>
-      <view>{{item.classNum}}</view>
-      <view>{{item.daysNum}}</view>
-      <view>{{item.nigthNum}}</view>
-      <view class='last_child'>{{item.status}}</view>
+        <view 
+          data-classNum="{{item.classNum}}"
+          data-daysNum="{{item.daysNum}}" 
+          data-nigthNum="{{item.nigthNum}}" 
+          data-id="{{item.id}}" bindtap='goDetails' class='overflow'>
+          {{item.userName}}
+        </view>
+        <view
+          data-classNum="{{item.classNum}}"
+          data-daysNum="{{item.daysNum}}" 
+          data-nigthNum="{{item.nigthNum}}" 
+         data-id="{{item.id}}" bindtap='goDetails'>{{item.month}}</view>
+        <view 
+          data-classNum="{{item.classNum}}"
+          data-daysNum="{{item.daysNum}}" 
+          data-nigthNum="{{item.nigthNum}}" 
+          data-id="{{item.id}}" bindtap='goDetails'>{{item.classNum}}</view>
+        <view 
+          data-classNum="{{item.classNum}}"
+          data-daysNum="{{item.daysNum}}" 
+          data-nigthNum="{{item.nigthNum}}" 
+          data-id="{{item.id}}" bindtap='goDetails'>{{item.daysNum}}</view>
+        <view
+          data-classNum="{{item.classNum}}"
+          data-daysNum="{{item.daysNum}}" 
+          data-nigthNum="{{item.nigthNum}}"  
+          data-id="{{item.id}}" bindtap='goDetails'>{{item.nigthNum}}</view>
+        <view
+          data-classNum="{{item.classNum}}"
+          data-daysNum="{{item.daysNum}}" 
+          data-nigthNum="{{item.nigthNum}}"  
+          data-id="{{item.id}}" bindtap='goDetails' class='last_child'>{{item.status}}</view>
     </view>
   </view>
 

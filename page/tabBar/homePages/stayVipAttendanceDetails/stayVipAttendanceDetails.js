@@ -70,7 +70,19 @@ Page({
   },
   onHide: function () {
   },
-
+  //查看详情
+  goDetails: function (e) {
+    let id = e.currentTarget.dataset.id;
+    let groupId = this.data.groupId;
+    let classNum = e.currentTarget.dataset.classnum,
+        daysNum = e.currentTarget.dataset.daysnum,
+        nigthNum = e.currentTarget.dataset.nigthnum;
+    console.log(classNum, daysNum, nigthNum)
+    
+    wx.navigateTo({
+      url: '/page/tabBar/homePages/stayAttendanceProject/stayAttendanceProject?id=' + id + "&groupId=" + groupId + "&classNum=" + classNum + "&daysNum=" + daysNum + "&nigthNum=" + nigthNum,
+    })
+  },
   //多选框点击
   checkboxChange:function(e){
     let isChecked = e.currentTarget.dataset.ischecked;//是否选中

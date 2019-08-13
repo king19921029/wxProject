@@ -1,6 +1,11 @@
 <view class='box'>
   <view class='header'>工资发放到个人银行卡，请您务必使用有效银行卡</view>
-  <view class='com_width msg color_gray'>请输入银行卡号</view>
+  <view class='com_width msg space_between color_gray'>
+    <view>请输入银行卡号</view> 
+    <ocr-navigator  bind:onSuccess="bankSuccess"  certificateType="bankCard" selectedOptions="{{['bankName','number','validDate']}}">
+      <button type="primary">银行卡识别</button>
+    </ocr-navigator>
+  </view>
   <view class='border_t_b bg_fff'>
     <view class='card_num'>
       <text class='num'>银行卡号</text>
@@ -17,7 +22,7 @@
     </view>
     <view class='card_num name_card'>
       <text class='com_titles'>开户行</text>
-      <input data-types="2" bindinput='getInputVal' class='com_input' placeholder='开户行' value='{{bankName}}'></input>
+      <input data-types="2" disabled='ture' bindinput='getInputVal' class='com_input' placeholder='开户行' value='{{bankName}}'></input>
     </view>
     <!-- <view class='card_num name_card'>
       <text class='com_titles'>分行</text>
@@ -29,7 +34,7 @@
     </view> -->
   </view>
   <!-- 下一步 -->
-  <view wx:if="{{!bankData.bankCardNum}}" bindtap='next' class='com_footer_btn bg_blue'>
+  <view wx:if="{{flag=='1'}}" bindtap='next' class='com_footer_btn bg_blue'>
     下一步
   </view>
   <view wx:else bindtap='untieTap' class='com_footer_btn bg_blue'>

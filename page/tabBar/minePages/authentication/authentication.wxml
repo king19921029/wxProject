@@ -18,8 +18,8 @@
     </view> 
   </view>
   <view class='content bg_fff margin_top'>
-    <view class='com_title com_width'>上传证件照</view>
-    <view class='photo_view display_flex com_width'>
+    <view class='com_title com_width'>身份证识别</view>
+    <!-- <view class='photo_view display_flex com_width'>
       <view bindtap='idCardChooseImageZ' class='add_view'>
         <block wx:if="{{imageZ == ''}}">
           <image class='icon' src='/image/add_icon.png'></image>
@@ -38,38 +38,43 @@
           <image class='photo' src='{{imageF.visitUrl}}'></image>
         </block>
       </view>
-    </view> 
+    </view>  -->
+
+    <ocr-navigator bind:onSuccess="success" certificateType="idCard"
+     selectedOptions="{{['id','name','sex','birthday','homePlace']}}">
+      <button class='id_button' type="primary">去识别</button>
+    </ocr-navigator>
     <view class='com_width z_msg color_gray'>
-      注:个人请上传证件照片,仅支持jpg/jpeg/png格式的照片,图片最大为2M
+      <!-- 注:个人请上传证件照片,仅支持jpg/jpeg/png格式的照片,图片最大为2M -->
+      只有通过身份证识别才能完成实名认证
     </view>
     <view class='bg_fff'>
       <view class='com_width com_list display_flex'>
         <text>姓名：</text>
-        <input bindinput='getName' placeholder='请编辑姓名'></input>
+        <input disabled value='{{userName}}' bindinput='getName' placeholder='通过身份识别自动填写'></input>
       </view>
+
       <view class='com_width com_list display_flex'>
         <text>身份证号：</text>
-        <input onkeyup="this.value=this.value.replace(/\D/g,'')" bindinput='getNum' placeholder='请编辑身份证号'></input>
+        <input disabled value='{{idNum}}' onkeyup="this.value=this.value.replace(/\D/g,'')" bindinput='getNum' placeholder='通过身份识别自动填写'></input>
       </view>
-      
       <view class='com_width com_list display_flex'>
-        <view class="section__title">城市选择：</view>
+        <text>详细地址：</text>
+        <input disabled value='{{address}}'  bindinput='getCity' placeholder='通过身份识别自动填写'></input>
+      </view>
+
+      <view class='com_width com_list display_flex'>
+        <view class="section__title">籍贯选择：</view>
         <picker mode="region" bindchange="bindRegionChange"
           value="{{region}}" custom-item="{{customItem}}"
           class='picker_view'>
           <view class="picker">
-          <input disabled='ture' placeholder='请选择城市'
+          <input disabled='ture' placeholder='请选择籍贯'
             value="{{region[0]}}{{region[1]}}{{region[2]}}">
           </input>
           </view>
         </picker>
       </view>
-
-      <view class='com_width com_list display_flex'>
-        <text>详细地址：</text>
-        <input bindinput='getCity' placeholder='请输入详细地址'></input>
-      </view>
-
       <view class='com_width com_list display_flex'>
         <view class="section__title">文化程度：</view>
         <picker  bindchange="bindPickerChange" value="{{idx}}" 
@@ -77,6 +82,42 @@
           <view class="picker">
           <input placeholder='请选择文化程度' disabled='ture'
             value="{{edType}}">
+          </input>
+          </view>
+        </picker>
+      </view>
+      <!-- 民族 -->
+      <view class='com_width com_list display_flex'>
+        <view class="section__title">民族：</view>
+        <picker  bindchange="bindMzChange" value="{{idx}}" 
+         class="picker_view" range="{{mz}}" range-key="{{'name'}}">
+          <view class="picker">
+          <input placeholder='请选择民族' disabled='ture'
+            value="{{mzVal}}">
+          </input>
+          </view>
+        </picker>
+      </view>
+       <!-- 学位 -->
+      <view class='com_width com_list display_flex'>
+        <view class="section__title">学位：</view>
+        <picker  bindchange="bindXwChange" value="{{idx}}" 
+         class="picker_view" range="{{egreeVal}}">
+          <view class="picker">
+          <input placeholder='请选择学位' disabled='ture'
+            value="{{xwVal}}">
+          </input>
+          </view>
+        </picker>
+      </view>
+      <!-- 政治 -->
+      <view class='com_width com_list display_flex'>
+        <view class="section__title">政治面貌：</view>
+        <picker  bindchange="bindzzChange" value="{{idx}}" 
+         class="picker_view" range="{{zzval}}">
+          <view class="picker">
+          <input placeholder='政治面貌' disabled='ture'
+            value="{{zval}}">
           </input>
           </view>
         </picker>

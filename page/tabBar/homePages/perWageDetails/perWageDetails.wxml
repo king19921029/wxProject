@@ -26,18 +26,22 @@
       <text>{{details.difference}}</text>
     </view>
      <view class='list'>
-      <text>备注：</text>
+      <text>状态：</text>
       <text>{{details.cumulativeDifference}}</text>
     </view>
   </view>
 
-  <view class='phone_title'>确认密码</view>
+  <!-- <view class='phone_title'>确认密码</view>
   <view class='code_box'>
     <input bindinput='get_val' password type='number' placeholder='请输入确认密码'></input>
-    <!-- <button class='get_code' disabled='{{disabled}}' bindtap='getCode'>
-      {{time}}
-    </button> -->
-  </view>
+  </view> -->
 
-  <view bindtap='confirmBtn' class='bg_blue com_width btn'>{{btnFont}}</view>
+  <view bindtap='confirmationTap' class='bg_blue com_width btn'>{{btnFont}}</view>
+
+  <template-toast
+    wx:if="{{!blockIsShow}}"
+    bind:fgetVal="fgetVal"
+    bind:fno_tap="fno_tap"
+    bind:fconfirmTap="confirmBtn">
+  </template-toast>
 </view>

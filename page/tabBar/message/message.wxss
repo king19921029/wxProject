@@ -1,4 +1,7 @@
 /* headers */
+.com_view_width{
+  width: 50%;
+}
 .headers{
   width: 100%;
   border-top: 1px solid #efeff4;

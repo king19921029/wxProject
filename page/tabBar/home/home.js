@@ -7,9 +7,7 @@ Page({
     blockIsShow: true,
   },
   onLoad: function (options) {
-    // PageList.getDate().then((res)=>{
-    //   console.log(res)
-    // });
+    
   },
   fgetVal:function(e){
     console.log(e.detail.val)
@@ -55,6 +53,9 @@ Page({
       })
     }
     
+  },
+  onReady:function(){
+    console.log("61ready")
   },
   onHide: function () {
     
