@@ -97,7 +97,7 @@ Page({
   // 搜索后的内容点击
   searchTap:function(e){
     app.globalData.city = e.currentTarget.dataset.city;
-    // wx.navigateBack();
+    wx.navigateBack();
     console.log(e)
   },
   // 查找城市
