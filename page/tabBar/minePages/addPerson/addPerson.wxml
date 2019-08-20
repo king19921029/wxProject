@@ -3,7 +3,7 @@
 
     <view class='list display_flex'>
       <view>身份证号</view>
-      <input bindblur='getIdNum' class='margin_right' type='number' placeholder='身份证号'></input>
+      <input bindblur='getIdNum' class='margin_right' placeholder='身份证号'></input>
     </view>
     <view class='list display_flex'>
       <view>姓名</view>
