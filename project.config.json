@@ -20,7 +20,7 @@
 		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "2.6.4",
+	"libVersion": "2.8.1",
 	"appid": "wx0aa6d2faa6e11d60",
 	"projectname": "wxOutsource",
 	"debugOptions": {

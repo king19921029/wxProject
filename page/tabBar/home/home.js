@@ -7,7 +7,7 @@ Page({
     blockIsShow: true,
   },
   onLoad: function (options) {
-    
+   
   },
   fgetVal:function(e){
     console.log(e.detail.val)
