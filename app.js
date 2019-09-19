@@ -6,8 +6,8 @@ App({
     userPhone: "",
     openid: null,
     token: "",
-    // url: 'https://www.jinbionline.com',
-    url:"https://zhigongzx.com",
+    url: 'https://www.jinbionline.com',
+    // url:"https://zhigongzx.com",
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",

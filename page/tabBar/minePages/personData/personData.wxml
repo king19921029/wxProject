@@ -67,6 +67,57 @@
           <view wx:else class="picker">请选择主要技能</view>
       </picker>
     </view>
+     <!-- 民族 -->
+    <view class='display_flex list_tab'>
+        <view class="section__title">民族</view>
+      <picker  bindchange="bindMzChange" value="{{idx}}" 
+        class="picker_view" range="{{mz}}" range-key="{{'name'}}">
+        <view class="picker">
+        <input placeholder='请选择民族' disabled='ture'
+          value="{{mzVal}}">
+        </input>
+        </view>
+      </picker>
+    </view>
+
+     <!-- 学位 -->
+    <view class='display_flex list_tab'>
+      <view class="section__title">学位</view>
+      <picker  bindchange="bindXwChange" value="{{idx}}" 
+        class="picker_view" range="{{egreeVal}}">
+        <view class="picker">
+        <input placeholder='请选择学位' disabled='ture'
+          value="{{xwVal}}">
+        </input>
+        </view>
+      </picker>
+    </view>
+
+     <!-- 政治 -->
+    <view class='display_flex list_tab'>
+      <view class="section__title">政治面貌</view>
+      <picker  bindchange="bindzzChange" value="{{idx}}" 
+        class="picker_view" range="{{zzval}}">
+        <view class="picker">
+        <input placeholder='政治面貌' disabled='ture'
+          value="{{zval}}">
+        </input>
+        </view>
+      </picker>
+    </view>
+    <!-- 籍贯 -->
+    <view class='display_flex list_tab'>
+      <view class="section__title">籍贯选择</view>
+      <picker mode="region" bindchange="bindRegionChange"
+        value="{{region}}" custom-item="{{customItem}}"
+        class='picker_view'>
+        <view class="picker">
+        <input disabled='ture' placeholder='请选择籍贯'
+          value="{{region[0]}}{{region[1]}}{{region[2]}}">
+        </input>
+        </view>
+      </picker>
+    </view>
 
   </view>
 </view>

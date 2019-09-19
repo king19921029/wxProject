@@ -1,17 +1,14 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/minePages/authentication/authentication",
-    
-    
     "page/tabBar/minePages/authenticationAll/authenticationAll",
     
     "page/tabBar/minePages/bindBankCard/bindBankCard",
     
     "page/tabBar/mine/mine",
-    
-   
-
   
     "page/tabBar/minePages/myProject/myProject",
     
@@ -26,7 +23,7 @@
     "page/tabBar/minePages/setWorkWanted/setWorkWanted",
     "components/toast/toast",
     "page/tabBar/minePages/retPassword/retPassword",
-    "page/tabBar/minePages/personData/personData",
+    
     "page/tabBar/homePages/attendanceCard/attendanceCard",
     "page/tabBar/message/message",
     "page/tabBar/login/login",

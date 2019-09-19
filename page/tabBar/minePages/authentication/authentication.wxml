@@ -19,27 +19,6 @@
   </view>
   <view class='content bg_fff margin_top'>
     <view class='com_title com_width'>身份证识别</view>
-    <!-- <view class='photo_view display_flex com_width'>
-      <view bindtap='idCardChooseImageZ' class='add_view'>
-        <block wx:if="{{imageZ == ''}}">
-          <image class='icon' src='/image/add_icon.png'></image>
-          <view class='color_gray'>点击上传正面证件照</view>
-        </block>
-        <block wx:else>
-          <image class='photo' src='{{imageZ.visitUrl}}'></image>
-        </block>
-      </view> 
-      <view bindtap='idCardChooseImageF' class='add_view'>
-        <block wx:if="{{imageF == ''}}">
-          <image class='icon' src='/image/add_icon.png'></image>
-          <view class='color_gray'>点击上传反面证件照</view>
-        </block>
-        <block wx:else>
-          <image class='photo' src='{{imageF.visitUrl}}'></image>
-        </block>
-      </view>
-    </view>  -->
-
     <ocr-navigator bind:onSuccess="success" certificateType="idCard"
      selectedOptions="{{['id','name','sex','birthday','homePlace']}}">
       <button class='id_button' type="primary">去识别</button>
