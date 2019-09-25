@@ -189,7 +189,8 @@ Page({
       url: '/page/tabBar/minePages/changePhoto/changePhoto',
     })
   },
-  onHide: function () {
+  onUnload:function(){
+    console.log(111111111)
     var that = this;
     let educationLevel = that.data.allData.edId || "";
     let skill = that.data.allData.wkId || "";
@@ -258,15 +259,13 @@ Page({
         }
       })
     }
-    
-    
-
   },
-  onUnload:function(){
+  onHide: function () {
+    console.log(111111111)
     var that = this;
     let educationLevel = that.data.allData.edId || "";
     let skill = that.data.allData.wkId || "";
-    if (educationLevel != "" || skill != "") {
+    if (educationLevel != "" || skill !=""){
       app.wxRequest("gongguan/api/wechat/savePersonalInfo",
         {
           skill: skill,
@@ -281,7 +280,59 @@ Page({
           }
         })
     }
+    let folk = that.data.mzCode || "";
+    let egree = that.data.xwidx || "";
+    let political = that.data.zidx || "";
+    let region = that.data.region || [];
+    let regionCode = that.data.regionCode || [];
+    // 民族修改
+    app.wxRequest("gongguan/api/wechat/updateFolk",
+    { folk: folk },
+    "post", function (res) {
+      if (res.data.code == 0) {
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
+    //学位
+    app.wxRequest("gongguan/api/wechat/updateEgree",
+      { egree: egree },
+    "post", function (res) {
+      if (res.data.code == 0) {
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
+    //政治面貌
+    app.wxRequest("gongguan/api/wechat/updatePolitical",
+      { political: political },
+    "post", function (res) {
+      if (res.data.code == 0) {
+      } else {
+        app.showLoading(res.data.msg, "none");
+      }
+    })
+    if ( region.length > 0 ){
+      // 籍贯
+      app.wxRequest("gongguan/api/wechat/updateProvince",
+      {
+        provinceId: regionCode[0],
+        province: region[0],
+        cityId: regionCode[1],
+        city: region[1],
+        countryCode: regionCode[2],
+        countryName: region[2],
+      },
+      "post", function (res) {
+        if (res.data.code == 0) {
+        } else {
+          app.showLoading(res.data.msg, "none");
+        }
+      })
+    }
+  
   },
+  
   // 城市选择
   bindRegionChange(e) {
     console.log('picker发送选择改变，携带值为', e)

@@ -196,7 +196,7 @@ Page({
   todayWork:function(e){
     var that = this;
     let id = e.currentTarget.dataset.id;
-    console.log(e);
+    
     // 获取项目、班组
     app.wxRequest("gongguan/api/wechat/todayWork",
       { groupId:id},
