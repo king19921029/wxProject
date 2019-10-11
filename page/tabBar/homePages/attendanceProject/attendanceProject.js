@@ -5,20 +5,24 @@ Page({
     tabData:{},//tab数据
     titleData:{},//title数据
     groupId: "",
+    month:"",
   },
   onLoad: function (options) {
+
    this.setData({
      groupId: options.groupId,
-     id:options.id
+     id:options.id,
+     month: options.month
    })
   },
   onShow: function () {
     var that = this;
     var id = that.data.id;
     var groupId = that.data.groupId;
+    var month = that.data.month;
     // 明细汇总
     app.wxRequest("gongguan/api/wechat/myAttendanceMonthRecord",
-      { groupId: groupId },
+      { groupId: groupId, month: month },
       "post", function (res) {
         console.log("明细汇总：",res.data.data)
         if (res.data.code == 0) {

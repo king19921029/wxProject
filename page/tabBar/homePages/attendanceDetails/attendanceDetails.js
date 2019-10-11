@@ -49,9 +49,11 @@ Page({
   },
   listTap: function (e) {
     let id = e.currentTarget.id;
+    let month = e.currentTarget.dataset.month;
+
     console.log(id)
     wx.navigateTo({
-      url: '/page/tabBar/homePages/attendanceProject/attendanceProject?groupId=' + this.data.groupId+"&id="+id,
+      url: '/page/tabBar/homePages/attendanceProject/attendanceProject?groupId=' + this.data.groupId + "&id=" + id + "&month=" + month,
     })
   }
 
