@@ -1,8 +1,9 @@
 {
   "pages": [
     "page/tabBar/home/home",
+    "page/tabBar/minePages/myProject/myProject",
+   
     "page/tabBar/minePages/personData/personData",
-    
     "page/tabBar/minePages/authentication/authentication",
     "page/tabBar/minePages/authenticationAll/authenticationAll",
     
@@ -10,7 +11,7 @@
     
     "page/tabBar/mine/mine",
   
-    "page/tabBar/minePages/myProject/myProject",
+   
     
     "page/tabBar/homePages/hometoCard/hometoCard",
    

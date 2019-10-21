@@ -5,9 +5,6 @@
 
     <view class='com_width block_code display_flex'>
       <input password bindinput='_getVal' placeholder='输入确认密码' type='number'></input>
-      <!-- <button disabled='{{disabled}}' bindtap='getCode' class='get_code'>
-        {{time}}
-      </button> -->
     </view>
 
     <view class='btn_box'>

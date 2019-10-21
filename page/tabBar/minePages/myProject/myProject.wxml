@@ -1,4 +1,15 @@
 <view class='box'>
+  <view wx:if="{{alertIsshow}}" class='box_block'>
+    <view class='bg_fff block_content'>
+      <view class='block_title'>
+        切换班组后今日考勤将重新开始是否切换
+      </view>
+      <view class='btn_box alert_btn_box'>
+        <view bindtap='_none_tap' class='no'>取消</view>
+        <view bindtap='todayWorks' class='yes'>确认</view>
+      </view>
+    </view>
+  </view>
    <!-- header -->
   <view class='headers display_flex bg_fff'>
   

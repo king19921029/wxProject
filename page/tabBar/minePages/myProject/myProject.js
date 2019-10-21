@@ -5,6 +5,8 @@ Page({
     headerBorder: true ,//header添加border
     addProject:{},//加入的项目
     manageProject:{},//我管理的项目
+    alertIsshow:false,
+    todayWorksId:"",
     projectObj:{
       name:"项目筛选",
       id:""
@@ -13,6 +15,12 @@ Page({
       name:"班组名称",
       id:""
     }
+  },
+  _none_tap(){
+    console.log(1)
+    this.setData({
+      alertIsshow: false
+    })
   },
   onLoad: function (options) {
     if (options.types == "3" ){
@@ -196,20 +204,30 @@ Page({
   todayWork:function(e){
     var that = this;
     let id = e.currentTarget.dataset.id;
-    console.log(e);
+    this.setData({
+      alertIsshow:true,
+      todayWorksId: e.currentTarget.dataset.id
+    })
+  },
+  todayWorks: function (){
+    let id = this.data.todayWorksId;
+    let that = this;
     // 获取项目、班组
     app.wxRequest("gongguan/api/wechat/todayWork",
-      { groupId:id},
-    "post", function (res) {
-      console.log(res.data.data)
-      if (res.data.code == 0) {
-        if(res.data.data){
-          that.onShow();
+      { groupId: id },
+      "post", function (res) {
+        console.log(res.data.data)
+        if (res.data.code == 0) {
+          if (res.data.data) {
+            that.onShow();
+            that.setData({
+              alertIsshow:false
+            })
+          }
+        } else {
+          app.showLoading(res.data.msg, "none");
         }
-      } else {
-        app.showLoading(res.data.msg, "none");
-      }
-    })
+      })
   }
 
 
