@@ -1,13 +1,13 @@
 var util = require('./util/encrypt.js');
 App({
-  // 全局数据，类似于store
+  // 全局数据，类似于store111
   globalData: {
     city: "北京",//城市
     userPhone: "",
     openid: null,
     token: "",
     // url: 'https://www.jinbionline.com',
-   url:"https://zhigongzx.com",
+    url:"https://zhigongzx.com",
     header: {
       "content-type": "application/x-www-form-urlencoded",
       "version": "0",

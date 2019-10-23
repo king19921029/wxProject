@@ -1,7 +1,7 @@
 <view class='box'>
   <view class='headers bg_fff'>
     <view class='time_box'>
-      {{allData.name}}2019年3月考勤明细
+      {{allData.name}}{{month}}考勤明细
     </view>
     <view class='header_title'>
       <view>

@@ -40,8 +40,8 @@
       <view>工数</view>
     </view>
 
-    <view id="{{item.id}}" class='com_tab_title' bindtap='listTap' 
-      wx:for="{{tabData.t}}"wx:for-item="item" wx:key="">
+    <view id="{{item.id}}" data-month="{{item.month}}" class='com_tab_title' bindtap='listTap' 
+      wx:for="{{tabData.t}}" wx:for-item="item" wx:key="">
       <view>{{item.month}}</view>
       <view>{{item.normalNum}}</view>
       <view>{{item.errorNum}}</view>

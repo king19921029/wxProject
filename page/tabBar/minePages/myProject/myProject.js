@@ -204,6 +204,7 @@ Page({
   todayWork:function(e){
     var that = this;
     let id = e.currentTarget.dataset.id;
+
     this.setData({
       alertIsshow:true,
       todayWorksId: e.currentTarget.dataset.id
